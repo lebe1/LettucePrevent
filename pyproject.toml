@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lettuceprevent"
+version = "0.1.0"
+description = "LettucePrevent is a real-time user-rule-based hallucination prevention framework"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Leon Beccard", email = "l.beccard@proton.me"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Framework :: FastAPI",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "fastapi[all]>=0.115.0",
+    "httpx>=0.28.0",
+    "jinja2>=3.1.0",
+    "uvicorn[standard]>=0.29.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.25.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.0.270",
+]
+
+[project.urls]
+Homepage = "https://github.com/lebe1/LettucePrevent"
+
+[tool.setuptools]
+packages = ["digitguard"]
+
+[tool.pytest]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # flake8
+    "F",   # pyflakes
+    "I",   # isort
+    "C90", # mccabe
+    "D",   # pydocstyle
+    "ANN", # type annotations
+    "S",   # bandit
+    "EXE", # flake8 executable
+    "PTH", # use pathlib
+    "RUF", # ruff rules
+]
+ignore = [
+    "E501",   # line length
+    "D100",   # missing module docstring
+    "D104",   # missing package docstring
+    "D203",   # conflicting docstring spacing rules
+    "D211",
+    "D213",
+    "ANN003",
+    "ANN204",
+    "PTH123",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/test_*.py" = ["S101"]
