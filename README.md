@@ -18,7 +18,7 @@ uvicorn main:app --reload
 
 ## Usage
 - Pip package to wrap around Huggingface model
-- Huggingface class extension for example .generate(hallucination_prevention=HallucinationPreventor(regex="\d"))
+- Huggingface class extension for example into RegexLogitsProcessor()
 - WebUI to demonstrate purpose and let user experiment
 	- Enable Regex generation for non-techy user with LLM in the background
 
