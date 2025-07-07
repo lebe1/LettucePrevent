@@ -4,7 +4,7 @@ from transformers import LogitsProcessor
 from transformers import AutoTokenizer, AutoModelForCausalLM, LogitsProcessorList
 
 
-class RegexFilterLogitsProcessor(LogitsProcessor):
+class RegexLogitsProcessor(LogitsProcessor):
     def __init__(self, tokenizer, pattern: str):
         """
         Args:
