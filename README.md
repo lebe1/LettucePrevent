@@ -1,5 +1,6 @@
 # LettucePrevent 🥬✋
-Real-time user-rule-based hallucination prevention framework
+This is a real-time user-rule-based hallucination prevention framework.
+Think of it like unit testing LLM's to ensure hallucination-free output based on what your rules, which you define as a hallucination.
 
 
 ### Installation

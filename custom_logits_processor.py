@@ -75,7 +75,7 @@ model = AutoModelForCausalLM.from_pretrained(model_name)
 prompt = "the the the cat sat on the mat mat mat"
 input = tokenizer(prompt, return_tensors="pt")
 
-processor = CustomConstraintLogitsProcessor(
+processor = CustomLogitsProcessor(
     tokenizer=tokenizer,
     input_text=prompt,
     input_extract_method=extract_frequent_words,
