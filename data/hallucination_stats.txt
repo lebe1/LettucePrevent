@@ -1,0 +1,5 @@
+Summary entries: 5658
+Data2txt entries: 6198
+QA entries : 5934
+Total entries : 17790
+Total entries with hallucinated numbers: 910
