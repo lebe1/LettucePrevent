@@ -84,7 +84,7 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Data2txt entries: {data2txt_items}")
     print(f"QA entries : {qa_items}")
     print(f"Total entries : {total_items}")
-    print(f"Total entries with hallucinated numbers: {len(hallucinated_items)}")
+    print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
 if __name__ == "__main__":
     input_file = "../data/ragtruth/ragtruth_data.json"
