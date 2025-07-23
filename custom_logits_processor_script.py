@@ -1,16 +1,15 @@
-import json
 import torch
-import re
-import time
-from datetime import datetime
-from word2number import w2n
+from transformers import LogitsProcessor
+from transformers import AutoTokenizer, AutoModelForCausalLM, LogitsProcessorList
 from typing import Callable, Optional, List, Dict
-from transformers import AutoTokenizer, AutoModelForCausalLM, LogitsProcessorList, LogitsProcessor
+import re
+from word2number import w2n
 
 # -------------------------- Number Extraction ------------------
 
 def extract_cardinal_digits(text: str) -> List[str]:
     return re.findall(r'\b\d+\b', text)
+
 
 def extract_number_words(text: str) -> List[str]:
     number_word_pattern = re.compile(r'\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
@@ -29,32 +28,37 @@ def extract_number_words(text: str) -> List[str]:
             continue
     return number_strings
 
+
 def extract_allowed_numbers(text: str) -> List[str]:
     digits = extract_cardinal_digits(text)
     words = extract_number_words(text)
-    return list(set(digits + words))
+    all_numbers = list(set(digits + words))
+    return all_numbers
 
 
-# -------------------------- Restriction Method ------------------
+# -------------------------- Output Restriction Method ------------------
 
 def allow_only_input_numbers(token_text: str, allowed_numbers: List[str]) -> bool:
     token_text_clean = token_text.strip().lower()
-    if not re.fullmatch(r'\d+|(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
-                        r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
-                        r'eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|'
-                        r'eighty|ninety|hundred|thousand|million|billion|[-\s]+)+',
-                        token_text_clean):
-        return False
 
-    try:
-        if re.fullmatch(r'\d+', token_text_clean):
-            num_str = token_text_clean
-        else:
-            normalized = token_text_clean.replace("-", " ")
-            num_str = str(w2n.word_to_num(normalized))
-        return num_str not in allowed_numbers
-    except Exception:
-        return False
+    # Check if token is a numeric word or digit
+    if re.fullmatch(r'\d+|(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
+                    r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
+                    r'eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|'
+                    r'eighty|ninety|hundred|thousand|million|billion|[-\s]+)+',
+                    token_text_clean):
+        try:
+            if re.fullmatch(r'\d+', token_text_clean):
+                num_str = token_text_clean
+            else:
+                normalized = token_text_clean.replace("-", " ")
+                num_str = str(w2n.word_to_num(normalized))
+
+            return num_str not in allowed_numbers  # True = block
+        except Exception:
+            return False  # allow token if parsing fails
+    else:
+        return False  # allow non-number tokens
 
 
 # -------------------------- Custom Logits Processor ------------------
@@ -139,102 +143,44 @@ class CustomLogitsProcessor(LogitsProcessor):
 
         return scores
 
-# -------------------------- Setup ------------------
+
+# -------------------------- Setup Model & Tokenizer ------------------
 
 model_name = "gpt2"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
+
+# -------------------------- Input ------------------
+
+prompt = "Summarize the following news within 116 words:\nSeventy years ago, Anne Frank died of typhus in a Nazi concentration camp at the age of 15. Just two weeks after her supposed death on March 31, 1945, the Bergen-Belsen concentration camp where she had been imprisoned was liberated -- timing that showed how close the Jewish diarist had been to surviving the Holocaust. But new research released by the Anne Frank House shows that Anne and her older sister, Margot Frank, died at least a month earlier than previously thought. Researchers re-examined archives of the Red Cross, the International Training Service and the Bergen-Belsen Memorial, along with testimonies of survivors. They concluded that Anne and Margot probably did not survive to March 1945 -- contradicting the date of death which had previously been determined by Dutch authorities. In 1944, Anne and seven others hiding in the Amsterdam secret annex were arrested and sent to the  Auschwitz-Birkenau concentration camp. Anne Frank's final entry. That same year, Anne and Margot were separated from their mother and sent away to work as slave labor at the Bergen-Belsen camp in Germany. Days at the camp were filled with terror and dread, witnesses said. The sisters stayed in a section of the overcrowded camp with no lighting, little water and no latrine. They slept on lice-ridden straw and violent storms shredded the tents, according to the researchers. Like the other prisoners, the sisters endured long hours at roll call. Her classmate, Nannette Blitz, recalled seeing Anne there in December 1944: \"She was no more than a skeleton by then. She was wrapped in a blanket; she couldn't bear to wear her clothes anymore because they were crawling with lice.\" Listen to Anne Frank's friends describe her concentration camp experience. As the Russians advanced further, the Bergen-Belsen concentration camp became even more crowded, bringing more disease. A deadly typhus outbreak caused thousands to die each day. Typhus is an infectious disease caused by lice that breaks out in places with poor hygiene. The disease causes high fever, chills and skin eruptions. \"Because of the lice infesting the bedstraw and her clothes, Anne was exposed to the main carrier of epidemic typhus for an extended period,\" museum researchers wrote. They concluded that it's unlikely the sisters survived until March, because witnesses at the camp said the sisters both had symptoms before February 7. \"Most deaths caused by typhus occur around twelve days after the first symptoms appear,\" wrote  authors Erika Prins and Gertjan Broek. The exact dates of death for Anne and Margot remain unclear. Margot died before Anne. \"Anne never gave up hope,\" said Blitz, her friend. \"She was absolutely convinced she would survive.\" Her diary endures as one of the world's most popular books. Read more about Anne Frank's cousin, a keeper of her legacy.\n\noutput:"
+input_data = tokenizer(prompt, return_tensors="pt")
+
+# -------------------------- Logits Processor ------------------
+
+processor = CustomLogitsProcessor(
+    tokenizer=tokenizer,
+    input_text=prompt,
+    input_extract_method=extract_allowed_numbers,
+    output_restrict_method=allow_only_input_numbers,
+    top_k_filter=1,
+    top_p_filter=0.9,
+    verbose=True
+)
+
+logits_processor = LogitsProcessorList([processor])
+
 pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
-seed = 42
-torch.manual_seed(seed)
 
-# -------------------------- Load Prompt Dataset ------------------
+# -------------------------- Run Generation ------------------
 
-with open("./data/summary_prompt_counts.json", "r", encoding="utf-8") as f:
-    prompt_data = json.load(f)
+output = model.generate(
+    **input_data,
+    max_new_tokens=200,
+    # logits_processor=logits_processor,
+    do_sample=True,
+    pad_token_id=pad_token_id,
+    # encoder_repetition_penalty=1.2
+)
 
-results = []
-num_generations = 0
-start_dt = datetime.now()
-start_time = time.time()
-
-# -------------------------- Run Generations ------------------
-
-for item in prompt_data:
-    prompt = item["prompt"]
-    count = item["counts"]
-    # print(f"\n--- Generating {count} outputs for prompt ---\n{prompt[:100]}...\n")
-
-    # TODO Uncomment the line below for actual experiment
-    # for i in range(count):
-    for i in range(1):
-        input_data = tokenizer(prompt, return_tensors="pt")
-        
-
-        processor = CustomLogitsProcessor(
-            tokenizer=tokenizer,
-            input_text=prompt,
-            input_extract_method=extract_allowed_numbers,
-            output_restrict_method=allow_only_input_numbers,
-            top_k_filter=1,
-            top_p_filter=0.9,
-            verbose=False
-        )
-
-        logits_processor = LogitsProcessorList([processor])
-
-        output = model.generate(
-            **input_data,
-            max_new_tokens=100,
-            logits_processor=logits_processor,
-            do_sample=True,
-            top_k=50,
-            pad_token_id=pad_token_id,
-            encoder_repetition_penalty=1.2
-        )
-
-        answer = tokenizer.decode(output[0], skip_special_tokens=True)
-        answer_only = answer.replace(prompt, "").strip()
-        print(f"Prompt {prompt}")
-        print(f"Answer: {answer_only}")
-        extract_allowed_numbers_list = extract_allowed_numbers(prompt)
-        print(f"Extract allowed numbers {extract_allowed_numbers_list}")
-        results.append({
-            "prompt": prompt,
-            "answer": answer_only,
-            "allowed_numbers": extract_allowed_numbers_list,
-            "task_type": "Summary",
-            "dataset": "ragtruth",
-            "language": "en"
-        })
-        num_generations += 1
-
-    break
-
-# -------------------------- Append Metadata ------------------
-
-end_dt = datetime.now()
-duration = round(time.time() - start_time, 2)
-
-results.append({
-    "_meta": {
-        "model": model_name,
-        "num_prompts": len(prompt_data),
-        "total_generations": num_generations,
-        "seed": seed,
-        "start_time": start_dt.isoformat(),
-        "end_time": end_dt.isoformat(),
-        "duration_seconds": duration
-    }
-})
-
-# -------------------------- Save ------------------
-
-timestamp = start_dt.strftime("%Y%m%d_%H%M%S")
-output_file = f"./data/summary_experiments_run_{timestamp}.json"
-
-with open(output_file, "w", encoding="utf-8") as f:
-    json.dump(results, f, indent=2, ensure_ascii=False)
-
-print(f"\nSaved {num_generations} generations to: {output_file}\n")
-print(f"Total runtime: {duration} seconds")
+print("\nGenerated output:")
+print(tokenizer.decode(output[0], skip_special_tokens=True))
