@@ -7,6 +7,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 from word2number import w2n
 from tqdm import tqdm
 
+BIAS_SCORE = 20.0
 
 # -------------------------- Setup ------------------
 
@@ -31,7 +32,8 @@ torch.manual_seed(seed)
 
 system_prompt = (
     "You always respond very precise and clear. You never exceed the maximum number of words that is asked for."
-    "Always end your answer with a complete sentence and a period!!!"
+    "Always end your answer with a complete sentence and a period! Do not hallucinate any numbers or other phrases!" 
+    "Only stick to the information provided from the input!"
 )
 
 # -------------------------- Extract Number Logic ------------------
@@ -59,14 +61,14 @@ def extract_numbers_from_summary(text, return_logits):
         for num_str in extracted_numbers:
             token_ids = tokenizer.encode(num_str, add_special_tokens=False)
             if token_ids:
-                sequence_bias[tuple(token_ids)] = 10.0  # Encourage these tokens
+                sequence_bias[tuple(token_ids)] = BIAS_SCORE  
     
         return sequence_bias
     else:
         return list(extracted_numbers)
 # -------------------------- Load Prompts ------------------
 
-with open("./data/summary_prompt_debug.json", "r", encoding="utf-8") as f:
+with open("./data/summary_prompt_counts.json", "r", encoding="utf-8") as f:
     prompt_data = json.load(f)
 
 results = []
@@ -83,7 +85,7 @@ def serialize_sequence_bias(sequence_bias):
         for token_ids, bias in sequence_bias.items()
     ]
 
-for item in tqdm(prompt_data):
+for item in tqdm(prompt_data[:200]):
     start_dt_prompt = datetime.now()
     start_time_prompt = time.time()
     raw_prompt = item["prompt"]
@@ -152,6 +154,8 @@ duration = round(time.time() - start_time, 2)
 results.append({
     "_meta": {
         "model": model_name,
+        "system_prompt": system_prompt,
+        "bias_score": BIAS_SCORE,
         "num_prompts": len(prompt_data),
         "total_generations": num_generations,
         "seed": seed,
