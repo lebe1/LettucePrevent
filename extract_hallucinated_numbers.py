@@ -72,12 +72,12 @@ def main(input_path, json_output_path, stats_output_path):
         json.dump(hallucinated_items, f, indent=4, ensure_ascii=False)
 
     # Save stats to TXT file
-    #with open(stats_output_path, "w", encoding="utf-8") as f:
-     #   f.write(f"Summary entries: {summary_items}\n")
-      #  f.write(f"Data2txt entries: {data2txt_items}\n")
-       # f.write(f"QA entries : {qa_items}\n")
-        #f.write(f"Total entries : {total_items}\n")
-        #f.write(f"Total entries with hallucinated numbers: {len(hallucinated_items)}\n")
+    with open(stats_output_path, "w", encoding="utf-8") as f:
+        f.write(f"Summary entries: {summary_items}\n")
+        f.write(f"Data2txt entries: {data2txt_items}\n")
+        f.write(f"QA entries : {qa_items}\n")
+        f.write(f"Total entries : {total_items}\n")
+        f.write(f"Total entries with hallucinated numbers: {len(hallucinated_items)}\n")
 
     # Also print to console
     print(f"Summary entries: {summary_items}")
@@ -87,8 +87,8 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
 if __name__ == "__main__":
-    input_file = "./data/summary_experiments_run_20250730_160335.json"
-    json_output_file = "./data/output_with_hallucinations_experiments3.json"
-    stats_output_file = "./data/hallucination_stats2.txt"
+    input_file = "./data/summary_experiments_run_20250730_165954.json"
+    json_output_file = "./data/output_with_hallucinations_experiments4.json"
+    stats_output_file = "./data/hallucination_stats3.txt"
     main(input_file, json_output_file, stats_output_file)
 
