@@ -172,6 +172,3 @@ cython_debug/
 
 # data/ragtruth
 data/ragtruth*
-
-#pycache
-__pycache__/*
