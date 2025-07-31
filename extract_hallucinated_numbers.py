@@ -87,8 +87,8 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
 if __name__ == "__main__":
-    input_file = "./data/summary_experiments_run_20250730_165954.json"
-    json_output_file = "./data/output_with_hallucinations_experiments4.json"
-    stats_output_file = "./data/hallucination_stats3.txt"
+    input_file = "./data/summary_experiments_run_20250731_125645.json"
+    json_output_file = "./data/output_with_hallucinations_experiments.json"
+    stats_output_file = "./data/hallucination_stats.txt"
     main(input_file, json_output_file, stats_output_file)
 

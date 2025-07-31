@@ -7,7 +7,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 from word2number import w2n
 from tqdm import tqdm
 
-BIAS_SCORE = 20.0
+BIAS_SCORE = 10.0
 
 # -------------------------- Setup ------------------
 
@@ -58,11 +58,54 @@ def extract_numbers_from_summary(text, return_logits):
 
     if return_logits:
         sequence_bias = {}
+        # Suggestions: Penalize neighbors, defaults, recent years, round numbers, and percentages
+        # 1. Collect allowed numbers as ints/floats for neighbor checks
+        allowed_numbers = set()
+        for num in extracted_numbers:
+            try:
+                allowed_numbers.add(int(float(num)))
+            except Exception:
+                continue
+
+        # 2. Penalize neighbors (+-1, +-2), defaults, recent years, round numbers, and percentages
+        DEFAULTS = {"1", "2", "3", "4", "5", "10", "100", "1000"}
+        CURRENT_YEAR = datetime.now().year
+        RECENT_YEARS = set(str(y) for y in range(CURRENT_YEAR - 10, CURRENT_YEAR + 2))
+        ROUND_NUMBERS = set(str(x) for x in range(0, 10001, 10))  # 0, 10, 20, ..., 10000
+
+        # Add allowed numbers with positive bias
         for num_str in extracted_numbers:
             token_ids = tokenizer.encode(num_str, add_special_tokens=False)
             if token_ids:
-                sequence_bias[tuple(token_ids)] = BIAS_SCORE  
-    
+                sequence_bias[tuple(token_ids)] = BIAS_SCORE
+
+        # Penalize neighbors (+-1, +-2) for each allowed number
+        for num in allowed_numbers:
+            for delta in [-2, -1, 1, 2]:
+                neighbor = str(num + delta)
+                if neighbor not in extracted_numbers:
+                    token_ids = tokenizer.encode(neighbor, add_special_tokens=False)
+                    if token_ids:
+                        sequence_bias[tuple(token_ids)] = -BIAS_SCORE / 2
+
+        # Penalize defaults, recent years, and round numbers not in allowed
+        for default in DEFAULTS.union(RECENT_YEARS).union(ROUND_NUMBERS):
+            if default not in extracted_numbers:
+                token_ids = tokenizer.encode(default, add_special_tokens=False)
+                if token_ids:
+                    sequence_bias[tuple(token_ids)] = -BIAS_SCORE / 2
+
+        # Penalize percentages if not in prompt
+        percent_pattern = r'\d+(\.\d+)?\s*%'
+        percent_matches = re.findall(percent_pattern, text)
+        if not percent_matches:
+            # Penalize all numbers followed by % (as string)
+            for i in range(0, 101):
+                percent_str = f"{i}%"
+                token_ids = tokenizer.encode(percent_str, add_special_tokens=False)
+                if token_ids:
+                    sequence_bias[tuple(token_ids)] = -BIAS_SCORE / 2
+
         return sequence_bias
     else:
         return list(extracted_numbers)
