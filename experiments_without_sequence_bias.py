@@ -32,7 +32,7 @@ torch.manual_seed(seed)
 
 system_prompt = (
     "You always respond very precise and clear. You never exceed the maximum number of words that is asked for."
-    "Always end your answer with a complete sentence and a period! Do not hallucinate any numbers or other phrases!" 
+    "Always end your answer with a complete sentence and a period!" 
     "Only stick to the information provided from the input!"
 )
 

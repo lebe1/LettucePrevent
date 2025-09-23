@@ -339,7 +339,7 @@ for item in tqdm(prompt_data[:2]):
     output = model.generate(
         **input_data,
         generation_config=gen_config,
-        #logits_processor=logits_processor_list
+        logits_processor=logits_processor_list
     )
 
     decoded = tokenizer.decode(output[0], skip_special_tokens=True)
