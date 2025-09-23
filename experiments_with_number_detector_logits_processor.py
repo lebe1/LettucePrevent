@@ -7,6 +7,7 @@ from typing import List, Set, Dict, Tuple, Optional
 from datetime import datetime
 import time
 import json
+import string
 
 # -------------------------- Setup ------------------
 
@@ -95,55 +96,41 @@ class NumberHallucinationDetector:
                 continue
                 
         return written_numbers
+
     
     def _extract_numeric_numbers(self, text: str) -> Set[str]:
-        """Extract numeric numbers from text, handling various formats."""
-        numbers = set()
+        """Extract numeric numbers and dates from text, preserving original formats."""
+        results = set()
         
-        # Pattern to match numbers with various separators
-        number_patterns = [
-            r'\b\d{1,3}(?:[,.]\d{3})*\b',  # 1000, 1,000, 1.000, 1,000,000
-            r'\b\d+[.,]\d+\b',             # 23.45, 23,45 (decimal numbers)
-            r'\b\d+\b'                     # Simple integers
-        ]
-        
-        # Date patterns to exclude
-        # TODO include them too
+        # Date patterns - these will be included as-is
         date_patterns = [
             r'\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b',  # 12/12/1978, 12.12.1978
             r'\b\d{1,2}-\d{1,2}-\d{2,4}\b'         # 12-12-1978
         ]
         
-        # Find all potential numbers
-        potential_numbers = []
-        for pattern in number_patterns:
-            potential_numbers.extend(re.findall(pattern, text))
+        # Combined pattern to match all numbers in order of specificity
+        # Most specific patterns first to avoid partial matches
+        combined_pattern = r'\b(?:\d{1,3}(?:[,.]\d{3})+|\d+[.,]\d+|\d+)\b'
         
-        # Filter out dates and normalize numbers
+        # First, find and add all dates exactly as they appear
+        for date_pattern in date_patterns:
+            dates = re.findall(date_pattern, text)
+            results.update(dates)
+        
+        # Then find all potential numbers using the combined pattern
+        potential_numbers = re.findall(combined_pattern, text)
+        
+        # Filter out dates from numbers and add only original format
         for num_str in potential_numbers:
             is_date = any(re.match(date_pattern, num_str) for date_pattern in date_patterns)
             
             if not is_date:
-                # Add original format
-                numbers.add(num_str)
-                
-                # Add normalized version (remove separators)
-                normalized = re.sub(r'[,.](?=\d{3})', '', num_str)  # Remove thousands separators
-                numbers.add(normalized)
-                
-                # Add alternative formats
-                if ',' in num_str:
-                    numbers.add(num_str.replace(',', '.'))
-                    if not '.' in num_str.replace(',', '.').split('.')[-1] or len(num_str.split(',')[-1]) == 3:
-                        numbers.add(num_str.replace(',', ''))
-                
-                if '.' in num_str and len(num_str.split('.')[-1]) == 3:
-                    # Likely thousands separator
-                    numbers.add(num_str.replace('.', ','))
-                    numbers.add(num_str.replace('.', ''))
+                # Add only the original format - no normalization or alternatives
+                results.add(num_str)
         
-        return numbers
+        return results
     
+        
     def _extract_all_numbers_from_input(self) -> Set[str]:
         """Extract both numeric and written numbers from input text."""
         numeric_numbers = self._extract_numeric_numbers(self.input_text)
@@ -185,11 +172,63 @@ class NumberHallucinationDetector:
             digit_tokens.update(token_ids)
         return digit_tokens
     
-    def _is_digit_token(self, token_id: int) -> bool:
-        """Check if token represents a digit."""
+    def _is_digit_space_punctuation_token(self, token_id: int) -> bool:
+        """Check if token represents a digit, space, or punctuation relevant to numbers."""
         token_str = self.tokenizer.decode([token_id]).strip()
-        return token_str.isdigit() and len(token_str) == 1
+        # Only consider tokens that could be part of a number (digits, comma, period)
+        # But not standalone punctuation in other contexts
+        return token_str.isdigit() or token_str in ',.'
     
+    def _is_valid_number_format_prefix(self, number_str: str) -> bool:
+        """Check if a partial number has valid formatting so far."""
+        # Don't validate single punctuation marks
+        if number_str in ',.':
+            return True
+            
+        # Check for invalid patterns like consecutive separators, wrong separator positions, etc.
+        
+        # Invalid: multiple consecutive separators
+        if re.search(r'[,.]{2,}', number_str):
+            return False
+        
+        # Invalid: separator at the start
+        if re.match(r'^[,.]', number_str):
+            return False
+        
+        # Check comma placement for thousands separators
+        if ',' in number_str:
+            parts = number_str.split(',')
+            # After a comma, we should have exactly 3 digits (or be building toward 3)
+            for i, part in enumerate(parts[1:], 1):
+                if i < len(parts) - 1:  # Not the last part
+                    if len(part) != 3:
+                        return False
+                else:  # Last part - could be incomplete
+                    if len(part) > 3:  # Too many digits after comma
+                        return False
+        
+        return True
+    
+    def _could_reach_format(self, current: str, target: str) -> bool:
+        """Check if current partial number could eventually match target format."""
+        # If current is just punctuation, it could reach any target
+        if current in ',.':
+            return True
+            
+        current_digits = re.sub(r'[^\d]', '', current)
+        target_digits = re.sub(r'[^\d]', '', target)
+        
+        # Digits must be a prefix
+        if not target_digits.startswith(current_digits):
+            return False
+        
+        # Check if the current format could lead to target
+        if current == target[:len(current)]:
+            return True
+        
+        # More sophisticated format checking could be added here
+        return False
+
     def check_hallucination(self, current_sequence: str, next_token_id: int, k_tokens: int = 4) -> bool:
         """
         Check if the next token would create a hallucinated number.
@@ -204,8 +243,12 @@ class NumberHallucinationDetector:
         """
         next_token_str = self.tokenizer.decode([next_token_id]).strip()
         
-        # If next token is not a digit, allow it
-        if not self._is_digit_token(next_token_id):
+        # If next token is not a digit or number-related punctuation, allow it
+        if not self._is_digit_space_punctuation_token(next_token_id):
+            return False
+        
+        # Allow standalone punctuation marks (they're not number hallucinations)
+        if next_token_str in ',.':
             return False
         
         # Get the last k tokens from current sequence
@@ -213,20 +256,45 @@ class NumberHallucinationDetector:
         recent_tokens = tokens[-k_tokens:] if len(tokens) >= k_tokens else tokens
         recent_str = self.tokenizer.decode(recent_tokens).strip()
         
-        # Check if adding this digit would create a valid number sequence
+        # Check if adding this token would create a valid number sequence
         potential_sequence = recent_str + next_token_str
         
-        # Remove non-digit characters for comparison
-        digit_sequence = re.sub(r'[^\d]', '', potential_sequence)
+        # Extract the number-like pattern from the end of the potential sequence
+        number_match = re.search(r'[\d,.]+$', potential_sequence)
+        if not number_match:
+            return False  # No number pattern found
         
-        # Check if this digit sequence is the start of any allowed number
+        number_candidate = number_match.group()
+        
+        # Skip if it's just punctuation
+        if number_candidate in ',.':
+            return False
+        
+        # Check if this candidate matches exactly or is a valid prefix of any allowed number
         for allowed_number in self.allowed_numbers:
-            clean_allowed = re.sub(r'[^\d]', '', allowed_number)
-            if clean_allowed.startswith(digit_sequence):
+            # Exact match
+            if number_candidate == allowed_number:
                 return False  # Not a hallucination
-
-        print("Hallucinating digit sequence!! ", digit_sequence)
+            
+            # Check if it's a valid prefix (both format and digits must align)
+            if allowed_number.startswith(number_candidate):
+                return False  # Valid prefix, not a hallucination
         
+        # Additional check: validate format consistency
+        if self._is_valid_number_format_prefix(number_candidate):
+            # Even if it's not a prefix of allowed numbers, check if the digit sequence
+            # could be building toward an allowed number
+            digit_sequence = re.sub(r'[^\d]', '', number_candidate)
+            
+            for allowed_number in self.allowed_numbers:
+                clean_allowed = re.sub(r'[^\d]', '', allowed_number)
+                if clean_allowed.startswith(digit_sequence):
+                    # The digits match, but format might be wrong
+                    # Check if we can still reach the allowed format
+                    if self._could_reach_format(number_candidate, allowed_number):
+                        return False
+        
+        print("Hallucinating number sequence!! ", number_candidate)
         return True  # Potential hallucination detected
 
 # -------------------------- LogitsProcessor ------------------
@@ -278,7 +346,6 @@ class NumberEnsuringLogitsProcessor(LogitsProcessor):
                 break
         
         return scores
-
 # -------------------------- Load Prompts ------------------
 
 with open("./data/summary_prompt_counts.json", "r", encoding="utf-8") as f:
@@ -293,7 +360,7 @@ start_time = time.time()
 
 # -------------------------- Main Loop ------------------
 
-for item in tqdm(prompt_data[:2]):  
+for item in tqdm(prompt_data):  
     start_dt_prompt = datetime.now()
     start_time_prompt = time.time()
     raw_prompt = item["prompt"]
@@ -305,7 +372,7 @@ for item in tqdm(prompt_data[:2]):
     allowed_numbers = list(detector.allowed_numbers)
     
     # Initialize LogitsProcessor with the detector
-    LAST_K_TOKENS_TO_CONSIDER = 4
+    LAST_K_TOKENS_TO_CONSIDER = 10
     TOP_K_LOGITS = 10
     logits_processor = NumberEnsuringLogitsProcessor(
         detector=detector,
