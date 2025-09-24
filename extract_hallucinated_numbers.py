@@ -1,6 +1,8 @@
 import json
 import re
 from word2number import w2n
+from datetime import datetime
+
 
 def extract_cardinal_digits(text):
     return re.findall(r'\b\d+\b', text)
@@ -51,12 +53,13 @@ def main(input_path, json_output_path, stats_output_path):
     qa_items = 0
     hallucinated_items = []
 
-    for item in data:
+    for i, item in enumerate(data):
         task_type = item.get("task_type")
         if task_type == "Summary":
             summary_items += 1
             result = process_summary_item(item)
             if result:
+                result["prompt_number"] = i
                 hallucinated_items.append(result)
         elif task_type == "Data2txt":
             data2txt_items += 1
@@ -87,8 +90,9 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
 if __name__ == "__main__":
-    input_file = "./data/summary_experiments_run_20250731_125645.json"
-    json_output_file = "./data/output_with_hallucinations_experiments.json"
-    stats_output_file = "./data/hallucination_stats.txt"
+    input_file = "./data/summary_experiments_run_20250922_155006_number_detector_logits_processor_comparison_without.json"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    json_output_file = f"./data/hallucinations_experiments_{timestamp}.json"
+    stats_output_file = f"./data/hallucination_stats_{timestamp}.txt"
     main(input_file, json_output_file, stats_output_file)
 
