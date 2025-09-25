@@ -1,246 +1,188 @@
-from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 import torch
+from transformers import LogitsProcessor, AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList
+from word2number import w2n
+from tqdm import tqdm
+import re
+from typing import List, Set, Dict, Tuple, Optional, Any, Union
+from datetime import datetime
+import time
+import json
+import string
+from lettucedetect import HallucinationDetector
+from detectors.factory import DetectorFactory
+from logits_processors.hallucination_logits_processor import HallucinationLogitsProcessor
 
-from typing import List, Dict
-import uvicorn
+# -------------------------- Setup ------------------
 
-from jinja2 import Template
-from pathlib import Path
+model_name = "mistralai/Mistral-7B-Instruct-v0.2"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    dtype=torch.float16,
+    device_map="auto"
+)
 
-# Create templates directory and write HTML if not exists
-TEMPLATES_DIR = Path("templates")
-TEMPLATES_DIR.mkdir(exist_ok=True)
+pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
+tokenizer.padding_side = "left"
 
-INDEX_HTML = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hallucination Prevention Tool</title>
-    <style>
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f9fc;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .container {
-            margin-top: 40px;
-            background: white;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            width: 100%;
-        }
-        h1 {
-            text-align: center;
-            color: #222;
-        }
-        label {
-            font-weight: 600;
-            margin-top: 20px;
-            display: block;
-        }
-        textarea, input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-        input[type="submit"] {
-            background-color: #4f46e5;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #4338ca;
-        }
-        pre {
-            background: #f0f4f8;
-            padding: 10px;
-            border-radius: 8px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Hallucination Prevention Tool</h1>
-        <form method="post">
-            <label>Model name:</label>
-            <input type="text" name="model" value="{{ model or '' }}">
+seed = 42
+torch.manual_seed(seed)
 
-            <label>System Prompt:</label>
-            <textarea name="system_prompt" rows="3">{{ system_prompt or '' }}</textarea>
+# -------------------------- Prompt Formatting ------------------
 
-            <label>Prompt:</label>
-            <textarea name="prompt" rows="3">{{ prompt or '' }}</textarea>
-
-            <label>Comma-separated strings (e.g., "hello", "dirt"):</label>
-            <input type="text" name="string_list" value="{{ string_list or '' }}">
-
-            <label>Logit threshold (e.g., -10):</label>
-            <input type="number" step="0.1" name="logit_threshold" value="{{ logit_threshold or '-10' }}">
-
-            <label>Max new tokens:</label>
-            <input type="number" name="max_new_tokens" value="{{ max_new_tokens or '100' }}">
-
-            <label>Custom Python code (optional):</label>
-            <textarea name="custom_code" rows="6">{{ custom_code or '' }}</textarea>
-
-            <input type="submit" value="Generate">
-        </form>
-
-        {% if result %}
-        <h3>💬 Generated Text:</h3>
-        <pre>{{ result }}</pre>
-
-        <h3>🔍 Token-Level Metadata:</h3>
-        <pre>{{ token_info }}</pre>
-        {% endif %}
-    </div>
-</body>
-</html>
-"""
-
-with open(TEMPLATES_DIR / "index.html", "w") as f:
-    f.write(INDEX_HTML)
+system_prompt = (
+    "You always respond very precise and clear. You never exceed the maximum number of words that is asked for. "
+    "Always end your answer with a complete sentence and a period! "
+    "Only stick to the information provided from the input!"
+)
 
 
-def safe_exec(user_code: str, tokens: List[str], logits: List[float]) -> Dict[str, float]:
-    """
-    Executes user-provided Python code in a restricted namespace.
-    """
-    local_vars = {}
-    safe_globals = {"__builtins__": {"float": float, "len": len, "dict": dict, "str": str, "range": range}}
-    func_code = (
-        "def compute_probs(tokens, logits):\n"
-        + "\n".join("    " + line for line in user_code.splitlines())
+# -------------------------- Load Prompts ------------------
+
+with open("./data/ragtruth_unique_summary_prompts.json", "r", encoding="utf-8") as f:
+    prompt_data = json.load(f)
+
+print(f"Loaded {len(prompt_data)} prompts from RAGTruth dataset")
+
+results = []
+num_generations = 0
+start_dt = datetime.now()
+start_time = time.time()
+
+# -------------------------- Configuration ------------------
+
+# Choose detector type: 'tinylettuce' or 'number'
+DETECTOR_TYPE = 'tinylettuce'
+CONFIDENCE_THRESHOLD = 0.9  # Only for TinyLettuce
+LAST_K_TOKENS_TO_CONSIDER = 10
+TOP_K_LOGITS = 10
+
+print(f"Using detector: {DETECTOR_TYPE}")
+
+# -------------------------- Main Loop ------------------
+
+for item in tqdm(prompt_data[:2]):  
+    start_dt_prompt = datetime.now()
+    start_time_prompt = time.time()
+    raw_prompt = item["prompt"]
+
+    # Initialize detector using factory
+    detector = DetectorFactory.create_detector(
+        detector_type=DETECTOR_TYPE,
+        tokenizer=tokenizer,
+        input_text=raw_prompt,
+        confidence_threshold=CONFIDENCE_THRESHOLD  # Only used for TinyLettuce
     )
-    exec(func_code, safe_globals, local_vars)
-    return local_vars["compute_probs"](tokens, logits)
-
-
-@app.post("/", response_class=HTMLResponse)
-async def generate(
-    request: Request,
-    model: str = Form(...),
-    system_prompt: str = Form(""),
-    prompt: str = Form(...),
-    string_list: str = Form(""),
-    logit_threshold: float = Form(...),
-    max_new_tokens: int = Form(...),
-    custom_code: str = Form(""),
-):
     
-
-    model = model.strip()
-    tokenizer = AutoTokenizer.from_pretrained(model)
-    model_instance = AutoModelForCausalLM.from_pretrained(model)
-
-    pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-    tokenizer.padding_side = "left"
-
-    model_instance.eval()
-
-    #input_ids = tokenizer(full_prompt, return_tensors="pt").input_ids
+    # Initialize LogitsProcessor with the detector
+    logits_processor = HallucinationLogitsProcessor(
+        detector=detector,
+        last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
+        top_k_logits=TOP_K_LOGITS,
+        penalty_value=float('-inf')
+    )
 
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": prompt}
+        {"role": "user", "content": raw_prompt}
     ]
     formatted_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
     input_data = tokenizer(formatted_prompt, return_tensors="pt", padding=True, truncation=False)
     input_data = {k: v.to(model.device) for k, v in input_data.items()}
 
-    # Clean list of strings
-    string_items = [s.strip().strip('"').strip("'") for s in string_list.split(",") if s.strip()]
-    sequence_bias = {}
-
-    for phrase in string_items:
-        token_ids = tokenizer.encode(phrase, add_special_tokens=False)
-        if token_ids:
-            sequence_bias[tuple(token_ids)] = logit_threshold
-
     gen_config = GenerationConfig(
-        max_new_tokens=max_new_tokens,
+        max_new_tokens=300,
         do_sample=False,
         pad_token_id=tokenizer.pad_token_id,
         eos_token_id=tokenizer.eos_token_id,
         num_return_sequences=1,
-        min_length=5,
-        num_beams=1,
+        min_length=150,
+        num_beams=4,
     )
 
-    output = model_instance.generate(
+    # Create LogitsProcessorList with our hallucination detector
+    logits_processor_list = LogitsProcessorList([logits_processor])
+
+    output = model.generate(
         **input_data,
         generation_config=gen_config,
-        #return_dict_in_generate=True,
-        #output_scores=True,
-        sequence_bias=sequence_bias
+        logits_processor=logits_processor_list
     )
 
-    generated_ids = output.sequences[0][input_data.shape[-1]:]
-    generated_text = tokenizer.decode(generated_ids, skip_special_tokens=True)
+    decoded = tokenizer.decode(output[0], skip_special_tokens=True)
+    
+    # Extract answer only
+    if "[/INST]" in decoded:
+        answer_only = decoded.split("[/INST]", 1)[-1].strip()
+    else:
+        answer_only = decoded.strip()
 
-    # token_strings = tokenizer.convert_ids_to_tokens(generated_ids)
-    # token_scores = output.scores
-    # token_logits = [torch.nn.functional.softmax(score[0], dim=0) for score in token_scores]
-    # token_probs = [
-    #     (token_strings[i], float(token_logits[i][generated_ids[i]]))
-    #     for i in range(len(token_strings))
-    # ]
+    end_dt_prompt = datetime.now()
+    duration_prompt = round(time.time() - start_time_prompt, 2)
 
-    # Apply optional custom method
-    # fancy_dict = {}
-    # if custom_code.strip():
-    #     try:
-    #         logits_vals = [float(token_logits[i][generated_ids[i]]) for i in range(len(token_strings))]
-    #         fancy_dict = safe_exec(custom_code.strip(), token_strings, logits_vals)
-    #     except Exception as e:
-    #         fancy_dict = {"error": str(e)}
+    result_data = {
+        "prompt": raw_prompt,
+        "answer": answer_only,
+        "logits_modifications": logits_processor.modifications_count,
+        "original_counts": item["counts"],
+        "task_type": "Summary",
+        "dataset": "ragtruth", 
+        "language": "en",
+        "start_time": start_dt_prompt.isoformat(),
+        "end_time": end_dt_prompt.isoformat(),
+        "duration_seconds": duration_prompt,
+        "detector_type": DETECTOR_TYPE
+    }
+    
+    if DETECTOR_TYPE == 'number':
+        result_data["allowed_numbers"] = list(detector.allowed_numbers)
+    elif DETECTOR_TYPE == 'tinylettuce':
+        result_data["confidence_threshold"] = CONFIDENCE_THRESHOLD
 
-    # token_metadata_display = "\n".join(
-    #     [f"{tok}: {prob:.4f}" for tok, prob in token_probs]
-    # )
-    # if fancy_dict:
-    #     token_metadata_display += "\n\n🧠 Custom Python Output:\n" + str(fancy_dict)
+    results.append(result_data)
 
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "result": generated_text,
-        #"token_info": token_metadata_display,
-        "model": model,
+    num_generations += 1
+    print(f"Processed {num_generations}/{len(prompt_data)} prompts")
+
+# -------------------------- Metadata ------------------
+
+end_dt = datetime.now()
+duration = round(time.time() - start_time, 2)
+
+results.append({
+    "_meta": {
+        "model": model_name,
         "system_prompt": system_prompt,
-        "prompt": prompt,
-        "string_list": string_list,
-        "logit_threshold": logit_threshold,
-        "max_new_tokens": max_new_tokens,
-        "custom_code": custom_code,
-    })
+        "num_prompts": len(prompt_data),  
+        "total_generations": num_generations,
+        "seed": seed,
+        "start_time": start_dt.isoformat(),
+        "end_time": end_dt.isoformat(),
+        "duration_seconds": duration,
+        "generation_config": gen_config.to_dict(),
+        "detector_config": {
+            "detector_type": DETECTOR_TYPE,
+            "last_k_tokens_to_consider": LAST_K_TOKENS_TO_CONSIDER,
+            "top_k_logits": TOP_K_LOGITS,
+            "penalty_value": "negative_infinity",
+            "confidence_threshold": CONFIDENCE_THRESHOLD if DETECTOR_TYPE == 'tinylettuce' else None
+        }
+    }
+})
 
+# -------------------------- Save ------------------
 
-@app.get("/", response_class=HTMLResponse)
-async def form(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+timestamp = start_dt.strftime("%Y%m%d_%H%M%S")
+output_file = f"./data/summary_experiments_{DETECTOR_TYPE}_run_{timestamp}.json"
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(results, f, indent=2, ensure_ascii=False)
+
+print(f"\nSaved {num_generations} generations to: {output_file}")
+print(f"Total runtime: {duration} seconds")
+print(f"Average time per generation: {duration/num_generations:.2f} seconds")
+print(f"Total logit modifications: {sum(r.get('logits_modifications', 0) for r in results if 'logits_modifications' in r)}")

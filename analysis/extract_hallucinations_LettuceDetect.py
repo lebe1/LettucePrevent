@@ -1,45 +1,19 @@
-import json
-import re
-from word2number import w2n
+from lettucedetect.models.inference import HallucinationDetector
 from datetime import datetime
+import json
 
 
-def extract_cardinal_digits(text):
-    return re.findall(r'\b\d+\b', text)
-
-def extract_number_words(text):
-    number_word_pattern = re.compile(r'\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|'
-                                     r'eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|'
-                                     r'eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|'
-                                     r'eighty|ninety|hundred|thousand|million|billion|and|[-])+\b',
-                                     re.IGNORECASE)
-    matches = number_word_pattern.finditer(text)
-    number_strings = []
-    for match in matches:
-        phrase = match.group().replace("-", " ").lower()
-        try:
-            number = str(w2n.word_to_num(phrase))
-            number_strings.append(number)
-        except ValueError:
-            continue
-    return number_strings
-
-def normalize_prompt_numbers(prompt):
-    digit_numbers = extract_cardinal_digits(prompt)
-    word_numbers = extract_number_words(prompt)
-    return set(digit_numbers + word_numbers)
-
-def process_summary_item(item):
+def process_summary_item(item, detector):
     if item.get("task_type") != "Summary":
         return None
 
-    prompt_numbers = normalize_prompt_numbers(item.get("prompt", ""))
-    answer_numbers = extract_cardinal_digits(item.get("answer", ""))
+    contexts = [item.get("prompt")]
+    answer = item.get("answer")
+    predictions = detector.predict(context=contexts, answer=answer, output_format="spans")
 
-    hallucinated = [num for num in answer_numbers if num not in prompt_numbers]
-
-    if hallucinated:
-        item["hallucinated_numbers"] = hallucinated
+    if predictions:
+        print("Hallucinatios:", predictions)
+        item["hallucinations_detected"] = predictions
         return item
     else:
         return None
@@ -48,6 +22,11 @@ def main(input_path, json_output_path, stats_output_path):
     with open(input_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    detector = HallucinationDetector(
+            method="transformer",
+            model_path="KRLabsOrg/lettucedect-base-modernbert-en-v1",
+        )
+    
     summary_items = 0
     data2txt_items = 0
     qa_items = 0
@@ -57,7 +36,7 @@ def main(input_path, json_output_path, stats_output_path):
         task_type = item.get("task_type")
         if task_type == "Summary":
             summary_items += 1
-            result = process_summary_item(item)
+            result = process_summary_item(item, detector)
             if result:
                 result["prompt_number"] = i
                 hallucinated_items.append(result)
@@ -89,10 +68,11 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Total entries : {total_items}")
     print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
-if __name__ == "__main__":
-    input_file = "./data/summary_experiments_run_20250922_155006_number_detector_logits_processor_comparison_without.json"
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    json_output_file = f"./data/hallucinations_experiments_{timestamp}.json"
-    stats_output_file = f"./data/hallucination_stats_{timestamp}.txt"
-    main(input_file, json_output_file, stats_output_file)
 
+
+if __name__ == "__main__":
+    input_file = "../data/summary_experiments_tinylettuce_run_20250925_130855.json"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    json_output_file = f"../data/hallucinations_experiments_LettuceDetect_{timestamp}.json"
+    stats_output_file = f"../data/hallucination_stats_LettuceDetect_{timestamp}.txt"
+    main(input_file, json_output_file, stats_output_file)
