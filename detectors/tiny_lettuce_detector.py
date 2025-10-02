@@ -1,14 +1,4 @@
-import torch
-from transformers import LogitsProcessor, AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList
-from word2number import w2n
-from tqdm import tqdm
-import re
-from typing import List, Set, Dict, Tuple, Optional, Any, Union
-from datetime import datetime
-import time
-import json
-import string
-from lettucedetect import HallucinationDetector
+from lettucedetect.models.inference import HallucinationDetector
 from .base_detector import BaseHallucinationDetector
 
 # -------------------------- TinyLettuce Detector ------------------

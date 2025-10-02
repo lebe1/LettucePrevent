@@ -30,5 +30,8 @@ class DetectorFactory:
         elif detector_type.lower() == 'number':
             return NumberHallucinationDetector(tokenizer, input_text)
         
+        elif detector_type.lower() == 'none':
+            return None
+        
         else:
-            raise ValueError(f"Unknown detector type: {detector_type}. Available: 'tinylettuce', 'number'")
+            raise ValueError(f"Unknown detector type: {detector_type}. Available: 'tinylettuce', 'number', 'none'")

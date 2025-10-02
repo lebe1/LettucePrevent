@@ -1,14 +1,9 @@
 import torch
-from transformers import LogitsProcessor, AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList
-from word2number import w2n
+from transformers import  AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList
 from tqdm import tqdm
-import re
-from typing import List, Set, Dict, Tuple, Optional, Any, Union
 from datetime import datetime
 import time
 import json
-import string
-from lettucedetect import HallucinationDetector
 from detectors.factory import DetectorFactory
 from logits_processors.hallucination_logits_processor import HallucinationLogitsProcessor
 
@@ -54,8 +49,8 @@ start_time = time.time()
 
 # -------------------------- Configuration ------------------
 
-# Choose detector type: 'tinylettuce' or 'number'
-DETECTOR_TYPE = 'tinylettuce'
+# Choose detector type: 'tinylettuce' or 'number' or 'none'
+DETECTOR_TYPE = 'none'
 CONFIDENCE_THRESHOLD = 0.9  # Only for TinyLettuce
 LAST_K_TOKENS_TO_CONSIDER = 10
 TOP_K_LOGITS = 10
@@ -142,6 +137,8 @@ for item in tqdm(prompt_data[:2]):
         result_data["allowed_numbers"] = list(detector.allowed_numbers)
     elif DETECTOR_TYPE == 'tinylettuce':
         result_data["confidence_threshold"] = CONFIDENCE_THRESHOLD
+    elif DETECTOR_TYPE == 'none':
+        result_data["comparison_experiment"] = True
 
     results.append(result_data)
 
