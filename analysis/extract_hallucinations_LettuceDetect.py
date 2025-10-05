@@ -66,12 +66,12 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Data2txt entries: {data2txt_items}")
     print(f"QA entries : {qa_items}")
     print(f"Total entries : {total_items}")
-    print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
+    print(f"Total entries with hallucinations in Summary: {len(hallucinated_items)}")
 
 
 
 if __name__ == "__main__":
-    input_file = "../data/summary_experiments_tinylettuce_run_20250925_130855.json"
+    input_file = "../data/summary_experiments_run_20250922_155006_number_detector_logits_processor_comparison_without.json"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     json_output_file = f"../data/hallucinations_experiments_LettuceDetect_{timestamp}.json"
     stats_output_file = f"../data/hallucination_stats_LettuceDetect_{timestamp}.txt"

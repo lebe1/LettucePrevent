@@ -85,4 +85,4 @@ class TinyLettuceDetector(BaseHallucinationDetector):
             
         except Exception as e:
             print(f"Error in TinyLettuce detection: {e}")
-            return False  # Don't block on errors
+            return False  
