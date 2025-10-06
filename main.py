@@ -9,7 +9,7 @@ from logits_processors.hallucination_logits_processor import HallucinationLogits
 
 # -------------------------- Setup ------------------
 
-model_name = "mistralai/Mistral-7B-Instruct-v0.2"
+model_name = "meta-llama/Llama-2-7b-chat-hf"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -49,6 +49,7 @@ start_time = time.time()
 
 # -------------------------- Configuration ------------------
 
+
 # Choose detector type: 'tinylettuce' or 'number' or 'none'
 DETECTOR_TYPE = 'none'
 CONFIDENCE_THRESHOLD = 0.9  # Only for TinyLettuce
@@ -59,26 +60,27 @@ print(f"Using detector: {DETECTOR_TYPE}")
 
 # -------------------------- Main Loop ------------------
 
-for item in tqdm(prompt_data[:2]):  
+for item in tqdm(prompt_data):  
     start_dt_prompt = datetime.now()
     start_time_prompt = time.time()
     raw_prompt = item["prompt"]
 
-    # Initialize detector using factory
-    detector = DetectorFactory.create_detector(
-        detector_type=DETECTOR_TYPE,
-        tokenizer=tokenizer,
-        input_text=raw_prompt,
-        confidence_threshold=CONFIDENCE_THRESHOLD  # Only used for TinyLettuce
-    )
-    
-    # Initialize LogitsProcessor with the detector
-    logits_processor = HallucinationLogitsProcessor(
-        detector=detector,
-        last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
-        top_k_logits=TOP_K_LOGITS,
-        penalty_value=float('-inf')
-    )
+    if not DETECTOR_TYPE == 'none':
+        # Initialize detector using factory
+        detector = DetectorFactory.create_detector(
+            detector_type=DETECTOR_TYPE,
+            tokenizer=tokenizer,
+            input_text=raw_prompt,
+            confidence_threshold=CONFIDENCE_THRESHOLD  # Only used for TinyLettuce
+        )
+        
+        # Initialize LogitsProcessor with the detector
+        logits_processor = HallucinationLogitsProcessor(
+            detector=detector,
+            last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
+            top_k_logits=TOP_K_LOGITS,
+            penalty_value=float('-inf')
+        )
 
     messages = [
         {"role": "system", "content": system_prompt},
@@ -99,14 +101,20 @@ for item in tqdm(prompt_data[:2]):
         num_beams=4,
     )
 
-    # Create LogitsProcessorList with our hallucination detector
-    logits_processor_list = LogitsProcessorList([logits_processor])
-
-    output = model.generate(
-        **input_data,
-        generation_config=gen_config,
-        logits_processor=logits_processor_list
-    )
+    if not DETECTOR_TYPE == 'none':
+        # Create LogitsProcessorList with our hallucination detector
+        logits_processor_list = LogitsProcessorList([logits_processor])
+    
+        output = model.generate(
+            **input_data,
+            generation_config=gen_config,
+            logits_processor=logits_processor_list
+        )
+    else:
+         output = model.generate(
+            **input_data,
+            generation_config=gen_config,
+         )
 
     decoded = tokenizer.decode(output[0], skip_special_tokens=True)
     
@@ -122,7 +130,6 @@ for item in tqdm(prompt_data[:2]):
     result_data = {
         "prompt": raw_prompt,
         "answer": answer_only,
-        "logits_modifications": logits_processor.modifications_count,
         "original_counts": item["counts"],
         "task_type": "Summary",
         "dataset": "ragtruth", 
@@ -134,8 +141,10 @@ for item in tqdm(prompt_data[:2]):
     }
     
     if DETECTOR_TYPE == 'number':
+        result_data["logits_modifications"] = logits_processor.modifications_count
         result_data["allowed_numbers"] = list(detector.allowed_numbers)
     elif DETECTOR_TYPE == 'tinylettuce':
+        result_data["logits_modifications"] = logits_processor.modifications_count
         result_data["confidence_threshold"] = CONFIDENCE_THRESHOLD
     elif DETECTOR_TYPE == 'none':
         result_data["comparison_experiment"] = True
