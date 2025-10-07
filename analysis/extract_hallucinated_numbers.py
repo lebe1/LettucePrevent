@@ -90,9 +90,9 @@ def main(input_path, json_output_path, stats_output_path):
     print(f"Total entries with hallucinated numbers in Summary: {len(hallucinated_items)}")
 
 if __name__ == "__main__":
-    input_file = "../data/summary_experiments_run_20250922_155006_number_detector_logits_processor_comparison_without.json"
+    input_file = "../data/summary_experiments_number_llama_run_20251005_190331.json"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    json_output_file = f"../data/hallucinations_experiments_{timestamp}.json"
-    stats_output_file = f"../data/hallucination_stats_{timestamp}.txt"
+    json_output_file = input_file.replace("summary","hallucinations")
+    stats_output_file = json_output_file.replace("experiments","stats").replace("json","txt")
     main(input_file, json_output_file, stats_output_file)
 
