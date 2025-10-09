@@ -51,10 +51,12 @@ start_time = time.time()
 
 
 # Choose detector type: 'tinylettuce' or 'number' or 'none'
-DETECTOR_TYPE = 'none'
-CONFIDENCE_THRESHOLD = 0.9  # Only for TinyLettuce
-LAST_K_TOKENS_TO_CONSIDER = 10
+DETECTOR_TYPE = 'tinylettuce'
+CONFIDENCE_THRESHOLD = 0.9  # Remark: Only for TinyLettuce
+LAST_K_TOKENS_TO_CONSIDER = 10 # Remark: Ignored when use_all_tokens true
 TOP_K_LOGITS = 10
+USE_ALL_TOKENS = True
+PENALTY_VALUE = float('-inf')
 
 print(f"Using detector: {DETECTOR_TYPE}")
 
@@ -71,7 +73,7 @@ for item in tqdm(prompt_data):
             detector_type=DETECTOR_TYPE,
             tokenizer=tokenizer,
             input_text=raw_prompt,
-            confidence_threshold=CONFIDENCE_THRESHOLD  # Only used for TinyLettuce
+            confidence_threshold=CONFIDENCE_THRESHOLD  
         )
         
         # Initialize LogitsProcessor with the detector
@@ -79,7 +81,8 @@ for item in tqdm(prompt_data):
             hallucination_detector=detector,
             last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
             top_k_logits=TOP_K_LOGITS,
-            penalty_value=float('-inf')
+            penalty_value=PENALTY_VALUE,
+            use_all_tokens=USE_ALL_TOKENS
         )
 
     messages = [
@@ -174,8 +177,9 @@ results.append({
             "detector_type": DETECTOR_TYPE,
             "last_k_tokens_to_consider": LAST_K_TOKENS_TO_CONSIDER,
             "top_k_logits": TOP_K_LOGITS,
-            "penalty_value": "negative_infinity",
-            "confidence_threshold": CONFIDENCE_THRESHOLD if DETECTOR_TYPE == 'tinylettuce' else None
+            "penalty_value": PENALTY_VALUE,
+            "confidence_threshold": CONFIDENCE_THRESHOLD if DETECTOR_TYPE == 'tinylettuce' else None,
+            "use_all_tokens": USE_ALL_TOKENS
         }
     }
 })
