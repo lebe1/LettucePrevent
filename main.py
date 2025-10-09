@@ -76,7 +76,7 @@ for item in tqdm(prompt_data):
         
         # Initialize LogitsProcessor with the detector
         logits_processor = HallucinationLogitsProcessor(
-            detector=detector,
+            hallucination_detector=detector,
             last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
             top_k_logits=TOP_K_LOGITS,
             penalty_value=float('-inf')
