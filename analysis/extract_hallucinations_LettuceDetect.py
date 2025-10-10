@@ -71,7 +71,7 @@ def main(input_path, json_output_path, stats_output_path):
 
 
 if __name__ == "__main__":
-    input_file = "../data/summary_experiments_run_20250922_155006_number_detector_logits_processor_comparison_without.json"
+    input_file = "../data/summary_experiments_tinylettuce_run_20251009_122206.json"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     json_output_file = f"../data/hallucinations_experiments_LettuceDetect_{timestamp}.json"
     stats_output_file = f"../data/hallucination_stats_LettuceDetect_{timestamp}.txt"

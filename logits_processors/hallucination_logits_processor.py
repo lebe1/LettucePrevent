@@ -47,10 +47,8 @@ class HallucinationLogitsProcessor(LogitsProcessor):
             Modified logit scores
         """
         batch_size = input_ids.shape[0]
-        print("Batch size", batch_size)
         
         for batch_idx in range(batch_size):
-            print("Batch_ids", batch_idx)
 
             # Get current sequence
             current_ids = input_ids[batch_idx]
@@ -62,10 +60,8 @@ class HallucinationLogitsProcessor(LogitsProcessor):
             # Determine context window size dynamically either all or k tokens
             if self.use_all_tokens:
                 context_window = len(current_ids)
-                print("Entered all tokens, context window: ", context_window)
             else:
                 context_window = min(self.last_k_tokens_to_consider, len(current_ids))
-                print("Entered last k tokens, context window: ", context_window)
 
             
             # Get top k token candidates

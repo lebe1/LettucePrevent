@@ -9,7 +9,7 @@ from logits_processors.hallucination_logits_processor import HallucinationLogits
 
 # -------------------------- Setup ------------------
 
-model_name = "meta-llama/Llama-2-7b-chat-hf"
+model_name = "mistralai/Mistral-7B-Instruct-v0.2"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -55,14 +55,14 @@ DETECTOR_TYPE = 'tinylettuce'
 CONFIDENCE_THRESHOLD = 0.9  # Remark: Only for TinyLettuce
 LAST_K_TOKENS_TO_CONSIDER = 10 # Remark: Ignored when use_all_tokens true
 TOP_K_LOGITS = 10
-USE_ALL_TOKENS = True
 PENALTY_VALUE = float('-inf')
+USE_ALL_TOKENS = True
 
 print(f"Using detector: {DETECTOR_TYPE}")
 
 # -------------------------- Main Loop ------------------
 
-for item in tqdm(prompt_data):  
+for item in tqdm(prompt_data[:100]):  
     start_dt_prompt = datetime.now()
     start_time_prompt = time.time()
     raw_prompt = item["prompt"]
