@@ -20,17 +20,16 @@ Currently there are three experiments available:
 1. DETECTOR_TYPE 'number'
    - NumberLogitsProcessor() tries to reject all numbers that are not mentioned in the input text
 2. DETECTOR_TYPE 'tinylettuce' 
-   -  TinyLettuceProcessor() tries to rejext all tokens based on the hallucination score of the TinyLettuce model
+   -  TinyLettuceProcessor() tries to reject all tokens based on the hallucination score of the TinyLettuce model 
+   -  Currently Work In Progress!!
 3. DETECTOR_TYPE 'none'
    - Default behaviour for language model without any extensions
 
-## Experiment Results 
+## Experiment Results on Number Detector
 
 All experiments have been exectued on a NVIDIA A40.
 
-### NumberDetector
-
-#### Hallucination reduction
+### Hallucination reduction
 - Experiment executed on the 943 unique summary prompts of the RAGTruth dataset 
 - Total number of text including one or several hallucinated numbers
 
@@ -39,14 +38,14 @@ All experiments have been exectued on a NVIDIA A40.
 | Mistral 7B Instruct v0.2 | 116       | 7                         |
 | Llama 7 2B               | 41        | 4                         |
 
-#### Runtime
+### Runtime
 
 | Model               | Plain run [s] | NumberLogitsProcessor run [s] |
 | ------------------- | ------------- | ----------------------------- |
 | Mistral 7B Instruct | 7630.61       | 8322.47                       |
 | Llama 7 2B          | 10093.12      | 10672.77                      |
 
-#### Average runtime per generated answer
+### Average runtime per generated answer
 - Runtime divided by 943 
 
 | Model               | Plain run [s] | NumberLogitsProcessor run [s] |
