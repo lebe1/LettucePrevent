@@ -24,7 +24,7 @@ Currently there are three experiments available:
 3. DETECTOR_TYPE 'none'
    - Default behaviour for language model without any extensions
 
-### Experiment Results 
+## Experiment Results 
 
 All experiments have been exectued on a NVIDIA A40.
 
