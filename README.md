@@ -3,7 +3,7 @@
 
 <img src="./visualizations/NumberLogitsProcessor.gif" alt="Alt Text" style="width:70%; height:auto;">
 
-Scroll to the bottom to watch each single slide of this GIF.
+Scroll to the bottom to see each slide of this GIF.
 
 ### Installation
 Install all necessary packages via the `requirements.txt` from the repository:
@@ -56,14 +56,14 @@ All experiments have been exectued on a NVIDIA A40.
 
 ## Slide deck
 
-<img src="./visualizations/1.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/1.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-<img src="./visualizations/2.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/2.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-<img src="./visualizations/3.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/3.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-<img src="./visualizations/4.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/4.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-<img src="./visualizations/5.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/5.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-<img src="./visualizations/6.jpg" alt="Alt Text" style="width:70%; height:auto;">
+<img src="./visualizations/6.jpg" alt="Alt Text" style="width:100%; height:auto;">
