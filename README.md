@@ -1,7 +1,7 @@
 # LettucePrevent 🥬✋
 **A real-time hallucination prevention framework to prove new features by experiments**
 
-<img src="./visualizations/NumberLogitsProcessor.gif" alt="Alt Text" style="width:50%; height:auto;">
+<img src="./visualizations/NumberLogitsProcessor.gif" alt="Alt Text" style="width:70%; height:auto;">
 
 Scroll to the bottom to watch each single slide of this GIF.
 
