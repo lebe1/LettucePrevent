@@ -28,9 +28,9 @@ Currently there are three experiments available:
 
 All experiments have been exectued on a NVIDIA A40.
 
-#### NumberDetector
+### NumberDetector
 
-##### Hallucination reduction
+#### Hallucination reduction
 - Experiment executed on the 943 unique summary prompts of the RAGTruth dataset 
 - Total number of text including one or several hallucinated numbers
 
@@ -39,14 +39,14 @@ All experiments have been exectued on a NVIDIA A40.
 | Mistral 7B Instruct v0.2 | 116       | 7                         |
 | Llama 7 2B               | 41        | 4                         |
 
-##### Runtime
+#### Runtime
 
 | Model               | Plain run [s] | NumberLogitsProcessor run [s] |
 | ------------------- | ------------- | ----------------------------- |
 | Mistral 7B Instruct | 7630.61       | 8322.47                       |
 | Llama 7 2B          | 10093.12      | 10672.77                      |
 
-##### Average runtime per generated answer
+#### Average runtime per generated answer
 - Runtime divided by 943 
 
 | Model               | Plain run [s] | NumberLogitsProcessor run [s] |
