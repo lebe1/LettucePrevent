@@ -3,3 +3,4 @@ Data2txt entries: 0
 QA entries : 0
 Total entries : 942
 Total entries with hallucinated numbers: 4
+Total hallucinations: 4

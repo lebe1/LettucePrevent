@@ -1,0 +1,6 @@
+Summary entries: 116
+Data2txt entries: 0
+QA entries : 0
+Total entries : 116
+Total entries with hallucinated numbers: 116
+Total hallucinations: 141
