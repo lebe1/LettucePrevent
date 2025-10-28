@@ -28,7 +28,7 @@ Currently there are three experiments available:
 
 ## Experiment Results on Number Detector
 
-All experiments have been exectued on a NVIDIA A40.
+All experiments have been executed on a NVIDIA A40.
 
 ### Hallucination reduction
 - Experiment executed on the 943 unique summary prompts of the RAGTruth dataset 
