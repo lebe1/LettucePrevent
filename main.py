@@ -51,7 +51,7 @@ start_time = time.time()
 
 
 # Choose detector type: 'tinylettuce' or 'number' or 'none'
-DETECTOR_TYPE = 'tinylettuce'
+DETECTOR_TYPE = 'number'
 CONFIDENCE_THRESHOLD = 0.9  # Remark: Only for TinyLettuce
 LAST_K_TOKENS_TO_CONSIDER = 10 # Remark: Ignored when use_all_tokens true
 TOP_K_LOGITS = 10
@@ -62,7 +62,7 @@ print(f"Using detector: {DETECTOR_TYPE}")
 
 # -------------------------- Main Loop ------------------
 
-for item in tqdm(prompt_data[:100]):  
+for item in tqdm(prompt_data[:1]):  
     start_dt_prompt = datetime.now()
     start_time_prompt = time.time()
     raw_prompt = item["prompt"]
@@ -177,7 +177,7 @@ results.append({
             "detector_type": DETECTOR_TYPE,
             "last_k_tokens_to_consider": LAST_K_TOKENS_TO_CONSIDER,
             "top_k_logits": TOP_K_LOGITS,
-            "penalty_value": PENALTY_VALUE,
+            "penalty_value": str(PENALTY_VALUE),
             "confidence_threshold": CONFIDENCE_THRESHOLD if DETECTOR_TYPE == 'tinylettuce' else None,
             "use_all_tokens": USE_ALL_TOKENS
         }
