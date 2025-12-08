@@ -9,6 +9,8 @@ from logits_processors.hallucination_logits_processor import HallucinationLogits
 
 # -------------------------- Setup ------------------
 
+# model_name = "Qwen/Qwen2.5-14B-Instruct"
+# model_name = "meta-llama/Llama-2-7b-chat-hf"
 model_name = "mistralai/Mistral-7B-Instruct-v0.2"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
@@ -51,7 +53,7 @@ start_time = time.time()
 
 
 # Choose detector type: 'tinylettuce' or 'number' or 'none'
-DETECTOR_TYPE = 'number'
+DETECTOR_TYPE = 'tinylettuce'
 CONFIDENCE_THRESHOLD = 0.9  # Remark: Only for TinyLettuce
 LAST_K_TOKENS_TO_CONSIDER = 10 # Remark: Ignored when use_all_tokens true
 TOP_K_LOGITS = 10

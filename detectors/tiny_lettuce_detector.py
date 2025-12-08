@@ -55,7 +55,7 @@ class TinyLettuceDetector(BaseHallucinationDetector):
         try:
             # Get predictions from TinyLettuce
             predictions = self.detector.predict(
-                context=self.input_text, 
+                context=[self.input_text], 
                 answer=potential_answer, 
                 output_format="spans"
             )
