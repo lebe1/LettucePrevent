@@ -90,7 +90,7 @@ def main(input_path, json_output_path, stats_output_path):
 
     
 if __name__ == "__main__":
-    input_file = "../data/summary_experiments_run_20250923_154821_number_detector_logits_processor.json"
+    input_file = "../data/summary_experiments_number_run_20251015_080517_use_all_tokens_true_for_runtime_comparison.json"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     json_output_file = input_file.replace("summary","hallucinations")
     stats_output_file = json_output_file.replace("experiments","stats").replace("json","txt")

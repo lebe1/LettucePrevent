@@ -198,3 +198,4 @@ print(f"\nSaved {num_generations} generations to: {output_file}")
 print(f"Total runtime: {duration} seconds")
 print(f"Average time per generation: {duration/num_generations:.2f} seconds")
 print(f"Total logit modifications: {sum(r.get('logits_modifications', 0) for r in results if 'logits_modifications' in r)}")
+
