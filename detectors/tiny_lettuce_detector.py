@@ -33,22 +33,27 @@ class TinyLettuceDetector(BaseHallucinationDetector):
         Returns:
             True if hallucination detected, False if allowed
         """
-        next_token_str = self.tokenizer.decode([next_token_id]).strip()
+        # TODO: Extend this for BPE tokenizer like for Qwen
+        # Currently the two lines below only work for SentencePiece tokenizer like Mistral or Llama models
+        # Get raw token from vocabulary (preserves spaces as ▁)
+        next_token_raw = self.tokenizer.convert_ids_to_tokens([next_token_id])[0]
         
-        # Create the potential answer by adding the next token
+        # Convert ▁ to actual space for proper text reconstruction
+        next_token_str = next_token_raw.replace('▁', ' ')
+        
         # Extract the generated part (everything after the input context)
         if self.input_text in current_sequence:
             # Find where the input ends and generation begins
             context_end = current_sequence.find(self.input_text) + len(self.input_text)
-            current_answer = current_sequence[context_end:].strip()
+            current_answer = current_sequence[context_end:]
         else:
             # Fallback: assume the entire sequence is the answer
-            current_answer = current_sequence.strip()
+            current_answer = current_sequence
         
-        # Create the potential answer with the next token
+        # Create the potential answer with the next token (preserves all spacing)
         potential_answer = current_answer + next_token_str
         
-        # Skip check for very short answers or single tokens
+        # Skip check for very short answers (strip only for length check)
         if len(potential_answer.strip()) < 3:
             return False
         
@@ -63,8 +68,7 @@ class TinyLettuceDetector(BaseHallucinationDetector):
             # Check if any span indicates hallucination above threshold
             if predictions and isinstance(predictions, list):
                 for span_info in predictions:
-                    # Extract confidence score (assuming it's in the span_info structure)
-                    # You might need to adjust this based on the actual TinyLettuce output format
+                    # Extract confidence score
                     if isinstance(span_info, dict):
                         confidence = span_info.get('confidence', 0.0)
                         span_text = span_info.get('text', '')
@@ -85,4 +89,4 @@ class TinyLettuceDetector(BaseHallucinationDetector):
             
         except Exception as e:
             print(f"Error in TinyLettuce detection: {e}")
-            return False  
+            return False
