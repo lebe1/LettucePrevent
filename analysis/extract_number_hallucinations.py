@@ -72,6 +72,7 @@ def main(input_path, json_output_path, stats_output_path):
     # Save hallucinated items to JSON
     with open(json_output_path, "w", encoding="utf-8") as f:
         json.dump(hallucinated_items, f, indent=4, ensure_ascii=False)
+
     # Save stats to TXT file
     with open(stats_output_path, "w", encoding="utf-8") as f:
         f.write(f"Summary entries: {summary_items}\n")
@@ -80,6 +81,8 @@ def main(input_path, json_output_path, stats_output_path):
         f.write(f"Total entries : {total_items}\n")
         f.write(f"Total entries with hallucinated numbers: {len(hallucinated_items)}\n")
         f.write(f"Total hallucinations: {total_hallucinations}\n")
+
+        
     # Also print to console
     print(f"Summary entries: {summary_items}")
     print(f"Data2txt entries: {data2txt_items}")
