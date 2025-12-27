@@ -1,0 +1,12 @@
+Summary entries: 100
+Data2txt entries: 0
+QA entries: 0
+Total entries: 100
+Total entries with hallucinated numbers: 23
+Total hallucinations: 28
+Hallucinations in confidence interval between 95%-100%: 11
+Hallucinations in confidence interval between 90%-95%: 5
+Hallucinations in confidence interval between 85%-90%: 3
+Hallucinations in confidence interval between 80%-85%: 5
+Hallucinations in confidence interval between 75%-80%: 2
+Hallucinations in confidence interval between 70%-75%: 2

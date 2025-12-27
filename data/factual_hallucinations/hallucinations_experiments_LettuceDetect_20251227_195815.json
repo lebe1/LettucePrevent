@@ -1,0 +1,206 @@
+[
+    {
+        "Confidence interval 95%-100%": {
+            "Hallucinations": [
+                {
+                    "start": 45,
+                    "end": 76,
+                    "confidence": 0.9934700727462769,
+                    "text": " Mitch McConnell's predecessor,"
+                },
+                {
+                    "start": 309,
+                    "end": 335,
+                    "confidence": 0.9957551956176758,
+                    "text": " spanning over 1,000 acres"
+                },
+                {
+                    "start": 245,
+                    "end": 256,
+                    "confidence": 0.957465410232544,
+                    "text": " on April 4"
+                },
+                {
+                    "start": 30,
+                    "end": 62,
+                    "confidence": 0.9630252718925476,
+                    "text": " father and his two teenage sons"
+                },
+                {
+                    "start": 736,
+                    "end": 780,
+                    "confidence": 0.9570000767707825,
+                    "text": " leading to the discovery of his whereabouts"
+                },
+                {
+                    "start": 396,
+                    "end": 427,
+                    "confidence": 0.964722216129303,
+                    "text": " in the print shop on March 29."
+                },
+                {
+                    "start": 456,
+                    "end": 490,
+                    "confidence": 0.9946815371513367,
+                    "text": " and are not part of the outbreak."
+                },
+                {
+                    "start": 126,
+                    "end": 160,
+                    "confidence": 0.9642201066017151,
+                    "text": " free admission on April 18 and 19"
+                },
+                {
+                    "start": 62,
+                    "end": 90,
+                    "confidence": 0.9994136095046997,
+                    "text": " 1986 film \"Sixteen Candles\""
+                },
+                {
+                    "start": 338,
+                    "end": 377,
+                    "confidence": 0.9823793768882751,
+                    "text": " killing Ward, Leetch, and five others."
+                },
+                {
+                    "start": 154,
+                    "end": 164,
+                    "confidence": 0.978232741355896,
+                    "text": " fall 2023"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 90%-95%": {
+            "Hallucinations": [
+                {
+                    "start": 440,
+                    "end": 458,
+                    "confidence": 0.912992000579834,
+                    "text": " late January 2023"
+                },
+                {
+                    "start": 310,
+                    "end": 322,
+                    "confidence": 0.9013164639472961,
+                    "text": " on April 11"
+                },
+                {
+                    "start": 922,
+                    "end": 958,
+                    "confidence": 0.9467459917068481,
+                    "text": " which left at least 45 people dead."
+                },
+                {
+                    "start": 961,
+                    "end": 1002,
+                    "confidence": 0.9412999153137207,
+                    "text": " the number has continued to rise in 2015"
+                },
+                {
+                    "start": 350,
+                    "end": 363,
+                    "confidence": 0.9446887969970703,
+                    "text": " Garth Brooks"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 85%-90%": {
+            "Hallucinations": [
+                {
+                    "start": 205,
+                    "end": 238,
+                    "confidence": 0.8938635587692261,
+                    "text": " leading to un intendded giveaway"
+                },
+                {
+                    "start": 235,
+                    "end": 244,
+                    "confidence": 0.8595516681671143,
+                    "text": " April 10"
+                },
+                {
+                    "start": 1235,
+                    "end": 1251,
+                    "confidence": 0.8538070917129517,
+                    "text": " Beninese singer"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 80%-85%": {
+            "Hallucinations": [
+                {
+                    "start": 80,
+                    "end": 91,
+                    "confidence": 0.8183618187904358,
+                    "text": " elected to"
+                },
+                {
+                    "start": 95,
+                    "end": 117,
+                    "confidence": 0.8239713907241821,
+                    "text": " Kentucky State Senate"
+                },
+                {
+                    "start": 140,
+                    "end": 157,
+                    "confidence": 0.8249039053916931,
+                    "text": " Raised in the US"
+                },
+                {
+                    "start": 653,
+                    "end": 677,
+                    "confidence": 0.8039534687995911,
+                    "text": " Katie Hopkins' response"
+                },
+                {
+                    "start": 408,
+                    "end": 454,
+                    "confidence": 0.8311768174171448,
+                    "text": " was separated from her mother and two sisters"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 75%-80%": {
+            "Hallucinations": [
+                {
+                    "start": 2,
+                    "end": 16,
+                    "confidence": 0.7504774332046509,
+                    "text": " November 2014"
+                },
+                {
+                    "start": 886,
+                    "end": 902,
+                    "confidence": 0.7966643571853638,
+                    "text": " and a half feet"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 70%-75%": {
+            "Hallucinations": [
+                {
+                    "start": 399,
+                    "end": 402,
+                    "confidence": 0.7112770080566406,
+                    "text": " 11"
+                },
+                {
+                    "start": 1252,
+                    "end": 1262,
+                    "confidence": 0.7101884484291077,
+                    "text": "songwriter"
+                }
+            ]
+        }
+    }
+]
