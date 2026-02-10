@@ -1,0 +1,812 @@
+[
+    {
+        "Confidence interval 95%-100%": {
+            "Hallucinations": [
+                {
+                    "start": 35,
+                    "end": 92,
+                    "confidence": 0.9889113903045654,
+                    "text": " host Drew Carey excitedly gave away a new Hyundai Sonata"
+                },
+                {
+                    "start": 245,
+                    "end": 256,
+                    "confidence": 0.9574654698371887,
+                    "text": " on April 4"
+                },
+                {
+                    "start": 30,
+                    "end": 62,
+                    "confidence": 0.9630253911018372,
+                    "text": " father and his two teenage sons"
+                },
+                {
+                    "start": 609,
+                    "end": 685,
+                    "confidence": 0.9547424912452698,
+                    "text": " The man's condition is improving at The Children's Hospital of Philadelphia"
+                },
+                {
+                    "start": 396,
+                    "end": 427,
+                    "confidence": 0.9647220969200134,
+                    "text": " in the print shop on March 29."
+                },
+                {
+                    "start": 456,
+                    "end": 490,
+                    "confidence": 0.9946814179420471,
+                    "text": " and are not part of the outbreak."
+                },
+                {
+                    "start": 126,
+                    "end": 160,
+                    "confidence": 0.9642199873924255,
+                    "text": " free admission on April 18 and 19"
+                },
+                {
+                    "start": 63,
+                    "end": 94,
+                    "confidence": 0.9993316531181335,
+                    "text": " 1986 film \"SIXTEEN C candida;\""
+                },
+                {
+                    "start": 922,
+                    "end": 959,
+                    "confidence": 0.9774104952812195,
+                    "text": " leaving at least 45 people deceased."
+                },
+                {
+                    "start": 703,
+                    "end": 744,
+                    "confidence": 0.9965692758560181,
+                    "text": " The sentencing phase begins on April 24,"
+                },
+                {
+                    "start": 338,
+                    "end": 377,
+                    "confidence": 0.9801037311553955,
+                    "text": " killing Ward, Leetch, and five others."
+                },
+                {
+                    "start": 198,
+                    "end": 252,
+                    "confidence": 0.9856618046760559,
+                    "text": " had volunteered with the department for over a decade"
+                },
+                {
+                    "start": 720,
+                    "end": 763,
+                    "confidence": 0.9551166296005249,
+                    "text": " administered oxygen to two sick passengers"
+                },
+                {
+                    "start": 125,
+                    "end": 143,
+                    "confidence": 0.9881234765052795,
+                    "text": " of 66 on March 4,"
+                },
+                {
+                    "start": 220,
+                    "end": 487,
+                    "confidence": 0.9983555674552917,
+                    "text": " since the Septembetor nineteenthysic digitseven sixteen' septober twelve,' seventh seville, or eleven and sixteen hundred eighteen,' a digitis seven' sixteen- digit eleven ' eighteen: ' the Great London 'seven' sixtieen', the \"Golding-arden raia seven,' forty five',"
+                },
+                {
+                    "start": 80,
+                    "end": 133,
+                    "confidence": 0.9565966129302979,
+                    "text": " including survivors of ISIS's 2014 assault on Sinjar"
+                },
+                {
+                    "start": 130,
+                    "end": 149,
+                    "confidence": 0.9827674627304077,
+                    "text": " Christina Aguilera"
+                },
+                {
+                    "start": 773,
+                    "end": 824,
+                    "confidence": 0.9941387176513672,
+                    "text": " Houthi leader Abdul-Malekem Al Houthi has rejected"
+                },
+                {
+                    "start": 64,
+                    "end": 123,
+                    "confidence": 0.9553720355033875,
+                    "text": " west coast of North America on the morning of September 27"
+                },
+                {
+                    "start": 205,
+                    "end": 217,
+                    "confidence": 0.9913095235824585,
+                    "text": " on April 10"
+                },
+                {
+                    "start": 383,
+                    "end": 434,
+                    "confidence": 0.9748533368110657,
+                    "text": " was diagnosed with complete kidney failure in 2009"
+                },
+                {
+                    "start": 1148,
+                    "end": 1212,
+                    "confidence": 0.9896464943885803,
+                    "text": " There is no evidence that wild animals can predict earthquakes."
+                },
+                {
+                    "start": 384,
+                    "end": 428,
+                    "confidence": 0.9908133149147034,
+                    "text": " and received the Nobel Peace Prize in 2014."
+                },
+                {
+                    "start": 327,
+                    "end": 385,
+                    "confidence": 0.9907698035240173,
+                    "text": " put in a good word with Pacquiao's trainer, Freddie Roach"
+                },
+                {
+                    "start": 346,
+                    "end": 436,
+                    "confidence": 0.9971325397491455,
+                    "text": " where Hamilton leads with 68 points, Rosberg is second with 64, and Vettel third with 61."
+                },
+                {
+                    "start": 1066,
+                    "end": 1123,
+                    "confidence": 0.9941715598106384,
+                    "text": " and there was no clear communication with Brown's family"
+                },
+                {
+                    "start": 507,
+                    "end": 542,
+                    "confidence": 0.9638915061950684,
+                    "text": " Rasheed was an innocent bystander."
+                },
+                {
+                    "start": 110,
+                    "end": 138,
+                    "confidence": 0.9871900677680969,
+                    "text": " worth over $1 fifty million"
+                },
+                {
+                    "start": 386,
+                    "end": 446,
+                    "confidence": 0.9725080132484436,
+                    "text": " executing at least 68 senior official since his reign began"
+                },
+                {
+                    "start": 941,
+                    "end": 984,
+                    "confidence": 0.9817341566085815,
+                    "text": " Brady is survived by her daughter and son."
+                },
+                {
+                    "start": 134,
+                    "end": 145,
+                    "confidence": 0.9552336931228638,
+                    "text": " on April 4"
+                },
+                {
+                    "start": 818,
+                    "end": 841,
+                    "confidence": 0.9511160850524902,
+                    "text": " by military offensives"
+                },
+                {
+                    "start": 308,
+                    "end": 368,
+                    "confidence": 0.9745016694068909,
+                    "text": " criticized her for not taking a clear stance against Israel"
+                },
+                {
+                    "start": 264,
+                    "end": 300,
+                    "confidence": 0.9620783925056458,
+                    "text": " as she may have romantic intentions"
+                },
+                {
+                    "start": 150,
+                    "end": 262,
+                    "confidence": 0.9940388202667236,
+                    "text": " has resulted in over 4 Julyanlpe-k2w86q919qwzj9l6179k81669kj71k91k0wk656764100k illegal immigrANT apprehensions"
+                },
+                {
+                    "start": 251,
+                    "end": 286,
+                    "confidence": 0.9588037729263306,
+                    "text": " police found his body a week later"
+                },
+                {
+                    "start": 558,
+                    "end": 605,
+                    "confidence": 0.9942916631698608,
+                    "text": " Capitan defeated Mescalero Apache in five sets"
+                },
+                {
+                    "start": 498,
+                    "end": 530,
+                    "confidence": 0.9903528094291687,
+                    "text": " where they currently trail 2-2."
+                },
+                {
+                    "start": 312,
+                    "end": 329,
+                    "confidence": 0.9709827303886414,
+                    "text": " Behar apologized"
+                },
+                {
+                    "start": 236,
+                    "end": 277,
+                    "confidence": 0.9850141406059265,
+                    "text": " due to her lack of political experience."
+                },
+                {
+                    "start": 87,
+                    "end": 133,
+                    "confidence": 0.9958957433700562,
+                    "text": " to China from September 5 to 9 for a weeklong"
+                },
+                {
+                    "start": 393,
+                    "end": 455,
+                    "confidence": 0.9510567784309387,
+                    "text": " Coach Andrew Viselli praised both teams for their resilience."
+                },
+                {
+                    "start": 230,
+                    "end": 263,
+                    "confidence": 0.981825590133667,
+                    "text": " reported him missing on March 15"
+                },
+                {
+                    "start": 368,
+                    "end": 404,
+                    "confidence": 0.9514866471290588,
+                    "text": " Retired Navy Commander David Fravor"
+                },
+                {
+                    "start": 341,
+                    "end": 359,
+                    "confidence": 0.9669145345687866,
+                    "text": " on March 27, 2021"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 90%-95%": {
+            "Hallucinations": [
+                {
+                    "start": 640,
+                    "end": 712,
+                    "confidence": 0.9093168377876282,
+                    "text": " and Margot likely succumbed to the disease before the camp's liberation"
+                },
+                {
+                    "start": 350,
+                    "end": 363,
+                    "confidence": 0.9446883797645569,
+                    "text": " Garth Brooks"
+                },
+                {
+                    "start": 733,
+                    "end": 756,
+                    "confidence": 0.9314039945602417,
+                    "text": " for twenty seven years"
+                },
+                {
+                    "start": 498,
+                    "end": 531,
+                    "confidence": 0.9180980920791626,
+                    "text": " including a controversial scene."
+                },
+                {
+                    "start": 83,
+                    "end": 113,
+                    "confidence": 0.9219987988471985,
+                    "text": " killing at least 16 civilians"
+                },
+                {
+                    "start": 474,
+                    "end": 532,
+                    "confidence": 0.9465576410293579,
+                    "text": " with numerous businesses threatening to leave Indiana and"
+                },
+                {
+                    "start": 57,
+                    "end": 69,
+                    "confidence": 0.903093695640564,
+                    "text": " on April 17"
+                },
+                {
+                    "start": 171,
+                    "end": 208,
+                    "confidence": 0.9161891937255859,
+                    "text": " Cecily's performance was criticized,"
+                },
+                {
+                    "start": 72,
+                    "end": 87,
+                    "confidence": 0.9235771894454956,
+                    "text": " died at age 55"
+                },
+                {
+                    "start": 282,
+                    "end": 327,
+                    "confidence": 0.941093921661377,
+                    "text": " Hernandez, a former bodega worker, confessed"
+                },
+                {
+                    "start": 766,
+                    "end": 875,
+                    "confidence": 0.9117125868797302,
+                    "text": " are investigating allegations that Muslim migrants threw Christians overboard during a migrant boat journey."
+                },
+                {
+                    "start": 44,
+                    "end": 89,
+                    "confidence": 0.9492442607879639,
+                    "text": " candidacy for the 2016 presidential election"
+                },
+                {
+                    "start": 179,
+                    "end": 225,
+                    "confidence": 0.9168952703475952,
+                    "text": " major counterterrorism operation on April 18."
+                },
+                {
+                    "start": 658,
+                    "end": 708,
+                    "confidence": 0.9042276740074158,
+                    "text": " estimates ranging from 700 to 950 people on board"
+                },
+                {
+                    "start": 112,
+                    "end": 123,
+                    "confidence": 0.9127674102783203,
+                    "text": " on April 4"
+                },
+                {
+                    "start": 402,
+                    "end": 437,
+                    "confidence": 0.9230096340179443,
+                    "text": " was determined to be a false alarm"
+                },
+                {
+                    "start": 528,
+                    "end": 585,
+                    "confidence": 0.9424510598182678,
+                    "text": " felt she couldn't continue due to her physical condition"
+                },
+                {
+                    "start": 221,
+                    "end": 259,
+                    "confidence": 0.9263079762458801,
+                    "text": " and running before her first birthday"
+                },
+                {
+                    "start": 479,
+                    "end": 512,
+                    "confidence": 0.9116454720497131,
+                    "text": " a Big Brother and Survivor alum,"
+                },
+                {
+                    "start": 456,
+                    "end": 519,
+                    "confidence": 0.9107345342636108,
+                    "text": " marking a departure from the family's conservative dress code."
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 85%-90%": {
+            "Hallucinations": [
+                {
+                    "start": 455,
+                    "end": 460,
+                    "confidence": 0.8879182934761047,
+                    "text": " 2023"
+                },
+                {
+                    "start": 1007,
+                    "end": 1069,
+                    "confidence": 0.8842194080352783,
+                    "text": " such as those proposed in a bill passed by the House in 2014,"
+                },
+                {
+                    "start": 235,
+                    "end": 244,
+                    "confidence": 0.8773741722106934,
+                    "text": " April 10"
+                },
+                {
+                    "start": 519,
+                    "end": 546,
+                    "confidence": 0.8658435344696045,
+                    "text": " Seinfeld's wealth and fame"
+                },
+                {
+                    "start": 27,
+                    "end": 41,
+                    "confidence": 0.8516961932182312,
+                    "text": " April 3, 2015"
+                },
+                {
+                    "start": 129,
+                    "end": 152,
+                    "confidence": 0.8542202115058899,
+                    "text": " injured thousands more"
+                },
+                {
+                    "start": 112,
+                    "end": 127,
+                    "confidence": 0.8826382160186768,
+                    "text": " April 23, 2023"
+                },
+                {
+                    "start": 80,
+                    "end": 88,
+                    "confidence": 0.870166540145874,
+                    "text": " in 2009"
+                },
+                {
+                    "start": 568,
+                    "end": 576,
+                    "confidence": 0.868159294128418,
+                    "text": " in 2015"
+                },
+                {
+                    "start": 509,
+                    "end": 525,
+                    "confidence": 0.8870838284492493,
+                    "text": " the 4th century"
+                },
+                {
+                    "start": 398,
+                    "end": 439,
+                    "confidence": 0.8970388770103455,
+                    "text": " as he had no connection to the property."
+                },
+                {
+                    "start": 2,
+                    "end": 13,
+                    "confidence": 0.8862772583961487,
+                    "text": " April 2022"
+                },
+                {
+                    "start": 230,
+                    "end": 253,
+                    "confidence": 0.8623373508453369,
+                    "text": " labor movement veteran"
+                },
+                {
+                    "start": 442,
+                    "end": 449,
+                    "confidence": 0.892486572265625,
+                    "text": " Hostin"
+                },
+                {
+                    "start": 372,
+                    "end": 413,
+                    "confidence": 0.8957735300064087,
+                    "text": " last seen walking home after a night out"
+                },
+                {
+                    "start": 204,
+                    "end": 224,
+                    "confidence": 0.8820098042488098,
+                    "text": "'s mother, Bettersen"
+                },
+                {
+                    "start": 158,
+                    "end": 191,
+                    "confidence": 0.8755606412887573,
+                    "text": " on the night of October 12, 2023"
+                },
+                {
+                    "start": 283,
+                    "end": 302,
+                    "confidence": 0.8537455201148987,
+                    "text": " to January 1, 2021"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 80%-85%": {
+            "Hallucinations": [
+                {
+                    "start": 140,
+                    "end": 157,
+                    "confidence": 0.8249065279960632,
+                    "text": " Raised in the US"
+                },
+                {
+                    "start": 338,
+                    "end": 356,
+                    "confidence": 0.8326936364173889,
+                    "text": " issued an apology"
+                },
+                {
+                    "start": 682,
+                    "end": 697,
+                    "confidence": 0.8053778409957886,
+                    "text": " Odin Lloyd was"
+                },
+                {
+                    "start": 401,
+                    "end": 488,
+                    "confidence": 0.8398011922836304,
+                    "text": " The USDA predicts fresh fruit and vegetable prices to rise between 2% and 3% this year"
+                },
+                {
+                    "start": 353,
+                    "end": 373,
+                    "confidence": 0.8443504571914673,
+                    "text": " More than 101,\\*000"
+                },
+                {
+                    "start": 826,
+                    "end": 840,
+                    "confidence": 0.8341731429100037,
+                    "text": " 5oo Americans"
+                },
+                {
+                    "start": 1067,
+                    "end": 1091,
+                    "confidence": 0.8279348611831665,
+                    "text": " agreeing to repair guns"
+                },
+                {
+                    "start": 100,
+                    "end": 118,
+                    "confidence": 0.8479971289634705,
+                    "text": " killed over 3,800"
+                },
+                {
+                    "start": 153,
+                    "end": 181,
+                    "confidence": 0.8286793231964111,
+                    "text": " Bullock downplays the honor"
+                },
+                {
+                    "start": 322,
+                    "end": 345,
+                    "confidence": 0.8341478109359741,
+                    "text": " championship standings"
+                },
+                {
+                    "start": 268,
+                    "end": 308,
+                    "confidence": 0.8003353476524353,
+                    "text": " Gray's spinal cord was severely injured"
+                },
+                {
+                    "start": 539,
+                    "end": 548,
+                    "confidence": 0.8123770356178284,
+                    "text": " and 2015"
+                },
+                {
+                    "start": 904,
+                    "end": 926,
+                    "confidence": 0.8389516472816467,
+                    "text": " and the United States"
+                },
+                {
+                    "start": 308,
+                    "end": 313,
+                    "confidence": 0.8412889242172241,
+                    "text": " 2015"
+                },
+                {
+                    "start": 299,
+                    "end": 312,
+                    "confidence": 0.8353809118270874,
+                    "text": " 1988 to 1991"
+                },
+                {
+                    "start": 424,
+                    "end": 456,
+                    "confidence": 0.8157130479812622,
+                    "text": " under the command of Marquis de"
+                },
+                {
+                    "start": 515,
+                    "end": 537,
+                    "confidence": 0.8490291237831116,
+                    "text": " disposing of evidence"
+                },
+                {
+                    "start": 256,
+                    "end": 265,
+                    "confidence": 0.8261605501174927,
+                    "text": " $2M debt"
+                },
+                {
+                    "start": 271,
+                    "end": 285,
+                    "confidence": 0.8222590684890747,
+                    "text": " John Schneder"
+                },
+                {
+                    "start": 114,
+                    "end": 134,
+                    "confidence": 0.8290690183639526,
+                    "text": "James Patrick Stuart"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 75%-80%": {
+            "Hallucinations": [
+                {
+                    "start": 2,
+                    "end": 16,
+                    "confidence": 0.7504751682281494,
+                    "text": " November 2014"
+                },
+                {
+                    "start": 886,
+                    "end": 902,
+                    "confidence": 0.7966637015342712,
+                    "text": " and a half feet"
+                },
+                {
+                    "start": 715,
+                    "end": 728,
+                    "confidence": 0.7821781635284424,
+                    "text": " $1oo million"
+                },
+                {
+                    "start": 1058,
+                    "end": 1061,
+                    "confidence": 0.7913821339607239,
+                    "text": " in"
+                },
+                {
+                    "start": 215,
+                    "end": 243,
+                    "confidence": 0.7604630589485168,
+                    "text": "'s birthday on May 16 or May"
+                },
+                {
+                    "start": 916,
+                    "end": 944,
+                    "confidence": 0.7780169248580933,
+                    "text": " 2015 compared to over 3,000"
+                },
+                {
+                    "start": 499,
+                    "end": 536,
+                    "confidence": 0.7877892255783081,
+                    "text": " emphasized the importance of privacy"
+                },
+                {
+                    "start": 54,
+                    "end": 59,
+                    "confidence": 0.7527323961257935,
+                    "text": " crew"
+                },
+                {
+                    "start": 601,
+                    "end": 618,
+                    "confidence": 0.7666671276092529,
+                    "text": " first quarter of"
+                },
+                {
+                    "start": 52,
+                    "end": 81,
+                    "confidence": 0.796436071395874,
+                    "text": " on two counts of child abuse"
+                },
+                {
+                    "start": 482,
+                    "end": 573,
+                    "confidence": 0.7798344492912292,
+                    "text": " Shell's decision to lift suspensions on leases to drill for oil and gas in the Chukchi Sea"
+                },
+                {
+                    "start": 235,
+                    "end": 240,
+                    "confidence": 0.7815736532211304,
+                    "text": " 2014"
+                },
+                {
+                    "start": 207,
+                    "end": 215,
+                    "confidence": 0.7619863152503967,
+                    "text": " Felicia"
+                },
+                {
+                    "start": 339,
+                    "end": 370,
+                    "confidence": 0.7618993520736694,
+                    "text": " was a gift from Diana's father"
+                },
+                {
+                    "start": 378,
+                    "end": 419,
+                    "confidence": 0.7857286334037781,
+                    "text": " frequently worn by her after her divorce"
+                },
+                {
+                    "start": 243,
+                    "end": 307,
+                    "confidence": 0.770075261592865,
+                    "text": " Eric receives devastating news from his doctor about his health"
+                },
+                {
+                    "start": 243,
+                    "end": 288,
+                    "confidence": 0.7536019086837769,
+                    "text": " may result in significant sales loss for CVS"
+                },
+                {
+                    "start": 114,
+                    "end": 157,
+                    "confidence": 0.7959058284759521,
+                    "text": " They spent the day with Shep's dog, Palmer"
+                },
+                {
+                    "start": 27,
+                    "end": 51,
+                    "confidence": 0.7741000056266785,
+                    "text": " Fort Gordon's main post"
+                }
+            ]
+        }
+    },
+    {
+        "Confidence interval 70%-75%": {
+            "Hallucinations": [
+                {
+                    "start": 872,
+                    "end": 891,
+                    "confidence": 0.7031062841415405,
+                    "text": " a testament to her"
+                },
+                {
+                    "start": 456,
+                    "end": 482,
+                    "confidence": 0.748635470867157,
+                    "text": "ican woman Isabel Gonzalez"
+                },
+                {
+                    "start": 477,
+                    "end": 492,
+                    "confidence": 0.7274718284606934,
+                    "text": " Cruz's father,"
+                },
+                {
+                    "start": 313,
+                    "end": 335,
+                    "confidence": 0.713781476020813,
+                    "text": " expressed condolences"
+                },
+                {
+                    "start": 533,
+                    "end": 538,
+                    "confidence": 0.7072601318359375,
+                    "text": " 2008"
+                },
+                {
+                    "start": 141,
+                    "end": 146,
+                    "confidence": 0.7373608350753784,
+                    "text": " Five"
+                },
+                {
+                    "start": 366,
+                    "end": 378,
+                    "confidence": 0.7272293567657471,
+                    "text": " 29-3 season"
+                }
+            ]
+        }
+    }
+]
