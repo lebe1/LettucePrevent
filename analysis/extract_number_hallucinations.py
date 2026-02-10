@@ -93,9 +93,12 @@ def main(input_path, json_output_path, stats_output_path):
 
     
 if __name__ == "__main__":
-    input_file = "../data/summary_experiments_number_run_20251015_080517_use_all_tokens_true_for_runtime_comparison.json"
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    json_output_file = input_file.replace("summary","hallucinations")
-    stats_output_file = json_output_file.replace("experiments","stats").replace("json","txt")
+    input_file = "../data/number_hallucinations/summary_experiments_tinylettuce_run_20251221_155808.json"
+    
+    # Extract timestamp from input filename
+    timestamp = re.search(r'run_(\d{8}_\d{6})', input_file).group(1)
+    
+    json_output_file = f"../data/number_hallucinations/hallucinations_experiments_LettuceDetect_{timestamp}.json"
+    stats_output_file = f"../data/number_hallucinations/hallucination_stats_LettuceDetect_{timestamp}.txt"
     main(input_file, json_output_file, stats_output_file)
 
