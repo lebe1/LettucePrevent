@@ -12,27 +12,31 @@ class HallucinationLogitsProcessor(LogitsProcessor):
                  last_k_tokens_to_consider: int = 4,
                  top_k_logits: int = 10,
                  penalty_value: float = float('-inf'),
-                 use_all_tokens: bool = False):
+                 use_all_tokens: bool = False,
+                 skip_threshold: float = 0.9):
         """
         Initialize the generalized logits processor.
-        
+
         Args:
             hallucination_detector: Any detector implementing BaseHallucinationDetector
             last_k_tokens_to_consider: Number of recent tokens to consider (ignored if use_all_tokens=True)
             top_k_logits: Number of top logits to check for hallucinations
             penalty_value: Penalty value to apply to hallucinated tokens
             use_all_tokens: If True, consider all generated tokens instead of just last_k_tokens_to_consider
+            skip_threshold: Skip hallucination check if top token probability exceeds this value
         """
         self.hallucination_detector = hallucination_detector
         self.last_k_tokens_to_consider = last_k_tokens_to_consider
         self.penalty_value = penalty_value
         self.top_k_logits = top_k_logits
         self.use_all_tokens = use_all_tokens
+        self.skip_threshold = skip_threshold
         self.modifications_count = 0
-        
+
         tokens_context = "all tokens" if use_all_tokens else f"last {last_k_tokens_to_consider} tokens"
         print(f"Initialized LogitsProcessor with {type(hallucination_detector).__name__}")
         print(f"Context window: {tokens_context}")
+        print(f"Skip threshold: {skip_threshold}")
 
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
@@ -64,12 +68,24 @@ class HallucinationLogitsProcessor(LogitsProcessor):
                 context_window = min(self.last_k_tokens_to_consider, len(current_ids))
 
             
-            # Get top k token candidates
-            _, top_k_indices = torch.topk(
-                scores[batch_idx], 
+            # Get top k token candidates            
+            top_k_scores, top_k_indices = torch.topk(
+                scores[batch_idx],
                 k=min(self.top_k_logits, scores.shape[-1])
             )
-            
+
+            # Snippet below only used for analysis
+            top_k_probs = torch.softmax(top_k_scores, dim=-1)
+            top_k_tokens = [self.hallucination_detector.tokenizer.decode([idx.item()]) for idx in top_k_indices]
+            print("Top K tokens:")
+            for rank, (token_str, prob) in enumerate(zip(top_k_tokens, top_k_probs.tolist())):
+                print(f"  {rank}: {repr(token_str)} ({prob:.4f})")
+            # Skip hallucination check if top token is already highly confident
+            if top_k_probs[0].item() >= self.skip_threshold:
+                print(f"Skipping check: top token {repr(top_k_tokens[0])} has prob {top_k_probs[0].item():.4f} >= {self.skip_threshold}")
+                continue
+            # ----------- End of analysis -----------
+
             # Check each candidate token for hallucinations
             for i, token_id in enumerate(top_k_indices):
                 token_id_item = token_id.item()
@@ -87,6 +103,17 @@ class HallucinationLogitsProcessor(LogitsProcessor):
                     token_str = self.hallucination_detector.tokenizer.decode([token_id_item])
                     print(f"----------Modified logit for token: {token_str}----------")
                     continue
+
+                # Snippet below only used for analysis
+                chosen_token_str = self.hallucination_detector.tokenizer.decode([token_id_item])
+                chosen_prob = torch.softmax(scores[batch_idx], dim=-1)[token_id_item].item()
+                input_text = self.hallucination_detector.input_text
+                if input_text in current_text:
+                    generated_text = current_text[current_text.find(input_text) + len(input_text):]
+                else:
+                    generated_text = current_text
+                print(f"Chosen token: {repr(chosen_token_str)} ({chosen_prob:.4f}) | Generated so far: {repr(generated_text)}")
+                # ----------- End of analysis -----------
                 
                 # Break after finding the first non-hallucinating token (greedy approach)
                 break

@@ -1,11 +1,21 @@
 import torch
-from transformers import  AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList
+from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig, LogitsProcessorList, StoppingCriteria, StoppingCriteriaList
 from tqdm import tqdm
 from datetime import datetime
 import time
 import json
 from detectors.factory import DetectorFactory
 from logits_processors.hallucination_logits_processor import HallucinationLogitsProcessor
+
+class TokenPrintStoppingCriteria(StoppingCriteria):
+    def __init__(self, tokenizer):
+        self.tokenizer = tokenizer
+
+    def __call__(self, input_ids, _scores, **_kwargs):
+        last_token_str = self.tokenizer.decode([input_ids[0, -1].item()])
+        print(f">>> Actually generated token: {repr(last_token_str)}")
+        return False
+
 
 # -------------------------- Setup ------------------
 
@@ -54,11 +64,12 @@ start_time = time.time()
 
 # Choose detector type: 'tinylettuce' or 'number' or 'none'
 DETECTOR_TYPE = 'tinylettuce'
-CONFIDENCE_THRESHOLD = 0.9  # Remark: Only for TinyLettuce
-LAST_K_TOKENS_TO_CONSIDER = 10 # Remark: Ignored when use_all_tokens true
+CONFIDENCE_THRESHOLD = 0.9   # Remark: Only for TinyLettuce
+LAST_K_TOKENS_TO_CONSIDER = 10  # Remark: Ignored when use_all_tokens true
 TOP_K_LOGITS = 10
-PENALTY_VALUE = float('-inf')
+PENALTY_VALUE = 0
 USE_ALL_TOKENS = True
+LOGITS_SKIP_THRESHOLD = 0.9  # Skip hallucination check if top token prob exceeds this value
 
 print(f"Using detector: {DETECTOR_TYPE}")
 
@@ -84,7 +95,8 @@ for item in tqdm(prompt_data[:1]):
             last_k_tokens_to_consider=LAST_K_TOKENS_TO_CONSIDER,
             top_k_logits=TOP_K_LOGITS,
             penalty_value=PENALTY_VALUE,
-            use_all_tokens=USE_ALL_TOKENS
+            use_all_tokens=USE_ALL_TOKENS,
+            skip_threshold=LOGITS_SKIP_THRESHOLD
         )
 
     messages = [
@@ -103,23 +115,28 @@ for item in tqdm(prompt_data[:1]):
         eos_token_id=tokenizer.eos_token_id,
         num_return_sequences=1,
         min_length=150,
-        num_beams=4,
+        num_beams=1
     )
+
+    # Only execute token print criteria for analysis
+    token_print_criteria = StoppingCriteriaList([TokenPrintStoppingCriteria(tokenizer)])
 
     if not DETECTOR_TYPE == 'none':
         # Create LogitsProcessorList with our hallucination detector
         logits_processor_list = LogitsProcessorList([logits_processor])
-    
+
         output = model.generate(
             **input_data,
             generation_config=gen_config,
-            logits_processor=logits_processor_list
+            logits_processor=logits_processor_list,
+            stopping_criteria=token_print_criteria
         )
     else:
-         output = model.generate(
+        output = model.generate(
             **input_data,
             generation_config=gen_config,
-         )
+            stopping_criteria=token_print_criteria
+        )
 
     decoded = tokenizer.decode(output[0], skip_special_tokens=True)
     
@@ -181,7 +198,8 @@ results.append({
             "top_k_logits": TOP_K_LOGITS,
             "penalty_value": str(PENALTY_VALUE),
             "confidence_threshold": CONFIDENCE_THRESHOLD if DETECTOR_TYPE == 'tinylettuce' else None,
-            "use_all_tokens": USE_ALL_TOKENS
+            "use_all_tokens": USE_ALL_TOKENS,
+            "logits_skip_threshold": LOGITS_SKIP_THRESHOLD
         }
     }
 })

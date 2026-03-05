@@ -20,11 +20,24 @@ python main.py
 Currently there are three experiments available:
 1. DETECTOR_TYPE 'number'
    - NumberLogitsProcessor() tries to reject all numbers that are not mentioned in the input text
-2. DETECTOR_TYPE 'tinylettuce' 
-   -  TinyLettuceProcessor() tries to reject all tokens based on the hallucination score of the TinyLettuce model 
-   -  Currently Work In Progress!!
+2. DETECTOR_TYPE 'tinylettuce'
+   -  TinyLettuceProcessor() tries to reject all tokens identified as a hallucination with a high hallucination score of the TinyLettuce model
 3. DETECTOR_TYPE 'none'
    - Default behaviour for language model without any extensions to be able to compare experiment runs
+
+### Configuration Parameters
+
+All parameters are set at the top of `main.py` under the `Configuration` section:
+
+| Parameter | Default | Description |
+| --------- | ------- | ----------- |
+| `DETECTOR_TYPE` | `'tinylettuce'` | Which detector to use: `'tinylettuce'`, `'number'`, or `'none'` |
+| `CONFIDENCE_THRESHOLD` | `0.9` | TinyLettuce only — minimum hallucination confidence score to reject a token |
+| `LAST_K_TOKENS_TO_CONSIDER` | `10` | Number of recent tokens used as context window (ignored when `USE_ALL_TOKENS=True`) |
+| `TOP_K_LOGITS` | `10` | How many top candidate tokens are checked per generation step |
+| `PENALTY_VALUE` | `0` | Score assigned to penalised tokens (use `float('-inf')` to hard-block) |
+| `USE_ALL_TOKENS` | `True` | If `True`, use all generated tokens as context instead of only the last `LAST_K_TOKENS_TO_CONSIDER` |
+| `LOGITS_SKIP_THRESHOLD` | `0.9` | Skip the hallucination check entirely when the top token's probability exceeds this value |
 
 ## Experiment Results on Number Detector
 
