@@ -70,7 +70,7 @@ except Exception as e:
 print("\n3️⃣  TESTING WITH FORMATTED PROMPT AS CONTEXT:")
 try:
     predictions = detector.predict(
-        context=formatted_prompt[:2000],  # Using formatted prompt instead
+        context=[formatted_prompt[:2000]],  # Using formatted prompt instead
         answer=potential_answer, 
         output_format="tokens"
     )

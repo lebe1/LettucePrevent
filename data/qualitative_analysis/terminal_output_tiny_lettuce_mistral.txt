@@ -1,0 +1,2769 @@
+Loaded 942 prompts from RAGTruth dataset
+Using detector: tinylettuce
+Initialized TinyLettuce detector with threshold: 0.9
+Initialized LogitsProcessor with TinyLettuceDetector
+Context window: all tokens
+Top K tokens:
+  0: 'S' (0.9195)
+  1: 'Anne' (0.0616)
+  2: 'Seven' (0.0068)
+  3: 'In' (0.0052)
+  4: 'seventy' (0.0024)
+  5: 'sevent' (0.0024)
+  6: 'On' (0.0010)
+  7: 'Ann' (0.0005)
+  8: 'Within' (0.0003)
+  9: 'Si' (0.0002)
+Skipping check: top token 'S' has prob 0.9195 >= 0.9
+>>> Actually generated token: 'S'
+Top K tokens:
+  0: 'event' (1.0000)
+  1: 'event' (0.0000)
+  2: 'seventy' (0.0000)
+  3: 'Event' (0.0000)
+  4: 'Event' (0.0000)
+  5: 'EVENT' (0.0000)
+  6: 'Si' (0.0000)
+  7: 'sevent' (0.0000)
+  8: 'seventh' (0.0000)
+  9: '事' (0.0000)
+Skipping check: top token 'event' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'event'
+Top K tokens:
+  0: 'y' (0.9999)
+  1: 'een' (0.0001)
+  2: 'eenth' (0.0000)
+  3: 'ies' (0.0000)
+  4: 'ied' (0.0000)
+  5: 'ily' (0.0000)
+  6: 'ty' (0.0000)
+  7: 'ey' (0.0000)
+  8: 'Y' (0.0000)
+  9: 'yy' (0.0000)
+Skipping check: top token 'y' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'y'
+Top K tokens:
+  0: 'years' (1.0000)
+  1: 'Years' (0.0000)
+  2: '-' (0.0000)
+  3: 'year' (0.0000)
+  4: 'year' (0.0000)
+  5: 'años' (0.0000)
+  6: 'Jahre' (0.0000)
+  7: 'yards' (0.0000)
+  8: 'decades' (0.0000)
+  9: 'months' (0.0000)
+Skipping check: top token 'years' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'years'
+Top K tokens:
+  0: 'ago' (1.0000)
+  1: 'ago' (0.0000)
+  2: 'after' (0.0000)
+  3: 'have' (0.0000)
+  4: 'ag' (0.0000)
+  5: 'age' (0.0000)
+  6: 'old' (0.0000)
+  7: 'later' (0.0000)
+  8: 'earlier' (0.0000)
+  9: 'а' (0.0000)
+Skipping check: top token 'ago' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ago'
+Top K tokens:
+  0: ',' (1.0000)
+  1: 'in' (0.0000)
+  2: 'this' (0.0000)
+  3: 'on' (0.0000)
+  4: 'at' (0.0000)
+  5: ',\\' (0.0000)
+  6: '，' (0.0000)
+  7: ';' (0.0000)
+  8: '.,' (0.0000)
+  9: '(' (0.0000)
+Skipping check: top token ',' has prob 1.0000 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'Anne' (0.9880)
+  1: 'new' (0.0091)
+  2: 'newly' (0.0023)
+  3: 'Ann' (0.0002)
+  4: 'new' (0.0001)
+  5: 'Anna' (0.0001)
+  6: 'the' (0.0001)
+  7: 'researchers' (0.0001)
+  8: 'Dutch' (0.0000)
+  9: 'fifteen' (0.0000)
+Skipping check: top token 'Anne' has prob 0.9880 >= 0.9
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'Frank' (0.9997)
+  1: 'Fr' (0.0002)
+  2: 'Fr' (0.0001)
+  3: 'Фран' (0.0000)
+  4: 'Fran' (0.0000)
+  5: 'FR' (0.0000)
+  6: 'FR' (0.0000)
+  7: 'Franklin' (0.0000)
+  8: 'Frances' (0.0000)
+  9: 'Frankfurt' (0.0000)
+Skipping check: top token 'Frank' has prob 0.9997 >= 0.9
+>>> Actually generated token: 'Frank'
+Top K tokens:
+  0: ',' (0.6327)
+  1: 'and' (0.3662)
+  2: 'died' (0.0004)
+  3: 'passed' (0.0003)
+  4: 'is' (0.0002)
+  5: 'likely' (0.0001)
+  6: 'dies' (0.0000)
+  7: "'" (0.0000)
+  8: 'passing' (0.0000)
+  9: 'and' (0.0000)
+Chosen token: ',' (0.6327) | Generated so far: ' [/INST] Seventy years ago, Anne Frank'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'a' (0.9501)
+  1: 'the' (0.0496)
+  2: 'who' (0.0002)
+  3: '' (0.0000)
+  4: 'aged' (0.0000)
+  5: 'along' (0.0000)
+  6: 'an' (0.0000)
+  7: 'then' (0.0000)
+  8: 'a' (0.0000)
+  9: 'the' (0.0000)
+Skipping check: top token 'a' has prob 0.9501 >= 0.9
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'Jewish' (0.7125)
+  1: '' (0.2662)
+  2: 'teen' (0.0102)
+  3: 'young' (0.0064)
+  4: 'teenager' (0.0014)
+  5: 'fifteen' (0.0013)
+  6: 'renown' (0.0010)
+  7: 'Dutch' (0.0004)
+  8: 'famous' (0.0004)
+  9: 'prominent' (0.0001)
+Chosen token: 'Jewish' (0.7121) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a'
+>>> Actually generated token: 'Jewish'
+Top K tokens:
+  0: 'di' (0.4991)
+  1: 'teenager' (0.3325)
+  2: 'teen' (0.1570)
+  3: 'girl' (0.0100)
+  4: 'adoles' (0.0006)
+  5: 'diary' (0.0003)
+  6: 'teen' (0.0002)
+  7: 'di' (0.0002)
+  8: 'Di' (0.0001)
+  9: 'teens' (0.0000)
+Chosen token: 'di' (0.4990) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish'
+>>> Actually generated token: 'di'
+Top K tokens:
+  0: 'ar' (1.0000)
+  1: 'AR' (0.0000)
+  2: 'as' (0.0000)
+  3: 'ар' (0.0000)
+  4: 'arian' (0.0000)
+  5: 'iar' (0.0000)
+  6: 'nar' (0.0000)
+  7: 'lar' (0.0000)
+  8: 'arr' (0.0000)
+  9: 'ari' (0.0000)
+Skipping check: top token 'ar' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ar'
+Top K tokens:
+  0: 'ist' (1.0000)
+  1: 'ists' (0.0000)
+  2: 'IST' (0.0000)
+  3: 'rist' (0.0000)
+  4: 'ista' (0.0000)
+  5: 'iste' (0.0000)
+  6: 'yst' (0.0000)
+  7: 'istro' (0.0000)
+  8: 'istr' (0.0000)
+  9: 'st' (0.0000)
+Skipping check: top token 'ist' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ist'
+Top K tokens:
+  0: 'known' (0.3978)
+  1: 'who' (0.3298)
+  2: ',' (0.2339)
+  3: 'famous' (0.0123)
+  4: 'fam' (0.0113)
+  5: 'from' (0.0069)
+  6: 'whose' (0.0034)
+  7: 'renown' (0.0026)
+  8: 'during' (0.0016)
+  9: 'known' (0.0004)
+Chosen token: 'known' (0.3972) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist'
+>>> Actually generated token: 'known'
+Top K tokens:
+  0: 'for' (0.9999)
+  1: 'for' (0.0001)
+  2: 'worldwide' (0.0000)
+  3: 'для' (0.0000)
+  4: 'from' (0.0000)
+  5: 'glob' (0.0000)
+  6: 'world' (0.0000)
+  7: 'forall' (0.0000)
+  8: 'für' (0.0000)
+  9: 'around' (0.0000)
+Skipping check: top token 'for' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'for'
+Top K tokens:
+  0: 'her' (0.9998)
+  1: 'hiding' (0.0002)
+  2: 'document' (0.0000)
+  3: 'her' (0.0000)
+  4: 'hers' (0.0000)
+  5: 'chronic' (0.0000)
+  6: 'hid' (0.0000)
+  7: 'conce' (0.0000)
+  8: 'recording' (0.0000)
+  9: 'Her' (0.0000)
+Skipping check: top token 'her' has prob 0.9998 >= 0.9
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'po' (0.8844)
+  1: 'writ' (0.0621)
+  2: 'account' (0.0112)
+  3: 'hiding' (0.0105)
+  4: 'profound' (0.0067)
+  5: 'diary' (0.0064)
+  6: 'mem' (0.0061)
+  7: 'w' (0.0046)
+  8: 'insp' (0.0043)
+  9: 'book' (0.0038)
+Chosen token: 'po' (0.8347) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her'
+>>> Actually generated token: 'po'
+Top K tokens:
+  0: 'ign' (1.0000)
+  1: 'IGN' (0.0000)
+  2: 'Ign' (0.0000)
+  3: 'ign' (0.0000)
+  4: 'Ign' (0.0000)
+  5: 'igne' (0.0000)
+  6: 'ignore' (0.0000)
+  7: 'ignment' (0.0000)
+  8: 'ignore' (0.0000)
+  9: 'igned' (0.0000)
+Skipping check: top token 'ign' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ign'
+Top K tokens:
+  0: 'ant' (1.0000)
+  1: 'antly' (0.0000)
+  2: 'ANT' (0.0000)
+  3: 'nant' (0.0000)
+  4: 'ent' (0.0000)
+  5: 'ants' (0.0000)
+  6: 'rant' (0.0000)
+  7: 'ante' (0.0000)
+  8: 'anth' (0.0000)
+  9: 'antal' (0.0000)
+Skipping check: top token 'ant' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ant'
+Top K tokens:
+  0: 'writ' (0.7492)
+  1: 'account' (0.2048)
+  2: 'accounts' (0.0206)
+  3: 'writing' (0.0110)
+  4: 'diary' (0.0067)
+  5: 'ref' (0.0023)
+  6: 'w' (0.0018)
+  7: 'journal' (0.0013)
+  8: 'coming' (0.0011)
+  9: 'written' (0.0010)
+Chosen token: 'writ' (0.7442) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant'
+>>> Actually generated token: 'writ'
+Top K tokens:
+  0: 'ings' (1.0000)
+  1: 'INGS' (0.0000)
+  2: 'nings' (0.0000)
+  3: 'tings' (0.0000)
+  4: 'rings' (0.0000)
+  5: 'lings' (0.0000)
+  6: 'ations' (0.0000)
+  7: 'itions' (0.0000)
+  8: 'ions' (0.0000)
+  9: 'dings' (0.0000)
+Skipping check: top token 'ings' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ings'
+Top K tokens:
+  0: 'during' (0.7021)
+  1: 'about' (0.2012)
+  2: 'in' (0.0390)
+  3: 'while' (0.0277)
+  4: 'from' (0.0237)
+  5: 'document' (0.0035)
+  6: ',' (0.0025)
+  7: 'detail' (0.0002)
+  8: 'chronic' (0.0001)
+  9: 'whilst' (0.0001)
+Chosen token: 'during' (0.7015) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings'
+>>> Actually generated token: 'during'
+Top K tokens:
+  0: 'the' (0.9995)
+  1: 'her' (0.0003)
+  2: 'World' (0.0001)
+  3: 'hiding' (0.0000)
+  4: 'the' (0.0000)
+  5: 'Nazi' (0.0000)
+  6: 'The' (0.0000)
+  7: 'W' (0.0000)
+  8: 'hide' (0.0000)
+  9: 'their' (0.0000)
+Skipping check: top token 'the' has prob 0.9995 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'Hol' (0.9965)
+  1: 'Nazi' (0.0023)
+  2: 'Hol' (0.0010)
+  3: 'hol' (0.0002)
+  4: 'German' (0.0000)
+  5: 'Naz' (0.0000)
+  6: 'Dutch' (0.0000)
+  7: 'Hitler' (0.0000)
+  8: 'Netherlands' (0.0000)
+  9: 'Holy' (0.0000)
+Skipping check: top token 'Hol' has prob 0.9965 >= 0.9
+>>> Actually generated token: 'Hol'
+Top K tokens:
+  0: 'oca' (1.0000)
+  1: 'aca' (0.0000)
+  2: 'oc' (0.0000)
+  3: 'oco' (0.0000)
+  4: 'oka' (0.0000)
+  5: 'ocal' (0.0000)
+  6: 'ocation' (0.0000)
+  7: 'ca' (0.0000)
+  8: 'cca' (0.0000)
+  9: 'acia' (0.0000)
+Skipping check: top token 'oca' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'oca'
+Top K tokens:
+  0: 'ust' (1.0000)
+  1: 'ustr' (0.0000)
+  2: 'uster' (0.0000)
+  3: 'UST' (0.0000)
+  4: 'Aust' (0.0000)
+  5: 'Austin' (0.0000)
+  6: 'usta' (0.0000)
+  7: 'usted' (0.0000)
+  8: 'oust' (0.0000)
+  9: 'Gust' (0.0000)
+Skipping check: top token 'ust' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ust'
+Top K tokens:
+  0: ',' (1.0000)
+  1: 'era' (0.0000)
+  2: 'while' (0.0000)
+  3: 'at' (0.0000)
+  4: 'period' (0.0000)
+  5: ',\\' (0.0000)
+  6: 'in' (0.0000)
+  7: 'Era' (0.0000)
+  8: 'from' (0.0000)
+  9: 'and' (0.0000)
+Skipping check: top token ',' has prob 1.0000 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'died' (0.9078)
+  1: 'is' (0.0678)
+  2: 'passed' (0.0150)
+  3: 'likely' (0.0065)
+  4: 'most' (0.0011)
+  5: 'dies' (0.0009)
+  6: 'trag' (0.0005)
+  7: 'probably' (0.0003)
+  8: 'succ' (0.0001)
+  9: 'likely' (0.0001)
+Skipping check: top token 'died' has prob 0.9078 >= 0.9
+>>> Actually generated token: 'died'
+Top K tokens:
+  0: 'of' (0.9887)
+  1: 'at' (0.0088)
+  2: 'from' (0.0015)
+  3: 'in' (0.0009)
+  4: 'due' (0.0001)
+  5: 'around' (0.0000)
+  6: 'by' (0.0000)
+  7: 'along' (0.0000)
+  8: 'prem' (0.0000)
+  9: 'likely' (0.0000)
+Skipping check: top token 'of' has prob 0.9887 >= 0.9
+>>> Actually generated token: 'of'
+Top K tokens:
+  0: 'ty' (0.9997)
+  1: 'typ' (0.0002)
+  2: 'suspected' (0.0000)
+  3: 'ти' (0.0000)
+  4: 'ty' (0.0000)
+  5: 'Ty' (0.0000)
+  6: 'tub' (0.0000)
+  7: 'probable' (0.0000)
+  8: 'typing' (0.0000)
+  9: 'typical' (0.0000)
+Skipping check: top token 'ty' has prob 0.9997 >= 0.9
+>>> Actually generated token: 'ty'
+Top K tokens:
+  0: 'ph' (1.0000)
+  1: 'pl' (0.0000)
+  2: 'pr' (0.0000)
+  3: 'phy' (0.0000)
+  4: 'pha' (0.0000)
+  5: 'pos' (0.0000)
+  6: 'ps' (0.0000)
+  7: 'phi' (0.0000)
+  8: 'php' (0.0000)
+  9: 'phan' (0.0000)
+Skipping check: top token 'ph' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ph'
+Top K tokens:
+  0: 'us' (1.0000)
+  1: 'US' (0.0000)
+  2: 'us' (0.0000)
+  3: 'hus' (0.0000)
+  4: 'Us' (0.0000)
+  5: 'uss' (0.0000)
+  6: 'rus' (0.0000)
+  7: 'ús' (0.0000)
+  8: 'aus' (0.0000)
+  9: 'pus' (0.0000)
+Skipping check: top token 'us' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'us'
+Top K tokens:
+  0: 'in' (0.6652)
+  1: 'at' (0.3345)
+  2: 'around' (0.0001)
+  3: ',' (0.0001)
+  4: 'along' (0.0000)
+  5: 'near' (0.0000)
+  6: 'within' (0.0000)
+  7: 'somewhere' (0.0000)
+  8: 'sometime' (0.0000)
+  9: 'inside' (0.0000)
+Chosen token: 'in' (0.6652) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus'
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'the' (0.9829)
+  1: 'Ber' (0.0114)
+  2: 'a' (0.0013)
+  3: 'March' (0.0011)
+  4: 'Nazi' (0.0009)
+  5: 'Berlin' (0.0006)
+  6: 'February' (0.0006)
+  7: 'early' (0.0005)
+  8: 'Ber' (0.0004)
+  9: 'Germany' (0.0004)
+Skipping check: top token 'the' has prob 0.9829 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'Ber' (0.9973)
+  1: 'Nazi' (0.0012)
+  2: 'Ber' (0.0012)
+  3: 'Бер' (0.0001)
+  4: 'Naz' (0.0000)
+  5: 'Berlin' (0.0000)
+  6: 'Bern' (0.0000)
+  7: 'Nieder' (0.0000)
+  8: 'Berg' (0.0000)
+  9: 'German' (0.0000)
+Skipping check: top token 'Ber' has prob 0.9973 >= 0.9
+>>> Actually generated token: 'Ber'
+Top K tokens:
+  0: 'gen' (0.9999)
+  1: 'ген' (0.0000)
+  2: 'egen' (0.0000)
+  3: 'ogen' (0.0000)
+  4: 'agen' (0.0000)
+  5: 'GEN' (0.0000)
+  6: 'Gen' (0.0000)
+  7: 'ken' (0.0000)
+  8: 'igen' (0.0000)
+  9: 'gan' (0.0000)
+Skipping check: top token 'gen' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'gen'
+Top K tokens:
+  0: '-' (1.0000)
+  1: '‐' (0.0000)
+  2: '–' (0.0000)
+  3: '‑' (0.0000)
+  4: 'B' (0.0000)
+  5: '-\\' (0.0000)
+  6: '-(' (0.0000)
+  7: '-' (0.0000)
+  8: '.-' (0.0000)
+  9: '\xad' (0.0000)
+Skipping check: top token '-' has prob 1.0000 >= 0.9
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'B' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Б' (0.0000)
+  4: 'b' (0.0000)
+  5: 'Β' (0.0000)
+  6: 'S' (0.0000)
+  7: 'BS' (0.0000)
+  8: 'D' (0.0000)
+  9: 'M' (0.0000)
+Skipping check: top token 'B' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'els' (1.0000)
+  1: 'Els' (0.0000)
+  2: 'elson' (0.0000)
+  3: 'eles' (0.0000)
+  4: 'EL' (0.0000)
+  5: 'nels' (0.0000)
+  6: 'ells' (0.0000)
+  7: 'els' (0.0000)
+  8: 'als' (0.0000)
+  9: 'else' (0.0000)
+Skipping check: top token 'els' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'els'
+Top K tokens:
+  0: 'en' (1.0000)
+  1: 'EN' (0.0000)
+  2: 'ен' (0.0000)
+  3: 'enen' (0.0000)
+  4: 'an' (0.0000)
+  5: 'én' (0.0000)
+  6: 'ens' (0.0000)
+  7: 'sen' (0.0000)
+  8: 'on' (0.0000)
+  9: 'ent' (0.0000)
+Skipping check: top token 'en' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'en'
+Top K tokens:
+  0: 'concentration' (1.0000)
+  1: 'Nazi' (0.0000)
+  2: 'concentr' (0.0000)
+  3: 'camp' (0.0000)
+  4: 'con' (0.0000)
+  5: 'concentrate' (0.0000)
+  6: 'Naz' (0.0000)
+  7: 'Con' (0.0000)
+  8: 'concert' (0.0000)
+  9: 'conspiracy' (0.0000)
+Skipping check: top token 'concentration' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'concentration'
+Top K tokens:
+  0: 'camp' (1.0000)
+  1: 'camp' (0.0000)
+  2: 'camps' (0.0000)
+  3: 'campus' (0.0000)
+  4: 'Camp' (0.0000)
+  5: 'campaign' (0.0000)
+  6: 'Camp' (0.0000)
+  7: 'cam' (0.0000)
+  8: 'Campbell' (0.0000)
+  9: 'campo' (0.0000)
+Skipping check: top token 'camp' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: 'at' (0.9897)
+  1: 'when' (0.0070)
+  2: 'around' (0.0015)
+  3: 'in' (0.0010)
+  4: 'about' (0.0004)
+  5: ',' (0.0002)
+  6: 'approximately' (0.0001)
+  7: '.' (0.0001)
+  8: 'before' (0.0001)
+  9: 'at' (0.0000)
+Skipping check: top token 'at' has prob 0.9897 >= 0.9
+>>> Actually generated token: 'at'
+Top K tokens:
+  0: 'around' (0.4135)
+  1: 'the' (0.2842)
+  2: 'approximately' (0.2431)
+  3: 'an' (0.0345)
+  4: 'roughly' (0.0179)
+  5: 'age' (0.0024)
+  6: 'about' (0.0022)
+  7: '' (0.0013)
+  8: 'a' (0.0005)
+  9: 'around' (0.0004)
+Chosen token: 'around' (0.4133) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at'
+>>> Actually generated token: 'around'
+Top K tokens:
+  0: '' (0.9502)
+  1: 'age' (0.0169)
+  2: 'the' (0.0130)
+  3: 'two' (0.0054)
+  4: 'fifteen' (0.0054)
+  5: 'eighteen' (0.0024)
+  6: 'late' (0.0018)
+  7: 'twelve' (0.0018)
+  8: 'ages' (0.0015)
+  9: 'thirteen' (0.0015)
+Skipping check: top token '' has prob 0.9502 >= 0.9
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: '2' (0.0000)
+  2: 'fifteen' (0.0000)
+  3: 'sixteen' (0.0000)
+  4: 'thirteen' (0.0000)
+  5: 'two' (0.0000)
+  6: 'fourteen' (0.0000)
+  7: 'Two' (0.0000)
+  8: 'two' (0.0000)
+  9: 'Two' (0.0000)
+Skipping check: top token '1' has prob 1.0000 >= 0.9
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '5' (0.9999)
+  1: '4' (0.0001)
+  2: '6' (0.0000)
+  3: '3' (0.0000)
+  4: '7' (0.0000)
+  5: '8' (0.0000)
+  6: '2' (0.0000)
+  7: 'p' (0.0000)
+  8: '1' (0.0000)
+  9: '-' (0.0000)
+Skipping check: top token '5' has prob 0.9999 >= 0.9
+>>> Actually generated token: '5'
+Top K tokens:
+  0: 'years' (0.9979)
+  1: '.' (0.0012)
+  2: '-' (0.0007)
+  3: ',' (0.0001)
+  4: 'year' (0.0001)
+  5: 'or' (0.0000)
+  6: 'Years' (0.0000)
+  7: 'year' (0.0000)
+  8: 'decades' (0.0000)
+  9: 'months' (0.0000)
+Skipping check: top token 'years' has prob 0.9979 >= 0.9
+>>> Actually generated token: 'years'
+Top K tokens:
+  0: 'old' (0.9966)
+  1: 'of' (0.0024)
+  2: 'old' (0.0010)
+  3: 'Old' (0.0000)
+  4: 'age' (0.0000)
+  5: 'Old' (0.0000)
+  6: 'OLD' (0.0000)
+  7: 'olds' (0.0000)
+  8: 'ago' (0.0000)
+  9: 'older' (0.0000)
+Skipping check: top token 'old' has prob 0.9966 >= 0.9
+>>> Actually generated token: 'old'
+Top K tokens:
+  0: '.' (0.8801)
+  1: ',' (0.1137)
+  2: 'in' (0.0062)
+  3: 'towards' (0.0000)
+  4: ';' (0.0000)
+  5: 'along' (0.0000)
+  6: '(' (0.0000)
+  7: 'around' (0.0000)
+  8: 'as' (0.0000)
+  9: '-' (0.0000)
+Chosen token: '.' (0.8801) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old'
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'New' (0.9458)
+  1: 'However' (0.0334)
+  2: 'Recent' (0.0083)
+  3: 'Pre' (0.0034)
+  4: 'New' (0.0028)
+  5: 'Recently' (0.0017)
+  6: 'new' (0.0017)
+  7: 'Con' (0.0011)
+  8: 'According' (0.0009)
+  9: 'Research' (0.0008)
+Skipping check: top token 'New' has prob 0.9458 >= 0.9
+>>> Actually generated token: 'New'
+Top K tokens:
+  0: 'research' (0.9991)
+  1: 'ly' (0.0005)
+  2: 'evidence' (0.0001)
+  3: 'studies' (0.0001)
+  4: 'findings' (0.0001)
+  5: 'researchers' (0.0000)
+  6: 'historical' (0.0000)
+  7: 'Research' (0.0000)
+  8: 'study' (0.0000)
+  9: 'investig' (0.0000)
+Skipping check: top token 'research' has prob 0.9991 >= 0.9
+>>> Actually generated token: 'research'
+Top K tokens:
+  0: 'suggests' (0.6305)
+  1: 'indicates' (0.2145)
+  2: 'from' (0.0406)
+  3: ',' (0.0286)
+  4: 'by' (0.0268)
+  5: 'reveals' (0.0241)
+  6: 'conducted' (0.0128)
+  7: 'contrad' (0.0105)
+  8: 'shows' (0.0063)
+  9: 'challenges' (0.0053)
+Chosen token: 'suggests' (0.6159) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research'
+>>> Actually generated token: 'suggests'
+Top K tokens:
+  0: 'that' (0.4698)
+  1: 'she' (0.3956)
+  2: 'Anne' (0.1032)
+  3: 'her' (0.0261)
+  4: ',' (0.0018)
+  5: 'the' (0.0017)
+  6: 'this' (0.0013)
+  7: 'Anna' (0.0003)
+  8: 'both' (0.0002)
+  9: 'they' (0.0001)
+Chosen token: 'that' (0.4696) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests'
+>>> Actually generated token: 'that'
+Top K tokens:
+  0: 'Anne' (0.7490)
+  1: 'she' (0.2432)
+  2: 'her' (0.0046)
+  3: 'both' (0.0018)
+  4: 'the' (0.0007)
+  5: 'Anna' (0.0004)
+  6: 'Annie' (0.0001)
+  7: 'they' (0.0001)
+  8: 'this' (0.0001)
+  9: 'she' (0.0000)
+Chosen token: 'Anne' (0.7488) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that'
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'and' (1.0000)
+  1: "'" (0.0000)
+  2: ',' (0.0000)
+  3: 'Frank' (0.0000)
+  4: 'and' (0.0000)
+  5: 'died' (0.0000)
+  6: 'along' (0.0000)
+  7: 'actually' (0.0000)
+  8: 'и' (0.0000)
+  9: 'might' (0.0000)
+Skipping check: top token 'and' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'her' (0.9999)
+  1: 'her' (0.0001)
+  2: 'older' (0.0000)
+  3: 'Marg' (0.0000)
+  4: 'Her' (0.0000)
+  5: 'hers' (0.0000)
+  6: 'sister' (0.0000)
+  7: 'his' (0.0000)
+  8: 'её' (0.0000)
+  9: 'elder' (0.0000)
+Skipping check: top token 'her' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'older' (0.9718)
+  1: 'sister' (0.0259)
+  2: 'elder' (0.0021)
+  3: 'older' (0.0001)
+  4: 'oldest' (0.0000)
+  5: 'Old' (0.0000)
+  6: 'elderly' (0.0000)
+  7: 'sisters' (0.0000)
+  8: 'Eld' (0.0000)
+  9: 'Sister' (0.0000)
+Skipping check: top token 'older' has prob 0.9718 >= 0.9
+>>> Actually generated token: 'older'
+Top K tokens:
+  0: 'sister' (1.0000)
+  1: 'Sister' (0.0000)
+  2: 'sisters' (0.0000)
+  3: 'sib' (0.0000)
+  4: 'ister' (0.0000)
+  5: 'siblings' (0.0000)
+  6: 's' (0.0000)
+  7: 'brother' (0.0000)
+  8: 'daughter' (0.0000)
+  9: 'older' (0.0000)
+Skipping check: top token 'sister' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'sister'
+Top K tokens:
+  0: ',' (0.9736)
+  1: 'Marg' (0.0264)
+  2: 'Margaret' (0.0000)
+  3: 'Mar' (0.0000)
+  4: 'marg' (0.0000)
+  5: 'M' (0.0000)
+  6: 'Meg' (0.0000)
+  7: 'Mort' (0.0000)
+  8: 'margin' (0.0000)
+  9: 'Mary' (0.0000)
+Skipping check: top token ',' has prob 0.9736 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'Marg' (1.0000)
+  1: 'marg' (0.0000)
+  2: 'Margaret' (0.0000)
+  3: 'M' (0.0000)
+  4: 'Mar' (0.0000)
+  5: 'Meg' (0.0000)
+  6: 'marginal' (0.0000)
+  7: 'Mart' (0.0000)
+  8: 'margin' (0.0000)
+  9: 'M' (0.0000)
+Skipping check: top token 'Marg' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'Marg'
+Top K tokens:
+  0: 'ot' (1.0000)
+  1: 'OT' (0.0000)
+  2: 'ot' (0.0000)
+  3: 'Ot' (0.0000)
+  4: 'ott' (0.0000)
+  5: 'oth' (0.0000)
+  6: 'от' (0.0000)
+  7: 'ort' (0.0000)
+  8: 'ôt' (0.0000)
+  9: 'or' (0.0000)
+Skipping check: top token 'ot' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ot'
+Top K tokens:
+  0: ',' (0.8947)
+  1: 'Frank' (0.1052)
+  2: 'Fr' (0.0001)
+  3: "'" (0.0000)
+  4: 'died' (0.0000)
+  5: 'Fr' (0.0000)
+  6: 'Fran' (0.0000)
+  7: 'may' (0.0000)
+  8: 'might' (0.0000)
+  9: 'Franklin' (0.0000)
+Chosen token: ',' (0.8947) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'likely' (0.6056)
+  1: 'died' (0.1762)
+  2: 'actually' (0.0604)
+  3: 'passed' (0.0590)
+  4: 'most' (0.0336)
+  5: 'probably' (0.0279)
+  6: 'may' (0.0199)
+  7: 'might' (0.0077)
+  8: 'both' (0.0055)
+  9: 'had' (0.0040)
+Chosen token: 'likely' (0.6007) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot,'
+>>> Actually generated token: 'likely'
+Top K tokens:
+  0: 'died' (0.7097)
+  1: 'passed' (0.2304)
+  2: 'per' (0.0574)
+  3: 'succ' (0.0016)
+  4: 'did' (0.0005)
+  5: 'didn' (0.0002)
+  6: 'dece' (0.0001)
+  7: 'both' (0.0001)
+  8: 'passes' (0.0001)
+  9: 'dies' (0.0000)
+Chosen token: 'died' (0.7095) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely'
+>>> Actually generated token: 'died'
+Top K tokens:
+  0: 'in' (0.5392)
+  1: 'at' (0.2301)
+  2: 'a' (0.1984)
+  3: 'there' (0.0179)
+  4: 'before' (0.0057)
+  5: 'earlier' (0.0041)
+  6: 'up' (0.0014)
+  7: 'by' (0.0012)
+  8: 'around' (0.0011)
+  9: 'about' (0.0009)
+Chosen token: 'in' (0.5366) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died'
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'late' (0.7467)
+  1: 'January' (0.1590)
+  2: 'February' (0.0448)
+  3: 'early' (0.0384)
+  4: 'December' (0.0067)
+  5: 'mid' (0.0037)
+  6: 'the' (0.0005)
+  7: 'late' (0.0001)
+  8: 'November' (0.0001)
+  9: 'Ber' (0.0000)
+Chosen token: 'late' (0.7466) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in'
+>>> Actually generated token: 'late'
+Top K tokens:
+  0: 'January' (0.7788)
+  1: 'February' (0.1969)
+  2: '' (0.0134)
+  3: 'December' (0.0103)
+  4: 'winter' (0.0002)
+  5: '-' (0.0002)
+  6: 'November' (0.0002)
+  7: 'Jan' (0.0000)
+  8: 'October' (0.0000)
+  9: 'Feb' (0.0000)
+Chosen token: 'January' (0.7788) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late'
+>>> Actually generated token: 'January'
+Top K tokens:
+  0: 'or' (0.9917)
+  1: '' (0.0077)
+  2: 'to' (0.0005)
+  3: '-' (0.0000)
+  4: '/' (0.0000)
+  5: 'or' (0.0000)
+  6: ',' (0.0000)
+  7: '或' (0.0000)
+  8: 'rather' (0.0000)
+  9: 'instead' (0.0000)
+Skipping check: top token 'or' has prob 0.9917 >= 0.9
+>>> Actually generated token: 'or'
+Top K tokens:
+  0: 'early' (0.9989)
+  1: 'February' (0.0010)
+  2: 'earliest' (0.0000)
+  3: 'Early' (0.0000)
+  4: 'ear' (0.0000)
+  5: 'mid' (0.0000)
+  6: 'earlier' (0.0000)
+  7: 'late' (0.0000)
+  8: 'December' (0.0000)
+  9: 'Feb' (0.0000)
+Skipping check: top token 'early' has prob 0.9989 >= 0.9
+>>> Actually generated token: 'early'
+Top K tokens:
+  0: 'February' (0.9999)
+  1: 'Feb' (0.0000)
+  2: 'Februar' (0.0000)
+  3: 'febru' (0.0000)
+  4: 'F' (0.0000)
+  5: 'ebru' (0.0000)
+  6: 'March' (0.0000)
+  7: 'Febru' (0.0000)
+  8: 'février' (0.0000)
+  9: 'февраля' (0.0000)
+Skipping check: top token 'February' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'February'
+Top K tokens:
+  0: '' (0.9763)
+  1: 'of' (0.0233)
+  2: ',' (0.0003)
+  3: 'instead' (0.0000)
+  4: '1' (0.0000)
+  5: 'rather' (0.0000)
+  6: 'in' (0.0000)
+  7: 'of' (0.0000)
+  8: 'that' (0.0000)
+  9: ' ' (0.0000)
+Skipping check: top token '' has prob 0.9763 >= 0.9
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: 'of' (0.0000)
+  2: 'of' (0.0000)
+  3: 'Of' (0.0000)
+  4: 'Of' (0.0000)
+  5: 'OF' (0.0000)
+  6: '₁' (0.0000)
+  7: 'ninete' (0.0000)
+  8: '4' (0.0000)
+  9: '3' (0.0000)
+Skipping check: top token '1' has prob 1.0000 >= 0.9
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (1.0000)
+  1: '5' (0.0000)
+  2: '6' (0.0000)
+  3: '8' (0.0000)
+  4: 'nin' (0.0000)
+  5: '7' (0.0000)
+  6: 'nine' (0.0000)
+  7: '4' (0.0000)
+  8: '3' (0.0000)
+  9: '0' (0.0000)
+Skipping check: top token '9' has prob 1.0000 >= 0.9
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'forty' (0.0000)
+  2: 'fourth' (0.0000)
+  3: '5' (0.0000)
+  4: 'four' (0.0000)
+  5: 'Fourth' (0.0000)
+  6: 'Four' (0.0000)
+  7: 'four' (0.0000)
+  8: '3' (0.0000)
+  9: '四' (0.0000)
+Skipping check: top token '4' has prob 1.0000 >= 0.9
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '5' (1.0000)
+  1: 'five' (0.0000)
+  2: 'fifth' (0.0000)
+  3: '4' (0.0000)
+  4: '6' (0.0000)
+  5: 'five' (0.0000)
+  6: 'Five' (0.0000)
+  7: 'fif' (0.0000)
+  8: '五' (0.0000)
+  9: '3' (0.0000)
+Skipping check: top token '5' has prob 1.0000 >= 0.9
+>>> Actually generated token: '5'
+Top K tokens:
+  0: ',' (0.9620)
+  1: 'instead' (0.0186)
+  2: '.' (0.0091)
+  3: '–' (0.0047)
+  4: '-' (0.0027)
+  5: 'rather' (0.0023)
+  6: 'due' (0.0002)
+  7: '—' (0.0002)
+  8: '—' (0.0001)
+  9: ';' (0.0001)
+Skipping check: top token ',' has prob 0.9620 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'rather' (0.3883)
+  1: 'contrad' (0.1331)
+  2: 'instead' (0.1148)
+  3: 'before' (0.0880)
+  4: 'weeks' (0.0702)
+  5: 'prior' (0.0568)
+  6: 'not' (0.0559)
+  7: 'contrary' (0.0419)
+  8: 'earlier' (0.0258)
+  9: 'months' (0.0252)
+Chosen token: 'rather' (0.3295) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945,'
+>>> Actually generated token: 'rather'
+Top K tokens:
+  0: 'than' (0.9999)
+  1: 'than' (0.0001)
+  2: 'Than' (0.0000)
+  3: 'earlier' (0.0000)
+  4: 'previously' (0.0000)
+  5: 'then' (0.0000)
+  6: 'the' (0.0000)
+  7: 'чем' (0.0000)
+  8: 'of' (0.0000)
+  9: 'previous' (0.0000)
+Skipping check: top token 'than' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'than'
+Top K tokens:
+  0: 'in' (0.7955)
+  1: 'March' (0.1164)
+  2: 'the' (0.0418)
+  3: 'late' (0.0355)
+  4: 'just' (0.0039)
+  5: 'early' (0.0024)
+  6: 'mid' (0.0021)
+  7: 'shortly' (0.0012)
+  8: 'two' (0.0006)
+  9: 'march' (0.0005)
+Chosen token: 'in' (0.7934) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than'
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'March' (0.9932)
+  1: 'late' (0.0037)
+  2: 'mid' (0.0016)
+  3: 'early' (0.0013)
+  4: 'the' (0.0001)
+  5: 'march' (0.0001)
+  6: 'April' (0.0000)
+  7: 'February' (0.0000)
+  8: 'spring' (0.0000)
+  9: 'marzo' (0.0000)
+Skipping check: top token 'March' has prob 0.9932 >= 0.9
+>>> Actually generated token: 'March'
+Top K tokens:
+  0: 'as' (0.6556)
+  1: ',' (0.2567)
+  2: '.' (0.0867)
+  3: 'when' (0.0004)
+  4: '' (0.0002)
+  5: '–' (0.0001)
+  6: '-' (0.0001)
+  7: 'as' (0.0000)
+  8: 'like' (0.0000)
+  9: 'according' (0.0000)
+Chosen token: 'as' (0.6553) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March'
+>>> Actually generated token: 'as'
+Top K tokens:
+  0: 'previously' (0.9986)
+  1: 'previous' (0.0005)
+  2: 'earlier' (0.0003)
+  3: 'was' (0.0002)
+  4: 'originally' (0.0002)
+  5: 'initially' (0.0001)
+  6: 'formerly' (0.0001)
+  7: 'believed' (0.0000)
+  8: 'long' (0.0000)
+  9: 'commonly' (0.0000)
+Skipping check: top token 'previously' has prob 0.9986 >= 0.9
+>>> Actually generated token: 'previously'
+Top K tokens:
+  0: 'believed' (0.9405)
+  1: 'thought' (0.0498)
+  2: 'assumed' (0.0067)
+  3: 'recorded' (0.0019)
+  4: 'documented' (0.0003)
+  5: 'reported' (0.0002)
+  6: 'estimated' (0.0002)
+  7: 'stated' (0.0001)
+  8: 'presum' (0.0001)
+  9: 'determined' (0.0001)
+Skipping check: top token 'believed' has prob 0.9405 >= 0.9
+>>> Actually generated token: 'believed'
+Top K tokens:
+  0: '.' (0.9715)
+  1: ',' (0.0284)
+  2: 'based' (0.0000)
+  3: ';' (0.0000)
+  4: 'by' (0.0000)
+  5: 'due' (0.0000)
+  6: '.,' (0.0000)
+  7: ':' (0.0000)
+  8: '–' (0.0000)
+  9: '-' (0.0000)
+Skipping check: top token '.' has prob 0.9715 >= 0.9
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'The' (0.7550)
+  1: 'Research' (0.0888)
+  2: 'They' (0.0615)
+  3: 'This' (0.0530)
+  4: 'Anne' (0.0195)
+  5: 'Their' (0.0134)
+  6: 'Based' (0.0030)
+  7: 'Arch' (0.0022)
+  8: 'Re' (0.0021)
+  9: 'These' (0.0015)
+Chosen token: 'The' (0.7331) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed.'
+>>> Actually generated token: 'The'
+Top K tokens:
+  0: 'sisters' (0.8741)
+  1: 'researchers' (0.0826)
+  2: 'siblings' (0.0107)
+  3: 'girls' (0.0079)
+  4: 'Sister' (0.0065)
+  5: 'two' (0.0051)
+  6: 'pair' (0.0043)
+  7: 'findings' (0.0039)
+  8: 'revision' (0.0028)
+  9: 'discovery' (0.0022)
+Chosen token: 'sisters' (0.8544) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The'
+>>> Actually generated token: 'sisters'
+Top K tokens:
+  0: 'had' (0.6096)
+  1: 'were' (0.3212)
+  2: ',' (0.0585)
+  3: "'" (0.0036)
+  4: 'spent' (0.0031)
+  5: 'arrived' (0.0016)
+  6: 'survived' (0.0014)
+  7: 'end' (0.0004)
+  8: 'contract' (0.0004)
+  9: 'lived' (0.0002)
+Chosen token: 'had' (0.6090) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters'
+>>> Actually generated token: 'had'
+Top K tokens:
+  0: 'been' (0.9943)
+  1: 'survived' (0.0021)
+  2: 'previously' (0.0016)
+  3: 'arrived' (0.0012)
+  4: 'earlier' (0.0004)
+  5: 'initially' (0.0003)
+  6: 'spent' (0.0001)
+  7: 'originally' (0.0000)
+  8: 'already' (0.0000)
+  9: 'end' (0.0000)
+Skipping check: top token 'been' has prob 0.9943 >= 0.9
+>>> Actually generated token: 'been'
+Top K tokens:
+  0: 'sent' (0.5079)
+  1: 'imprison' (0.2052)
+  2: 'separated' (0.1573)
+  3: 'transferred' (0.0491)
+  4: 'taken' (0.0332)
+  5: 'arrested' (0.0146)
+  6: 'transport' (0.0136)
+  7: 'prisoners' (0.0072)
+  8: 'held' (0.0063)
+  9: 'in' (0.0053)
+Chosen token: 'sent' (0.4974) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been'
+>>> Actually generated token: 'sent'
+Top K tokens:
+  0: 'to' (0.9529)
+  1: 'from' (0.0467)
+  2: 'as' (0.0001)
+  3: 'there' (0.0001)
+  4: 'away' (0.0001)
+  5: 'enced' (0.0000)
+  6: 'to' (0.0000)
+  7: 'back' (0.0000)
+  8: 'for' (0.0000)
+  9: 'initially' (0.0000)
+Skipping check: top token 'to' has prob 0.9529 >= 0.9
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'Ber' (0.6228)
+  1: 'the' (0.3132)
+  2: 'Aus' (0.0386)
+  3: 'work' (0.0211)
+  4: 'this' (0.0016)
+  5: 'concentration' (0.0007)
+  6: 'Ber' (0.0006)
+  7: 'Bir' (0.0006)
+  8: 'labor' (0.0005)
+  9: 'Bern' (0.0003)
+Chosen token: 'Ber' (0.6220) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to'
+>>> Actually generated token: 'Ber'
+Top K tokens:
+  0: 'gen' (1.0000)
+  1: 'ген' (0.0000)
+  2: 'ken' (0.0000)
+  3: 'GEN' (0.0000)
+  4: 'gan' (0.0000)
+  5: 'Gen' (0.0000)
+  6: 'ogen' (0.0000)
+  7: 'egen' (0.0000)
+  8: 'agen' (0.0000)
+  9: 'igen' (0.0000)
+Skipping check: top token 'gen' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'gen'
+Top K tokens:
+  0: '-' (1.0000)
+  1: '–' (0.0000)
+  2: '‐' (0.0000)
+  3: 'B' (0.0000)
+  4: '‑' (0.0000)
+  5: 'after' (0.0000)
+  6: '--' (0.0000)
+  7: '\xad' (0.0000)
+  8: '-' (0.0000)
+  9: '-\\' (0.0000)
+Skipping check: top token '-' has prob 1.0000 >= 0.9
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'B' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Б' (0.0000)
+  4: 'D' (0.0000)
+  5: 'b' (0.0000)
+  6: 'Bel' (0.0000)
+  7: 'Β' (0.0000)
+  8: 'A' (0.0000)
+  9: 'L' (0.0000)
+Skipping check: top token 'B' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'els' (1.0000)
+  1: 'ens' (0.0000)
+  2: 'elson' (0.0000)
+  3: 'ells' (0.0000)
+  4: 'eles' (0.0000)
+  5: 'Els' (0.0000)
+  6: 'else' (0.0000)
+  7: 'als' (0.0000)
+  8: 'el' (0.0000)
+  9: 'nels' (0.0000)
+Skipping check: top token 'els' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'els'
+Top K tokens:
+  0: 'en' (1.0000)
+  1: 'an' (0.0000)
+  2: 'ens' (0.0000)
+  3: 'EN' (0.0000)
+  4: 'ен' (0.0000)
+  5: 'ent' (0.0000)
+  6: 'em' (0.0000)
+  7: 'on' (0.0000)
+  8: 'én' (0.0000)
+  9: 'in' (0.0000)
+Skipping check: top token 'en' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'en'
+Top K tokens:
+  0: 'after' (0.4298)
+  1: 'in' (0.3194)
+  2: 'from' (0.2230)
+  3: 'following' (0.0214)
+  4: 'as' (0.0059)
+  5: ',' (0.0002)
+  6: 'shortly' (0.0001)
+  7: 'for' (0.0001)
+  8: 'earlier' (0.0001)
+  9: 'a' (0.0000)
+Chosen token: 'after' (0.4295) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen'
+>>> Actually generated token: 'after'
+Top K tokens:
+  0: 'being' (0.8272)
+  1: 'their' (0.1579)
+  2: 'a' (0.0076)
+  3: 'earlier' (0.0029)
+  4: 'they' (0.0018)
+  5: 'initially' (0.0013)
+  6: 'previously' (0.0004)
+  7: 'the' (0.0004)
+  8: 'previous' (0.0002)
+  9: 'spending' (0.0002)
+Chosen token: 'being' (0.8254) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after'
+>>> Actually generated token: 'being'
+Top K tokens:
+  0: 'separated' (0.8170)
+  1: 'arrested' (0.1007)
+  2: 'transferred' (0.0472)
+  3: 'transport' (0.0118)
+  4: 'imprison' (0.0087)
+  5: 'previously' (0.0084)
+  6: 'initially' (0.0018)
+  7: 'deport' (0.0018)
+  8: 'taken' (0.0014)
+  9: 'released' (0.0012)
+Chosen token: 'separated' (0.8092) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being'
+>>> Actually generated token: 'separated'
+Top K tokens:
+  0: 'from' (0.9997)
+  1: 'at' (0.0003)
+  2: 'from' (0.0000)
+  3: 'in' (0.0000)
+  4: 'during' (0.0000)
+  5: 'upon' (0.0000)
+  6: 'while' (0.0000)
+  7: 'and' (0.0000)
+  8: 'From' (0.0000)
+  9: 'earlier' (0.0000)
+Skipping check: top token 'from' has prob 0.9997 >= 0.9
+>>> Actually generated token: 'from'
+Top K tokens:
+  0: 'their' (1.0000)
+  1: 'Their' (0.0000)
+  2: 'the' (0.0000)
+  3: 'her' (0.0000)
+  4: 'his' (0.0000)
+  5: 'other' (0.0000)
+  6: 'Anne' (0.0000)
+  7: 'их' (0.0000)
+  8: 'others' (0.0000)
+  9: 'Marg' (0.0000)
+Skipping check: top token 'their' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'their'
+Top K tokens:
+  0: 'mother' (0.9991)
+  1: 'parents' (0.0004)
+  2: 'mother' (0.0002)
+  3: 'family' (0.0002)
+  4: 'mothers' (0.0001)
+  5: 'Mother' (0.0000)
+  6: 'mom' (0.0000)
+  7: 'dying' (0.0000)
+  8: 'father' (0.0000)
+  9: 'imprison' (0.0000)
+Skipping check: top token 'mother' has prob 0.9991 >= 0.9
+>>> Actually generated token: 'mother'
+Top K tokens:
+  0: 'at' (0.6763)
+  1: 'in' (0.2230)
+  2: 'while' (0.0453)
+  3: 'and' (0.0364)
+  4: 'during' (0.0114)
+  5: ',' (0.0039)
+  6: 'following' (0.0022)
+  7: 'earlier' (0.0007)
+  8: 'upon' (0.0005)
+  9: 'when' (0.0002)
+Chosen token: 'at' (0.6761) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother'
+>>> Actually generated token: 'at'
+Top K tokens:
+  0: 'Aus' (0.8815)
+  1: 'the' (0.1174)
+  2: 'another' (0.0007)
+  3: 'Bir' (0.0002)
+  4: 'Auch' (0.0001)
+  5: 'Aur' (0.0001)
+  6: 'a' (0.0000)
+  7: 'Au' (0.0000)
+  8: 'work' (0.0000)
+  9: 'aus' (0.0000)
+Chosen token: 'Aus' (0.8814) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at'
+>>> Actually generated token: 'Aus'
+Top K tokens:
+  0: 'ch' (1.0000)
+  1: 'CH' (0.0000)
+  2: 'chs' (0.0000)
+  3: 'cht' (0.0000)
+  4: 'chn' (0.0000)
+  5: 'chr' (0.0000)
+  6: 'ching' (0.0000)
+  7: 'chat' (0.0000)
+  8: 'chi' (0.0000)
+  9: 'chter' (0.0000)
+Skipping check: top token 'ch' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ch'
+Top K tokens:
+  0: 'w' (1.0000)
+  1: 'hw' (0.0000)
+  2: 'wh' (0.0000)
+  3: 'uw' (0.0000)
+  4: 'wich' (0.0000)
+  5: 'aw' (0.0000)
+  6: 'wart' (0.0000)
+  7: 'v' (0.0000)
+  8: 'ww' (0.0000)
+  9: 'ow' (0.0000)
+Skipping check: top token 'w' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'w'
+Top K tokens:
+  0: 'itz' (1.0000)
+  1: 'iz' (0.0000)
+  2: 'icz' (0.0000)
+  3: 'etz' (0.0000)
+  4: 'it' (0.0000)
+  5: 'tz' (0.0000)
+  6: 'ritz' (0.0000)
+  7: 'itzer' (0.0000)
+  8: 'atz' (0.0000)
+  9: 'utz' (0.0000)
+Skipping check: top token 'itz' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'itz'
+Top K tokens:
+  0: '-' (0.9617)
+  1: '.' (0.0230)
+  2: 'in' (0.0119)
+  3: ',' (0.0028)
+  4: 'earlier' (0.0003)
+  5: 'the' (0.0001)
+  6: 'and' (0.0001)
+  7: '–' (0.0000)
+  8: 'later' (0.0000)
+  9: 'following' (0.0000)
+Skipping check: top token '-' has prob 0.9617 >= 0.9
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'Bir' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Br' (0.0000)
+  4: 'A' (0.0000)
+  5: 'Ber' (0.0000)
+  6: 'Bi' (0.0000)
+  7: 'Б' (0.0000)
+  8: 'K' (0.0000)
+  9: '\xad' (0.0000)
+Skipping check: top token 'B' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'ir' (1.0000)
+  1: 'irs' (0.0000)
+  2: 'IR' (0.0000)
+  3: 'ír' (0.0000)
+  4: 'iron' (0.0000)
+  5: 'irl' (0.0000)
+  6: 'irling' (0.0000)
+  7: 'irat' (0.0000)
+  8: 'irical' (0.0000)
+  9: 'irk' (0.0000)
+Skipping check: top token 'ir' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ir'
+Top K tokens:
+  0: 'ken' (1.0000)
+  1: 'cken' (0.0000)
+  2: 'KEN' (0.0000)
+  3: 'Ken' (0.0000)
+  4: 'iken' (0.0000)
+  5: 'chen' (0.0000)
+  6: 'cen' (0.0000)
+  7: 'oken' (0.0000)
+  8: 'zen' (0.0000)
+  9: 'nen' (0.0000)
+Skipping check: top token 'ken' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ken'
+Top K tokens:
+  0: 'au' (1.0000)
+  1: 'AU' (0.0000)
+  2: 'auer' (0.0000)
+  3: 'au' (0.0000)
+  4: 'AU' (0.0000)
+  5: 'h' (0.0000)
+  6: 'aus' (0.0000)
+  7: 'aur' (0.0000)
+  8: 'hu' (0.0000)
+  9: 'Au' (0.0000)
+Skipping check: top token 'au' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'au'
+Top K tokens:
+  0: '.' (0.6067)
+  1: 'in' (0.3197)
+  2: ',' (0.0342)
+  3: 'the' (0.0192)
+  4: 'camp' (0.0079)
+  5: 'earlier' (0.0059)
+  6: 'concentration' (0.0055)
+  7: 'and' (0.0006)
+  8: 'following' (0.0002)
+  9: 'late' (0.0001)
+Chosen token: '.' (0.6063) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau'
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Cond' (0.7594)
+  1: 'They' (0.1192)
+  2: 'Their' (0.0339)
+  3: 'Pr' (0.0248)
+  4: 'Living' (0.0210)
+  5: 'Life' (0.0150)
+  6: 'At' (0.0097)
+  7: 'The' (0.0076)
+  8: 'In' (0.0050)
+  9: 'Camp' (0.0043)
+Chosen token: 'Cond' (0.7452) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau.'
+>>> Actually generated token: 'Cond'
+Top K tokens:
+  0: 'itions' (1.0000)
+  1: 'iciones' (0.0000)
+  2: 'ictions' (0.0000)
+  3: 'itional' (0.0000)
+  4: 'ensions' (0.0000)
+  5: 'ctions' (0.0000)
+  6: 'ations' (0.0000)
+  7: 'ions' (0.0000)
+  8: 'usions' (0.0000)
+  9: 'izioni' (0.0000)
+Skipping check: top token 'itions' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'itions'
+Top K tokens:
+  0: 'at' (0.5454)
+  1: 'in' (0.4117)
+  2: 'were' (0.0414)
+  3: 'there' (0.0011)
+  4: 'within' (0.0002)
+  5: 'inside' (0.0000)
+  6: 'during' (0.0000)
+  7: 'were' (0.0000)
+  8: 'at' (0.0000)
+  9: 'included' (0.0000)
+Chosen token: 'at' (0.5454) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions'
+>>> Actually generated token: 'at'
+Top K tokens:
+  0: 'the' (0.9748)
+  1: 'Ber' (0.0252)
+  2: 'this' (0.0000)
+  3: 'Ber' (0.0000)
+  4: 'camp' (0.0000)
+  5: 'their' (0.0000)
+  6: 'that' (0.0000)
+  7: 'these' (0.0000)
+  8: 'Bir' (0.0000)
+  9: 'Bern' (0.0000)
+Skipping check: top token 'the' has prob 0.9748 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'camp' (0.9732)
+  1: 'over' (0.0123)
+  2: 'Ber' (0.0093)
+  3: 'camps' (0.0028)
+  4: 'concentration' (0.0015)
+  5: 'crowded' (0.0008)
+  6: 'camp' (0.0001)
+  7: 'Camp' (0.0000)
+  8: 'heavily' (0.0000)
+  9: 'cr' (0.0000)
+Skipping check: top token 'camp' has prob 0.9732 >= 0.9
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: 'were' (0.9629)
+  1: ',' (0.0273)
+  2: 'included' (0.0086)
+  3: 'during' (0.0009)
+  4: 'w' (0.0001)
+  5: 'in' (0.0001)
+  6: 'led' (0.0001)
+  7: 'were' (0.0000)
+  8: 'where' (0.0000)
+  9: 'consisted' (0.0000)
+Skipping check: top token 'were' has prob 0.9629 >= 0.9
+>>> Actually generated token: 'were'
+Top K tokens:
+  0: 'dire' (0.4396)
+  1: 'hor' (0.3616)
+  2: 'terrible' (0.0439)
+  3: 'de' (0.0353)
+  4: 'brutal' (0.0334)
+  5: 'harsh' (0.0309)
+  6: 'dread' (0.0186)
+  7: 'grim' (0.0164)
+  8: 'app' (0.0104)
+  9: 'gru' (0.0099)
+Chosen token: 'dire' (0.4178) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were'
+>>> Actually generated token: 'dire'
+Top K tokens:
+  0: ',' (0.9640)
+  1: 'with' (0.0144)
+  2: ';' (0.0082)
+  3: '-' (0.0047)
+  4: '–' (0.0045)
+  5: ':' (0.0033)
+  6: 'and' (0.0006)
+  7: '-' (0.0001)
+  8: '—' (0.0001)
+  9: 'as' (0.0000)
+Skipping check: top token ',' has prob 0.9640 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'with' (0.9872)
+  1: 'and' (0.0062)
+  2: 'marked' (0.0024)
+  3: 'filled' (0.0020)
+  4: 'including' (0.0012)
+  5: 'characterized' (0.0005)
+  6: 'with' (0.0002)
+  7: 'as' (0.0002)
+  8: 'leading' (0.0001)
+  9: 'featuring' (0.0001)
+Skipping check: top token 'with' has prob 0.9872 >= 0.9
+>>> Actually generated token: 'with'
+Top K tokens:
+  0: 'over' (0.4353)
+  1: 'prisoners' (0.2992)
+  2: 'in' (0.1118)
+  3: 'no' (0.0536)
+  4: 'poor' (0.0396)
+  5: 'limited' (0.0200)
+  6: 'little' (0.0188)
+  7: 'ins' (0.0116)
+  8: 'long' (0.0067)
+  9: 'disease' (0.0034)
+Chosen token: 'over' (0.4227) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with'
+>>> Actually generated token: 'over'
+Top K tokens:
+  0: 'c' (1.0000)
+  1: 'crow' (0.0000)
+  2: 'pop' (0.0000)
+  3: 'Crow' (0.0000)
+  4: 'crowded' (0.0000)
+  5: '-' (0.0000)
+  6: 'packed' (0.0000)
+  7: 'cro' (0.0000)
+  8: 'filled' (0.0000)
+  9: 'crowds' (0.0000)
+Skipping check: top token 'c' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'c'
+Top K tokens:
+  0: 'row' (1.0000)
+  1: 'rows' (0.0000)
+  2: 'ROW' (0.0000)
+  3: 'row' (0.0000)
+  4: 'rowning' (0.0000)
+  5: 'Row' (0.0000)
+  6: 'rown' (0.0000)
+  7: 'Row' (0.0000)
+  8: 'raw' (0.0000)
+  9: 'crow' (0.0000)
+Skipping check: top token 'row' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'row'
+Top K tokens:
+  0: 'ding' (0.9910)
+  1: 'ded' (0.0090)
+  2: 'dings' (0.0000)
+  3: 'd' (0.0000)
+  4: 'ds' (0.0000)
+  5: 'eding' (0.0000)
+  6: 'ading' (0.0000)
+  7: 'iding' (0.0000)
+  8: 'ning' (0.0000)
+  9: 'ing' (0.0000)
+Skipping check: top token 'ding' has prob 0.9910 >= 0.9
+>>> Actually generated token: 'ding'
+Top K tokens:
+  0: ',' (0.8911)
+  1: 'leading' (0.1015)
+  2: 'and' (0.0063)
+  3: 'causing' (0.0005)
+  4: 'resulting' (0.0003)
+  5: 'contributing' (0.0002)
+  6: 'ex' (0.0001)
+  7: 'increasing' (0.0000)
+  8: 'bringing' (0.0000)
+  9: 'w' (0.0000)
+Chosen token: ',' (0.8910) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'poor' (0.6985)
+  1: 'lack' (0.1739)
+  2: 'in' (0.0454)
+  3: 'limited' (0.0342)
+  4: 'little' (0.0166)
+  5: 'ins' (0.0159)
+  6: 'disease' (0.0075)
+  7: 'harsh' (0.0030)
+  8: 'minimal' (0.0027)
+  9: 'no' (0.0024)
+Chosen token: 'poor' (0.6887) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding,'
+>>> Actually generated token: 'poor'
+Top K tokens:
+  0: 'san' (0.6172)
+  1: 'hy' (0.3743)
+  2: 'living' (0.0045)
+  3: 'nutrition' (0.0014)
+  4: 'water' (0.0012)
+  5: 'food' (0.0008)
+  6: 'lighting' (0.0004)
+  7: 'health' (0.0001)
+  8: 'conditions' (0.0000)
+  9: 'San' (0.0000)
+Chosen token: 'san' (0.6170) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor'
+>>> Actually generated token: 'san'
+Top K tokens:
+  0: 'itation' (0.9995)
+  1: 'itary' (0.0004)
+  2: 'it' (0.0000)
+  3: 'itations' (0.0000)
+  4: 'ity' (0.0000)
+  5: 'itar' (0.0000)
+  6: 'itarian' (0.0000)
+  7: 'itat' (0.0000)
+  8: 'ita' (0.0000)
+  9: 'ction' (0.0000)
+Skipping check: top token 'itation' has prob 0.9995 >= 0.9
+>>> Actually generated token: 'itation'
+Top K tokens:
+  0: ',' (0.9992)
+  1: 'and' (0.0007)
+  2: 'leading' (0.0001)
+  3: 'causing' (0.0000)
+  4: 'conditions' (0.0000)
+  5: 'resulting' (0.0000)
+  6: 'facilities' (0.0000)
+  7: 'and' (0.0000)
+  8: 'leading' (0.0000)
+  9: 'contributing' (0.0000)
+Skipping check: top token ',' has prob 0.9992 >= 0.9
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'and' (0.9746)
+  1: 'long' (0.0186)
+  2: 'violent' (0.0016)
+  3: 'violence' (0.0014)
+  4: 'lack' (0.0010)
+  5: 'l' (0.0009)
+  6: 'little' (0.0007)
+  7: 'harsh' (0.0005)
+  8: 'limited' (0.0004)
+  9: 'frequent' (0.0003)
+Skipping check: top token 'and' has prob 0.9746 >= 0.9
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'a' (0.5718)
+  1: 'frequent' (0.2310)
+  2: 'disease' (0.1237)
+  3: 'ramp' (0.0184)
+  4: 'long' (0.0141)
+  5: 'widespread' (0.0127)
+  6: 'harsh' (0.0087)
+  7: 'regular' (0.0070)
+  8: 'constant' (0.0068)
+  9: 'epid' (0.0059)
+Chosen token: 'a' (0.5362) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and'
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'ty' (0.8417)
+  1: 'deadly' (0.1374)
+  2: 'ramp' (0.0047)
+  3: 'fatal' (0.0040)
+  4: 'devast' (0.0029)
+  5: 'severe' (0.0024)
+  6: 'preval' (0.0021)
+  7: 'lack' (0.0018)
+  8: 'widespread' (0.0017)
+  9: 'Ty' (0.0012)
+Chosen token: 'ty' (0.8375) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a'
+>>> Actually generated token: 'ty'
+Top K tokens:
+  0: 'ph' (1.0000)
+  1: 'Ph' (0.0000)
+  2: 'phi' (0.0000)
+  3: 'oph' (0.0000)
+  4: 'PH' (0.0000)
+  5: 'ph' (0.0000)
+  6: 'phy' (0.0000)
+  7: 'pl' (0.0000)
+  8: 'php' (0.0000)
+  9: 'pha' (0.0000)
+Skipping check: top token 'ph' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ph'
+Top K tokens:
+  0: 'us' (1.0000)
+  1: 'oid' (0.0000)
+  2: 'US' (0.0000)
+  3: 'us' (0.0000)
+  4: 'hus' (0.0000)
+  5: 'pus' (0.0000)
+  6: 'ous' (0.0000)
+  7: 'usive' (0.0000)
+  8: 'uis' (0.0000)
+  9: 'Us' (0.0000)
+Skipping check: top token 'us' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'us'
+Top K tokens:
+  0: 'outbreak' (0.9033)
+  1: 'epid' (0.0967)
+  2: 'inf' (0.0000)
+  3: 'infection' (0.0000)
+  4: 'pandemic' (0.0000)
+  5: 'ep' (0.0000)
+  6: 'virus' (0.0000)
+  7: 'disease' (0.0000)
+  8: 'fever' (0.0000)
+  9: 'crisis' (0.0000)
+Skipping check: top token 'outbreak' has prob 0.9033 >= 0.9
+>>> Actually generated token: 'outbreak'
+Top K tokens:
+  0: 'that' (0.4642)
+  1: 'causing' (0.3449)
+  2: '.' (0.0679)
+  3: 'contributing' (0.0439)
+  4: 'leading' (0.0381)
+  5: 'claiming' (0.0222)
+  6: 'resulting' (0.0077)
+  7: 'killing' (0.0054)
+  8: ',' (0.0032)
+  9: 'in' (0.0024)
+Chosen token: 'that' (0.4595) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak'
+>>> Actually generated token: 'that'
+Top K tokens:
+  0: 'claimed' (0.3534)
+  1: 'caused' (0.2668)
+  2: 'likely' (0.0929)
+  3: 'killed' (0.0833)
+  4: 'led' (0.0807)
+  5: 'took' (0.0370)
+  6: 'spread' (0.0314)
+  7: 'contributed' (0.0201)
+  8: 'was' (0.0175)
+  9: 'ultimately' (0.0169)
+Chosen token: 'claimed' (0.3332) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that'
+>>> Actually generated token: 'claimed'
+Top K tokens:
+  0: 'thousands' (0.6347)
+  1: 'many' (0.2565)
+  2: 'countless' (0.0680)
+  3: 'numerous' (0.0375)
+  4: 'lives' (0.0023)
+  5: 'the' (0.0008)
+  6: 'hundreds' (0.0002)
+  7: 'thousand' (0.0000)
+  8: 'many' (0.0000)
+  9: 'multiple' (0.0000)
+Chosen token: 'thousands' (0.6347) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed'
+>>> Actually generated token: 'thousands'
+Top K tokens:
+  0: 'of' (0.9999)
+  1: '.' (0.0001)
+  2: 'each' (0.0000)
+  3: 'of' (0.0000)
+  4: 'in' (0.0000)
+  5: 'daily' (0.0000)
+  6: ',' (0.0000)
+  7: 'lives' (0.0000)
+  8: 'every' (0.0000)
+  9: 'Of' (0.0000)
+Skipping check: top token 'of' has prob 0.9999 >= 0.9
+>>> Actually generated token: 'of'
+Top K tokens:
+  0: 'lives' (1.0000)
+  1: 'victims' (0.0000)
+  2: 'live' (0.0000)
+  3: 'deaths' (0.0000)
+  4: 'prisoners' (0.0000)
+  5: 'souls' (0.0000)
+  6: 'lif' (0.0000)
+  7: 'innocent' (0.0000)
+  8: 'l' (0.0000)
+  9: 'lived' (0.0000)
+Skipping check: top token 'lives' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'lives'
+Top K tokens:
+  0: '.' (0.8606)
+  1: 'each' (0.1060)
+  2: 'daily' (0.0165)
+  3: ',' (0.0076)
+  4: 'in' (0.0074)
+  5: 'every' (0.0007)
+  6: 'during' (0.0003)
+  7: 'a' (0.0003)
+  8: 'weekly' (0.0003)
+  9: 'within' (0.0002)
+Chosen token: '.' (0.8597) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives'
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Anne' (0.4853)
+  1: 'The' (0.2071)
+  2: 'W' (0.1017)
+  3: 'Research' (0.0553)
+  4: 'Both' (0.0512)
+  5: 'It' (0.0459)
+  6: 'Ex' (0.0171)
+  7: 'Ty' (0.0144)
+  8: 'Despite' (0.0116)
+  9: 'With' (0.0103)
+Chosen token: 'Anne' (0.4646) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives.'
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'and' (0.5992)
+  1: "'" (0.3578)
+  2: ',' (0.0272)
+  3: 'likely' (0.0055)
+  4: 'is' (0.0051)
+  5: 'was' (0.0018)
+  6: 'probably' (0.0017)
+  7: 'had' (0.0009)
+  8: 'Frank' (0.0006)
+  9: 'became' (0.0003)
+Chosen token: 'and' (0.5972) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne'
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'Marg' (0.9935)
+  1: 'her' (0.0065)
+  2: 'other' (0.0000)
+  3: 'Margaret' (0.0000)
+  4: 'Mar' (0.0000)
+  5: 'marg' (0.0000)
+  6: 'her' (0.0000)
+  7: 'others' (0.0000)
+  8: 'M' (0.0000)
+  9: 'Meg' (0.0000)
+Skipping check: top token 'Marg' has prob 0.9935 >= 0.9
+>>> Actually generated token: 'Marg'
+Top K tokens:
+  0: 'ot' (1.0000)
+  1: 'OT' (0.0000)
+  2: 'ott' (0.0000)
+  3: 'ot' (0.0000)
+  4: 'ots' (0.0000)
+  5: 'o' (0.0000)
+  6: 'oth' (0.0000)
+  7: 'ota' (0.0000)
+  8: 'от' (0.0000)
+  9: 'Ot' (0.0000)
+Skipping check: top token 'ot' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ot'
+Top K tokens:
+  0: 'likely' (0.3828)
+  1: 'were' (0.1583)
+  2: "'" (0.1386)
+  3: 'are' (0.1177)
+  4: 'probably' (0.0547)
+  5: 'both' (0.0429)
+  6: ',' (0.0334)
+  7: 'would' (0.0251)
+  8: 'reported' (0.0247)
+  9: 'end' (0.0218)
+Chosen token: 'likely' (0.3305) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot'
+>>> Actually generated token: 'likely'
+Top K tokens:
+  0: 'succ' (0.6753)
+  1: 'contract' (0.2092)
+  2: 'fell' (0.0497)
+  3: 'died' (0.0418)
+  4: 'per' (0.0164)
+  5: 'suffered' (0.0034)
+  6: 'developed' (0.0016)
+  7: 'became' (0.0011)
+  8: 'end' (0.0010)
+  9: 'caught' (0.0005)
+Chosen token: 'succ' (0.6730) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely'
+>>> Actually generated token: 'succ'
+Top K tokens:
+  0: 'umb' (0.9993)
+  1: 'umbing' (0.0003)
+  2: 'umber' (0.0002)
+  3: 'umbs' (0.0001)
+  4: 'om' (0.0001)
+  5: 'umbled' (0.0000)
+  6: 'omb' (0.0000)
+  7: 'omed' (0.0000)
+  8: 'UM' (0.0000)
+  9: 'umed' (0.0000)
+Skipping check: top token 'umb' has prob 0.9993 >= 0.9
+>>> Actually generated token: 'umb'
+Top K tokens:
+  0: 'ed' (1.0000)
+  1: 'ED' (0.0000)
+  2: 'to' (0.0000)
+  3: 'ered' (0.0000)
+  4: 'eds' (0.0000)
+  5: 'ded' (0.0000)
+  6: 'eda' (0.0000)
+  7: 'ced' (0.0000)
+  8: 'ened' (0.0000)
+  9: 'ned' (0.0000)
+Skipping check: top token 'ed' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ed'
+Top K tokens:
+  0: 'to' (1.0000)
+  1: 'before' (0.0000)
+  2: 'to' (0.0000)
+  3: 'due' (0.0000)
+  4: 'weeks' (0.0000)
+  5: 'shortly' (0.0000)
+  6: 'during' (0.0000)
+  7: 'earlier' (0.0000)
+  8: 'early' (0.0000)
+  9: 'from' (0.0000)
+Skipping check: top token 'to' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'the' (0.9412)
+  1: 'ty' (0.0407)
+  2: 'this' (0.0178)
+  3: 'disease' (0.0001)
+  4: 'illness' (0.0001)
+  5: 'these' (0.0001)
+  6: 'diseases' (0.0000)
+  7: 'typ' (0.0000)
+  8: 'epid' (0.0000)
+  9: 'that' (0.0000)
+Skipping check: top token 'the' has prob 0.9412 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'disease' (0.9959)
+  1: 'illness' (0.0033)
+  2: 'diseases' (0.0004)
+  3: 'deadly' (0.0002)
+  4: 'infect' (0.0001)
+  5: 'dise' (0.0001)
+  6: 'infection' (0.0000)
+  7: 'ty' (0.0000)
+  8: 'epid' (0.0000)
+  9: 'devast' (0.0000)
+Skipping check: top token 'disease' has prob 0.9959 >= 0.9
+>>> Actually generated token: 'disease'
+Top K tokens:
+  0: 'before' (0.5510)
+  1: ',' (0.1875)
+  2: 'weeks' (0.0550)
+  3: 'around' (0.0541)
+  4: 'several' (0.0513)
+  5: 'prior' (0.0311)
+  6: 'earlier' (0.0235)
+  7: 'well' (0.0219)
+  8: 'due' (0.0138)
+  9: 'months' (0.0109)
+Chosen token: 'before' (0.5376) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease'
+>>> Actually generated token: 'before'
+Top K tokens:
+  0: 'the' (0.5364)
+  1: 'March' (0.3863)
+  2: 'liber' (0.0365)
+  3: 'it' (0.0303)
+  4: 'its' (0.0074)
+  5: 'Liber' (0.0014)
+  6: 'February' (0.0010)
+  7: 'march' (0.0004)
+  8: 'late' (0.0002)
+  9: 'Russian' (0.0002)
+Chosen token: 'the' (0.5356) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before'
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'camp' (0.9642)
+  1: 'liber' (0.0191)
+  2: 'Russian' (0.0053)
+  3: 'end' (0.0043)
+  4: 'Russians' (0.0029)
+  5: 'Soviet' (0.0013)
+  6: 'arrival' (0.0009)
+  7: 'March' (0.0008)
+  8: 'camps' (0.0007)
+  9: 'All' (0.0004)
+Skipping check: top token 'camp' has prob 0.9642 >= 0.9
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: "'" (0.5273)
+  1: 'was' (0.4727)
+  2: '’' (0.0000)
+  3: 'was' (0.0000)
+  4: 'liber' (0.0000)
+  5: 'were' (0.0000)
+  6: 'Liber' (0.0000)
+  7: 'Was' (0.0000)
+  8: 'is' (0.0000)
+  9: '´' (0.0000)
+Chosen token: "'" (0.5273) | Generated so far: ' [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp'
+>>> Actually generated token: "'"
+Top K tokens:
+  0: 's' (1.0000)
+  1: 'S' (0.0000)
+  2: 'sb' (0.0000)
+  3: 'ss' (0.0000)
+  4: 'sv' (0.0000)
+  5: 'sf' (0.0000)
+  6: 'sg' (0.0000)
+  7: 'sd' (0.0000)
+  8: 'sil' (0.0000)
+  9: 'sin' (0.0000)
+Skipping check: top token 's' has prob 1.0000 >= 0.9
+>>> Actually generated token: 's'
+Top K tokens:
+  0: 'liber' (0.9995)
+  1: 'Liber' (0.0002)
+  2: 'event' (0.0001)
+  3: 'March' (0.0000)
+  4: 'liberal' (0.0000)
+  5: 'li' (0.0000)
+  6: 'February' (0.0000)
+  7: 'liquid' (0.0000)
+  8: 'release' (0.0000)
+  9: 'liberty' (0.0000)
+Skipping check: top token 'liber' has prob 0.9995 >= 0.9
+>>> Actually generated token: 'liber'
+Top K tokens:
+  0: 'ation' (1.0000)
+  1: 'ATION' (0.0000)
+  2: 'ations' (0.0000)
+  3: 'ated' (0.0000)
+  4: 'ating' (0.0000)
+  5: 'aton' (0.0000)
+  6: 'iation' (0.0000)
+  7: 'aration' (0.0000)
+  8: 'ization' (0.0000)
+  9: 'ion' (0.0000)
+Skipping check: top token 'ation' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ation'
+Top K tokens:
+  0: 'in' (0.6545)
+  1: 'on' (0.3240)
+  2: '.' (0.0132)
+  3: 'by' (0.0056)
+  4: ',' (0.0026)
+  5: 'two' (0.0001)
+  6: 'three' (0.0000)
+  7: 'later' (0.0000)
+  8: 'due' (0.0000)
+  9: 'at' (0.0000)
+Chosen token: 'in' (0.6545) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation"
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'mid' (0.5984)
+  1: 'March' (0.3009)
+  2: 'late' (0.0977)
+  3: 'early' (0.0020)
+  4: 'April' (0.0009)
+  5: 'mid' (0.0001)
+  6: 'spring' (0.0000)
+  7: 'march' (0.0000)
+  8: 'February' (0.0000)
+  9: 'the' (0.0000)
+Chosen token: 'mid' (0.5984) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in"
+>>> Actually generated token: 'mid'
+Top K tokens:
+  0: '-' (1.0000)
+  1: 'March' (0.0000)
+  2: '–' (0.0000)
+  3: 'march' (0.0000)
+  4: '-\\' (0.0000)
+  5: '-(' (0.0000)
+  6: '‐' (0.0000)
+  7: '-$' (0.0000)
+  8: '-' (0.0000)
+  9: 'to' (0.0000)
+Skipping check: top token '-' has prob 1.0000 >= 0.9
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'Apr' (0.9986)
+  1: 'April' (0.0006)
+  2: '1' (0.0004)
+  3: 'M' (0.0004)
+  4: 'March' (0.0000)
+  5: 'april' (0.0000)
+  6: 'Jan' (0.0000)
+  7: 'AP' (0.0000)
+  8: 'Ap' (0.0000)
+  9: 'Spring' (0.0000)
+Skipping check: top token 'Apr' has prob 0.9986 >= 0.9
+>>> Actually generated token: 'Apr'
+Top K tokens:
+  0: 'il' (1.0000)
+  1: 'IL' (0.0000)
+  2: 'Lil' (0.0000)
+  3: 'Il' (0.0000)
+  4: 'ил' (0.0000)
+  5: 'íl' (0.0000)
+  6: 'ils' (0.0000)
+  7: 'il' (0.0000)
+  8: 'ilt' (0.0000)
+  9: 'ilis' (0.0000)
+Skipping check: top token 'il' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'il'
+Top K tokens:
+  0: '' (0.7551)
+  1: '.' (0.2303)
+  2: ',' (0.0145)
+  3: 'by' (0.0001)
+  4: 'that' (0.0000)
+  5: 'due' (0.0000)
+  6: ';' (0.0000)
+  7: '1' (0.0000)
+  8: 'of' (0.0000)
+  9: 'and' (0.0000)
+Chosen token: '' (0.7551) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April"
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: '2' (0.0000)
+  2: 'Anne' (0.0000)
+  3: '3' (0.0000)
+  4: 'anne' (0.0000)
+  5: 'An' (0.0000)
+  6: '4' (0.0000)
+  7: 'ninete' (0.0000)
+  8: '₁' (0.0000)
+  9: 'riend' (0.0000)
+Skipping check: top token '1' has prob 1.0000 >= 0.9
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (1.0000)
+  1: '8' (0.0000)
+  2: '7' (0.0000)
+  3: '6' (0.0000)
+  4: 'nin' (0.0000)
+  5: '5' (0.0000)
+  6: '1' (0.0000)
+  7: '3' (0.0000)
+  8: '4' (0.0000)
+  9: '0' (0.0000)
+Skipping check: top token '9' has prob 1.0000 >= 0.9
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'forty' (0.0000)
+  2: 'fourth' (0.0000)
+  3: 'four' (0.0000)
+  4: '5' (0.0000)
+  5: 'Fourth' (0.0000)
+  6: 'April' (0.0000)
+  7: '3' (0.0000)
+  8: 'Four' (0.0000)
+  9: 'four' (0.0000)
+Skipping check: top token '4' has prob 1.0000 >= 0.9
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '5' (1.0000)
+  1: '4' (0.0000)
+  2: '6' (0.0000)
+  3: '3' (0.0000)
+  4: 'five' (0.0000)
+  5: 'fifth' (0.0000)
+  6: 'five' (0.0000)
+  7: '7' (0.0000)
+  8: 'fifty' (0.0000)
+  9: 'Fifth' (0.0000)
+Skipping check: top token '5' has prob 1.0000 >= 0.9
+>>> Actually generated token: '5'
+Top K tokens:
+  0: '.' (0.9898)
+  1: ',' (0.0102)
+  2: 'due' (0.0000)
+  3: 'despite' (0.0000)
+  4: ';' (0.0000)
+  5: 'when' (0.0000)
+  6: 'by' (0.0000)
+  7: 'as' (0.0000)
+  8: 'while' (0.0000)
+  9: 'and' (0.0000)
+Skipping check: top token '.' has prob 0.9898 >= 0.9
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Despite' (0.4652)
+  1: 'Anne' (0.4042)
+  2: 'Their' (0.0655)
+  3: '</s>' (0.0226)
+  4: 'W' (0.0160)
+  5: 'The' (0.0074)
+  6: 'Although' (0.0066)
+  7: 'Though' (0.0048)
+  8: 'A' (0.0043)
+  9: '"' (0.0035)
+Chosen token: 'Despite' (0.4536) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945."
+>>> Actually generated token: 'Despite'
+Top K tokens:
+  0: 'the' (0.9128)
+  1: 'her' (0.0444)
+  2: 'their' (0.0312)
+  3: 'facing' (0.0079)
+  4: 'these' (0.0014)
+  5: 'suffering' (0.0010)
+  6: 'this' (0.0005)
+  7: 'end' (0.0004)
+  8: 'dire' (0.0002)
+  9: 'living' (0.0002)
+Skipping check: top token 'the' has prob 0.9128 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'harsh' (0.6554)
+  1: 'difficult' (0.0989)
+  2: 'hard' (0.0908)
+  3: 'tragic' (0.0509)
+  4: 'grim' (0.0286)
+  5: 'challenging' (0.0209)
+  6: 'uncertainty' (0.0163)
+  7: 'circumstances' (0.0157)
+  8: 'dire' (0.0126)
+  9: 'uncertain' (0.0100)
+Chosen token: 'harsh' (0.6149) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the"
+>>> Actually generated token: 'harsh'
+Top K tokens:
+  0: 'conditions' (0.8692)
+  1: 'circumstances' (0.1071)
+  2: 'real' (0.0157)
+  3: 'living' (0.0033)
+  4: 'reality' (0.0022)
+  5: 'camp' (0.0014)
+  6: 'ness' (0.0006)
+  7: 'and' (0.0001)
+  8: 'surroundings' (0.0001)
+  9: 'conditions' (0.0001)
+Chosen token: 'conditions' (0.8688) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh"
+>>> Actually generated token: 'conditions'
+Top K tokens:
+  0: ',' (0.5775)
+  1: 'and' (0.4225)
+  2: 'at' (0.0000)
+  3: 'and' (0.0000)
+  4: 'of' (0.0000)
+  5: 'in' (0.0000)
+  6: 'she' (0.0000)
+  7: 'и' (0.0000)
+  8: 'they' (0.0000)
+  9: 'end' (0.0000)
+Chosen token: ',' (0.5775) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'Anne' (0.9994)
+  1: 'friends' (0.0001)
+  2: 'their' (0.0001)
+  3: '"' (0.0001)
+  4: 'Anna' (0.0001)
+  5: 'many' (0.0001)
+  6: 'they' (0.0000)
+  7: 'Frank' (0.0000)
+  8: 'witnesses' (0.0000)
+  9: 'an' (0.0000)
+Skipping check: top token 'Anne' has prob 0.9994 >= 0.9
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'remained' (0.4975)
+  1: 'maintained' (0.1802)
+  2: 'continued' (0.1101)
+  3: "'" (0.1043)
+  4: 'never' (0.0438)
+  5: 'kept' (0.0231)
+  6: 'held' (0.0178)
+  7: 'cl' (0.0094)
+  8: 'expressed' (0.0077)
+  9: 'retained' (0.0061)
+Chosen token: 'remained' (0.4912) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne"
+>>> Actually generated token: 'remained'
+Top K tokens:
+  0: 'hope' (0.9876)
+  1: 'optim' (0.0119)
+  2: 'determined' (0.0004)
+  3: 'Hope' (0.0001)
+  4: 'hopes' (0.0000)
+  5: 'hoping' (0.0000)
+  6: 'stead' (0.0000)
+  7: 'convinced' (0.0000)
+  8: 'Optim' (0.0000)
+  9: 'committed' (0.0000)
+Skipping check: top token 'hope' has prob 0.9876 >= 0.9
+>>> Actually generated token: 'hope'
+Top K tokens:
+  0: 'ful' (1.0000)
+  1: 'full' (0.0000)
+  2: 'filled' (0.0000)
+  3: 'fu' (0.0000)
+  4: 'fully' (0.0000)
+  5: '-' (0.0000)
+  6: 'f' (0.0000)
+  7: 'iful' (0.0000)
+  8: 'fulness' (0.0000)
+  9: 'F' (0.0000)
+Skipping check: top token 'ful' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'ful'
+Top K tokens:
+  0: 'and' (0.4085)
+  1: 'for' (0.1870)
+  2: ',' (0.1099)
+  3: 'of' (0.0911)
+  4: 'that' (0.0732)
+  5: 'until' (0.0527)
+  6: 'she' (0.0488)
+  7: '.' (0.0162)
+  8: 'about' (0.0112)
+  9: 'throughout' (0.0013)
+Chosen token: 'and' (0.4078) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful"
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'continued' (0.5168)
+  1: 'her' (0.1317)
+  2: 'kept' (0.1199)
+  3: 'determined' (0.1126)
+  4: 'wrote' (0.0411)
+  5: 'optim' (0.0236)
+  6: 'believed' (0.0210)
+  7: 'is' (0.0184)
+  8: 'maintained' (0.0088)
+  9: 'continues' (0.0061)
+Chosen token: 'continued' (0.4933) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and"
+>>> Actually generated token: 'continued'
+Top K tokens:
+  0: 'writing' (0.5724)
+  1: 'to' (0.4254)
+  2: 'her' (0.0010)
+  3: 'keeping' (0.0005)
+  4: 'hiding' (0.0003)
+  5: 'believing' (0.0001)
+  6: 'recording' (0.0001)
+  7: 'writing' (0.0001)
+  8: 'dream' (0.0001)
+  9: 'Writing' (0.0001)
+Chosen token: 'writing' (0.5721) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued"
+>>> Actually generated token: 'writing'
+Top K tokens:
+  0: 'in' (0.9813)
+  1: 'until' (0.0169)
+  2: ',' (0.0011)
+  3: '.' (0.0004)
+  4: 'her' (0.0003)
+  5: 'till' (0.0000)
+  6: 'entries' (0.0000)
+  7: 'throughout' (0.0000)
+  8: 'before' (0.0000)
+  9: 'as' (0.0000)
+Skipping check: top token 'in' has prob 0.9813 >= 0.9
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'her' (1.0000)
+  1: 'the' (0.0000)
+  2: 'her' (0.0000)
+  3: 'secret' (0.0000)
+  4: 'his' (0.0000)
+  5: 'a' (0.0000)
+  6: 'their' (0.0000)
+  7: 'hers' (0.0000)
+  8: 'secre' (0.0000)
+  9: 'hiding' (0.0000)
+Skipping check: top token 'her' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'diary' (0.8302)
+  1: 'famous' (0.1420)
+  2: 'fam' (0.0091)
+  3: 'now' (0.0074)
+  4: 'beloved' (0.0047)
+  5: 'renown' (0.0033)
+  6: 'icon' (0.0015)
+  7: 'celebrated' (0.0012)
+  8: 'journal' (0.0005)
+  9: 'di' (0.0002)
+Chosen token: 'diary' (0.8294) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her"
+>>> Actually generated token: 'diary'
+Top K tokens:
+  0: 'until' (0.8080)
+  1: ',' (0.1299)
+  2: '.' (0.0585)
+  3: 'up' (0.0027)
+  4: 'before' (0.0006)
+  5: 'until' (0.0001)
+  6: 'till' (0.0001)
+  7: 'right' (0.0001)
+  8: 'while' (0.0001)
+  9: 'which' (0.0001)
+Chosen token: 'until' (0.8078) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary"
+>>> Actually generated token: 'until'
+Top K tokens:
+  0: 'her' (0.8406)
+  1: 'the' (0.1507)
+  2: 'shortly' (0.0026)
+  3: 'close' (0.0022)
+  4: 'near' (0.0020)
+  5: 'she' (0.0012)
+  6: 'just' (0.0003)
+  7: 'at' (0.0002)
+  8: 'its' (0.0001)
+  9: 'it' (0.0001)
+Chosen token: 'her' (0.8401) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until"
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'death' (0.9540)
+  1: 'dem' (0.0221)
+  2: 'end' (0.0078)
+  3: 'unt' (0.0051)
+  4: 'arrest' (0.0046)
+  5: 'final' (0.0028)
+  6: 'last' (0.0012)
+  7: 'illness' (0.0010)
+  8: 'dying' (0.0009)
+  9: 'fate' (0.0005)
+Skipping check: top token 'death' has prob 0.9540 >= 0.9
+>>> Actually generated token: 'death'
+Top K tokens:
+  0: '.' (0.9953)
+  1: ',' (0.0043)
+  2: 'or' (0.0003)
+  3: ';' (0.0000)
+  4: '."' (0.0000)
+  5: '..' (0.0000)
+  6: '–' (0.0000)
+  7: 'and' (0.0000)
+  8: 'in' (0.0000)
+  9: '-' (0.0000)
+Skipping check: top token '.' has prob 0.9953 >= 0.9
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Her' (0.6523)
+  1: '</s>' (0.3280)
+  2: 'Anne' (0.0102)
+  3: 'The' (0.0057)
+  4: 'Today' (0.0016)
+  5: 'Her' (0.0011)
+  6: 'She' (0.0003)
+  7: '\n' (0.0003)
+  8: '"' (0.0002)
+  9: 'Despite' (0.0002)
+Chosen token: 'Her' (0.6510) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death."
+>>> Actually generated token: 'Her'
+Top K tokens:
+  0: 'diary' (0.9160)
+  1: 'writ' (0.0350)
+  2: 'legacy' (0.0123)
+  3: 'final' (0.0091)
+  4: 'di' (0.0063)
+  5: 'powerful' (0.0060)
+  6: 'words' (0.0046)
+  7: 'insp' (0.0039)
+  8: 'po' (0.0035)
+  9: 'famous' (0.0032)
+Skipping check: top token 'diary' has prob 0.9160 >= 0.9
+>>> Actually generated token: 'diary'
+Top K tokens:
+  0: 'is' (0.2711)
+  1: 'has' (0.2430)
+  2: 'remains' (0.2282)
+  3: ',' (0.2247)
+  4: 'continues' (0.0314)
+  5: 'became' (0.0009)
+  6: 'surv' (0.0002)
+  7: "'" (0.0002)
+  8: 'remained' (0.0002)
+  9: 'later' (0.0002)
+Chosen token: 'is' (0.2708) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary"
+>>> Actually generated token: 'is'
+Top K tokens:
+  0: 'now' (0.7954)
+  1: 'a' (0.1747)
+  2: 'an' (0.0143)
+  3: 'one' (0.0125)
+  4: 'widely' (0.0008)
+  5: 'still' (0.0008)
+  6: 'among' (0.0006)
+  7: 'renown' (0.0004)
+  8: 'today' (0.0003)
+  9: 'celebrated' (0.0003)
+Chosen token: 'now' (0.7948) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is"
+>>> Actually generated token: 'now'
+Top K tokens:
+  0: 'a' (0.9407)
+  1: 'one' (0.0531)
+  2: 'an' (0.0032)
+  3: 'considered' (0.0013)
+  4: 'widely' (0.0006)
+  5: 'renown' (0.0005)
+  6: 'celebrated' (0.0003)
+  7: 'recognized' (0.0002)
+  8: 'regarded' (0.0002)
+  9: 'known' (0.0001)
+Skipping check: top token 'a' has prob 0.9407 >= 0.9
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'beloved' (0.4786)
+  1: 'widely' (0.1706)
+  2: 'renown' (0.1554)
+  3: 'glob' (0.0769)
+  4: 'well' (0.0270)
+  5: 'cher' (0.0248)
+  6: 'world' (0.0217)
+  7: 'famous' (0.0157)
+  8: 'celebrated' (0.0150)
+  9: 'popular' (0.0142)
+TinyLettuce detected hallucination: ' Her diary is now a beloved' (confidence: 0.918)
+----------Modified logit for token: beloved----------
+Chosen token: 'widely' (0.3110) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a"
+>>> Actually generated token: 'widely'
+Top K tokens:
+  0: '-' (0.5380)
+  1: 'read' (0.4460)
+  2: 'ac' (0.0056)
+  3: 'recognized' (0.0053)
+  4: 'read' (0.0013)
+  5: 'beloved' (0.0009)
+  6: 'renown' (0.0009)
+  7: 'popular' (0.0009)
+  8: 'celebrated' (0.0006)
+  9: 'studied' (0.0004)
+Chosen token: '-' (0.5373) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a widely"
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'read' (0.9962)
+  1: 'recogn' (0.0015)
+  2: 'ac' (0.0012)
+  3: 'read' (0.0005)
+  4: 'known' (0.0002)
+  5: 'ack' (0.0002)
+  6: 'stud' (0.0001)
+  7: 'ce' (0.0000)
+  8: 'pop' (0.0000)
+  9: 'Read' (0.0000)
+Skipping check: top token 'read' has prob 0.9962 >= 0.9
+>>> Actually generated token: 'read'
+Top K tokens:
+  0: 'book' (0.6746)
+  1: 'and' (0.2726)
+  2: 'symbol' (0.0412)
+  3: 'test' (0.0029)
+  4: 'publication' (0.0026)
+  5: 'classic' (0.0021)
+  6: 'historical' (0.0011)
+  7: 'literary' (0.0010)
+  8: 'mem' (0.0010)
+  9: 'testimony' (0.0010)
+Chosen token: 'book' (0.6710) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a widely-read"
+>>> Actually generated token: 'book'
+Top K tokens:
+  0: 'that' (0.4173)
+  1: ',' (0.3799)
+  2: 'and' (0.1584)
+  3: '.' (0.0353)
+  4: 'around' (0.0030)
+  5: 'remembered' (0.0026)
+  6: 'chronic' (0.0015)
+  7: 'about' (0.0009)
+  8: 'celebrated' (0.0006)
+  9: 'insp' (0.0005)
+Chosen token: 'that' (0.4148) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a widely-read book"
+>>> Actually generated token: 'that'
+Top K tokens:
+  0: 'continues' (0.3392)
+  1: 'insp' (0.2173)
+  2: 'chron' (0.1436)
+  3: 'shares' (0.0927)
+  4: 'has' (0.0489)
+  5: 'end' (0.0481)
+  6: 'serves' (0.0405)
+  7: 'preserv' (0.0301)
+  8: 'tells' (0.0207)
+  9: 'reminds' (0.0188)
+Chosen token: 'continues' (0.2989) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a widely-read book that"
+>>> Actually generated token: 'continues'
+Top K tokens:
+  0: 'to' (0.9953)
+  1: 'her' (0.0046)
+  2: 'Anne' (0.0000)
+  3: 'insp' (0.0000)
+  4: 'the' (0.0000)
+  5: 'to' (0.0000)
+  6: 'her' (0.0000)
+  7: 'as' (0.0000)
+  8: 'inspire' (0.0000)
+  9: 'their' (0.0000)
+Skipping check: top token 'to' has prob 0.9953 >= 0.9
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'inspire' (0.9953)
+  1: 'insp' (0.0011)
+  2: 'impact' (0.0009)
+  3: 'reson' (0.0007)
+  4: 'be' (0.0006)
+  5: 'remind' (0.0005)
+  6: 'share' (0.0004)
+  7: 'touch' (0.0003)
+  8: 'capt' (0.0002)
+  9: 'capture' (0.0001)
+Skipping check: top token 'inspire' has prob 0.9953 >= 0.9
+>>> Actually generated token: 'inspire'
+Top K tokens:
+  0: 'people' (0.5102)
+  1: 'hope' (0.2688)
+  2: 'and' (0.1341)
+  3: 'generations' (0.0384)
+  4: 'readers' (0.0168)
+  5: 'audiences' (0.0156)
+  6: '.' (0.0122)
+  7: 'millions' (0.0023)
+  8: 'individuals' (0.0010)
+  9: 'many' (0.0005)
+Chosen token: 'people' (0.5073) | Generated so far: " [/INST] Seventy years ago, Anne Frank, a Jewish diarist known for her poignant writings during the Holocaust, died of typhus in the Bergen-Belsen concentration camp at around 15 years old. New research suggests that Anne and her older sister, Margot, likely died in late January or early February 1945, rather than in March as previously believed. The sisters had been sent to Bergen-Belsen after being separated from their mother at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the camp's liberation in mid-April 1945. Despite the harsh conditions, Anne remained hopeful and continued writing in her diary until her death. Her diary is now a widely-read book that continues to inspire"
+>>> Actually generated token: 'people'
+Top K tokens:
+  0: 'around' (0.9796)
+  1: 'worldwide' (0.0185)
+  2: '.' (0.0012)
+  3: 'all' (0.0004)
+  4: 'glob' (0.0001)
+  5: 'world' (0.0001)
+  6: 'throughout' (0.0000)
+  7: 'across' (0.0000)
+  8: 'with' (0.0000)
+  9: 'around' (0.0000)
+Skipping check: top token 'around' has prob 0.9796 >= 0.9
+>>> Actually generated token: 'around'
+Top K tokens:
+  0: 'the' (1.0000)
+  1: 'the' (0.0000)
+  2: 'world' (0.0000)
+  3: 'The' (0.0000)
+  4: '' (0.0000)
+  5: 'of' (0.0000)
+  6: 'THE' (0.0000)
+  7: 'The' (0.0000)
+  8: 'this' (0.0000)
+  9: 'to' (0.0000)
+Skipping check: top token 'the' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'world' (1.0000)
+  1: 'globe' (0.0000)
+  2: 'world' (0.0000)
+  3: 'World' (0.0000)
+  4: 'worlds' (0.0000)
+  5: 'worldwide' (0.0000)
+  6: 'word' (0.0000)
+  7: '世' (0.0000)
+  8: 'World' (0.0000)
+  9: 'glob' (0.0000)
+Skipping check: top token 'world' has prob 1.0000 >= 0.9
+>>> Actually generated token: 'world'
+Top K tokens:
+  0: '.' (1.0000)
+  1: ',' (0.0000)
+  2: 'with' (0.0000)
+  3: 'about' (0.0000)
+  4: 'today' (0.0000)
+  5: 'to' (0.0000)
+  6: 'and' (0.0000)
+  7: '..' (0.0000)
+  8: '."' (0.0000)
+  9: '.)' (0.0000)
+Skipping check: top token '.' has prob 1.0000 >= 0.9
+>>> Actually generated token: '.'
+Top K tokens:
+  0: '</s>' (0.9809)
+  1: 'The' (0.0154)
+  2: '\n' (0.0019)
+  3: 'Anne' (0.0014)
+  4: 'Ex' (0.0002)
+  5: '(' (0.0001)
+  6: '[' (0.0001)
+  7: 'Despite' (0.0001)
+  8: 'Unfortunately' (0.0001)
+  9: 'Marg' (0.0001)
+Skipping check: top token '</s>' has prob 0.9809 >= 0.9
+>>> Actually generated token: '</s>'
+Processed 1/942 prompts
+
+Saved 1 generations to: ./data/summary_experiments_tinylettuce_run_20260305_155815.json
+Total runtime: 12.63 seconds
+Average time per generation: 12.63 seconds
+Total logit modifications: 1
