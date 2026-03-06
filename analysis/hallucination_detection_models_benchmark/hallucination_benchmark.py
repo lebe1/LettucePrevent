@@ -142,7 +142,7 @@ class HallucinationDetectorBase(ABC):
 class LettuceDetectWrapper(HallucinationDetectorBase):
     """Wrapper for the LettuceDetect hallucination detection model."""
 
-    def __init__(self, model_path: str = "KRLabsOrg/lettucedect-base-modernbert-en-v1"):
+    def __init__(self, model_path: str = "KRLabsOrg/tinylettuce-ettin-68m-en"):
         from lettucedetect.models.inference import HallucinationDetector
         self.model_path = model_path
         self.detector = HallucinationDetector(
@@ -655,17 +655,10 @@ def extract_context_from_prompt(prompt: str) -> Tuple[str, str]:
     The prompt typically contains instruction + context.
     Returns (context, question).
     """
-    
-    # TODO currently only validated to extract summary tasks
-    splitted_prompt = prompt.split(":\n")
-    
-    if not len(splitted_prompt) == 2:
-        print("More than one :\n has been found and context is divided into several parts")
-    
-    question = splitted_prompt[0]
-    context = " ".join(arr[1:])
-    
-    return context, question
+    # For summary tasks, the context is the news article in the prompt
+    # For data2txt tasks, the context is the structured data
+    # We treat the full prompt as both context and question for simplicity
+    return prompt, prompt
 
 
 # ============================================================================
@@ -892,7 +885,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--detector-model-path", type=str,
-        default="KRLabsOrg/lettucedect-base-modernbert-en-v1",
+        default="KRLabsOrg/tinylettuce-ettin-68m-en",
         help="Model path for the detector."
     )
     parser.add_argument(

@@ -1,0 +1,2 @@
+model_name,trigger_strategy,step_size,tokenizer,num_samples,precision,recall,f1,total_runtime_seconds
+LettuceDetect(KRLabsOrg/tinylettuce-ettin-68m-en),every_token,1,spaCy,1,1.0000,0.0370,0.0714,294.66
