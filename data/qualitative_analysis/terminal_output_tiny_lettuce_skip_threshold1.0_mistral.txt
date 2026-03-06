@@ -1,0 +1,3004 @@
+Loaded 942 prompts from RAGTruth dataset
+Using detector: tinylettuce
+Initialized TinyLettuce detector with threshold: 0.9
+Initialized LogitsProcessor with TinyLettuceDetector
+Context window: all tokens
+Skip threshold: 1.0
+Top K tokens:
+  0: 'S' (0.9195)
+  1: 'Anne' (0.0616)
+  2: 'Seven' (0.0068)
+  3: 'In' (0.0052)
+  4: 'seventy' (0.0024)
+  5: 'sevent' (0.0024)
+  6: 'On' (0.0010)
+  7: 'Ann' (0.0005)
+  8: 'Within' (0.0003)
+  9: 'Si' (0.0002)
+Chosen token: 'S' (0.9184) | Generated so far: ' [/INST]'
+>>> Actually generated token: 'S'
+Top K tokens:
+  0: 'event' (1.0000)
+  1: 'event' (0.0000)
+  2: 'seventy' (0.0000)
+  3: 'Event' (0.0000)
+  4: 'Event' (0.0000)
+  5: 'EVENT' (0.0000)
+  6: 'Si' (0.0000)
+  7: 'sevent' (0.0000)
+  8: 'seventh' (0.0000)
+  9: '事' (0.0000)
+Chosen token: 'event' (1.0000) | Generated so far: ' [/INST] S'
+>>> Actually generated token: 'event'
+Top K tokens:
+  0: 'y' (0.9999)
+  1: 'een' (0.0001)
+  2: 'eenth' (0.0000)
+  3: 'ies' (0.0000)
+  4: 'ied' (0.0000)
+  5: 'ily' (0.0000)
+  6: 'ty' (0.0000)
+  7: 'ey' (0.0000)
+  8: 'Y' (0.0000)
+  9: 'yy' (0.0000)
+TinyLettuce detected hallucination: ' [/INST] Seventy' (confidence: 0.937)
+----------Modified logit for token: y----------
+Chosen token: 'een' (0.9484) | Generated so far: ' [/INST] Sevent'
+>>> Actually generated token: 'een'
+Top K tokens:
+  0: '-' (0.9999)
+  1: 'years' (0.0001)
+  2: 'days' (0.0000)
+  3: 'weeks' (0.0000)
+  4: 'months' (0.0000)
+  5: 'year' (0.0000)
+  6: '‐' (0.0000)
+  7: 'year' (0.0000)
+  8: '-,' (0.0000)
+  9: '‑' (0.0000)
+Chosen token: '-' (0.9999) | Generated so far: ' [/INST] Seventeen'
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'year' (0.9999)
+  1: 'year' (0.0001)
+  2: 'Year' (0.0000)
+  3: 'Year' (0.0000)
+  4: 'yr' (0.0000)
+  5: 'ye' (0.0000)
+  6: '年' (0.0000)
+  7: 'yar' (0.0000)
+  8: 'yard' (0.0000)
+  9: 'month' (0.0000)
+Chosen token: 'year' (0.9999) | Generated so far: ' [/INST] Seventeen-'
+>>> Actually generated token: 'year'
+Top K tokens:
+  0: '-' (1.0000)
+  1: 's' (0.0000)
+  2: 'old' (0.0000)
+  3: 'old' (0.0000)
+  4: '‐' (0.0000)
+  5: '-' (0.0000)
+  6: '-(' (0.0000)
+  7: '.-' (0.0000)
+  8: '‑' (0.0000)
+  9: '-$' (0.0000)
+Chosen token: '-' (1.0000) | Generated so far: ' [/INST] Seventeen-year'
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'old' (1.0000)
+  1: 'old' (0.0000)
+  2: 'olds' (0.0000)
+  3: 'OLD' (0.0000)
+  4: 'Old' (0.0000)
+  5: 'older' (0.0000)
+  6: 'Old' (0.0000)
+  7: 'ol' (0.0000)
+  8: 'out' (0.0000)
+  9: 'overline' (0.0000)
+Chosen token: 'old' (1.0000) | Generated so far: ' [/INST] Seventeen-year-'
+>>> Actually generated token: 'old'
+Top K tokens:
+  0: 'Anne' (1.0000)
+  1: 'Anna' (0.0000)
+  2: 'Ann' (0.0000)
+  3: 'Annie' (0.0000)
+  4: 'anne' (0.0000)
+  5: 'Ana' (0.0000)
+  6: 'AN' (0.0000)
+  7: 'Annotation' (0.0000)
+  8: 'di' (0.0000)
+  9: 'Ан' (0.0000)
+Chosen token: 'Anne' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old'
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'Frank' (0.9998)
+  1: 'Fr' (0.0001)
+  2: 'Fr' (0.0000)
+  3: 'Фран' (0.0000)
+  4: 'Fran' (0.0000)
+  5: 'FR' (0.0000)
+  6: 'Frances' (0.0000)
+  7: 'FR' (0.0000)
+  8: 'Franklin' (0.0000)
+  9: 'Frankfurt' (0.0000)
+Chosen token: 'Frank' (0.9998) | Generated so far: ' [/INST] Seventeen-year-old Anne'
+>>> Actually generated token: 'Frank'
+Top K tokens:
+  0: 'and' (0.4343)
+  1: ',' (0.2939)
+  2: 'is' (0.1728)
+  3: 'likely' (0.0440)
+  4: 'died' (0.0276)
+  5: 'passed' (0.0161)
+  6: 'most' (0.0089)
+  7: 'probably' (0.0017)
+  8: 'dies' (0.0004)
+  9: 'likely' (0.0004)
+Chosen token: 'and' (0.4336) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank'
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'her' (0.9998)
+  1: 'her' (0.0002)
+  2: 'Her' (0.0000)
+  3: 'his' (0.0000)
+  4: 'её' (0.0000)
+  5: 'hers' (0.0000)
+  6: 'Her' (0.0000)
+  7: 'and' (0.0000)
+  8: 'fifteen' (0.0000)
+  9: 'of' (0.0000)
+Chosen token: 'her' (0.9998) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and'
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'older' (0.9866)
+  1: 'fifteen' (0.0101)
+  2: 'older' (0.0011)
+  3: 'elder' (0.0006)
+  4: 'sister' (0.0006)
+  5: '' (0.0004)
+  6: 'sixteen' (0.0003)
+  7: 'oldest' (0.0001)
+  8: 'Old' (0.0001)
+  9: 'fif' (0.0001)
+Chosen token: 'older' (0.9864) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her'
+>>> Actually generated token: 'older'
+Top K tokens:
+  0: 'sister' (0.9999)
+  1: 'Sister' (0.0000)
+  2: 'sib' (0.0000)
+  3: 'sisters' (0.0000)
+  4: 'ister' (0.0000)
+  5: 'siblings' (0.0000)
+  6: 'sixteen' (0.0000)
+  7: 's' (0.0000)
+  8: 'sevent' (0.0000)
+  9: 'fifteen' (0.0000)
+Chosen token: 'sister' (0.9999) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older'
+>>> Actually generated token: 'sister'
+Top K tokens:
+  0: ',' (0.9466)
+  1: 'Marg' (0.0534)
+  2: 'Margaret' (0.0000)
+  3: 'marg' (0.0000)
+  4: 'Mar' (0.0000)
+  5: 'M' (0.0000)
+  6: 'Meg' (0.0000)
+  7: 'margin' (0.0000)
+  8: 'marginal' (0.0000)
+  9: 'Мар' (0.0000)
+Chosen token: ',' (0.9466) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'Marg' (0.9995)
+  1: 'fifteen' (0.0002)
+  2: 'sixteen' (0.0001)
+  3: 'sevent' (0.0001)
+  4: 'Margaret' (0.0001)
+  5: 'marg' (0.0000)
+  6: 'eighteen' (0.0000)
+  7: 'thirteen' (0.0000)
+  8: 'M' (0.0000)
+  9: 'ninete' (0.0000)
+Chosen token: 'Marg' (0.9995) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister,'
+>>> Actually generated token: 'Marg'
+Top K tokens:
+  0: 'ot' (1.0000)
+  1: 'OT' (0.0000)
+  2: 'Ot' (0.0000)
+  3: 'ot' (0.0000)
+  4: 'ott' (0.0000)
+  5: 'от' (0.0000)
+  6: 'ôt' (0.0000)
+  7: 'otype' (0.0000)
+  8: 'oth' (0.0000)
+  9: 'ort' (0.0000)
+Chosen token: 'ot' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Marg'
+>>> Actually generated token: 'ot'
+Top K tokens:
+  0: ',' (0.9450)
+  1: 'Frank' (0.0550)
+  2: 'Fr' (0.0000)
+  3: 'Fr' (0.0000)
+  4: 'Fran' (0.0000)
+  5: '(' (0.0000)
+  6: 'died' (0.0000)
+  7: 'Фран' (0.0000)
+  8: 'Frankfurt' (0.0000)
+  9: 'Franklin' (0.0000)
+Chosen token: ',' (0.9450) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'died' (0.5566)
+  1: 'likely' (0.2080)
+  2: 'most' (0.1793)
+  3: 'are' (0.0332)
+  4: 'both' (0.0066)
+  5: 'did' (0.0065)
+  6: 'passed' (0.0052)
+  7: 'probably' (0.0030)
+  8: 'trag' (0.0007)
+  9: 'dies' (0.0007)
+Chosen token: 'died' (0.5542) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot,'
+>>> Actually generated token: 'died'
+Top K tokens:
+  0: 'of' (0.6899)
+  1: 'from' (0.2787)
+  2: 'at' (0.0162)
+  3: 'in' (0.0063)
+  4: 'around' (0.0050)
+  5: 'approximately' (0.0030)
+  6: 'about' (0.0003)
+  7: 'roughly' (0.0002)
+  8: 'over' (0.0002)
+  9: 'from' (0.0001)
+Chosen token: 'of' (0.6894) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died'
+>>> Actually generated token: 'of'
+Top K tokens:
+  0: 'ty' (0.9996)
+  1: 'typ' (0.0003)
+  2: 'ти' (0.0000)
+  3: 'tub' (0.0000)
+  4: 'ty' (0.0000)
+  5: 'suspected' (0.0000)
+  6: 'Ty' (0.0000)
+  7: 'typing' (0.0000)
+  8: 'disease' (0.0000)
+  9: 'diseases' (0.0000)
+Chosen token: 'ty' (0.9996) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of'
+>>> Actually generated token: 'ty'
+Top K tokens:
+  0: 'ph' (1.0000)
+  1: 'phy' (0.0000)
+  2: 'php' (0.0000)
+  3: 'phi' (0.0000)
+  4: 'pha' (0.0000)
+  5: 'oph' (0.0000)
+  6: 'PH' (0.0000)
+  7: 'phan' (0.0000)
+  8: 'Ph' (0.0000)
+  9: 'phas' (0.0000)
+Chosen token: 'ph' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of ty'
+>>> Actually generated token: 'ph'
+Top K tokens:
+  0: 'us' (1.0000)
+  1: 'US' (0.0000)
+  2: 'hus' (0.0000)
+  3: 'uss' (0.0000)
+  4: 'us' (0.0000)
+  5: 'Us' (0.0000)
+  6: 'rus' (0.0000)
+  7: 'ús' (0.0000)
+  8: 'pus' (0.0000)
+  9: 'usa' (0.0000)
+Skipping check: top token 'us' has prob 1.0000 >= 1.0
+>>> Actually generated token: 'us'
+Top K tokens:
+  0: 'in' (0.5093)
+  1: 'at' (0.4637)
+  2: 'around' (0.0233)
+  3: 'over' (0.0015)
+  4: ',' (0.0008)
+  5: 'approximately' (0.0006)
+  6: 'near' (0.0003)
+  7: 'about' (0.0003)
+  8: 'more' (0.0002)
+  9: 'between' (0.0001)
+Chosen token: 'in' (0.5090) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus'
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'the' (0.7748)
+  1: 'late' (0.1152)
+  2: 'December' (0.0451)
+  3: 'Ber' (0.0280)
+  4: 'early' (0.0157)
+  5: 'January' (0.0111)
+  6: 'Nazi' (0.0043)
+  7: 'Berlin' (0.0028)
+  8: 'Ber' (0.0020)
+  9: 'November' (0.0011)
+Chosen token: 'the' (0.7730) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in'
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'Ber' (0.9785)
+  1: 'over' (0.0094)
+  2: 'Nazi' (0.0072)
+  3: 'Ber' (0.0034)
+  4: 'Бер' (0.0003)
+  5: 'Netherlands' (0.0003)
+  6: 'Naz' (0.0003)
+  7: 'Nieder' (0.0002)
+  8: 'Berlin' (0.0002)
+  9: 'German' (0.0002)
+Chosen token: 'Ber' (0.9776) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the'
+>>> Actually generated token: 'Ber'
+Top K tokens:
+  0: 'gen' (0.9999)
+  1: 'ген' (0.0000)
+  2: 'egen' (0.0000)
+  3: 'ogen' (0.0000)
+  4: 'GEN' (0.0000)
+  5: 'agen' (0.0000)
+  6: 'Gen' (0.0000)
+  7: 'igen' (0.0000)
+  8: 'gan' (0.0000)
+  9: 'ken' (0.0000)
+Chosen token: 'gen' (0.9999) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Ber'
+>>> Actually generated token: 'gen'
+Top K tokens:
+  0: '-' (1.0000)
+  1: '‐' (0.0000)
+  2: '‑' (0.0000)
+  3: '–' (0.0000)
+  4: '-\\' (0.0000)
+  5: 'B' (0.0000)
+  6: '-(' (0.0000)
+  7: '.-' (0.0000)
+  8: '\xad' (0.0000)
+  9: '-' (0.0000)
+Skipping check: top token '-' has prob 1.0000 >= 1.0
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'B' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Б' (0.0000)
+  4: 'Β' (0.0000)
+  5: 'Br' (0.0000)
+  6: 'Bel' (0.0000)
+  7: 'M' (0.0000)
+  8: 'N' (0.0000)
+  9: 'Be' (0.0000)
+Chosen token: 'B' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-'
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'els' (1.0000)
+  1: 'Els' (0.0000)
+  2: 'als' (0.0000)
+  3: 'elson' (0.0000)
+  4: 'elen' (0.0000)
+  5: 'els' (0.0000)
+  6: 'eles' (0.0000)
+  7: 'nels' (0.0000)
+  8: 'ils' (0.0000)
+  9: 'ells' (0.0000)
+Chosen token: 'els' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-B'
+>>> Actually generated token: 'els'
+Top K tokens:
+  0: 'en' (1.0000)
+  1: 'EN' (0.0000)
+  2: 'ен' (0.0000)
+  3: 'én' (0.0000)
+  4: 'an' (0.0000)
+  5: 'ens' (0.0000)
+  6: 'sen' (0.0000)
+  7: 'enen' (0.0000)
+  8: 'enc' (0.0000)
+  9: 'enn' (0.0000)
+Skipping check: top token 'en' has prob 1.0000 >= 1.0
+>>> Actually generated token: 'en'
+Top K tokens:
+  0: 'concentration' (1.0000)
+  1: 'Nazi' (0.0000)
+  2: 'concentr' (0.0000)
+  3: 'con' (0.0000)
+  4: 'concentrate' (0.0000)
+  5: 'Naz' (0.0000)
+  6: 'Con' (0.0000)
+  7: 'concentrated' (0.0000)
+  8: 'concert' (0.0000)
+  9: 'conspiracy' (0.0000)
+Chosen token: 'concentration' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen'
+>>> Actually generated token: 'concentration'
+Top K tokens:
+  0: 'camp' (1.0000)
+  1: 'camp' (0.0000)
+  2: 'camps' (0.0000)
+  3: 'campus' (0.0000)
+  4: 'Camp' (0.0000)
+  5: 'campaign' (0.0000)
+  6: 'Camp' (0.0000)
+  7: 'cam' (0.0000)
+  8: 'campo' (0.0000)
+  9: 'club' (0.0000)
+Chosen token: 'camp' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration'
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: 'around' (0.7818)
+  1: 'in' (0.1588)
+  2: 'approximately' (0.0238)
+  3: 'at' (0.0229)
+  4: 'about' (0.0065)
+  5: 'roughly' (0.0032)
+  6: 'between' (0.0012)
+  7: ',' (0.0007)
+  8: 'around' (0.0006)
+  9: 'nearly' (0.0005)
+Chosen token: 'around' (0.7783) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp'
+>>> Actually generated token: 'around'
+Top K tokens:
+  0: 'late' (0.9856)
+  1: 'January' (0.0054)
+  2: 'mid' (0.0041)
+  3: 'early' (0.0018)
+  4: 'the' (0.0017)
+  5: 'February' (0.0008)
+  6: 'late' (0.0002)
+  7: 'December' (0.0002)
+  8: 'a' (0.0001)
+  9: 'two' (0.0001)
+Chosen token: 'late' (0.9855) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around'
+>>> Actually generated token: 'late'
+Top K tokens:
+  0: 'January' (0.9053)
+  1: 'February' (0.0911)
+  2: 'December' (0.0028)
+  3: '-' (0.0007)
+  4: 'November' (0.0000)
+  5: 'Jan' (0.0000)
+  6: '' (0.0000)
+  7: 'winter' (0.0000)
+  8: 'October' (0.0000)
+  9: 'Jan' (0.0000)
+Chosen token: 'January' (0.9053) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late'
+>>> Actually generated token: 'January'
+Top K tokens:
+  0: 'or' (0.9335)
+  1: '' (0.0480)
+  2: 'to' (0.0182)
+  3: '-' (0.0003)
+  4: '-' (0.0000)
+  5: '/' (0.0000)
+  6: 'or' (0.0000)
+  7: '–' (0.0000)
+  8: '或' (0.0000)
+  9: ',' (0.0000)
+Chosen token: 'or' (0.9335) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January'
+>>> Actually generated token: 'or'
+Top K tokens:
+  0: 'early' (0.9999)
+  1: 'February' (0.0001)
+  2: 'earliest' (0.0000)
+  3: 'Early' (0.0000)
+  4: 'ear' (0.0000)
+  5: 'mid' (0.0000)
+  6: 'earlier' (0.0000)
+  7: 'first' (0.0000)
+  8: 'beginning' (0.0000)
+  9: 'late' (0.0000)
+Chosen token: 'early' (0.9999) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or'
+>>> Actually generated token: 'early'
+Top K tokens:
+  0: 'February' (0.9999)
+  1: 'Feb' (0.0000)
+  2: 'Februar' (0.0000)
+  3: 'febru' (0.0000)
+  4: 'F' (0.0000)
+  5: 'Febru' (0.0000)
+  6: 'ebru' (0.0000)
+  7: 'March' (0.0000)
+  8: 'février' (0.0000)
+  9: 'февраля' (0.0000)
+Chosen token: 'February' (0.9999) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early'
+>>> Actually generated token: 'February'
+Top K tokens:
+  0: '' (0.9989)
+  1: 'of' (0.0007)
+  2: ',' (0.0004)
+  3: 'in' (0.0000)
+  4: '1' (0.0000)
+  5: 'instead' (0.0000)
+  6: ' ' (0.0000)
+  7: 'of' (0.0000)
+  8: 'rather' (0.0000)
+  9: 'in' (0.0000)
+Chosen token: '' (0.9989) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February'
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: 'of' (0.0000)
+  2: 'of' (0.0000)
+  3: '₁' (0.0000)
+  4: 'Of' (0.0000)
+  5: 'ninete' (0.0000)
+  6: 'Of' (0.0000)
+  7: '4' (0.0000)
+  8: 'fifteen' (0.0000)
+  9: 'OF' (0.0000)
+Chosen token: '1' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February '
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (1.0000)
+  1: 'nin' (0.0000)
+  2: '5' (0.0000)
+  3: '8' (0.0000)
+  4: '6' (0.0000)
+  5: 'nine' (0.0000)
+  6: 'Nin' (0.0000)
+  7: '0' (0.0000)
+  8: '7' (0.0000)
+  9: '3' (0.0000)
+Skipping check: top token '9' has prob 1.0000 >= 1.0
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'forty' (0.0000)
+  2: 'fourth' (0.0000)
+  3: 'four' (0.0000)
+  4: 'Fourth' (0.0000)
+  5: '5' (0.0000)
+  6: 'Four' (0.0000)
+  7: 'four' (0.0000)
+  8: '四' (0.0000)
+  9: '3' (0.0000)
+Chosen token: '4' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 19'
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '5' (1.0000)
+  1: 'five' (0.0000)
+  2: 'fifth' (0.0000)
+  3: 'five' (0.0000)
+  4: '4' (0.0000)
+  5: '6' (0.0000)
+  6: 'Five' (0.0000)
+  7: 'fif' (0.0000)
+  8: 'fifty' (0.0000)
+  9: 'Fifth' (0.0000)
+Chosen token: '5' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 194'
+>>> Actually generated token: '5'
+Top K tokens:
+  0: ',' (0.9911)
+  1: '.' (0.0071)
+  2: '–' (0.0007)
+  3: '-' (0.0005)
+  4: 'instead' (0.0005)
+  5: '—' (0.0000)
+  6: ';' (0.0000)
+  7: 'according' (0.0000)
+  8: '--' (0.0000)
+  9: 'rather' (0.0000)
+Chosen token: ',' (0.9911) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'according' (0.7184)
+  1: 'new' (0.2191)
+  2: 'contrary' (0.0159)
+  3: 'based' (0.0132)
+  4: 'not' (0.0086)
+  5: 'rather' (0.0063)
+  6: 'approximately' (0.0049)
+  7: 'as' (0.0049)
+  8: 'about' (0.0044)
+  9: 'contrad' (0.0043)
+Chosen token: 'according' (0.7074) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945,'
+>>> Actually generated token: 'according'
+Top K tokens:
+  0: 'to' (1.0000)
+  1: 'to' (0.0000)
+  2: 'new' (0.0000)
+  3: 'of' (0.0000)
+  4: 'To' (0.0000)
+  5: 'for' (0.0000)
+  6: 'from' (0.0000)
+  7: 'To' (0.0000)
+  8: 'by' (0.0000)
+  9: 'zu' (0.0000)
+Chosen token: 'to' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according'
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'new' (0.9723)
+  1: 'recent' (0.0199)
+  2: 'newly' (0.0070)
+  3: 'recently' (0.0004)
+  4: 'new' (0.0003)
+  5: 'updated' (0.0001)
+  6: 'rev' (0.0000)
+  7: 'newer' (0.0000)
+  8: 'a' (0.0000)
+  9: 'latest' (0.0000)
+Chosen token: 'new' (0.9723) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to'
+>>> Actually generated token: 'new'
+Top K tokens:
+  0: 'research' (0.9998)
+  1: 'findings' (0.0001)
+  2: 'researchers' (0.0001)
+  3: 'evidence' (0.0000)
+  4: 'studies' (0.0000)
+  5: 'historical' (0.0000)
+  6: 'Research' (0.0000)
+  7: 're' (0.0000)
+  8: 're' (0.0000)
+  9: 'investig' (0.0000)
+Chosen token: 'research' (0.9998) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new'
+>>> Actually generated token: 'research'
+Top K tokens:
+  0: '.' (0.8599)
+  1: 'by' (0.0623)
+  2: 'from' (0.0489)
+  3: ',' (0.0156)
+  4: 'conducted' (0.0071)
+  5: 'contrad' (0.0026)
+  6: 'released' (0.0021)
+  7: 'disput' (0.0006)
+  8: 'that' (0.0005)
+  9: 'published' (0.0004)
+Chosen token: '.' (0.8577) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research'
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Pre' (0.7169)
+  1: 'This' (0.0926)
+  2: 'The' (0.0863)
+  3: 'Con' (0.0584)
+  4: 'They' (0.0202)
+  5: 'Anne' (0.0114)
+  6: 'previously' (0.0056)
+  7: 'Their' (0.0055)
+  8: 'Despite' (0.0018)
+  9: 'Although' (0.0013)
+Chosen token: 'Pre' (0.7015) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research.'
+>>> Actually generated token: 'Pre'
+Top K tokens:
+  0: 'viously' (0.9838)
+  1: 'vious' (0.0162)
+  2: 'vi' (0.0000)
+  3: 'previously' (0.0000)
+  4: 'liminary' (0.0000)
+  5: 'v' (0.0000)
+  6: 'vent' (0.0000)
+  7: 'iously' (0.0000)
+  8: 'ced' (0.0000)
+  9: 'previous' (0.0000)
+Chosen token: 'viously' (0.9838) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Pre'
+>>> Actually generated token: 'viously'
+Top K tokens:
+  0: ',' (0.9781)
+  1: 'believed' (0.0191)
+  2: 'thought' (0.0015)
+  3: 'assumed' (0.0006)
+  4: 'estimated' (0.0003)
+  5: 'determined' (0.0002)
+  6: 'reported' (0.0001)
+  7: 'accepted' (0.0000)
+  8: 'it' (0.0000)
+  9: 'recorded' (0.0000)
+Chosen token: ',' (0.9778) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'their' (0.4150)
+  1: 'it' (0.2256)
+  2: 'Dutch' (0.1152)
+  3: 'they' (0.0912)
+  4: 'Anne' (0.0780)
+  5: 'the' (0.0603)
+  6: 'authorities' (0.0131)
+  7: 'March' (0.0013)
+  8: 'officials' (0.0002)
+  9: 'records' (0.0001)
+Chosen token: 'their' (0.4145) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously,'
+>>> Actually generated token: 'their'
+Top K tokens:
+  0: 'deaths' (0.6141)
+  1: 'death' (0.3445)
+  2: 'supposed' (0.0336)
+  3: 'date' (0.0027)
+  4: 'assumed' (0.0022)
+  5: 'dem' (0.0013)
+  6: 'Dutch' (0.0005)
+  7: 'alleged' (0.0004)
+  8: 'presum' (0.0004)
+  9: 'suspected' (0.0004)
+Chosen token: 'deaths' (0.6130) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their'
+>>> Actually generated token: 'deaths'
+Top K tokens:
+  0: 'were' (0.9446)
+  1: 'had' (0.0550)
+  2: 'on' (0.0002)
+  3: 'were' (0.0001)
+  4: 'have' (0.0000)
+  5: 'in' (0.0000)
+  6: 'has' (0.0000)
+  7: 'Were' (0.0000)
+  8: 'had' (0.0000)
+  9: 'at' (0.0000)
+Chosen token: 'were' (0.9446) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths'
+>>> Actually generated token: 'were'
+Top K tokens:
+  0: 'believed' (0.6181)
+  1: 'recorded' (0.2658)
+  2: 'thought' (0.0507)
+  3: 'assumed' (0.0232)
+  4: 'reported' (0.0218)
+  5: 'estimated' (0.0100)
+  6: 'dated' (0.0051)
+  7: 'documented' (0.0023)
+  8: 'attributed' (0.0019)
+  9: 'presum' (0.0010)
+Chosen token: 'believed' (0.6157) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were'
+>>> Actually generated token: 'believed'
+Top K tokens:
+  0: 'to' (1.0000)
+  1: 'to' (0.0000)
+  2: 'occurred' (0.0000)
+  3: 'in' (0.0000)
+  4: 'by' (0.0000)
+  5: 'on' (0.0000)
+  6: 'for' (0.0000)
+  7: 'To' (0.0000)
+  8: 'and' (0.0000)
+  9: 'of' (0.0000)
+Chosen token: 'to' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed'
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'have' (0.9999)
+  1: 'occurred' (0.0000)
+  2: 'have' (0.0000)
+  3: 'occur' (0.0000)
+  4: 'Have' (0.0000)
+  5: 'Have' (0.0000)
+  6: 'be' (0.0000)
+  7: 'had' (0.0000)
+  8: 'has' (0.0000)
+  9: 'occ' (0.0000)
+Chosen token: 'have' (0.9999) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to'
+>>> Actually generated token: 'have'
+Top K tokens:
+  0: 'occurred' (0.9996)
+  1: 'occ' (0.0001)
+  2: 'taken' (0.0001)
+  3: 'happened' (0.0001)
+  4: 'occur' (0.0000)
+  5: 'occurring' (0.0000)
+  6: 'oc' (0.0000)
+  7: 'occurs' (0.0000)
+  8: 'Occ' (0.0000)
+  9: 'been' (0.0000)
+Chosen token: 'occurred' (0.9996) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have'
+>>> Actually generated token: 'occurred'
+Top K tokens:
+  0: 'in' (0.9941)
+  1: 'towards' (0.0029)
+  2: 'on' (0.0006)
+  3: 'near' (0.0006)
+  4: 'by' (0.0005)
+  5: 'at' (0.0003)
+  6: 'toward' (0.0003)
+  7: 'around' (0.0003)
+  8: 'just' (0.0002)
+  9: 'later' (0.0002)
+Chosen token: 'in' (0.9932) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred'
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'March' (0.9338)
+  1: 'late' (0.0511)
+  2: 'mid' (0.0144)
+  3: 'early' (0.0007)
+  4: 'march' (0.0001)
+  5: 'the' (0.0000)
+  6: 'late' (0.0000)
+  7: 'February' (0.0000)
+  8: 'mid' (0.0000)
+  9: 'April' (0.0000)
+Chosen token: 'March' (0.9338) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in'
+>>> Actually generated token: 'March'
+Top K tokens:
+  0: '' (0.5589)
+  1: '.' (0.3608)
+  2: ',' (0.0575)
+  3: 'of' (0.0197)
+  4: 'during' (0.0008)
+  5: 'when' (0.0006)
+  6: 'after' (0.0006)
+  7: 'just' (0.0004)
+  8: 'shortly' (0.0003)
+  9: 'that' (0.0003)
+Chosen token: '' (0.5581) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March'
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (0.9999)
+  1: 'of' (0.0000)
+  2: 'anne' (0.0000)
+  3: 'Anne' (0.0000)
+  4: 'friend' (0.0000)
+  5: 'friend' (0.0000)
+  6: 'ninete' (0.0000)
+  7: 'fifteen' (0.0000)
+  8: 'riend' (0.0000)
+  9: 'class' (0.0000)
+Chosen token: '1' (0.9996) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March '
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (0.9996)
+  1: '5' (0.0004)
+  2: 'nin' (0.0000)
+  3: '3' (0.0000)
+  4: '8' (0.0000)
+  5: '6' (0.0000)
+  6: 'Nin' (0.0000)
+  7: 'st' (0.0000)
+  8: ',' (0.0000)
+  9: '7' (0.0000)
+Chosen token: '9' (0.9996) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1'
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'forty' (0.0000)
+  2: 'fourth' (0.0000)
+  3: 'four' (0.0000)
+  4: '5' (0.0000)
+  5: 'Four' (0.0000)
+  6: 'Fourth' (0.0000)
+  7: 'four' (0.0000)
+  8: '四' (0.0000)
+  9: 'vier' (0.0000)
+Chosen token: '4' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 19'
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '5' (1.0000)
+  1: '4' (0.0000)
+  2: 'fifth' (0.0000)
+  3: 'five' (0.0000)
+  4: '6' (0.0000)
+  5: 'five' (0.0000)
+  6: '3' (0.0000)
+  7: 'fifty' (0.0000)
+  8: 'fif' (0.0000)
+  9: 'Five' (0.0000)
+Chosen token: '5' (1.0000) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 194'
+>>> Actually generated token: '5'
+Top K tokens:
+  0: ',' (0.6787)
+  1: '.' (0.3206)
+  2: 'when' (0.0004)
+  3: 'after' (0.0001)
+  4: 'shortly' (0.0001)
+  5: 'just' (0.0000)
+  6: ';' (0.0000)
+  7: 'during' (0.0000)
+  8: 'due' (0.0000)
+  9: 'following' (0.0000)
+Chosen token: ',' (0.6786) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945'
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'just' (0.8841)
+  1: 'shortly' (0.0651)
+  2: 'only' (0.0343)
+  3: 'two' (0.0046)
+  4: 'but' (0.0029)
+  5: 'soon' (0.0028)
+  6: 'a' (0.0024)
+  7: 'weeks' (0.0015)
+  8: 'mere' (0.0013)
+  9: 'right' (0.0010)
+Chosen token: 'just' (0.8828) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945,'
+>>> Actually generated token: 'just'
+Top K tokens:
+  0: 'weeks' (0.8127)
+  1: 'two' (0.1369)
+  2: 'before' (0.0310)
+  3: 'days' (0.0091)
+  4: 'prior' (0.0054)
+  5: 'a' (0.0041)
+  6: 'one' (0.0004)
+  7: 'three' (0.0002)
+  8: 'after' (0.0002)
+  9: 'two' (0.0001)
+Chosen token: 'weeks' (0.8124) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just'
+>>> Actually generated token: 'weeks'
+Top K tokens:
+  0: 'before' (0.9993)
+  1: 'prior' (0.0004)
+  2: 'before' (0.0002)
+  3: 'after' (0.0001)
+  4: 'Before' (0.0000)
+  5: 'Before' (0.0000)
+  6: 'shy' (0.0000)
+  7: 'earlier' (0.0000)
+  8: 'antes' (0.0000)
+  9: 'away' (0.0000)
+Chosen token: 'before' (0.9993) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks'
+>>> Actually generated token: 'before'
+Top K tokens:
+  0: 'the' (0.9992)
+  1: 'All' (0.0003)
+  2: 'British' (0.0001)
+  3: 'liber' (0.0001)
+  4: 'camp' (0.0001)
+  5: 'all' (0.0000)
+  6: 'its' (0.0000)
+  7: 'the' (0.0000)
+  8: 'Dutch' (0.0000)
+  9: 'their' (0.0000)
+Chosen token: 'the' (0.9992) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before'
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'camp' (0.9883)
+  1: 'liber' (0.0103)
+  2: 'camps' (0.0011)
+  3: 'concentration' (0.0001)
+  4: 'camp' (0.0001)
+  5: 'Ber' (0.0000)
+  6: 'Nazi' (0.0000)
+  7: 'Naz' (0.0000)
+  8: 'British' (0.0000)
+  9: 'Liber' (0.0000)
+Chosen token: 'camp' (0.9882) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the'
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: "'" (0.8824)
+  1: 'was' (0.1176)
+  2: '’' (0.0001)
+  3: 'was' (0.0000)
+  4: 'liber' (0.0000)
+  5: 'were' (0.0000)
+  6: 'Was' (0.0000)
+  7: 'Liber' (0.0000)
+  8: '´' (0.0000)
+  9: 'is' (0.0000)
+Chosen token: "'" (0.8824) | Generated so far: ' [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp'
+>>> Actually generated token: "'"
+Top K tokens:
+  0: 's' (1.0000)
+  1: 'ss' (0.0000)
+  2: 'arrest' (0.0000)
+  3: 'sd' (0.0000)
+  4: 'sl' (0.0000)
+  5: 'S' (0.0000)
+  6: 'arrested' (0.0000)
+  7: 's' (0.0000)
+  8: 'sf' (0.0000)
+  9: 'imprison' (0.0000)
+Chosen token: 's' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp'"
+>>> Actually generated token: 's'
+Top K tokens:
+  0: 'liber' (0.9998)
+  1: 'Liber' (0.0001)
+  2: 'li' (0.0000)
+  3: 'liberal' (0.0000)
+  4: 'liquid' (0.0000)
+  5: 'liberty' (0.0000)
+  6: 'libert' (0.0000)
+  7: 'release' (0.0000)
+  8: 'lib' (0.0000)
+  9: 'capture' (0.0000)
+Chosen token: 'liber' (0.9998) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's"
+>>> Actually generated token: 'liber'
+Top K tokens:
+  0: 'ation' (1.0000)
+  1: 'ATION' (0.0000)
+  2: 'ations' (0.0000)
+  3: 'ated' (0.0000)
+  4: 'ators' (0.0000)
+  5: 'ating' (0.0000)
+  6: 'aton' (0.0000)
+  7: 'iation' (0.0000)
+  8: 'aration' (0.0000)
+  9: 'ion' (0.0000)
+Chosen token: 'ation' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liber"
+>>> Actually generated token: 'ation'
+Top K tokens:
+  0: '.' (0.9475)
+  1: 'on' (0.0269)
+  2: 'in' (0.0213)
+  3: 'by' (0.0035)
+  4: ',' (0.0008)
+  5: 'from' (0.0001)
+  6: 'that' (0.0000)
+  7: 'and' (0.0000)
+  8: 'at' (0.0000)
+  9: 'which' (0.0000)
+Chosen token: '.' (0.9474) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'The' (0.5859)
+  1: 'Research' (0.2725)
+  2: 'Anne' (0.1026)
+  3: 'This' (0.0196)
+  4: 'Dutch' (0.0050)
+  5: 'New' (0.0042)
+  6: 'researchers' (0.0032)
+  7: 'Arch' (0.0024)
+  8: 'Ev' (0.0024)
+  9: 'In' (0.0021)
+Chosen token: 'The' (0.5739) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation."
+>>> Actually generated token: 'The'
+Top K tokens:
+  0: 'sisters' (0.4322)
+  1: 'researchers' (0.4060)
+  2: 'Frank' (0.0369)
+  3: 'new' (0.0301)
+  4: 'findings' (0.0268)
+  5: 'research' (0.0219)
+  6: 'rev' (0.0122)
+  7: 'revision' (0.0116)
+  8: 'Sister' (0.0115)
+  9: 'siblings' (0.0109)
+Chosen token: 'sisters' (0.4015) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The"
+>>> Actually generated token: 'sisters'
+Top K tokens:
+  0: 'had' (0.5779)
+  1: 'were' (0.2687)
+  2: ',' (0.1289)
+  3: "'" (0.0096)
+  4: 'spent' (0.0077)
+  5: 'survived' (0.0026)
+  6: 'contract' (0.0023)
+  7: 'arrived' (0.0011)
+  8: 'end' (0.0008)
+  9: 'lived' (0.0003)
+Chosen token: 'had' (0.5770) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters"
+>>> Actually generated token: 'had'
+Top K tokens:
+  0: 'been' (0.9935)
+  1: 'survived' (0.0027)
+  2: 'arrived' (0.0013)
+  3: 'previously' (0.0010)
+  4: 'earlier' (0.0006)
+  5: 'spent' (0.0004)
+  6: 'initially' (0.0003)
+  7: 'hidden' (0.0001)
+  8: 'end' (0.0001)
+  9: 'already' (0.0001)
+Chosen token: 'been' (0.9932) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had"
+>>> Actually generated token: 'been'
+Top K tokens:
+  0: 'sent' (0.4838)
+  1: 'imprison' (0.2590)
+  2: 'separated' (0.1252)
+  3: 'transferred' (0.0461)
+  4: 'arrested' (0.0334)
+  5: 'taken' (0.0153)
+  6: 'held' (0.0114)
+  7: 'prisoners' (0.0107)
+  8: 'transport' (0.0089)
+  9: 'in' (0.0062)
+Chosen token: 'sent' (0.4734) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been"
+>>> Actually generated token: 'sent'
+Top K tokens:
+  0: 'to' (0.9589)
+  1: 'there' (0.0209)
+  2: 'from' (0.0199)
+  3: 'as' (0.0001)
+  4: 'away' (0.0001)
+  5: 'enced' (0.0001)
+  6: 'There' (0.0000)
+  7: 'to' (0.0000)
+  8: 'there' (0.0000)
+  9: 'here' (0.0000)
+Chosen token: 'to' (0.9589) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent"
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'Ber' (0.6242)
+  1: 'the' (0.3341)
+  2: 'Aus' (0.0262)
+  3: 'work' (0.0123)
+  4: 'concentration' (0.0010)
+  5: 'Ber' (0.0007)
+  6: 'Bir' (0.0007)
+  7: 'labor' (0.0005)
+  8: 'Bern' (0.0003)
+  9: 'this' (0.0002)
+Chosen token: 'Ber' (0.6235) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to"
+>>> Actually generated token: 'Ber'
+Top K tokens:
+  0: 'gen' (1.0000)
+  1: 'ген' (0.0000)
+  2: 'ken' (0.0000)
+  3: 'GEN' (0.0000)
+  4: 'ogen' (0.0000)
+  5: 'egen' (0.0000)
+  6: 'Gen' (0.0000)
+  7: 'gan' (0.0000)
+  8: 'agen' (0.0000)
+  9: 'igen' (0.0000)
+Chosen token: 'gen' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Ber"
+>>> Actually generated token: 'gen'
+Top K tokens:
+  0: '-' (1.0000)
+  1: '–' (0.0000)
+  2: 'B' (0.0000)
+  3: '‐' (0.0000)
+  4: '‑' (0.0000)
+  5: 'after' (0.0000)
+  6: '--' (0.0000)
+  7: '-\\' (0.0000)
+  8: '\xad' (0.0000)
+  9: '-(' (0.0000)
+Chosen token: '-' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen"
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'B' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Б' (0.0000)
+  4: 'Β' (0.0000)
+  5: 'Bel' (0.0000)
+  6: '\xad' (0.0000)
+  7: 'D' (0.0000)
+  8: 'M' (0.0000)
+  9: 'BC' (0.0000)
+Chosen token: 'B' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-"
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'els' (1.0000)
+  1: 'Els' (0.0000)
+  2: 'ells' (0.0000)
+  3: 'EL' (0.0000)
+  4: 'elson' (0.0000)
+  5: 'eles' (0.0000)
+  6: 'els' (0.0000)
+  7: 'elen' (0.0000)
+  8: 'als' (0.0000)
+  9: 'el' (0.0000)
+Chosen token: 'els' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-B"
+>>> Actually generated token: 'els'
+Top K tokens:
+  0: 'en' (1.0000)
+  1: 'ens' (0.0000)
+  2: 'EN' (0.0000)
+  3: 'an' (0.0000)
+  4: 'ен' (0.0000)
+  5: 'ena' (0.0000)
+  6: 'én' (0.0000)
+  7: 'hen' (0.0000)
+  8: 'ent' (0.0000)
+  9: 'on' (0.0000)
+Skipping check: top token 'en' has prob 1.0000 >= 1.0
+>>> Actually generated token: 'en'
+Top K tokens:
+  0: 'in' (0.4021)
+  1: 'after' (0.3661)
+  2: 'from' (0.1960)
+  3: 'following' (0.0200)
+  4: 'as' (0.0156)
+  5: ',' (0.0001)
+  6: 'shortly' (0.0000)
+  7: 'for' (0.0000)
+  8: 'separately' (0.0000)
+  9: 'after' (0.0000)
+Chosen token: 'in' (0.4020) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen"
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: '' (0.6094)
+  1: 'October' (0.2621)
+  2: 'late' (0.1026)
+  3: 'September' (0.0176)
+  4: 'early' (0.0033)
+  5: 'November' (0.0020)
+  6: 'February' (0.0011)
+  7: 'the' (0.0010)
+  8: 'December' (0.0006)
+  9: 'mid' (0.0003)
+Chosen token: '' (0.6087) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in"
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: '₁' (0.0000)
+  2: 'ninete' (0.0000)
+  3: 'aus' (0.0000)
+  4: '¹' (0.0000)
+  5: 'Oct' (0.0000)
+  6: '❶' (0.0000)
+  7: 'October' (0.0000)
+  8: 'fifteen' (0.0000)
+  9: 'late' (0.0000)
+Chosen token: '1' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in "
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (1.0000)
+  1: 'nine' (0.0000)
+  2: 'nin' (0.0000)
+  3: '8' (0.0000)
+  4: 'September' (0.0000)
+  5: '九' (0.0000)
+  6: '6' (0.0000)
+  7: '7' (0.0000)
+  8: '5' (0.0000)
+  9: 'Nin' (0.0000)
+Chosen token: '9' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1"
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'forty' (0.0000)
+  2: 'fourth' (0.0000)
+  3: '3' (0.0000)
+  4: 'four' (0.0000)
+  5: 'Fourth' (0.0000)
+  6: 'four' (0.0000)
+  7: '5' (0.0000)
+  8: '四' (0.0000)
+  9: 'Four' (0.0000)
+Chosen token: '4' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 19"
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '4' (0.9999)
+  1: '3' (0.0001)
+  2: '5' (0.0001)
+  3: '2' (0.0000)
+  4: '6' (0.0000)
+  5: '1' (0.0000)
+  6: 'four' (0.0000)
+  7: 'four' (0.0000)
+  8: 'fourth' (0.0000)
+  9: '四' (0.0000)
+Chosen token: '4' (0.9999) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 194"
+>>> Actually generated token: '4'
+Top K tokens:
+  0: 'after' (0.8673)
+  1: ',' (0.1004)
+  2: 'from' (0.0147)
+  3: 'following' (0.0134)
+  4: 'as' (0.0036)
+  5: 'having' (0.0002)
+  6: 'along' (0.0002)
+  7: 'after' (0.0001)
+  8: 'and' (0.0001)
+  9: ';' (0.0001)
+Chosen token: 'after' (0.8671) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944"
+>>> Actually generated token: 'after'
+Top K tokens:
+  0: 'being' (0.8879)
+  1: 'their' (0.1044)
+  2: 'they' (0.0044)
+  3: 'the' (0.0013)
+  4: 'a' (0.0006)
+  5: 'initially' (0.0004)
+  6: 'earlier' (0.0003)
+  7: 'having' (0.0003)
+  8: 'hiding' (0.0002)
+  9: 'arrest' (0.0002)
+Chosen token: 'being' (0.8871) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after"
+>>> Actually generated token: 'being'
+Top K tokens:
+  0: 'separated' (0.4999)
+  1: 'arrested' (0.4344)
+  2: 'transferred' (0.0296)
+  3: 'imprison' (0.0114)
+  4: 'discovered' (0.0078)
+  5: 'transport' (0.0066)
+  6: 'captured' (0.0043)
+  7: 'sent' (0.0026)
+  8: 'previously' (0.0022)
+  9: 'caught' (0.0012)
+Chosen token: 'separated' (0.4955) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being"
+>>> Actually generated token: 'separated'
+Top K tokens:
+  0: 'from' (0.9999)
+  1: 'at' (0.0001)
+  2: 'from' (0.0000)
+  3: 'during' (0.0000)
+  4: 'in' (0.0000)
+  5: 'upon' (0.0000)
+  6: 'while' (0.0000)
+  7: 'From' (0.0000)
+  8: 'FROM' (0.0000)
+  9: 'and' (0.0000)
+Chosen token: 'from' (0.9999) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated"
+>>> Actually generated token: 'from'
+Top K tokens:
+  0: 'their' (1.0000)
+  1: 'Their' (0.0000)
+  2: 'the' (0.0000)
+  3: 'other' (0.0000)
+  4: 'her' (0.0000)
+  5: 'his' (0.0000)
+  6: 'Anne' (0.0000)
+  7: 'их' (0.0000)
+  8: 'others' (0.0000)
+  9: 'both' (0.0000)
+Chosen token: 'their' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from"
+>>> Actually generated token: 'their'
+Top K tokens:
+  0: 'mother' (0.9983)
+  1: 'parents' (0.0010)
+  2: 'family' (0.0003)
+  3: 'mother' (0.0002)
+  4: 'mothers' (0.0001)
+  5: 'Mother' (0.0000)
+  6: 'dying' (0.0000)
+  7: 'father' (0.0000)
+  8: 'sick' (0.0000)
+  9: 'imprison' (0.0000)
+Chosen token: 'mother' (0.9982) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their"
+>>> Actually generated token: 'mother'
+Top K tokens:
+  0: 'during' (0.4435)
+  1: 'at' (0.3195)
+  2: 'in' (0.0783)
+  3: 'and' (0.0713)
+  4: 'while' (0.0521)
+  5: ',' (0.0180)
+  6: '.' (0.0078)
+  7: 'following' (0.0066)
+  8: 'upon' (0.0023)
+  9: 'when' (0.0006)
+Chosen token: 'during' (0.4433) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother"
+>>> Actually generated token: 'during'
+Top K tokens:
+  0: 'their' (0.9706)
+  1: 'a' (0.0065)
+  2: 'imprison' (0.0063)
+  3: 'deport' (0.0053)
+  4: 'the' (0.0040)
+  5: 'earlier' (0.0025)
+  6: 'transport' (0.0023)
+  7: 'transportation' (0.0009)
+  8: 'arrest' (0.0009)
+  9: 'her' (0.0008)
+Chosen token: 'their' (0.9677) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during"
+>>> Actually generated token: 'their'
+Top K tokens:
+  0: 'imprison' (0.8808)
+  1: 'time' (0.0554)
+  2: 'arrest' (0.0210)
+  3: 'conf' (0.0120)
+  4: 'intern' (0.0088)
+  5: 'deport' (0.0052)
+  6: 'capt' (0.0051)
+  7: 'det' (0.0048)
+  8: 'earlier' (0.0035)
+  9: 'stay' (0.0032)
+Chosen token: 'imprison' (0.8716) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their"
+>>> Actually generated token: 'imprison'
+Top K tokens:
+  0: 'ment' (1.0000)
+  1: 'ement' (0.0000)
+  2: 'ments' (0.0000)
+  3: 'MENT' (0.0000)
+  4: 'iment' (0.0000)
+  5: 'ment' (0.0000)
+  6: 'ament' (0.0000)
+  7: 'mente' (0.0000)
+  8: 'nent' (0.0000)
+  9: 'ion' (0.0000)
+Chosen token: 'ment' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprison"
+>>> Actually generated token: 'ment'
+Top K tokens:
+  0: 'at' (0.8199)
+  1: 'in' (0.1801)
+  2: 'first' (0.0000)
+  3: 'and' (0.0000)
+  4: '.' (0.0000)
+  5: 'elsewhere' (0.0000)
+  6: ',' (0.0000)
+  7: 'at' (0.0000)
+  8: 'earlier' (0.0000)
+  9: 'by' (0.0000)
+Chosen token: 'at' (0.8198) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment"
+>>> Actually generated token: 'at'
+Top K tokens:
+  0: 'Aus' (0.8900)
+  1: 'the' (0.1097)
+  2: 'other' (0.0001)
+  3: 'Amsterdam' (0.0001)
+  4: 'another' (0.0000)
+  5: 'Auch' (0.0000)
+  6: 'Aur' (0.0000)
+  7: 'both' (0.0000)
+  8: 'Bir' (0.0000)
+  9: 'Aust' (0.0000)
+Chosen token: 'Aus' (0.8900) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at"
+>>> Actually generated token: 'Aus'
+Top K tokens:
+  0: 'ch' (1.0000)
+  1: 'CH' (0.0000)
+  2: 'chs' (0.0000)
+  3: 'chn' (0.0000)
+  4: 'cht' (0.0000)
+  5: 'ching' (0.0000)
+  6: 'chr' (0.0000)
+  7: 'chi' (0.0000)
+  8: 'chter' (0.0000)
+  9: 'ч' (0.0000)
+Skipping check: top token 'ch' has prob 1.0000 >= 1.0
+>>> Actually generated token: 'ch'
+Top K tokens:
+  0: 'w' (1.0000)
+  1: 'wich' (0.0000)
+  2: 'wh' (0.0000)
+  3: 'wart' (0.0000)
+  4: 'wx' (0.0000)
+  5: 'wand' (0.0000)
+  6: 'hw' (0.0000)
+  7: 'ware' (0.0000)
+  8: 'wa' (0.0000)
+  9: 'wald' (0.0000)
+Chosen token: 'w' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Ausch"
+>>> Actually generated token: 'w'
+Top K tokens:
+  0: 'itz' (1.0000)
+  1: 'icz' (0.0000)
+  2: 'iz' (0.0000)
+  3: 'etz' (0.0000)
+  4: 'itzer' (0.0000)
+  5: 'tz' (0.0000)
+  6: 'it' (0.0000)
+  7: 'atz' (0.0000)
+  8: 'ritz' (0.0000)
+  9: 'itt' (0.0000)
+Chosen token: 'itz' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschw"
+>>> Actually generated token: 'itz'
+Top K tokens:
+  0: '-' (0.9801)
+  1: '.' (0.0197)
+  2: 'and' (0.0001)
+  3: ',' (0.0000)
+  4: '–' (0.0000)
+  5: ';' (0.0000)
+  6: 'earlier' (0.0000)
+  7: 'Bir' (0.0000)
+  8: 'in' (0.0000)
+  9: '-' (0.0000)
+Chosen token: '-' (0.9801) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz"
+>>> Actually generated token: '-'
+Top K tokens:
+  0: 'B' (1.0000)
+  1: 'Bir' (0.0000)
+  2: 'Б' (0.0000)
+  3: 'Br' (0.0000)
+  4: 'Ber' (0.0000)
+  5: 'A' (0.0000)
+  6: '\xad' (0.0000)
+  7: 'Б' (0.0000)
+  8: 'Bi' (0.0000)
+  9: 'K' (0.0000)
+Chosen token: 'B' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-"
+>>> Actually generated token: 'B'
+Top K tokens:
+  0: 'ir' (1.0000)
+  1: 'irs' (0.0000)
+  2: 'IR' (0.0000)
+  3: 'irk' (0.0000)
+  4: 'irl' (0.0000)
+  5: 'irling' (0.0000)
+  6: 'Ir' (0.0000)
+  7: 'iron' (0.0000)
+  8: 'irical' (0.0000)
+  9: 'irat' (0.0000)
+Chosen token: 'ir' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-B"
+>>> Actually generated token: 'ir'
+Top K tokens:
+  0: 'ken' (0.9999)
+  1: 'cken' (0.0000)
+  2: 'KEN' (0.0000)
+  3: 'Ken' (0.0000)
+  4: 'chen' (0.0000)
+  5: 'oken' (0.0000)
+  6: 'iken' (0.0000)
+  7: 'cen' (0.0000)
+  8: 'zen' (0.0000)
+  9: 'nen' (0.0000)
+Chosen token: 'ken' (0.9999) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Bir"
+>>> Actually generated token: 'ken'
+Top K tokens:
+  0: 'au' (1.0000)
+  1: 'AU' (0.0000)
+  2: 'auer' (0.0000)
+  3: 'au' (0.0000)
+  4: 'AU' (0.0000)
+  5: 'aur' (0.0000)
+  6: 'aus' (0.0000)
+  7: 'Au' (0.0000)
+  8: 'h' (0.0000)
+  9: 'hu' (0.0000)
+Chosen token: 'au' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birken"
+>>> Actually generated token: 'au'
+Top K tokens:
+  0: '.' (0.9976)
+  1: ',' (0.0010)
+  2: 'following' (0.0005)
+  3: 'camp' (0.0004)
+  4: 'and' (0.0003)
+  5: 'earlier' (0.0001)
+  6: 'in' (0.0001)
+  7: 'concentration' (0.0000)
+  8: ';' (0.0000)
+  9: 'camps' (0.0000)
+Chosen token: '.' (0.9976) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Cond' (0.7575)
+  1: 'They' (0.1135)
+  2: 'At' (0.0325)
+  3: 'Living' (0.0257)
+  4: 'Life' (0.0210)
+  5: 'Their' (0.0170)
+  6: 'The' (0.0124)
+  7: 'Pr' (0.0112)
+  8: 'In' (0.0052)
+  9: 'Camp' (0.0040)
+Chosen token: 'Cond' (0.7452) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau."
+>>> Actually generated token: 'Cond'
+Top K tokens:
+  0: 'itions' (1.0000)
+  1: 'ictions' (0.0000)
+  2: 'iciones' (0.0000)
+  3: 'itional' (0.0000)
+  4: 'ctions' (0.0000)
+  5: 'ensions' (0.0000)
+  6: 'ations' (0.0000)
+  7: 'ions' (0.0000)
+  8: 'usions' (0.0000)
+  9: 'ITION' (0.0000)
+Chosen token: 'itions' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Cond"
+>>> Actually generated token: 'itions'
+Top K tokens:
+  0: 'at' (0.6753)
+  1: 'in' (0.3140)
+  2: 'were' (0.0103)
+  3: 'within' (0.0002)
+  4: 'there' (0.0001)
+  5: 'inside' (0.0000)
+  6: 'at' (0.0000)
+  7: 'during' (0.0000)
+  8: 'were' (0.0000)
+  9: 'in' (0.0000)
+Chosen token: 'at' (0.6753) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions"
+>>> Actually generated token: 'at'
+Top K tokens:
+  0: 'the' (0.9526)
+  1: 'Ber' (0.0474)
+  2: 'this' (0.0000)
+  3: 'Ber' (0.0000)
+  4: 'camp' (0.0000)
+  5: 'Bern' (0.0000)
+  6: 'their' (0.0000)
+  7: 'Bir' (0.0000)
+  8: 'that' (0.0000)
+  9: 'Бер' (0.0000)
+Chosen token: 'the' (0.9526) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at"
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'camp' (0.9498)
+  1: 'over' (0.0265)
+  2: 'Ber' (0.0200)
+  3: 'camps' (0.0016)
+  4: 'crowded' (0.0013)
+  5: 'concentration' (0.0005)
+  6: 'camp' (0.0001)
+  7: 'Camp' (0.0000)
+  8: 'heavily' (0.0000)
+  9: 'German' (0.0000)
+Chosen token: 'camp' (0.9496) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the"
+>>> Actually generated token: 'camp'
+Top K tokens:
+  0: 'were' (0.9812)
+  1: ',' (0.0136)
+  2: 'included' (0.0047)
+  3: 'during' (0.0002)
+  4: 'w' (0.0002)
+  5: 'led' (0.0001)
+  6: 'were' (0.0000)
+  7: 'where' (0.0000)
+  8: 'consisted' (0.0000)
+  9: 'deter' (0.0000)
+Chosen token: 'were' (0.9810) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp"
+>>> Actually generated token: 'were'
+Top K tokens:
+  0: 'dire' (0.5060)
+  1: 'hor' (0.3021)
+  2: 'terrible' (0.0456)
+  3: 'de' (0.0390)
+  4: 'harsh' (0.0358)
+  5: 'brutal' (0.0297)
+  6: 'dread' (0.0158)
+  7: 'grim' (0.0112)
+  8: 'app' (0.0075)
+  9: 'gru' (0.0073)
+Chosen token: 'dire' (0.4819) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were"
+>>> Actually generated token: 'dire'
+Top K tokens:
+  0: ',' (0.9741)
+  1: 'with' (0.0133)
+  2: ';' (0.0062)
+  3: '–' (0.0026)
+  4: '-' (0.0020)
+  5: ':' (0.0013)
+  6: 'and' (0.0002)
+  7: '-' (0.0001)
+  8: 'as' (0.0001)
+  9: '.' (0.0001)
+Chosen token: ',' (0.9740) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'with' (0.9876)
+  1: 'and' (0.0084)
+  2: 'marked' (0.0017)
+  3: 'including' (0.0007)
+  4: 'filled' (0.0007)
+  5: 'characterized' (0.0003)
+  6: 'as' (0.0003)
+  7: 'with' (0.0002)
+  8: 'leading' (0.0001)
+  9: 'featuring' (0.0000)
+Chosen token: 'with' (0.9874) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire,"
+>>> Actually generated token: 'with'
+Top K tokens:
+  0: 'over' (0.4627)
+  1: 'prisoners' (0.2741)
+  2: 'in' (0.1236)
+  3: 'no' (0.0434)
+  4: 'poor' (0.0407)
+  5: 'limited' (0.0203)
+  6: 'little' (0.0158)
+  7: 'ins' (0.0134)
+  8: 'long' (0.0030)
+  9: 'disease' (0.0029)
+Chosen token: 'over' (0.4512) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with"
+>>> Actually generated token: 'over'
+Top K tokens:
+  0: 'c' (1.0000)
+  1: 'crow' (0.0000)
+  2: 'pop' (0.0000)
+  3: 'Crow' (0.0000)
+  4: 'crowded' (0.0000)
+  5: '-' (0.0000)
+  6: 'packed' (0.0000)
+  7: 'cro' (0.0000)
+  8: 'crowds' (0.0000)
+  9: 'filled' (0.0000)
+Chosen token: 'c' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with over"
+>>> Actually generated token: 'c'
+Top K tokens:
+  0: 'row' (1.0000)
+  1: 'rows' (0.0000)
+  2: 'ROW' (0.0000)
+  3: 'row' (0.0000)
+  4: 'rowning' (0.0000)
+  5: 'Row' (0.0000)
+  6: 'raw' (0.0000)
+  7: 'Crow' (0.0000)
+  8: 'rown' (0.0000)
+  9: 'crow' (0.0000)
+Chosen token: 'row' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overc"
+>>> Actually generated token: 'row'
+Top K tokens:
+  0: 'ding' (0.9919)
+  1: 'ded' (0.0081)
+  2: 'dings' (0.0000)
+  3: 'd' (0.0000)
+  4: 'eding' (0.0000)
+  5: 'ds' (0.0000)
+  6: 'ading' (0.0000)
+  7: 'iding' (0.0000)
+  8: 'ning' (0.0000)
+  9: 'ing' (0.0000)
+Chosen token: 'ding' (0.9919) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrow"
+>>> Actually generated token: 'ding'
+Top K tokens:
+  0: ',' (0.9385)
+  1: 'leading' (0.0582)
+  2: 'and' (0.0027)
+  3: 'causing' (0.0003)
+  4: 'resulting' (0.0002)
+  5: 'contributing' (0.0001)
+  6: 'ex' (0.0000)
+  7: 'increasing' (0.0000)
+  8: 'spreading' (0.0000)
+  9: 'bringing' (0.0000)
+Chosen token: ',' (0.9385) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'poor' (0.7235)
+  1: 'lack' (0.1425)
+  2: 'in' (0.0524)
+  3: 'limited' (0.0386)
+  4: 'ins' (0.0193)
+  5: 'little' (0.0124)
+  6: 'disease' (0.0051)
+  7: 'minimal' (0.0025)
+  8: 'no' (0.0019)
+  9: 'harsh' (0.0019)
+Chosen token: 'poor' (0.7157) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding,"
+>>> Actually generated token: 'poor'
+Top K tokens:
+  0: 'san' (0.6501)
+  1: 'hy' (0.3426)
+  2: 'living' (0.0041)
+  3: 'nutrition' (0.0012)
+  4: 'water' (0.0009)
+  5: 'food' (0.0007)
+  6: 'lighting' (0.0003)
+  7: 'health' (0.0001)
+  8: 'San' (0.0000)
+  9: 'conditions' (0.0000)
+Chosen token: 'san' (0.6500) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor"
+>>> Actually generated token: 'san'
+Top K tokens:
+  0: 'itation' (0.9997)
+  1: 'itary' (0.0003)
+  2: 'it' (0.0000)
+  3: 'itations' (0.0000)
+  4: 'ity' (0.0000)
+  5: 'itar' (0.0000)
+  6: 'itarian' (0.0000)
+  7: 'itat' (0.0000)
+  8: 'ita' (0.0000)
+  9: 'ction' (0.0000)
+Chosen token: 'itation' (0.9997) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor san"
+>>> Actually generated token: 'itation'
+Top K tokens:
+  0: ',' (0.9999)
+  1: 'and' (0.0001)
+  2: 'leading' (0.0000)
+  3: 'conditions' (0.0000)
+  4: 'causing' (0.0000)
+  5: 'facilities' (0.0000)
+  6: 'resulting' (0.0000)
+  7: 'and' (0.0000)
+  8: 'leading' (0.0000)
+  9: ',' (0.0000)
+Chosen token: ',' (0.9999) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'and' (0.9829)
+  1: 'long' (0.0126)
+  2: 'lack' (0.0009)
+  3: 'violent' (0.0008)
+  4: 'violence' (0.0007)
+  5: 'l' (0.0006)
+  6: 'little' (0.0005)
+  7: 'limited' (0.0004)
+  8: 'harsh' (0.0003)
+  9: 'in' (0.0003)
+Chosen token: 'and' (0.9808) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation,"
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'a' (0.5834)
+  1: 'frequent' (0.2376)
+  2: 'disease' (0.1062)
+  3: 'ramp' (0.0216)
+  4: 'widespread' (0.0176)
+  5: 'long' (0.0087)
+  6: 'constant' (0.0074)
+  7: 'regular' (0.0059)
+  8: 'harsh' (0.0059)
+  9: 'epid' (0.0057)
+Chosen token: 'a' (0.5485) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and"
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'ty' (0.9106)
+  1: 'deadly' (0.0691)
+  2: 'ramp' (0.0055)
+  3: 'lack' (0.0028)
+  4: 'fatal' (0.0024)
+  5: 'severe' (0.0022)
+  6: 'preval' (0.0021)
+  7: 'l' (0.0020)
+  8: 'Ty' (0.0018)
+  9: 'devast' (0.0016)
+Chosen token: 'ty' (0.9060) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a"
+>>> Actually generated token: 'ty'
+Top K tokens:
+  0: 'ph' (1.0000)
+  1: 'Ph' (0.0000)
+  2: 'phi' (0.0000)
+  3: 'oph' (0.0000)
+  4: 'PH' (0.0000)
+  5: 'ph' (0.0000)
+  6: 'phy' (0.0000)
+  7: 'pl' (0.0000)
+  8: 'php' (0.0000)
+  9: 'Phil' (0.0000)
+Chosen token: 'ph' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a ty"
+>>> Actually generated token: 'ph'
+Top K tokens:
+  0: 'us' (1.0000)
+  1: 'oid' (0.0000)
+  2: 'US' (0.0000)
+  3: 'us' (0.0000)
+  4: 'pus' (0.0000)
+  5: 'hus' (0.0000)
+  6: 'ous' (0.0000)
+  7: 'Us' (0.0000)
+  8: 'usive' (0.0000)
+  9: 'uis' (0.0000)
+Chosen token: 'us' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typh"
+>>> Actually generated token: 'us'
+Top K tokens:
+  0: 'outbreak' (0.8758)
+  1: 'epid' (0.1242)
+  2: 'inf' (0.0000)
+  3: 'infection' (0.0000)
+  4: 'pandemic' (0.0000)
+  5: 'ep' (0.0000)
+  6: 'virus' (0.0000)
+  7: 'disease' (0.0000)
+  8: 'crisis' (0.0000)
+  9: 'fever' (0.0000)
+Chosen token: 'outbreak' (0.8758) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus"
+>>> Actually generated token: 'outbreak'
+Top K tokens:
+  0: 'that' (0.5276)
+  1: 'causing' (0.2780)
+  2: '.' (0.0976)
+  3: 'contributing' (0.0324)
+  4: 'claiming' (0.0259)
+  5: 'leading' (0.0237)
+  6: 'resulting' (0.0063)
+  7: 'killing' (0.0043)
+  8: ',' (0.0026)
+  9: 'which' (0.0015)
+Chosen token: 'that' (0.5236) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak"
+>>> Actually generated token: 'that'
+Top K tokens:
+  0: 'claimed' (0.4151)
+  1: 'caused' (0.3084)
+  2: 'led' (0.0721)
+  3: 'likely' (0.0637)
+  4: 'killed' (0.0557)
+  5: 'took' (0.0265)
+  6: 'contributed' (0.0231)
+  7: 'spread' (0.0157)
+  8: 'ultimately' (0.0107)
+  9: 'resulted' (0.0090)
+Chosen token: 'claimed' (0.3975) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that"
+>>> Actually generated token: 'claimed'
+Top K tokens:
+  0: 'thousands' (0.6326)
+  1: 'many' (0.2221)
+  2: 'countless' (0.0856)
+  3: 'numerous' (0.0561)
+  4: 'lives' (0.0023)
+  5: 'the' (0.0010)
+  6: 'hundreds' (0.0002)
+  7: 'thousand' (0.0000)
+  8: 'many' (0.0000)
+  9: 'multiple' (0.0000)
+Chosen token: 'thousands' (0.6325) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed"
+>>> Actually generated token: 'thousands'
+Top K tokens:
+  0: 'of' (1.0000)
+  1: '.' (0.0000)
+  2: 'of' (0.0000)
+  3: 'each' (0.0000)
+  4: 'lives' (0.0000)
+  5: 'in' (0.0000)
+  6: ',' (0.0000)
+  7: 'Of' (0.0000)
+  8: 'daily' (0.0000)
+  9: 'upon' (0.0000)
+Chosen token: 'of' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands"
+>>> Actually generated token: 'of'
+Top K tokens:
+  0: 'lives' (1.0000)
+  1: 'victims' (0.0000)
+  2: 'live' (0.0000)
+  3: 'deaths' (0.0000)
+  4: 'prisoners' (0.0000)
+  5: 'lif' (0.0000)
+  6: 'souls' (0.0000)
+  7: 'innocent' (0.0000)
+  8: 'l' (0.0000)
+  9: 'lived' (0.0000)
+Chosen token: 'lives' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of"
+>>> Actually generated token: 'lives'
+Top K tokens:
+  0: '.' (0.9406)
+  1: 'each' (0.0407)
+  2: 'daily' (0.0128)
+  3: ',' (0.0028)
+  4: 'in' (0.0023)
+  5: 'during' (0.0003)
+  6: 'every' (0.0002)
+  7: 'within' (0.0001)
+  8: 'before' (0.0001)
+  9: 'due' (0.0001)
+Chosen token: '.' (0.9402) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Anne' (0.5562)
+  1: 'The' (0.1892)
+  2: 'W' (0.1130)
+  3: 'Research' (0.0669)
+  4: 'Both' (0.0241)
+  5: 'It' (0.0193)
+  6: 'Despite' (0.0117)
+  7: 'Ty' (0.0084)
+  8: 'With' (0.0073)
+  9: 'Ev' (0.0038)
+Chosen token: 'Anne' (0.5346) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives."
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'and' (0.7347)
+  1: "'" (0.1745)
+  2: ',' (0.0762)
+  3: 'Frank' (0.0080)
+  4: 'likely' (0.0032)
+  5: 'was' (0.0015)
+  6: 'is' (0.0008)
+  7: 'had' (0.0005)
+  8: 'became' (0.0003)
+  9: 'died' (0.0002)
+Chosen token: 'and' (0.7334) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne"
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'Marg' (0.9965)
+  1: 'her' (0.0035)
+  2: 'other' (0.0000)
+  3: 'Margaret' (0.0000)
+  4: 'Mar' (0.0000)
+  5: 'her' (0.0000)
+  6: 'marg' (0.0000)
+  7: 'M' (0.0000)
+  8: 'others' (0.0000)
+  9: 'M' (0.0000)
+Chosen token: 'Marg' (0.9965) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and"
+>>> Actually generated token: 'Marg'
+Top K tokens:
+  0: 'ot' (1.0000)
+  1: 'OT' (0.0000)
+  2: 'ot' (0.0000)
+  3: 'ott' (0.0000)
+  4: 'oth' (0.0000)
+  5: 'от' (0.0000)
+  6: 'ots' (0.0000)
+  7: 'Ot' (0.0000)
+  8: 'ota' (0.0000)
+  9: 'o' (0.0000)
+Chosen token: 'ot' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Marg"
+>>> Actually generated token: 'ot'
+Top K tokens:
+  0: 'likely' (0.9389)
+  1: "'" (0.0186)
+  2: 'are' (0.0132)
+  3: 'were' (0.0079)
+  4: 'reported' (0.0049)
+  5: 'both' (0.0045)
+  6: 'most' (0.0042)
+  7: ',' (0.0029)
+  8: 'probably' (0.0025)
+  9: 'contract' (0.0024)
+Chosen token: 'likely' (0.9262) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot"
+>>> Actually generated token: 'likely'
+Top K tokens:
+  0: 'succ' (0.7390)
+  1: 'contract' (0.1016)
+  2: 'died' (0.0816)
+  3: 'per' (0.0380)
+  4: 'fell' (0.0265)
+  5: 'suffered' (0.0043)
+  6: 'did' (0.0032)
+  7: 'developed' (0.0026)
+  8: 'end' (0.0022)
+  9: 'experienced' (0.0010)
+Chosen token: 'succ' (0.7355) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely"
+>>> Actually generated token: 'succ'
+Top K tokens:
+  0: 'umb' (0.9993)
+  1: 'umber' (0.0003)
+  2: 'umbing' (0.0002)
+  3: 'umbs' (0.0002)
+  4: 'umbled' (0.0000)
+  5: 'om' (0.0000)
+  6: 'UM' (0.0000)
+  7: 'umed' (0.0000)
+  8: 'omb' (0.0000)
+  9: 'omed' (0.0000)
+Chosen token: 'umb' (0.9993) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succ"
+>>> Actually generated token: 'umb'
+Top K tokens:
+  0: 'ed' (1.0000)
+  1: 'ED' (0.0000)
+  2: 'ered' (0.0000)
+  3: 'to' (0.0000)
+  4: 'eds' (0.0000)
+  5: 'ded' (0.0000)
+  6: 'ened' (0.0000)
+  7: 'eda' (0.0000)
+  8: 'ced' (0.0000)
+  9: 'ned' (0.0000)
+Skipping check: top token 'ed' has prob 1.0000 >= 1.0
+>>> Actually generated token: 'ed'
+Top K tokens:
+  0: 'to' (1.0000)
+  1: 'to' (0.0000)
+  2: 'before' (0.0000)
+  3: 'early' (0.0000)
+  4: 'during' (0.0000)
+  5: 'earlier' (0.0000)
+  6: 'shortly' (0.0000)
+  7: 'due' (0.0000)
+  8: 'weeks' (0.0000)
+  9: 'in' (0.0000)
+Chosen token: 'to' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed"
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'the' (0.9719)
+  1: 'ty' (0.0167)
+  2: 'this' (0.0111)
+  3: 'disease' (0.0001)
+  4: 'illness' (0.0001)
+  5: 'these' (0.0000)
+  6: 'diseases' (0.0000)
+  7: 'typ' (0.0000)
+  8: 'Ty' (0.0000)
+  9: 'the' (0.0000)
+Chosen token: 'the' (0.9718) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to"
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'disease' (0.9972)
+  1: 'illness' (0.0023)
+  2: 'diseases' (0.0002)
+  3: 'deadly' (0.0001)
+  4: 'infect' (0.0000)
+  5: 'dise' (0.0000)
+  6: 'infection' (0.0000)
+  7: 'Dise' (0.0000)
+  8: 'devast' (0.0000)
+  9: 'epid' (0.0000)
+Chosen token: 'disease' (0.9972) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the"
+>>> Actually generated token: 'disease'
+Top K tokens:
+  0: 'before' (0.4820)
+  1: ',' (0.1349)
+  2: 'several' (0.1257)
+  3: 'earlier' (0.0838)
+  4: 'months' (0.0594)
+  5: 'well' (0.0257)
+  6: 'prior' (0.0251)
+  7: 'around' (0.0225)
+  8: 'due' (0.0208)
+  9: 'weeks' (0.0199)
+Chosen token: 'before' (0.4563) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease"
+>>> Actually generated token: 'before'
+Top K tokens:
+  0: 'the' (0.5387)
+  1: 'March' (0.3761)
+  2: 'it' (0.0509)
+  3: 'liber' (0.0153)
+  4: 'February' (0.0118)
+  5: 'its' (0.0052)
+  6: 'Liber' (0.0009)
+  7: 'march' (0.0005)
+  8: 'freedom' (0.0003)
+  9: 'winter' (0.0003)
+Chosen token: 'the' (0.5373) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before"
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'liber' (0.3851)
+  1: 'camp' (0.1644)
+  2: 'Russian' (0.1193)
+  3: 'Soviet' (0.1029)
+  4: 'Russians' (0.1020)
+  5: 'end' (0.0521)
+  6: 'reported' (0.0345)
+  7: 'Liber' (0.0149)
+  8: 'arrival' (0.0137)
+  9: 'March' (0.0111)
+Chosen token: 'liber' (0.3616) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the"
+>>> Actually generated token: 'liber'
+Top K tokens:
+  0: 'ation' (1.0000)
+  1: 'ators' (0.0000)
+  2: 'ating' (0.0000)
+  3: 'ations' (0.0000)
+  4: 'ated' (0.0000)
+  5: 'ATION' (0.0000)
+  6: 'ator' (0.0000)
+  7: 'aton' (0.0000)
+  8: 'iation' (0.0000)
+  9: 'ion' (0.0000)
+Chosen token: 'ation' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liber"
+>>> Actually generated token: 'ation'
+Top K tokens:
+  0: ',' (0.5620)
+  1: '.' (0.4176)
+  2: 'of' (0.0131)
+  3: 'despite' (0.0018)
+  4: 'and' (0.0018)
+  5: 'as' (0.0016)
+  6: 'due' (0.0008)
+  7: ';' (0.0006)
+  8: 'in' (0.0004)
+  9: 'date' (0.0002)
+Chosen token: ',' (0.5616) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'as' (0.4751)
+  1: 'despite' (0.2973)
+  2: 'based' (0.0614)
+  3: 'with' (0.0384)
+  4: 'and' (0.0304)
+  5: 'according' (0.0272)
+  6: 'researchers' (0.0256)
+  7: 'which' (0.0154)
+  8: 'contrad' (0.0154)
+  9: 'contrary' (0.0139)
+Chosen token: 'as' (0.4409) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation,"
+>>> Actually generated token: 'as'
+Top K tokens:
+  0: 'they' (0.4383)
+  1: 'witnesses' (0.3808)
+  2: 'symptoms' (0.0395)
+  3: 'survivors' (0.0310)
+  4: 'described' (0.0278)
+  5: 'witnessed' (0.0267)
+  6: 'their' (0.0242)
+  7: 'reported' (0.0129)
+  8: 'witness' (0.0125)
+  9: 'documented' (0.0062)
+Chosen token: 'they' (0.4192) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as"
+>>> Actually generated token: 'they'
+Top K tokens:
+  0: 'exhib' (0.4065)
+  1: 'displayed' (0.2584)
+  2: 'showed' (0.1617)
+  3: 'both' (0.0623)
+  4: 'had' (0.0463)
+  5: 'were' (0.0463)
+  6: 'reported' (0.0137)
+  7: 'are' (0.0019)
+  8: 'began' (0.0016)
+  9: 'experienced' (0.0012)
+Chosen token: 'exhib' (0.4035) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they"
+>>> Actually generated token: 'exhib'
+Top K tokens:
+  0: 'ited' (1.0000)
+  1: 'iting' (0.0000)
+  2: 'itted' (0.0000)
+  3: 'ated' (0.0000)
+  4: 'ted' (0.0000)
+  5: 'itated' (0.0000)
+  6: 'itor' (0.0000)
+  7: 'ita' (0.0000)
+  8: 'isted' (0.0000)
+  9: 'its' (0.0000)
+Chosen token: 'ited' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhib"
+>>> Actually generated token: 'ited'
+Top K tokens:
+  0: 'symptoms' (0.9980)
+  1: 'signs' (0.0013)
+  2: 'early' (0.0003)
+  3: 'ty' (0.0002)
+  4: 'typical' (0.0001)
+  5: 'sympt' (0.0001)
+  6: 'sym' (0.0000)
+  7: 'tell' (0.0000)
+  8: 'sym' (0.0000)
+  9: 'initial' (0.0000)
+Chosen token: 'symptoms' (0.9980) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited"
+>>> Actually generated token: 'symptoms'
+Top K tokens:
+  0: 'before' (0.6004)
+  1: 'prior' (0.3530)
+  2: 'earlier' (0.0372)
+  3: 'weeks' (0.0025)
+  4: 'by' (0.0019)
+  5: 'several' (0.0014)
+  6: 'of' (0.0011)
+  7: 'around' (0.0010)
+  8: 'well' (0.0008)
+  9: 'early' (0.0008)
+Chosen token: 'before' (0.5994) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms"
+>>> Actually generated token: 'before'
+Top K tokens:
+  0: 'February' (0.5022)
+  1: 'mid' (0.3346)
+  2: 'late' (0.1005)
+  3: 'early' (0.0432)
+  4: 'the' (0.0186)
+  5: 'mid' (0.0002)
+  6: 'March' (0.0002)
+  7: 'this' (0.0002)
+  8: 'January' (0.0001)
+  9: 'Feb' (0.0001)
+Chosen token: 'February' (0.5019) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before"
+>>> Actually generated token: 'February'
+Top K tokens:
+  0: '' (0.9803)
+  1: '.' (0.0194)
+  2: ',' (0.0002)
+  3: 'and' (0.0001)
+  4: '7' (0.0000)
+  5: 'according' (0.0000)
+  6: 'when' (0.0000)
+  7: ' ' (0.0000)
+  8: 'while' (0.0000)
+  9: 'seventh' (0.0000)
+Chosen token: '' (0.9803) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February"
+>>> Actually generated token: ''
+Top K tokens:
+  0: '7' (1.0000)
+  1: '1' (0.0000)
+  2: '8' (0.0000)
+  3: 'seventh' (0.0000)
+  4: '6' (0.0000)
+  5: '5' (0.0000)
+  6: '9' (0.0000)
+  7: 'VII' (0.0000)
+  8: 'Seven' (0.0000)
+  9: '�' (0.0000)
+Chosen token: '7' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February "
+>>> Actually generated token: '7'
+Top K tokens:
+  0: '.' (0.7747)
+  1: ',' (0.1812)
+  2: 'and' (0.0320)
+  3: 'th' (0.0116)
+  4: 'according' (0.0005)
+  5: 'based' (0.0000)
+  6: 'when' (0.0000)
+  7: '–' (0.0000)
+  8: 'despite' (0.0000)
+  9: ';' (0.0000)
+Chosen token: '.' (0.7747) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Anne' (0.5946)
+  1: 'Despite' (0.2120)
+  2: 'Their' (0.0837)
+  3: 'W' (0.0632)
+  4: 'The' (0.0215)
+  5: '</s>' (0.0062)
+  6: '"' (0.0053)
+  7: 'Research' (0.0050)
+  8: 'Both' (0.0043)
+  9: 'A' (0.0042)
+Chosen token: 'Anne' (0.5740) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7."
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: "'" (0.8001)
+  1: 'Frank' (0.1457)
+  2: ',' (0.0210)
+  3: 'kept' (0.0113)
+  4: 'had' (0.0080)
+  5: 'remained' (0.0039)
+  6: 'continued' (0.0037)
+  7: 'wrote' (0.0027)
+  8: 'maintained' (0.0022)
+  9: 'left' (0.0014)
+Chosen token: "'" (0.7963) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne"
+>>> Actually generated token: "'"
+Top K tokens:
+  0: 's' (1.0000)
+  1: 'sf' (0.0000)
+  2: 'sd' (0.0000)
+  3: 'sv' (0.0000)
+  4: 'sb' (0.0000)
+  5: 'ss' (0.0000)
+  6: 'sp' (0.0000)
+  7: 'sg' (0.0000)
+  8: 'si' (0.0000)
+  9: 'sin' (0.0000)
+Chosen token: 's' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne'"
+>>> Actually generated token: 's'
+Top K tokens:
+  0: 'friend' (0.7709)
+  1: 'diary' (0.0965)
+  2: 'class' (0.0684)
+  3: 'hope' (0.0422)
+  4: 'optim' (0.0097)
+  5: 'final' (0.0039)
+  6: 'di' (0.0028)
+  7: 'faith' (0.0021)
+  8: 'friendship' (0.0021)
+  9: 'belief' (0.0013)
+Chosen token: 'friend' (0.7609) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's"
+>>> Actually generated token: 'friend'
+Top K tokens:
+  0: ',' (0.8558)
+  1: 'N' (0.1441)
+  2: 'and' (0.0001)
+  3: 'recalled' (0.0000)
+  4: 'rec' (0.0000)
+  5: 'described' (0.0000)
+  6: 'N' (0.0000)
+  7: 'remembered' (0.0000)
+  8: 'reported' (0.0000)
+  9: 'test' (0.0000)
+Chosen token: ',' (0.8557) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'N' (1.0000)
+  1: 'N' (0.0000)
+  2: 'Bl' (0.0000)
+  3: 'Anne' (0.0000)
+  4: 'Н' (0.0000)
+  5: 'M' (0.0000)
+  6: 'who' (0.0000)
+  7: 'Ann' (0.0000)
+  8: 'Marg' (0.0000)
+  9: 'Ne' (0.0000)
+Chosen token: 'N' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend,"
+>>> Actually generated token: 'N'
+Top K tokens:
+  0: 'ann' (0.9962)
+  1: 'an' (0.0036)
+  2: 'anne' (0.0001)
+  3: 'anny' (0.0000)
+  4: 'anna' (0.0000)
+  5: 'ann' (0.0000)
+  6: 'annel' (0.0000)
+  7: 'anc' (0.0000)
+  8: 'ana' (0.0000)
+  9: 'ан' (0.0000)
+Chosen token: 'ann' (0.9962) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, N"
+>>> Actually generated token: 'ann'
+Top K tokens:
+  0: 'ette' (1.0000)
+  1: 'ete' (0.0000)
+  2: 'atte' (0.0000)
+  3: 'etta' (0.0000)
+  4: 'ett' (0.0000)
+  5: 'lette' (0.0000)
+  6: 'ettes' (0.0000)
+  7: 'ethe' (0.0000)
+  8: 'otte' (0.0000)
+  9: 'et' (0.0000)
+Chosen token: 'ette' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nann"
+>>> Actually generated token: 'ette'
+Top K tokens:
+  0: 'Bl' (1.0000)
+  1: 'Bl' (0.0000)
+  2: ',' (0.0000)
+  3: 'Br' (0.0000)
+  4: 'bl' (0.0000)
+  5: 'B' (0.0000)
+  6: 'Blo' (0.0000)
+  7: 'bl' (0.0000)
+  8: 'BL' (0.0000)
+  9: 'Blake' (0.0000)
+Chosen token: 'Bl' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette"
+>>> Actually generated token: 'Bl'
+Top K tokens:
+  0: 'itz' (1.0000)
+  1: 'it' (0.0000)
+  2: 'itt' (0.0000)
+  3: 'its' (0.0000)
+  4: 'itzer' (0.0000)
+  5: 'iz' (0.0000)
+  6: 'utz' (0.0000)
+  7: 'itis' (0.0000)
+  8: 'ith' (0.0000)
+  9: 'ít' (0.0000)
+Chosen token: 'itz' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Bl"
+>>> Actually generated token: 'itz'
+Top K tokens:
+  0: ',' (1.0000)
+  1: 'recalled' (0.0000)
+  2: 'described' (0.0000)
+  3: 'remembered' (0.0000)
+  4: 'rec' (0.0000)
+  5: 'remem' (0.0000)
+  6: 'recall' (0.0000)
+  7: 'reported' (0.0000)
+  8: ',\\' (0.0000)
+  9: ',' (0.0000)
+Chosen token: ',' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'recalled' (0.6472)
+  1: 'described' (0.2168)
+  2: 'remembered' (0.1057)
+  3: 'rec' (0.0197)
+  4: 'last' (0.0038)
+  5: 'remem' (0.0031)
+  6: 'reported' (0.0016)
+  7: 'describes' (0.0008)
+  8: 'noted' (0.0007)
+  9: 'had' (0.0006)
+Chosen token: 'recalled' (0.6446) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz,"
+>>> Actually generated token: 'recalled'
+Top K tokens:
+  0: 'seeing' (0.5035)
+  1: 'Anne' (0.4174)
+  2: 'that' (0.0476)
+  3: 'her' (0.0117)
+  4: 'their' (0.0076)
+  5: 'visiting' (0.0055)
+  6: 'the' (0.0055)
+  7: 'witness' (0.0007)
+  8: 'meeting' (0.0002)
+  9: 'Anna' (0.0002)
+Chosen token: 'seeing' (0.5028) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled"
+>>> Actually generated token: 'seeing'
+Top K tokens:
+  0: 'Anne' (0.6832)
+  1: 'her' (0.3079)
+  2: 'a' (0.0030)
+  3: 'the' (0.0025)
+  4: 'Marg' (0.0018)
+  5: 'both' (0.0007)
+  6: 'them' (0.0006)
+  7: 'Anna' (0.0001)
+  8: 'Ann' (0.0000)
+  9: 'an' (0.0000)
+Chosen token: 'Anne' (0.6832) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing"
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: 'as' (0.8986)
+  1: 'in' (0.0761)
+  2: ',' (0.0160)
+  3: "'" (0.0070)
+  4: 'a' (0.0006)
+  5: 'near' (0.0006)
+  6: 'at' (0.0005)
+  7: 'barely' (0.0005)
+  8: '"' (0.0002)
+  9: 'em' (0.0001)
+Chosen token: 'as' (0.8979) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne"
+>>> Actually generated token: 'as'
+Top K tokens:
+  0: 'a' (0.9991)
+  1: 'little' (0.0005)
+  2: '"' (0.0002)
+  3: 'nothing' (0.0001)
+  4: 'mere' (0.0000)
+  5: 'only' (0.0000)
+  6: 'barely' (0.0000)
+  7: 'no' (0.0000)
+  8: 'merely' (0.0000)
+  9: 'just' (0.0000)
+Chosen token: 'a' (0.9991) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as"
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'ske' (0.5199)
+  1: 'mere' (0.2676)
+  2: '"' (0.1065)
+  3: 'near' (0.0715)
+  4: 'fra' (0.0143)
+  5: 'thin' (0.0083)
+  6: 'dying' (0.0033)
+  7: 'em' (0.0033)
+  8: 'barely' (0.0032)
+  9: 'sick' (0.0020)
+Chosen token: 'ske' (0.5138) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a"
+>>> Actually generated token: 'ske'
+Top K tokens:
+  0: 'leton' (0.9573)
+  1: 'let' (0.0427)
+  2: 'LET' (0.0000)
+  3: 'lete' (0.0000)
+  4: 'lette' (0.0000)
+  5: 'lett' (0.0000)
+  6: 'let' (0.0000)
+  7: 'leted' (0.0000)
+  8: 'le' (0.0000)
+  9: 'letter' (0.0000)
+Chosen token: 'leton' (0.9573) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a ske"
+>>> Actually generated token: 'leton'
+Top K tokens:
+  0: 'by' (0.5711)
+  1: 'in' (0.3987)
+  2: 'wrapped' (0.0132)
+  3: 'covered' (0.0044)
+  4: 'before' (0.0032)
+  5: 'during' (0.0031)
+  6: ',' (0.0023)
+  7: 'towards' (0.0022)
+  8: 'shortly' (0.0009)
+  9: 'barely' (0.0008)
+Chosen token: 'by' (0.5662) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton"
+>>> Actually generated token: 'by'
+Top K tokens:
+  0: 'December' (0.7537)
+  1: 'late' (0.1876)
+  2: 'the' (0.0474)
+  3: 'then' (0.0065)
+  4: 'mid' (0.0035)
+  5: 'Christmas' (0.0004)
+  6: 'that' (0.0003)
+  7: 'early' (0.0002)
+  8: 'winter' (0.0002)
+  9: 'November' (0.0001)
+Chosen token: 'December' (0.7535) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by"
+>>> Actually generated token: 'December'
+Top K tokens:
+  0: '' (0.9996)
+  1: '.' (0.0001)
+  2: ',' (0.0001)
+  3: 'of' (0.0001)
+  4: 'that' (0.0001)
+  5: 'and' (0.0000)
+  6: '1' (0.0000)
+  7: 'with' (0.0000)
+  8: 'the' (0.0000)
+  9: 'due' (0.0000)
+Chosen token: '' (0.9996) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December"
+>>> Actually generated token: ''
+Top K tokens:
+  0: '1' (1.0000)
+  1: '2' (0.0000)
+  2: '3' (0.0000)
+  3: '8' (0.0000)
+  4: '4' (0.0000)
+  5: '7' (0.0000)
+  6: '6' (0.0000)
+  7: '5' (0.0000)
+  8: '9' (0.0000)
+  9: '₁' (0.0000)
+Skipping check: top token '1' has prob 1.0000 >= 1.0
+>>> Actually generated token: '1'
+Top K tokens:
+  0: '9' (1.0000)
+  1: '8' (0.0000)
+  2: '7' (0.0000)
+  3: '3' (0.0000)
+  4: '6' (0.0000)
+  5: 'nin' (0.0000)
+  6: 'nine' (0.0000)
+  7: '5' (0.0000)
+  8: '4' (0.0000)
+  9: '0' (0.0000)
+Chosen token: '9' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1"
+>>> Actually generated token: '9'
+Top K tokens:
+  0: '4' (1.0000)
+  1: 'fourth' (0.0000)
+  2: '5' (0.0000)
+  3: '3' (0.0000)
+  4: 'forty' (0.0000)
+  5: 'Fourth' (0.0000)
+  6: 'four' (0.0000)
+  7: 'four' (0.0000)
+  8: '1' (0.0000)
+  9: 'Four' (0.0000)
+Chosen token: '4' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 19"
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '4' (1.0000)
+  1: '5' (0.0000)
+  2: '3' (0.0000)
+  3: 'four' (0.0000)
+  4: '1' (0.0000)
+  5: '2' (0.0000)
+  6: 'fourth' (0.0000)
+  7: 'four' (0.0000)
+  8: 'Four' (0.0000)
+  9: 'forty' (0.0000)
+Chosen token: '4' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 194"
+>>> Actually generated token: '4'
+Top K tokens:
+  0: '.' (0.9945)
+  1: ',' (0.0052)
+  2: 'due' (0.0002)
+  3: 'and' (0.0000)
+  4: 'before' (0.0000)
+  5: 'during' (0.0000)
+  6: 'with' (0.0000)
+  7: ';' (0.0000)
+  8: 'when' (0.0000)
+  9: 'in' (0.0000)
+Chosen token: '.' (0.9945) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: 'Anne' (0.5006)
+  1: 'Despite' (0.4086)
+  2: 'The' (0.0519)
+  3: '</s>' (0.0200)
+  4: 'Although' (0.0062)
+  5: 'Her' (0.0030)
+  6: 'Though' (0.0027)
+  7: 'Their' (0.0023)
+  8: 'Both' (0.0023)
+  9: 'While' (0.0023)
+Chosen token: 'Anne' (0.4945) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944."
+>>> Actually generated token: 'Anne'
+Top K tokens:
+  0: "'" (0.7695)
+  1: 'Frank' (0.1316)
+  2: 'kept' (0.0335)
+  3: 'remained' (0.0310)
+  4: 'continued' (0.0185)
+  5: 'maintained' (0.0090)
+  6: 'never' (0.0021)
+  7: 'is' (0.0019)
+  8: 'died' (0.0015)
+  9: 'wrote' (0.0013)
+Chosen token: "'" (0.7635) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne"
+>>> Actually generated token: "'"
+Top K tokens:
+  0: 's' (1.0000)
+  1: 'sf' (0.0000)
+  2: 'sd' (0.0000)
+  3: 'ss' (0.0000)
+  4: 's' (0.0000)
+  5: 'sp' (0.0000)
+  6: 'sb' (0.0000)
+  7: 'sin' (0.0000)
+  8: 'sg' (0.0000)
+  9: 'sm' (0.0000)
+Chosen token: 's' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne'"
+>>> Actually generated token: 's'
+Top K tokens:
+  0: 'diary' (0.7198)
+  1: 'hope' (0.2265)
+  2: 'di' (0.0242)
+  3: 'un' (0.0096)
+  4: 'belief' (0.0057)
+  5: 'optim' (0.0055)
+  6: 'faith' (0.0025)
+  7: 'spirit' (0.0024)
+  8: 'final' (0.0020)
+  9: 'hopes' (0.0018)
+Chosen token: 'diary' (0.7098) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's"
+>>> Actually generated token: 'diary'
+Top K tokens:
+  0: ',' (0.9764)
+  1: 'remains' (0.0119)
+  2: 'continues' (0.0082)
+  3: 'has' (0.0023)
+  4: 'is' (0.0006)
+  5: 'shares' (0.0002)
+  6: 'detail' (0.0001)
+  7: 'surv' (0.0001)
+  8: 'provides' (0.0001)
+  9: 'chronic' (0.0001)
+Chosen token: ',' (0.9758) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'written' (0.3354)
+  1: 'which' (0.2149)
+  2: 'document' (0.1314)
+  3: 'chronic' (0.1106)
+  4: 'discovered' (0.0635)
+  5: 'a' (0.0578)
+  6: 'detail' (0.0561)
+  7: 'documented' (0.0134)
+  8: 'filled' (0.0095)
+  9: 'published' (0.0074)
+Chosen token: 'written' (0.3208) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary,"
+>>> Actually generated token: 'written'
+Top K tokens:
+  0: 'while' (0.7303)
+  1: 'during' (0.2645)
+  2: 'between' (0.0021)
+  3: 'in' (0.0014)
+  4: 'whilst' (0.0009)
+  5: 'secret' (0.0002)
+  6: 'from' (0.0002)
+  7: 'before' (0.0001)
+  8: 'while' (0.0001)
+  9: 'amid' (0.0000)
+Chosen token: 'while' (0.7303) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written"
+>>> Actually generated token: 'while'
+Top K tokens:
+  0: 'she' (0.3946)
+  1: 'in' (0.2979)
+  2: 'hiding' (0.2842)
+  3: 'hidden' (0.0203)
+  4: 'living' (0.0012)
+  5: 'the' (0.0008)
+  6: 'conce' (0.0004)
+  7: 'hid' (0.0003)
+  8: 'they' (0.0002)
+  9: 'hide' (0.0002)
+Chosen token: 'she' (0.3943) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while"
+>>> Actually generated token: 'she'
+Top K tokens:
+  0: 'was' (0.9172)
+  1: 'and' (0.0801)
+  2: 'hid' (0.0022)
+  3: 'lived' (0.0003)
+  4: 'hiding' (0.0001)
+  5: 'was' (0.0001)
+  6: 'hidden' (0.0000)
+  7: 'hide' (0.0000)
+  8: 'conce' (0.0000)
+  9: 'remained' (0.0000)
+Chosen token: 'was' (0.9171) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she"
+>>> Actually generated token: 'was'
+Top K tokens:
+  0: 'in' (0.5089)
+  1: 'hiding' (0.3443)
+  2: 'hidden' (0.1435)
+  3: 'hid' (0.0010)
+  4: 'living' (0.0007)
+  5: 'conce' (0.0006)
+  6: 'hide' (0.0005)
+  7: 'hidden' (0.0002)
+  8: 'conf' (0.0001)
+  9: 'imprison' (0.0000)
+Chosen token: 'in' (0.5088) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was"
+>>> Actually generated token: 'in'
+Top K tokens:
+  0: 'hiding' (0.9991)
+  1: 'the' (0.0005)
+  2: 'hide' (0.0002)
+  3: 'conce' (0.0001)
+  4: 'hid' (0.0000)
+  5: 'hidden' (0.0000)
+  6: 'conf' (0.0000)
+  7: 'disgu' (0.0000)
+  8: 'isolation' (0.0000)
+  9: 'Amsterdam' (0.0000)
+Chosen token: 'hiding' (0.9991) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in"
+>>> Actually generated token: 'hiding'
+Top K tokens:
+  0: ',' (0.5749)
+  1: 'in' (0.3654)
+  2: 'with' (0.0230)
+  3: 'before' (0.0163)
+  4: 'during' (0.0156)
+  5: 'and' (0.0035)
+  6: 'prior' (0.0008)
+  7: 'from' (0.0003)
+  8: 'earlier' (0.0001)
+  9: 'as' (0.0001)
+Chosen token: ',' (0.5748) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding"
+>>> Actually generated token: ','
+Top K tokens:
+  0: 'is' (0.4436)
+  1: 'remains' (0.3195)
+  2: 'has' (0.1311)
+  3: 'continues' (0.1054)
+  4: 'became' (0.0001)
+  5: 'insp' (0.0001)
+  6: 'remained' (0.0001)
+  7: 'chron' (0.0001)
+  8: 'end' (0.0000)
+  9: 'was' (0.0000)
+Chosen token: 'is' (0.4435) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding,"
+>>> Actually generated token: 'is'
+Top K tokens:
+  0: 'a' (0.9462)
+  1: 'now' (0.0241)
+  2: 'one' (0.0212)
+  3: 'widely' (0.0029)
+  4: 'renown' (0.0028)
+  5: 'an' (0.0010)
+  6: 'among' (0.0007)
+  7: 'celebrated' (0.0005)
+  8: 'known' (0.0003)
+  9: 'famous' (0.0003)
+Chosen token: 'a' (0.9451) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is"
+>>> Actually generated token: 'a'
+Top K tokens:
+  0: 'widely' (0.3241)
+  1: 'well' (0.2564)
+  2: 'beloved' (0.2485)
+  3: 'renown' (0.0973)
+  4: 'popular' (0.0393)
+  5: 'famous' (0.0164)
+  6: 'glob' (0.0079)
+  7: 'celebrated' (0.0056)
+  8: 'powerful' (0.0023)
+  9: 'cher' (0.0022)
+Chosen token: 'widely' (0.3191) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a"
+>>> Actually generated token: 'widely'
+Top K tokens:
+  0: 'read' (0.5131)
+  1: '-' (0.4600)
+  2: 'popular' (0.0067)
+  3: 'ac' (0.0065)
+  4: 'recognized' (0.0057)
+  5: 'renown' (0.0025)
+  6: 'beloved' (0.0021)
+  7: 'read' (0.0015)
+  8: 'known' (0.0014)
+  9: 'celebrated' (0.0005)
+Chosen token: 'read' (0.5122) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely"
+>>> Actually generated token: 'read'
+Top K tokens:
+  0: 'test' (0.6693)
+  1: 'testimony' (0.1200)
+  2: 'and' (0.0927)
+  3: 'testim' (0.0378)
+  4: 'Hol' (0.0260)
+  5: 'book' (0.0227)
+  6: 'symbol' (0.0156)
+  7: 'historical' (0.0062)
+  8: 'account' (0.0055)
+  9: 'reminder' (0.0042)
+Chosen token: 'test' (0.6543) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read"
+>>> Actually generated token: 'test'
+Top K tokens:
+  0: 'ament' (1.0000)
+  1: 'iment' (0.0000)
+  2: 'ement' (0.0000)
+  3: 'amento' (0.0000)
+  4: 'aments' (0.0000)
+  5: 'ument' (0.0000)
+  6: 'amente' (0.0000)
+  7: 'AM' (0.0000)
+  8: 'ment' (0.0000)
+  9: 'ifier' (0.0000)
+Chosen token: 'ament' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read test"
+>>> Actually generated token: 'ament'
+Top K tokens:
+  0: 'to' (0.9566)
+  1: 'of' (0.0434)
+  2: 'from' (0.0000)
+  3: 'to' (0.0000)
+  4: 'about' (0.0000)
+  5: 'for' (0.0000)
+  6: 'on' (0.0000)
+  7: 'that' (0.0000)
+  8: 'document' (0.0000)
+  9: '.' (0.0000)
+Chosen token: 'to' (0.9566) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament"
+>>> Actually generated token: 'to'
+Top K tokens:
+  0: 'her' (0.9411)
+  1: 'the' (0.0556)
+  2: 'human' (0.0027)
+  3: 'hope' (0.0005)
+  4: 'humanity' (0.0001)
+  5: 'res' (0.0000)
+  6: 'her' (0.0000)
+  7: 'hers' (0.0000)
+  8: 'their' (0.0000)
+  9: 'life' (0.0000)
+Chosen token: 'her' (0.9410) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to"
+>>> Actually generated token: 'her'
+Top K tokens:
+  0: 'res' (0.4608)
+  1: 'hope' (0.4003)
+  2: 'determination' (0.0638)
+  3: 'end' (0.0306)
+  4: 'optim' (0.0115)
+  5: 'un' (0.0091)
+  6: 'courage' (0.0072)
+  7: 'ind' (0.0058)
+  8: 'hopes' (0.0057)
+  9: 'experiences' (0.0052)
+Chosen token: 'res' (0.4541) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her"
+>>> Actually generated token: 'res'
+Top K tokens:
+  0: 'il' (1.0000)
+  1: 'ili' (0.0000)
+  2: 'olute' (0.0000)
+  3: 'il' (0.0000)
+  4: 'IL' (0.0000)
+  5: 'ill' (0.0000)
+  6: 'olut' (0.0000)
+  7: 'Il' (0.0000)
+  8: 'pite' (0.0000)
+  9: 'illegal' (0.0000)
+Chosen token: 'il' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her res"
+>>> Actually generated token: 'il'
+Top K tokens:
+  0: 'ience' (0.9850)
+  1: 'ient' (0.0150)
+  2: 'ence' (0.0000)
+  3: 'iente' (0.0000)
+  4: 'iance' (0.0000)
+  5: 'ien' (0.0000)
+  6: 'olence' (0.0000)
+  7: 'ent' (0.0000)
+  8: 'ince' (0.0000)
+  9: 'iene' (0.0000)
+Chosen token: 'ience' (0.9850) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resil"
+>>> Actually generated token: 'ience'
+Top K tokens:
+  0: 'and' (0.9835)
+  1: 'during' (0.0138)
+  2: '.' (0.0009)
+  3: 'in' (0.0008)
+  4: 'despite' (0.0006)
+  5: 'amid' (0.0004)
+  6: ',' (0.0001)
+  7: 'throughout' (0.0000)
+  8: 'even' (0.0000)
+  9: 'through' (0.0000)
+Chosen token: 'and' (0.9835) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience"
+>>> Actually generated token: 'and'
+Top K tokens:
+  0: 'hope' (0.9691)
+  1: 'optim' (0.0124)
+  2: 'determination' (0.0079)
+  3: 'her' (0.0033)
+  4: 'end' (0.0026)
+  5: 'the' (0.0022)
+  6: 'faith' (0.0009)
+  7: 'hopes' (0.0007)
+  8: 'belief' (0.0007)
+  9: 'survival' (0.0004)
+Chosen token: 'hope' (0.9682) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and"
+>>> Actually generated token: 'hope'
+Top K tokens:
+  0: 'during' (0.5897)
+  1: 'despite' (0.1514)
+  2: 'amid' (0.1041)
+  3: '.' (0.0904)
+  4: 'in' (0.0507)
+  5: 'fulness' (0.0056)
+  6: 'against' (0.0029)
+  7: ',' (0.0022)
+  8: 'even' (0.0021)
+  9: 'throughout' (0.0009)
+Chosen token: 'during' (0.5886) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope"
+>>> Actually generated token: 'during'
+Top K tokens:
+  0: 'the' (0.4695)
+  1: 'those' (0.2717)
+  2: 'that' (0.0855)
+  3: 'difficult' (0.0503)
+  4: 'this' (0.0407)
+  5: 'these' (0.0388)
+  6: 'a' (0.0245)
+  7: 'her' (0.0105)
+  8: 'h' (0.0052)
+  9: 'trying' (0.0034)
+Chosen token: 'the' (0.4576) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during"
+>>> Actually generated token: 'the'
+Top K tokens:
+  0: 'Hol' (0.9754)
+  1: 'dark' (0.0158)
+  2: 'hor' (0.0023)
+  3: 'Hol' (0.0015)
+  4: 'harsh' (0.0013)
+  5: 'hol' (0.0010)
+  6: 'difficult' (0.0009)
+  7: 'darkness' (0.0006)
+  8: 'Nazi' (0.0006)
+  9: 'hard' (0.0005)
+Chosen token: 'Hol' (0.9731) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during the"
+>>> Actually generated token: 'Hol'
+Top K tokens:
+  0: 'oca' (1.0000)
+  1: 'oc' (0.0000)
+  2: 'oco' (0.0000)
+  3: 'ca' (0.0000)
+  4: 'aca' (0.0000)
+  5: 'ocal' (0.0000)
+  6: 'oka' (0.0000)
+  7: 'co' (0.0000)
+  8: 'occ' (0.0000)
+  9: 'ocate' (0.0000)
+Chosen token: 'oca' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during the Hol"
+>>> Actually generated token: 'oca'
+Top K tokens:
+  0: 'ust' (1.0000)
+  1: 'uster' (0.0000)
+  2: 'ustr' (0.0000)
+  3: 'UST' (0.0000)
+  4: 'Aust' (0.0000)
+  5: 'ud' (0.0000)
+  6: 'un' (0.0000)
+  7: 'oust' (0.0000)
+  8: 'us' (0.0000)
+  9: 'Austin' (0.0000)
+Chosen token: 'ust' (1.0000) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during the Holoca"
+>>> Actually generated token: 'ust'
+Top K tokens:
+  0: '.' (0.9995)
+  1: 'era' (0.0004)
+  2: ',' (0.0000)
+  3: 'despite' (0.0000)
+  4: 'period' (0.0000)
+  5: "'" (0.0000)
+  6: 'years' (0.0000)
+  7: 'Era' (0.0000)
+  8: '."' (0.0000)
+  9: ".'" (0.0000)
+Chosen token: '.' (0.9995) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during the Holocaust"
+>>> Actually generated token: '.'
+Top K tokens:
+  0: '</s>' (0.9434)
+  1: 'The' (0.0392)
+  2: 'Despite' (0.0091)
+  3: 'Anne' (0.0045)
+  4: 'Her' (0.0016)
+  5: '\n' (0.0010)
+  6: 'Ex' (0.0005)
+  7: 'No' (0.0002)
+  8: 'While' (0.0002)
+  9: 'Although' (0.0002)
+Chosen token: '</s>' (0.9411) | Generated so far: " [/INST] Seventeen-year-old Anne Frank and her older sister, Margot, died of typhus in the Bergen-Belsen concentration camp around late January or early February 1945, according to new research. Previously, their deaths were believed to have occurred in March 1945, just weeks before the camp's liberation. The sisters had been sent to Bergen-Belsen in 1944 after being separated from their mother during their imprisonment at Auschwitz-Birkenau. Conditions at the camp were dire, with overcrowding, poor sanitation, and a typhus outbreak that claimed thousands of lives. Anne and Margot likely succumbed to the disease before the liberation, as they exhibited symptoms before February 7. Anne's friend, Nannette Blitz, recalled seeing Anne as a skeleton by December 1944. Anne's diary, written while she was in hiding, is a widely read testament to her resilience and hope during the Holocaust."
+>>> Actually generated token: '</s>'
+Processed 1/942 prompts
+
+Saved 1 generations to: ./data/summary_experiments_tinylettuce_run_20260306_135648.json
+Total runtime: 18.71 seconds
+Average time per generation: 18.71 seconds
+Total logit modifications: 1
