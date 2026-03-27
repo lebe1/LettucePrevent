@@ -13,11 +13,13 @@ from transformers import (
     Trainer,
     DataCollatorForTokenClassification,
     PreTrainedModel,
+    EarlyStoppingCallback,
 )
 from transformers.modeling_outputs import TokenClassifierOutput
 from sklearn.metrics import f1_score, precision_score, recall_score
 from datasets import load_dataset
-
+from datetime import datetime
+from huggingface_hub import HfApi
 
 # ============================================================
 # 0. Reproducibility
@@ -36,10 +38,10 @@ os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
 MODEL_NAME   = "jhu-clsp/ettin-decoder-68m"
 MAX_LENGTH   = 4096
 BATCH_SIZE   = 16
-NUM_SAMPLES  = 2000
+NUM_SAMPLES  = "FULL"
 EPOCHS       = 6
-LR           = 1e-5
-WEIGHT_DECAY = 0.01
+LR           = 2e-6
+WEIGHT_DECAY = 0.05
 NUM_LABELS   = 2
 
 FREEZE_BACKBONE = False
@@ -48,12 +50,19 @@ FREEZE_BACKBONE = False
 # "weighted" → keep all samples, scale loss by inverse class frequency
 STRATEGY = "weighted"
 
+timestamp_str = datetime.now().strftime("%Y-%m-%d-%H:%M")
 scope_tag  = "frozen" if FREEZE_BACKBONE else "full"
-OUTPUT_DIR = f"./ettin_{scope_tag}_{STRATEGY}"
+OUTPUT_DIR = f"./ettin_{scope_tag}_{STRATEGY}_{timestamp_str}"
 print(f"Model          : {MODEL_NAME}")
 print(f"Freeze backbone: {FREEZE_BACKBONE}  ({scope_tag} fine-tune)")
 print(f"Strategy       : {STRATEGY}")
 print(f"Output dir     : {OUTPUT_DIR}")
+print(f"Max length     : {MAX_LENGTH}")
+print(f"BATCH_SIZE     : {BATCH_SIZE}")
+print(f"EPOCHS         : {EPOCHS}")
+print(f"Learning Rate  : {LR}")
+print(f"WEIGHT_DECAY   : {WEIGHT_DECAY}")
+print(f"NUM_LABELS     : {NUM_LABELS}")
 
 
 # ============================================================
@@ -395,27 +404,52 @@ def compute_metrics(eval_pred):
     flat_labels = labels.flatten()
     mask        = flat_labels != -100
 
-    f1_bin = f1_score(
-        flat_labels[mask], flat_preds[mask],
-        average="binary", pos_label=1, zero_division="warn",
-    )
     f1_micro = f1_score(
         flat_labels[mask], flat_preds[mask],
         average="micro", zero_division="warn",
     )
-    precision = precision_score(
+    precision_micro = precision_score(
+        flat_labels[mask], flat_preds[mask],
+        average="micro", pos_label=1, zero_division="warn",
+    )
+    recall_micro = recall_score(
+        flat_labels[mask], flat_preds[mask],
+        average="micro", pos_label=1, zero_division="warn",
+    )
+    f1_binary_class_1 = f1_score(
         flat_labels[mask], flat_preds[mask],
         average="binary", pos_label=1, zero_division="warn",
     )
-    recall = recall_score(
+    precision_class_1 = precision_score(
         flat_labels[mask], flat_preds[mask],
         average="binary", pos_label=1, zero_division="warn",
+    )
+    recall_class_1 = recall_score(
+        flat_labels[mask], flat_preds[mask],
+        average="binary", pos_label=1, zero_division="warn",
+    )
+    f1_binary_class_0 = f1_score(
+        flat_labels[mask], flat_preds[mask],
+        average="binary", pos_label=0, zero_division="warn",
+    )
+    precision_class_0 = precision_score(
+        flat_labels[mask], flat_preds[mask],
+        average="binary", pos_label=0, zero_division="warn",
+    )
+    recall_class_0 = recall_score(
+        flat_labels[mask], flat_preds[mask],
+        average="binary", pos_label=0, zero_division="warn",
     )
     return {
-        "f1_binary"  : f1_bin,
-        "f1_micro"   : f1_micro,
-        "precision"  : precision,
-        "recall"     : recall,
+        "f1_binary_class_1"  : f1_binary_class_1,
+        "precision_class_1"  : precision_class_1,
+        "recall_class_1"     : recall_class_1,
+        "f1_binary_class_0"  : f1_binary_class_0,
+        "precision_class_0"  : precision_class_0,
+        "recall_class_0"     : recall_class_0,
+        "f1_micro"           : f1_micro,
+        "precision_micro"    : precision_micro,
+        "recall_micro"       : recall_micro,
     }
 
 
@@ -478,8 +512,8 @@ training_args = TrainingArguments(
     eval_strategy="epoch",
     save_strategy="epoch",
     load_best_model_at_end=True,
-    metric_for_best_model="precision",
-    greater_is_better=True,
+    metric_for_best_model="eval_loss",
+    greater_is_better=False,
     logging_strategy="epoch",
     report_to="none",
     seed=SEED,
@@ -488,6 +522,7 @@ training_args = TrainingArguments(
     fp16=torch.cuda.is_available(),
     dataloader_num_workers=1,       
     eval_accumulation_steps=16,
+    warmup_ratio       = 0.1,    # add warmup for 10% of steps
 )
 
 trainer = Trainer(
@@ -498,6 +533,7 @@ trainer = Trainer(
     data_collator=collator,
     compute_metrics=compute_metrics,
     processing_class=tokenizer,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=2)],
 )
 
 trainer.train()
@@ -505,3 +541,31 @@ trainer.train()
 print("\n=== Final evaluation ===")
 metrics = trainer.evaluate()
 print(metrics)
+
+# ============================================================
+# Save locally
+# ============================================================
+trainer.save_model(OUTPUT_DIR)
+tokenizer.save_pretrained(OUTPUT_DIR)
+print(f"Model saved to {OUTPUT_DIR}")
+
+# ============================================================
+# Upload to HuggingFace Hub
+# ============================================================
+
+HF_USERNAME   = "lebe1"        
+HF_MODEL_NAME = "tinylettuce-ettin-decoder-68m-en"  
+HF_REPO_ID    = f"{HF_USERNAME}/{HF_MODEL_NAME}"
+
+api = HfApi()
+
+# Creates the repo if it does not exist yet
+api.create_repo(repo_id=HF_REPO_ID, exist_ok=True)
+
+# Uploads the entire OUTPUT_DIR folder (weights, config, tokenizer)
+api.upload_folder(
+    folder_path=OUTPUT_DIR,
+    repo_id=HF_REPO_ID,
+    repo_type="model",
+)
+print(f"Model uploaded to https://huggingface.co/{HF_REPO_ID}")
