@@ -1,0 +1,26 @@
+Using device : cuda
+Trainable params : 68,145,666
+Frozen params    : 0
+Total params     : 68,145,666
+Pre-training loss : 0.6691
+Logits nan/inf    : False / False
+Logits min/max    : -0.8811 / 0.9611
+
+{'loss': 0.6315, 'grad_norm': 5.8288469314575195, 'learning_rate': 8.349056603773585e-06, 'epoch': 1.0}                                                                        
+{'eval_loss': 0.5922941565513611, 'eval_f1_binary': 0.19096067305810996, 'eval_f1_micro': 0.8377190400502345, 'eval_precision': 0.1264576315107541, 'eval_recall': 0.38977635782747605, 'eval_runtime': 5.7724, 'eval_samples_per_second': 52.664, 'eval_steps_per_second': 3.292, 'epoch': 1.0}                                                              
+{'loss': 0.5089, 'grad_norm': 9.129807472229004, 'learning_rate': 6.682389937106919e-06, 'epoch': 2.0}                                                                         
+{'eval_loss': 0.5836674571037292, 'eval_f1_binary': 0.2373590396507821, 'eval_f1_micro': 0.8354427895841918, 'eval_precision': 0.1536740461610928, 'eval_recall': 0.5211661341853036, 'eval_runtime': 5.7587, 'eval_samples_per_second': 52.789, 'eval_steps_per_second': 3.299, 'epoch': 2.0}                                                                
+ 44%|███████████████████████████████████████████████████████████▊                                                                            | 280/636 [03:44<03:53,  1.53it/s]{'loss': 0.4233, 'grad_norm': 8.917271614074707, 'learning_rate': 5.015723270440252e-06, 'epoch': 3.0}                                                                         
+{'eval_loss': 0.5606019496917725, 'eval_f1_binary': 0.26018057858853877, 'eval_f1_micro':7730814, 'eval_precision': 0.16910179640718562, 'eval_recall': 0.5638977635782748, 'eval_runtime': 5.7561, 'eval_samples_per_second': 52.814, 'eval_steps_per_second': 3.301, 'epoch': 3.0}                                                              
+{'loss': 0.3499, 'grad_norm': 5.781932830810547, 'learning_rate': 3.349056603773585e-06, 'epoch': 4.0}                                                                         
+{'eval_loss': 0.659182608127594, 'eval_f1_binary': 0.2953125, 'eval_f1_micro': 0.8938011420498028, 'eval_precision': 0.21908809891808345, 'eval_recall': 0.4528753993610224, 'eval_runtime': 5.7251, 'eval_samples_per_second': 53.1, 'eval_steps_per_second': 3.319, 'epoch': 4.0}                                                                           
+{'loss': 0.2984, 'grad_norm': 9.850564956665039, 'learning_rate': 1.6823899371069182e-06, 'epoch': 5.0}                                                                        
+{'eval_loss': 0.6802763938903809, 'eval_f1_binary': 0.2924021488871834, 'eval_f1_micro': 0.8914464001883794, 'eval_precision': 0.2150922092585623, 'eval_recall': 0.4564696485623003, 'eval_runtime': 5.7292, 'eval_samples_per_second': 53.062, 'eval_steps_per_second': 3.316, 'epoch': 5.0}                                                                
+{'loss': 0.2656, 'grad_norm': 7.235171794891357, 'learning_rate': 1.5723270440251573e-08, 'epoch': 6.0}                                                                        
+{'eval_loss': 0.7019667625427246, 'eval_f1_binary': 0.2934725848563969, 'eval_f1_micro': 0.8938011420498028, 'eval_precision': 0.21799844840961985, 'eval_recall': 0.4488817891373802, 'eval_runtime': 5.7206, 'eval_samples_per_second': 53.141, 'eval_steps_per_second': 3.321, 'epoch': 6.0}                                                               
+{'train_runtime': 521.9174, 'train_samples_per_second': 19.497, 'train_steps_per_second': 1.219, 'train_loss': 0.41291926941781676, 'epoch': 6.0}                              
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 636/636 [08:41<00:00,  1.22it/s]
+
+=== Final evaluation ===
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19/19 [00:05<00:00,  3.56it/s]
+{'eval_loss': 0.659182608127594, 'eval_f1_binary': 0.2953125, 'eval_f1_micro': 0.8938011420498028, 'eval_precision': 0.21908809891808345, 'eval_recall': 0.4528753993610224, 'eval_runtime': 5.5805, 'eval_samples_per_second': 54.475, 'eval_steps_per_second': 3.405, 'epoch': 6.0}
