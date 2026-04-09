@@ -60,31 +60,25 @@ HF_REPO_ID    = f"{HF_USERNAME}/{HF_MODEL_NAME}"
 # 2. Sweep configuration
 # ============================================================
 sweep_config = {
-    "method": "bayes",
+    "method": "grid",
     "metric": {
         "name": "eval/f1_binary_class_1",
         "goal": "maximize",
     },
     "parameters": {
         "learning_rate": {
-            "distribution": "log_uniform_values",
-            "min": 1e-6,
-            "max": 1e-4,
+            "values": [1e-6, 5e-6, 1e-5],   
         },
         "batch_size": {
-            "values": [4, 8, 16],
+            "values": [4, 8],                
         },
         "weight_decay": {
-            "distribution": "uniform",
-            "min": 0.0,
-            "max": 0.1,
+            "values": [0.01, 0.05],          
         },
         "warmup_ratio": {
-            "distribution": "uniform",
-            "min": 0.05,
-            "max": 0.2,
+            "values": [0.1],                 
         },
-    },
+    }
 }
 
 
