@@ -353,7 +353,9 @@ def train_sweep():
     print(f"  warmup_ratio  : {warmup_ratio}")
     print(f"{'='*60}\n")
 
-    output_dir = f"./sweep_run_{run.name}_{timestamp_str}"
+    # Output directory adjusted to datalab cluster structure
+    scratch_dir = os.environ.get("SCRATCH_DIR", ".")
+    output_dir  = os.path.join(scratch_dir, f"sweep_run_{run.name}_{timestamp_str}")
 
     # Fresh model for every run
     model = EttinTokenClassifier.from_pretrained_model(
