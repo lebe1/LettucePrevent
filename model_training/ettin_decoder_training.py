@@ -379,6 +379,7 @@ def train_sweep():
         max_grad_norm=1.0,
         eval_strategy="epoch",
         save_strategy="epoch",
+        save_total_limit=1,                    
         load_best_model_at_end=True,
         metric_for_best_model="f1_binary_class_1",
         greater_is_better=True,
