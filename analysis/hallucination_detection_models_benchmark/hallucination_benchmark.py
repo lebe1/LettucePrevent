@@ -4,13 +4,21 @@ Hallucination Detection Benchmark — RQ3 Comparison
 Runs both TinyLettuce and LettuceDetect-base in a single invocation,
 simulating token-by-token incremental generation with a Llama-3 tokenizer.
 
-Logs to W&B (two separate runs) and exports CSV/JSON with:
-- Global micro metrics (precision, recall, F1)
-- Per-class metrics (class 0 = supported, class 1 = hallucinated)
-- Total runtime per model
+Dataset: wandb/RAGTruth-processed (test split), 150 unique (context, query)
+combinations per task_type — 450 samples total.
+
+Outputs:
+- {prefix}_{model_name}_per_step.csv    (per model: token-level details)
+- {prefix}_{model_name}_full_results.json (per model: full nested results)
+- {prefix}_aggregate.csv                (combined: model-level comparison)
+- {prefix}_per_sample_comparison.json   (combined: sample-centric comparison)
+
+Logs to W&B (two separate runs). The comparison JSON is logged as an
+artifact to the second W&B run.
 """
 
 import json
+import random
 import time
 import csv
 from abc import ABC, abstractmethod
@@ -18,17 +26,29 @@ from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Optional, Tuple, Any
 from enum import Enum
 
+import numpy as np
+import torch
 import wandb
+from datasets import load_dataset
 
 
 # ============================================================================
 # Fixed Configuration
 # ============================================================================
 
+SEED = 42
+random.seed(SEED)
+np.random.seed(SEED)
+torch.manual_seed(SEED)
+
 WANDB_ENTITY  = "lebeccard-technical-university-wien"
 WANDB_PROJECT = "hdm-benchmark-rq3"
 
 LLM_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
+
+HF_DATASET_NAME        = "wandb/RAGTruth-processed"
+HF_DATASET_SPLIT       = "test"
+UNIQUE_PAIRS_PER_TASK  = 150
 
 MODELS_TO_EVALUATE = [
     {
@@ -84,13 +104,26 @@ class TokenStepResult:
 @dataclass
 class SampleResult:
     sample_index: int
-    prompt: str
+    task_type: str
+    context: str
+    query: str
     answer: str
     token_steps: List[TokenStepResult] = field(default_factory=list)
     aggregate_precision: float = 0.0
     aggregate_recall: float = 0.0
     aggregate_f1: float = 0.0
     runtime_seconds: float = 0.0
+
+    # Per-sample 9 metrics (set by runner after evaluation)
+    precision_micro: float = 0.0
+    recall_micro: float = 0.0
+    f1_micro: float = 0.0
+    precision_class_1: float = 0.0
+    recall_class_1: float = 0.0
+    f1_binary_class_1: float = 0.0
+    precision_class_0: float = 0.0
+    recall_class_0: float = 0.0
+    f1_binary_class_0: float = 0.0
 
 
 @dataclass
@@ -101,17 +134,14 @@ class BenchmarkResult:
     tokenizer_name: str
     num_samples: int
 
-    # Global micro metrics
     precision_micro: float = 0.0
     recall_micro: float = 0.0
     f1_micro: float = 0.0
 
-    # Per-class metrics — class 1 = hallucinated
     precision_class_1: float = 0.0
     recall_class_1: float = 0.0
     f1_binary_class_1: float = 0.0
 
-    # Per-class metrics — class 0 = supported
     precision_class_0: float = 0.0
     recall_class_0: float = 0.0
     f1_binary_class_0: float = 0.0
@@ -121,7 +151,7 @@ class BenchmarkResult:
 
 
 # ============================================================================
-# Abstract Base Class for Hallucination Detectors
+# Hallucination Detectors
 # ============================================================================
 
 class HallucinationDetectorBase(ABC):
@@ -166,8 +196,6 @@ class LettuceDetectWrapper(HallucinationDetectorBase):
 # ============================================================================
 
 class LLMTokenizerWrapper:
-    """Wrapper for HuggingFace LLM tokenizers (Llama 3 in this case)."""
-
     def __init__(self, model_name: str):
         from transformers import AutoTokenizer
         self.model_name = model_name
@@ -261,6 +289,22 @@ class OffsetMapper:
 
 
 # ============================================================================
+# Label Parsing
+# ============================================================================
+
+def parse_hallucination_labels(raw_labels):
+    if isinstance(raw_labels, str):
+        try:
+            raw_labels = json.loads(raw_labels)
+        except json.JSONDecodeError:
+            return []
+    if not isinstance(raw_labels, list):
+        return []
+    return [lbl for lbl in raw_labels
+            if isinstance(lbl, dict) and "start" in lbl and "end" in lbl]
+
+
+# ============================================================================
 # Ground Truth Mapping
 # ============================================================================
 
@@ -301,11 +345,6 @@ def compute_metrics_class(
     predictions: List[bool],
     positive_class: bool = True,
 ) -> Tuple[float, float, float]:
-    """
-    Compute precision, recall, F1 for a specific class.
-    If positive_class=True → class 1 (hallucinated)
-    If positive_class=False → class 0 (supported)
-    """
     tp = sum(1 for g, p in zip(ground_truths, predictions)
              if g == positive_class and p == positive_class)
     fp = sum(1 for g, p in zip(ground_truths, predictions)
@@ -324,13 +363,29 @@ def compute_metrics_micro(
     ground_truths: List[bool],
     predictions: List[bool],
 ) -> Tuple[float, float, float]:
-    """Micro-averaged metrics (treating all tokens equally = overall accuracy for binary)."""
     if len(ground_truths) == 0:
         return 0.0, 0.0, 0.0
     correct = sum(1 for g, p in zip(ground_truths, predictions) if g == p)
     acc = correct / len(ground_truths)
-    # For binary token-level, micro-precision = micro-recall = micro-F1 = accuracy
     return acc, acc, acc
+
+
+def compute_nine_metrics(gts: List[bool], preds: List[bool]) -> Dict[str, float]:
+    """Compute all 9 metrics (micro + both classes) at once."""
+    p_mic, r_mic, f_mic = compute_metrics_micro(gts, preds)
+    p_c1, r_c1, f_c1    = compute_metrics_class(gts, preds, positive_class=True)
+    p_c0, r_c0, f_c0    = compute_metrics_class(gts, preds, positive_class=False)
+    return {
+        "precision_micro":   p_mic,
+        "recall_micro":      r_mic,
+        "f1_micro":          f_mic,
+        "precision_class_1": p_c1,
+        "recall_class_1":    r_c1,
+        "f1_binary_class_1": f_c1,
+        "precision_class_0": p_c0,
+        "recall_class_0":    r_c0,
+        "f1_binary_class_0": f_c0,
+    }
 
 
 # ============================================================================
@@ -338,7 +393,6 @@ def compute_metrics_micro(
 # ============================================================================
 
 def should_trigger(step: int) -> bool:
-    """Fixed to every-token triggering for RQ3."""
     return True
 
 
@@ -359,10 +413,11 @@ class EvaluationEngine:
 
     def evaluate_sample(
         self,
-        prompt: str,
         context: str,
+        query: str,
         answer: str,
         labels: List[Dict],
+        task_type: str,
         sample_index: int = 0,
     ) -> SampleResult:
         gt_labels = [
@@ -400,7 +455,7 @@ class EvaluationEngine:
                 try:
                     predictions = self.detector.predict(
                         context=[context],
-                        question=prompt,
+                        question=query,
                         answer=prefix_text,
                     )
                 except Exception as e:
@@ -431,8 +486,9 @@ class EvaluationEngine:
 
             cumulative_gt.append(is_gt_hall)
             cumulative_pred.append(is_pred_hall)
-            _, _, cum_f1 = compute_metrics_class(cumulative_gt, cumulative_pred, positive_class=True)
-            cum_prec, cum_rec, _ = compute_metrics_class(cumulative_gt, cumulative_pred, positive_class=True)
+            cum_prec, cum_rec, cum_f1 = compute_metrics_class(
+                cumulative_gt, cumulative_pred, positive_class=True
+            )
 
             token_steps.append(TokenStepResult(
                 step=step,
@@ -453,52 +509,99 @@ class EvaluationEngine:
         all_gt = [ts.ground_truth for ts in token_steps]
         all_pred = [ts.predicted for ts in token_steps]
         agg_prec, agg_rec, agg_f1 = compute_metrics_class(all_gt, all_pred, positive_class=True)
+        nine = compute_nine_metrics(all_gt, all_pred)
 
         return SampleResult(
             sample_index=sample_index,
-            prompt=prompt,
+            task_type=task_type,
+            context=context,
+            query=query,
             answer=answer,
             token_steps=token_steps,
             aggregate_precision=agg_prec,
             aggregate_recall=agg_rec,
             aggregate_f1=agg_f1,
             runtime_seconds=sample_runtime,
+            precision_micro=nine["precision_micro"],
+            recall_micro=nine["recall_micro"],
+            f1_micro=nine["f1_micro"],
+            precision_class_1=nine["precision_class_1"],
+            recall_class_1=nine["recall_class_1"],
+            f1_binary_class_1=nine["f1_binary_class_1"],
+            precision_class_0=nine["precision_class_0"],
+            recall_class_0=nine["recall_class_0"],
+            f1_binary_class_0=nine["f1_binary_class_0"],
         )
 
 
 # ============================================================================
-# Dataset Loading
+# Dataset Loading — 150 unique (context, query) per task_type
 # ============================================================================
 
-def load_ragtruth_dataset(filepath: str, max_samples: Optional[int] = None) -> List[Dict]:
-    with open(filepath, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    if max_samples is not None:
-        data = data[:max_samples]
-    return data
+def load_benchmark_samples() -> Tuple[List[Dict], List[Dict]]:
+    """
+    Load the test split and select 150 unique (context, query) combinations
+    per task_type. Returns (benchmark_samples, original_rows) where
+    original_rows contains every field of the HF dataset for each sample.
+    """
+    print(f"Loading HF dataset: {HF_DATASET_NAME} (split={HF_DATASET_SPLIT})...")
+    hf_ds = load_dataset(HF_DATASET_NAME)
+    test_split = hf_ds[HF_DATASET_SPLIT]
 
+    # Filter out rows without valid hallucination labels
+    filtered = [
+        dict(row) for row in test_split
+        if row.get("hallucination_labels") not in (None, "")
+    ]
 
-def extract_context_from_prompt(prompt: str) -> Tuple[str, str]:
-    return prompt, prompt
+    # Per task_type, collect first-seen rows for each unique (context, query)
+    # Preserves dataset order.
+    by_task: Dict[str, Dict[Tuple[str, str], Dict]] = {}
+    for row in filtered:
+        tt = row.get("task_type", "unknown")
+        key = (row["context"], row["query"])
+        if tt not in by_task:
+            by_task[tt] = {}
+        if key not in by_task[tt] and len(by_task[tt]) < UNIQUE_PAIRS_PER_TASK:
+            by_task[tt][key] = row
+
+    benchmark_samples = []
+    original_rows     = []
+    for tt, mapping in by_task.items():
+        print(f"  task_type={tt}: {len(mapping)} unique (context, query) pairs")
+        for row in mapping.values():
+            benchmark_samples.append({
+                "task_type": tt,
+                "context":   row["context"],
+                "query":     row["query"],
+                "answer":    row["output"],
+                "labels":    parse_hallucination_labels(row["hallucination_labels"]),
+            })
+            original_rows.append(row)
+
+    print(f"Total benchmark samples: {len(benchmark_samples)}")
+    return benchmark_samples, original_rows
 
 
 # ============================================================================
-# Result Export
+# Export: Per-model files (unchanged)
 # ============================================================================
 
 def export_per_step_csv(sample_results: List[SampleResult], filepath: str):
     with open(filepath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
-            "sample_index", "step", "token", "token_char_start", "token_char_end",
+            "sample_index", "task_type", "step", "token",
+            "token_char_start", "token_char_end",
             "ground_truth", "predicted", "confidence", "was_triggered",
             "cumulative_precision", "cumulative_recall", "cumulative_f1",
         ])
         for sr in sample_results:
             for ts in sr.token_steps:
                 writer.writerow([
-                    sr.sample_index, ts.step, ts.token, ts.token_char_start,
-                    ts.token_char_end, ts.ground_truth, ts.predicted,
+                    sr.sample_index, sr.task_type, ts.step, ts.token,
+                    ts.token_char_start, ts.token_char_end,
+                    ts.ground_truth, ts.predicted,
                     f"{ts.confidence:.6f}", ts.was_triggered,
                     f"{ts.cumulative_precision:.4f}",
                     f"{ts.cumulative_recall:.4f}",
@@ -507,7 +610,6 @@ def export_per_step_csv(sample_results: List[SampleResult], filepath: str):
 
 
 def export_aggregate_csv(benchmark_results: List[BenchmarkResult], filepath: str):
-    """Write all model aggregates into a single comparison CSV."""
     with open(filepath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -559,6 +661,7 @@ def export_results_json(benchmark_result: BenchmarkResult, filepath: str):
     for sr in benchmark_result.sample_results:
         sample_out = {
             "sample_index":        sr.sample_index,
+            "task_type":           sr.task_type,
             "aggregate_precision": sr.aggregate_precision,
             "aggregate_recall":    sr.aggregate_recall,
             "aggregate_f1":        sr.aggregate_f1,
@@ -572,46 +675,135 @@ def export_results_json(benchmark_result: BenchmarkResult, filepath: str):
 
 
 # ============================================================================
+# Export: Sample-centric comparison JSON (new)
+# ============================================================================
+
+def export_per_sample_comparison(
+    original_rows: List[Dict],
+    benchmark_samples: List[Dict],
+    model_results: Dict[str, List[SampleResult]],
+    filepath: str,
+):
+    """
+    Build a sample-centric JSON with both models' predictions side-by-side.
+
+    Args:
+        original_rows: list of original HF dataset rows (all fields)
+        benchmark_samples: list of benchmark sample dicts (same order)
+        model_results: dict model_name -> list of SampleResult (same order)
+        filepath: output path
+    """
+    output = {
+        "dataset":                HF_DATASET_NAME,
+        "dataset_split":          HF_DATASET_SPLIT,
+        "unique_pairs_per_task":  UNIQUE_PAIRS_PER_TASK,
+        "tokenizer":              LLM_TOKENIZER_NAME,
+        "models":                 list(model_results.keys()),
+        "num_samples":            len(benchmark_samples),
+        "samples":                [],
+    }
+
+    model_names = list(model_results.keys())
+
+    for i, (orig_row, bench_sample) in enumerate(zip(original_rows, benchmark_samples)):
+        # Pull the first model's tokens — token indices and ground truth are
+        # identical across models because both use the same tokenizer.
+        reference_result = model_results[model_names[0]][i]
+
+        tokens_info = [
+            {
+                "index":        ts.step,
+                "text":         ts.token,
+                "char_start":   ts.token_char_start,
+                "char_end":     ts.token_char_end,
+                "ground_truth": ts.ground_truth,
+            }
+            for ts in reference_result.token_steps
+        ]
+
+        model_predictions = {}
+        for model_name in model_names:
+            sr = model_results[model_name][i]
+            model_predictions[model_name] = {
+                "predictions":     [ts.predicted   for ts in sr.token_steps],
+                "confidences":     [ts.confidence  for ts in sr.token_steps],
+                "runtime_seconds": sr.runtime_seconds,
+                "metrics": {
+                    "precision_micro":   sr.precision_micro,
+                    "recall_micro":      sr.recall_micro,
+                    "f1_micro":          sr.f1_micro,
+                    "precision_class_1": sr.precision_class_1,
+                    "recall_class_1":    sr.recall_class_1,
+                    "f1_binary_class_1": sr.f1_binary_class_1,
+                    "precision_class_0": sr.precision_class_0,
+                    "recall_class_0":    sr.recall_class_0,
+                    "f1_binary_class_0": sr.f1_binary_class_0,
+                },
+            }
+
+        sample_entry = {
+            "sample_index":      i,
+            "task_type":         bench_sample["task_type"],
+            "original_data":     orig_row,
+            "parsed_labels":     [
+                {"start": l["start"], "end": l["end"],
+                 "label": l.get("label", "hallucination")}
+                for l in bench_sample["labels"]
+            ],
+            "tokens":            tokens_info,
+            "model_predictions": model_predictions,
+        }
+        output["samples"].append(sample_entry)
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+
+# ============================================================================
 # Benchmark Runner (per model)
 # ============================================================================
 
 def run_benchmark_for_model(
-    dataset_path: str,
+    samples: List[Dict],
     model_name: str,
     model_path: str,
     llm_tokenizer: LLMTokenizerWrapper,
-    max_samples: Optional[int],
     confidence_threshold: float,
     output_prefix: str,
+    extra_artifact_paths: Optional[List[str]] = None,
 ) -> BenchmarkResult:
+    """
+    Run the benchmark for a single model.
+
+    Args:
+        extra_artifact_paths: optional list of additional files to upload as
+            part of the W&B artifact for this run. Used by the second model
+            to attach the comparison JSON.
+    """
     print(f"\n{'#' * 70}")
     print(f"# Evaluating: {model_name}")
     print(f"# Path:       {model_path}")
     print(f"{'#' * 70}\n")
 
-    # Start W&B run for this model
     run = wandb.init(
         entity=WANDB_ENTITY,
         project=WANDB_PROJECT,
         name=model_name,
         config={
-            "model_name":           model_name,
-            "model_path":           model_path,
-            "trigger_strategy":     TriggerStrategy.EVERY_TOKEN.value,
-            "tokenizer":            LLM_TOKENIZER_NAME,
-            "confidence_threshold": confidence_threshold,
-            "max_samples":          max_samples,
-            "dataset_path":         dataset_path,
+            "model_name":            model_name,
+            "model_path":            model_path,
+            "trigger_strategy":      TriggerStrategy.EVERY_TOKEN.value,
+            "tokenizer":             LLM_TOKENIZER_NAME,
+            "confidence_threshold":  confidence_threshold,
+            "dataset":               HF_DATASET_NAME,
+            "dataset_split":         HF_DATASET_SPLIT,
+            "unique_pairs_per_task": UNIQUE_PAIRS_PER_TASK,
+            "num_samples":           len(samples),
+            "seed":                  SEED,
         },
         reinit=True,
     )
 
-    # Load dataset
-    print(f"Loading dataset from {dataset_path}...")
-    data = load_ragtruth_dataset(dataset_path, max_samples)
-    print(f"Loaded {len(data)} samples.")
-
-    # Init detector + engine
     detector = LettuceDetectWrapper(name=model_name, model_path=model_path)
     engine = EvaluationEngine(
         detector=detector,
@@ -624,17 +816,16 @@ def run_benchmark_for_model(
     all_pred = []
     total_start = time.time()
 
-    for i, sample in enumerate(data):
-        print(f"  [{model_name}] Evaluating sample {i + 1}/{len(data)}...")
-        context, question = extract_context_from_prompt(sample["prompt"])
-        answer = sample["answer"]
-        labels = sample.get("labels", [])
+    for i, sample in enumerate(samples):
+        print(f"  [{model_name}] Evaluating sample {i + 1}/{len(samples)} "
+              f"(task={sample['task_type']})...")
 
         result = engine.evaluate_sample(
-            prompt=question,
-            context=context,
-            answer=answer,
-            labels=labels,
+            context=sample["context"],
+            query=sample["query"],
+            answer=sample["answer"],
+            labels=sample["labels"],
+            task_type=sample["task_type"],
             sample_index=i,
         )
         all_sample_results.append(result)
@@ -643,13 +834,13 @@ def run_benchmark_for_model(
             all_gt.append(ts.ground_truth)
             all_pred.append(ts.predicted)
 
-        # Per-sample W&B log
         run.log({
-            "sample_index":        i,
-            "sample_precision":    result.aggregate_precision,
-            "sample_recall":       result.aggregate_recall,
-            "sample_f1":           result.aggregate_f1,
-            "sample_runtime_s":    result.runtime_seconds,
+            "sample_index":     i,
+            "task_type":        sample["task_type"],
+            "sample_precision": result.aggregate_precision,
+            "sample_recall":    result.aggregate_recall,
+            "sample_f1":        result.aggregate_f1,
+            "sample_runtime_s": result.runtime_seconds,
         })
 
         print(
@@ -661,7 +852,6 @@ def run_benchmark_for_model(
 
     total_runtime = time.time() - total_start
 
-    # Compute final metrics
     prec_micro, rec_micro, f1_micro = compute_metrics_micro(all_gt, all_pred)
     prec_c1, rec_c1, f1_c1 = compute_metrics_class(all_gt, all_pred, positive_class=True)
     prec_c0, rec_c0, f1_c0 = compute_metrics_class(all_gt, all_pred, positive_class=False)
@@ -671,7 +861,7 @@ def run_benchmark_for_model(
         model_path=model_path,
         trigger_strategy=TriggerStrategy.EVERY_TOKEN.value,
         tokenizer_name=LLM_TOKENIZER_NAME,
-        num_samples=len(data),
+        num_samples=len(samples),
         precision_micro=prec_micro,
         recall_micro=rec_micro,
         f1_micro=f1_micro,
@@ -685,7 +875,6 @@ def run_benchmark_for_model(
         sample_results=all_sample_results,
     )
 
-    # Final W&B summary
     run.summary["precision_micro"]       = prec_micro
     run.summary["recall_micro"]          = rec_micro
     run.summary["f1_micro"]              = f1_micro
@@ -697,23 +886,23 @@ def run_benchmark_for_model(
     run.summary["f1_binary_class_0"]     = f1_c0
     run.summary["total_runtime_seconds"] = total_runtime
 
-    # Export per-model results
     per_step_path = f"{output_prefix}_{model_name}_per_step.csv"
     json_path     = f"{output_prefix}_{model_name}_full_results.json"
     export_per_step_csv(all_sample_results, per_step_path)
     export_results_json(benchmark_result, json_path)
 
-    # Log as W&B artifact
     artifact = wandb.Artifact(f"{model_name}_results", type="benchmark_results")
     artifact.add_file(per_step_path)
     artifact.add_file(json_path)
+    if extra_artifact_paths:
+        for p in extra_artifact_paths:
+            artifact.add_file(p)
     run.log_artifact(artifact)
 
-    # Summary print
     print(f"\n{'=' * 60}")
     print(f"RESULTS: {model_name}")
     print(f"{'=' * 60}")
-    print(f"Samples:              {len(data)}")
+    print(f"Samples:              {len(samples)}")
     print(f"Total runtime:        {total_runtime:.2f}s")
     print(f"--- Global (micro) ---")
     print(f"  Precision:          {prec_micro:.4f}")
@@ -735,39 +924,76 @@ def run_benchmark_for_model(
 
 
 # ============================================================================
-# Main: run both models
+# Main
 # ============================================================================
 
-def main(
-    dataset_path: str,
-    max_samples: Optional[int],
-    confidence_threshold: float,
-    output_prefix: str,
-):
-    # Shared tokenizer (loaded once)
+def main(confidence_threshold: float, output_prefix: str):
+    benchmark_samples, original_rows = load_benchmark_samples()
+
     print(f"Loading Llama tokenizer: {LLM_TOKENIZER_NAME}...")
     llm_tokenizer = LLMTokenizerWrapper(LLM_TOKENIZER_NAME)
 
     all_results: List[BenchmarkResult] = []
+    model_results: Dict[str, List[SampleResult]] = {}
 
-    for model_cfg in MODELS_TO_EVALUATE:
+    for idx, model_cfg in enumerate(MODELS_TO_EVALUATE):
+        is_last = (idx == len(MODELS_TO_EVALUATE) - 1)
+
+        # For the last model we build the comparison JSON first, then pass it
+        # as an extra artifact file to that model's run.
+        extra_artifacts = None
+        comparison_path = None
+        if is_last:
+            comparison_path = f"{output_prefix}_per_sample_comparison.json"
+            # Don't write it yet — we need this model's results first.
+            # We'll write after the run and upload separately via artifact.
+
         result = run_benchmark_for_model(
-            dataset_path=dataset_path,
+            samples=benchmark_samples,
             model_name=model_cfg["name"],
             model_path=model_cfg["model_path"],
             llm_tokenizer=llm_tokenizer,
-            max_samples=max_samples,
             confidence_threshold=confidence_threshold,
             output_prefix=output_prefix,
+            extra_artifact_paths=None,  # artifact for comparison handled below
         )
         all_results.append(result)
+        model_results[model_cfg["name"]] = result.sample_results
 
     # Combined aggregate CSV
     aggregate_path = f"{output_prefix}_aggregate.csv"
     export_aggregate_csv(all_results, aggregate_path)
     print(f"\nCombined aggregate CSV written to: {aggregate_path}")
 
-    # Final comparison print
+    # Combined per-sample comparison JSON
+    comparison_path = f"{output_prefix}_per_sample_comparison.json"
+    export_per_sample_comparison(
+        original_rows=original_rows,
+        benchmark_samples=benchmark_samples,
+        model_results=model_results,
+        filepath=comparison_path,
+    )
+    print(f"Per-sample comparison JSON written to: {comparison_path}")
+
+    # Attach comparison JSON + aggregate CSV as a dedicated artifact to the
+    # second (last) model's run. We reopen the last run briefly.
+    last_model_name = MODELS_TO_EVALUATE[-1]["name"]
+    print(f"\nAttaching comparison artifact to W&B run: {last_model_name}")
+
+    run = wandb.init(
+        entity=WANDB_ENTITY,
+        project=WANDB_PROJECT,
+        name=last_model_name,
+        resume="allow",
+        reinit=True,
+    )
+    artifact = wandb.Artifact("per_sample_comparison", type="comparison_results")
+    artifact.add_file(comparison_path)
+    artifact.add_file(aggregate_path)
+    run.log_artifact(artifact)
+    run.finish()
+
+    # Final print
     print(f"\n{'=' * 70}")
     print(f"FINAL COMPARISON")
     print(f"{'=' * 70}")
@@ -788,14 +1014,6 @@ if __name__ == "__main__":
         description="RQ3 Benchmark: TinyLettuce vs. LettuceDetect-base"
     )
     parser.add_argument(
-        "--dataset", type=str, required=True,
-        help="Path to the RAGTruth JSON dataset file."
-    )
-    parser.add_argument(
-        "--max-samples", type=int, default=None,
-        help="Number of samples to evaluate (default: all)."
-    )
-    parser.add_argument(
         "--confidence-threshold", type=float, default=0.90,
         help="Confidence threshold for hallucination prediction."
     )
@@ -807,8 +1025,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(
-        dataset_path=args.dataset,
-        max_samples=args.max_samples,
         confidence_threshold=args.confidence_threshold,
         output_prefix=args.output_prefix,
     )
