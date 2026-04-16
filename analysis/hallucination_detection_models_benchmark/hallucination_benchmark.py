@@ -1,20 +1,13 @@
 """
-Hallucination Detection Benchmark — Left-Encoder Evaluation
+Hallucination Detection Benchmark — RQ3 Comparison
 
-Evaluates hallucination detection models on their ability to detect hallucinations
-in incrementally generated answers (simulating token-by-token LLM generation).
+Runs both TinyLettuce and LettuceDetect-base in a single invocation,
+simulating token-by-token incremental generation with a Llama-3 tokenizer.
 
-Supports:
-- Multiple hallucination detection models (pluggable via abstract base class)
-- Multiple triggering strategies: every token, every N tokens, smart POS-based
-- Optional LLM tokenizer integration (Qwen, Llama, Mistral)
-- Per-step and aggregate evaluation
-- Configurable dataset size (first N samples or full dataset)
-
-Metrics:
-- Token-level Precision, Recall, F1
-- Runtime per sample and total
-- Per-step logging with carry-forward for smart trigger
+Logs to W&B (two separate runs) and exports CSV/JSON with:
+- Global micro metrics (precision, recall, F1)
+- Per-class metrics (class 0 = supported, class 1 = hallucinated)
+- Total runtime per model
 """
 
 import json
@@ -25,6 +18,29 @@ from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Optional, Tuple, Any
 from enum import Enum
 
+import wandb
+
+
+# ============================================================================
+# Fixed Configuration
+# ============================================================================
+
+WANDB_ENTITY  = "lebeccard-technical-university-wien"
+WANDB_PROJECT = "hdm-benchmark-rq3"
+
+LLM_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
+
+MODELS_TO_EVALUATE = [
+    {
+        "name":       "tinylettuce-ettin-68m-en",
+        "model_path": "KRLabsOrg/tinylettuce-ettin-68m-en",
+    },
+    {
+        "name":       "lettucedetect-base-modernbert-en-v1",
+        "model_path": "KRLabsOrg/lettucedect-base-modernbert-en-v1",
+    },
+]
+
 
 # ============================================================================
 # Data Structures
@@ -32,23 +48,19 @@ from enum import Enum
 
 class TriggerStrategy(Enum):
     EVERY_TOKEN = "every_token"
-    EVERY_N = "every_n"
-    SMART_POS = "smart_pos"
 
 
 @dataclass
 class TokenInfo:
-    """Represents a single token with its metadata."""
     index: int
     text: str
-    char_start: int  # character start in the reference string
-    char_end: int    # character end in the reference string
-    pos_tag: str = ""  # POS tag (filled when using spaCy)
+    char_start: int
+    char_end: int
+    pos_tag: str = ""
 
 
 @dataclass
 class GroundTruthLabel:
-    """A ground-truth hallucination span."""
     start: int
     end: int
     label: str = "hallucination"
@@ -56,15 +68,14 @@ class GroundTruthLabel:
 
 @dataclass
 class TokenStepResult:
-    """Result for a single token at an evaluation step."""
     step: int
     token: str
     token_char_start: int
     token_char_end: int
-    ground_truth: bool        # True = hallucinated
-    predicted: bool           # True = model says hallucinated
-    confidence: float         # model confidence for this token
-    was_triggered: bool       # whether detection ran at this step
+    ground_truth: bool
+    predicted: bool
+    confidence: float
+    was_triggered: bool
     cumulative_precision: float = 0.0
     cumulative_recall: float = 0.0
     cumulative_f1: float = 0.0
@@ -72,7 +83,6 @@ class TokenStepResult:
 
 @dataclass
 class SampleResult:
-    """Full result for a single dataset sample."""
     sample_index: int
     prompt: str
     answer: str
@@ -85,15 +95,27 @@ class SampleResult:
 
 @dataclass
 class BenchmarkResult:
-    """Aggregate result across all samples."""
     model_name: str
+    model_path: str
     trigger_strategy: str
-    step_size: int
-    tokenizer_name: Optional[str]
+    tokenizer_name: str
     num_samples: int
-    total_precision: float = 0.0
-    total_recall: float = 0.0
-    total_f1: float = 0.0
+
+    # Global micro metrics
+    precision_micro: float = 0.0
+    recall_micro: float = 0.0
+    f1_micro: float = 0.0
+
+    # Per-class metrics — class 1 = hallucinated
+    precision_class_1: float = 0.0
+    recall_class_1: float = 0.0
+    f1_binary_class_1: float = 0.0
+
+    # Per-class metrics — class 0 = supported
+    precision_class_0: float = 0.0
+    recall_class_0: float = 0.0
+    f1_binary_class_0: float = 0.0
+
     total_runtime_seconds: float = 0.0
     sample_results: List[SampleResult] = field(default_factory=list)
 
@@ -103,14 +125,8 @@ class BenchmarkResult:
 # ============================================================================
 
 class HallucinationDetectorBase(ABC):
-    """
-    Abstract base class for hallucination detection models.
-    Implement this to plug in any hallucination detection model.
-    """
-
     @abstractmethod
     def get_name(self) -> str:
-        """Return the model name for logging."""
         pass
 
     @abstractmethod
@@ -120,30 +136,13 @@ class HallucinationDetectorBase(ABC):
         question: str,
         answer: str,
     ) -> List[Dict[str, Any]]:
-        """
-        Run hallucination detection on the given answer.
-
-        Args:
-            context: List of context strings.
-            question: The question/prompt.
-            answer: The (partial) answer to evaluate.
-
-        Returns:
-            List of span dicts with keys: 'start', 'end', 'confidence', 'text'
-            where start/end are character offsets in the answer string.
-        """
         pass
 
 
-# ============================================================================
-# LettuceDetect Wrapper
-# ============================================================================
-
 class LettuceDetectWrapper(HallucinationDetectorBase):
-    """Wrapper for the LettuceDetect hallucination detection model."""
-
-    def __init__(self, model_path: str = "KRLabsOrg/tinylettuce-ettin-68m-en"):
+    def __init__(self, name: str, model_path: str):
         from lettucedetect.models.inference import HallucinationDetector
+        self.name = name
         self.model_path = model_path
         self.detector = HallucinationDetector(
             method="transformer",
@@ -151,110 +150,38 @@ class LettuceDetectWrapper(HallucinationDetectorBase):
         )
 
     def get_name(self) -> str:
-        return f"LettuceDetect({self.model_path})"
+        return self.name
 
-    def predict(
-        self,
-        context: List[str],
-        question: str,
-        answer: str,
-    ) -> List[Dict[str, Any]]:
-        predictions = self.detector.predict(
+    def predict(self, context, question, answer):
+        return self.detector.predict(
             context=context,
             question=question,
             answer=answer,
             output_format="spans",
         )
-        return predictions
 
 
 # ============================================================================
-# Tokenizer Abstraction
+# Tokenizer
 # ============================================================================
 
-class TokenizerBase(ABC):
-    """Abstract base class for tokenizers."""
-
-    @abstractmethod
-    def get_name(self) -> str:
-        pass
-
-    @abstractmethod
-    def tokenize_with_offsets(self, text: str) -> List[TokenInfo]:
-        """
-        Tokenize text and return tokens with character offsets
-        in the detokenized string.
-        """
-        pass
-
-
-class SpacyTokenizer(TokenizerBase):
-    """
-    Default tokenizer using spaCy. Provides POS tags for smart triggering.
-    Character offsets are relative to the original text (no detokenization mismatch).
-    """
-
-    def __init__(self, model: str = "en_core_web_sm"):
-        import spacy
-        try:
-            self.nlp = spacy.load(model)
-        except OSError:
-            from spacy.cli import download
-            download(model)
-            self.nlp = spacy.load(model)
-
-    def get_name(self) -> str:
-        return "spaCy(en_core_web_sm)"
-
-    def tokenize_with_offsets(self, text: str) -> List[TokenInfo]:
-        doc = self.nlp(text)
-        tokens = []
-        for i, tok in enumerate(doc):
-            tokens.append(TokenInfo(
-                index=i,
-                text=tok.text,
-                char_start=tok.idx,
-                char_end=tok.idx + len(tok.text),
-                pos_tag=tok.pos_,
-            ))
-        return tokens
-
-
-class LLMTokenizerWrapper(TokenizerBase):
-    """
-    Wrapper for HuggingFace LLM tokenizers (Qwen, Llama, Mistral).
-    Handles the tokenize → detokenize flow and offset mapping.
-    """
+class LLMTokenizerWrapper:
+    """Wrapper for HuggingFace LLM tokenizers (Llama 3 in this case)."""
 
     def __init__(self, model_name: str):
         from transformers import AutoTokenizer
         self.model_name = model_name
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        # We also need spaCy for POS tags in smart trigger mode
-        self._spacy_tokenizer = None
 
     def get_name(self) -> str:
         return f"LLMTokenizer({self.model_name})"
 
-    def _get_spacy(self):
-        if self._spacy_tokenizer is None:
-            self._spacy_tokenizer = SpacyTokenizer()
-        return self._spacy_tokenizer
-
     def tokenize_with_offsets(self, text: str) -> List[TokenInfo]:
-        """
-        Tokenize using the LLM tokenizer, then compute character offsets
-        in the detokenized string. Also map each token back to the original
-        text for ground-truth comparison.
-        """
         encoded = self.tokenizer.encode(text, add_special_tokens=False)
         tokens = []
-        current_char = 0
 
         for i, token_id in enumerate(encoded):
-            # Detokenize from start up to and including this token
             prefix = self.tokenizer.decode(encoded[: i + 1], skip_special_tokens=True)
-            # Detokenize from start up to (but not including) this token
             prev_prefix = self.tokenizer.decode(encoded[:i], skip_special_tokens=True) if i > 0 else ""
 
             char_start = len(prev_prefix)
@@ -266,64 +193,26 @@ class LLMTokenizerWrapper(TokenizerBase):
                 text=token_text,
                 char_start=char_start,
                 char_end=char_end,
-                pos_tag="",  # will be filled by POS tagger if needed
             ))
 
         return tokens
 
-    def add_pos_tags(self, tokens: List[TokenInfo], original_text: str) -> List[TokenInfo]:
-        """Add POS tags to LLM tokens using spaCy alignment."""
-        spacy_tokenizer = self._get_spacy()
-        spacy_tokens = spacy_tokenizer.tokenize_with_offsets(original_text)
-
-        # Build a character-level POS map from spaCy
-        pos_map = {}
-        for st in spacy_tokens:
-            for c in range(st.char_start, st.char_end):
-                pos_map[c] = st.pos_tag
-
-        # Assign POS to each LLM token based on majority POS of its characters
-        for token in tokens:
-            pos_counts: Dict[str, int] = {}
-            for c in range(token.char_start, min(token.char_end, len(original_text))):
-                pos = pos_map.get(c, "X")
-                pos_counts[pos] = pos_counts.get(pos, 0) + 1
-            if pos_counts:
-                token.pos_tag = max(pos_counts, key=pos_counts.get)
-            else:
-                token.pos_tag = "X"
-
-        return tokens
-
     def get_detokenized_text(self, text: str) -> str:
-        """Tokenize and detokenize to get the round-tripped string."""
         encoded = self.tokenizer.encode(text, add_special_tokens=False)
         return self.tokenizer.decode(encoded, skip_special_tokens=True)
 
 
 # ============================================================================
-# Offset Mapping (for LLM tokenizer mode)
+# Offset Mapping
 # ============================================================================
 
 class OffsetMapper:
-    """
-    Maps character offsets between the original answer and the detokenized answer.
-    Used when an LLM tokenizer is active to correctly align ground-truth labels
-    with detector predictions.
-    """
-
     def __init__(self, original: str, detokenized: str):
         self.original = original
         self.detokenized = detokenized
         self._build_mapping()
 
     def _build_mapping(self):
-        """
-        Build a character-level alignment between original and detokenized strings
-        using a simple longest-common-subsequence approach.
-        """
-        # For most tokenizers, the detokenized string is very close to the original.
-        # We use a simple approach: align by matching characters sequentially.
         self.orig_to_detok = {}
         self.detok_to_orig = {}
 
@@ -339,17 +228,14 @@ class OffsetMapper:
             elif self.detokenized[j] in (' ', '\n', '\t'):
                 j += 1
             else:
-                # Skip both on mismatch
                 i += 1
                 j += 1
 
     def detok_range_to_orig(self, start: int, end: int) -> Tuple[int, int]:
-        """Map a character range in detokenized text to original text."""
         orig_start = self.detok_to_orig.get(start)
         orig_end = self.detok_to_orig.get(end - 1)
 
         if orig_start is None:
-            # Find nearest mapped character
             for s in range(start, end):
                 if s in self.detok_to_orig:
                     orig_start = self.detok_to_orig[s]
@@ -368,7 +254,6 @@ class OffsetMapper:
         return orig_start, orig_end + 1
 
     def check_divergence(self) -> float:
-        """Return the fraction of characters that could not be aligned."""
         if len(self.detokenized) == 0:
             return 0.0
         mapped = len(self.detok_to_orig)
@@ -380,9 +265,7 @@ class OffsetMapper:
 # ============================================================================
 
 def is_token_hallucinated(token: TokenInfo, labels: List[GroundTruthLabel]) -> bool:
-    """Check if a token's character range falls within any ground-truth label span."""
     for label in labels:
-        # Token overlaps with label if token_start < label_end AND token_end > label_start
         if token.char_start < label.end and token.char_end > label.start:
             return True
     return False
@@ -393,12 +276,6 @@ def map_predictions_to_tokens(
     tokens: List[TokenInfo],
     confidence_threshold: float = 0.90,
 ) -> Dict[int, Tuple[bool, float]]:
-    """
-    Map detector span predictions back to individual tokens.
-
-    Returns:
-        Dict mapping token index -> (is_hallucinated, confidence)
-    """
     result = {}
     for token in tokens:
         max_conf = 0.0
@@ -407,7 +284,6 @@ def map_predictions_to_tokens(
             pred_start = pred["start"]
             pred_end = pred["end"]
             pred_conf = pred["confidence"]
-            # Check overlap
             if token.char_start < pred_end and token.char_end > pred_start:
                 if pred_conf > max_conf:
                     max_conf = pred_conf
@@ -417,17 +293,25 @@ def map_predictions_to_tokens(
 
 
 # ============================================================================
-# Metrics Computation
+# Metrics
 # ============================================================================
 
-def compute_metrics(
+def compute_metrics_class(
     ground_truths: List[bool],
     predictions: List[bool],
+    positive_class: bool = True,
 ) -> Tuple[float, float, float]:
-    """Compute precision, recall, F1 from lists of booleans."""
-    tp = sum(1 for g, p in zip(ground_truths, predictions) if g and p)
-    fp = sum(1 for g, p in zip(ground_truths, predictions) if not g and p)
-    fn = sum(1 for g, p in zip(ground_truths, predictions) if g and not p)
+    """
+    Compute precision, recall, F1 for a specific class.
+    If positive_class=True → class 1 (hallucinated)
+    If positive_class=False → class 0 (supported)
+    """
+    tp = sum(1 for g, p in zip(ground_truths, predictions)
+             if g == positive_class and p == positive_class)
+    fp = sum(1 for g, p in zip(ground_truths, predictions)
+             if g != positive_class and p == positive_class)
+    fn = sum(1 for g, p in zip(ground_truths, predictions)
+             if g == positive_class and p != positive_class)
 
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
@@ -436,26 +320,25 @@ def compute_metrics(
     return precision, recall, f1
 
 
+def compute_metrics_micro(
+    ground_truths: List[bool],
+    predictions: List[bool],
+) -> Tuple[float, float, float]:
+    """Micro-averaged metrics (treating all tokens equally = overall accuracy for binary)."""
+    if len(ground_truths) == 0:
+        return 0.0, 0.0, 0.0
+    correct = sum(1 for g, p in zip(ground_truths, predictions) if g == p)
+    acc = correct / len(ground_truths)
+    # For binary token-level, micro-precision = micro-recall = micro-F1 = accuracy
+    return acc, acc, acc
+
+
 # ============================================================================
 # Trigger Logic
 # ============================================================================
 
-def should_trigger(
-    token: TokenInfo,
-    step: int,
-    strategy: TriggerStrategy,
-    step_size: int = 1,
-    pos_triggers: Optional[set] = None,
-) -> bool:
-    """Determine whether to run detection at this step."""
-    if strategy == TriggerStrategy.EVERY_TOKEN:
-        return True
-    elif strategy == TriggerStrategy.EVERY_N:
-        return (step % step_size == 0) or (step == 0)
-    elif strategy == TriggerStrategy.SMART_POS:
-        if pos_triggers is None:
-            pos_triggers = {"NOUN", "VERB", "PROPN", "AUX"}
-        return token.pos_tag in pos_triggers
+def should_trigger(step: int) -> bool:
+    """Fixed to every-token triggering for RQ3."""
     return True
 
 
@@ -464,27 +347,15 @@ def should_trigger(
 # ============================================================================
 
 class EvaluationEngine:
-    """
-    Main engine that runs the incremental hallucination detection benchmark.
-    """
-
     def __init__(
         self,
         detector: HallucinationDetectorBase,
-        tokenizer: Optional[TokenizerBase] = None,
-        llm_tokenizer: Optional[LLMTokenizerWrapper] = None,
-        trigger_strategy: TriggerStrategy = TriggerStrategy.EVERY_TOKEN,
-        step_size: int = 1,
+        llm_tokenizer: LLMTokenizerWrapper,
         confidence_threshold: float = 0.90,
-        pos_triggers: Optional[set] = None,
     ):
         self.detector = detector
-        self.tokenizer = tokenizer or SpacyTokenizer()
         self.llm_tokenizer = llm_tokenizer
-        self.trigger_strategy = trigger_strategy
-        self.step_size = step_size
         self.confidence_threshold = confidence_threshold
-        self.pos_triggers = pos_triggers or {"NOUN", "VERB", "PROPN", "AUX"}
 
     def evaluate_sample(
         self,
@@ -494,61 +365,38 @@ class EvaluationEngine:
         labels: List[Dict],
         sample_index: int = 0,
     ) -> SampleResult:
-        """
-        Evaluate a single sample by incrementally feeding tokens to the detector.
-        """
-        # Parse ground-truth labels
         gt_labels = [
-            GroundTruthLabel(start=l["start"], end=l["end"], label=l.get("label", "hallucination"))
+            GroundTruthLabel(start=l["start"], end=l["end"],
+                             label=l.get("label", "hallucination"))
             for l in labels
         ]
 
-        # Determine tokenization mode
-        use_llm_tokenizer = self.llm_tokenizer is not None
+        tokens = self.llm_tokenizer.tokenize_with_offsets(answer)
+        detokenized_full = self.llm_tokenizer.get_detokenized_text(answer)
+        offset_mapper = OffsetMapper(answer, detokenized_full)
+        divergence = offset_mapper.check_divergence()
+        if divergence > 0.05:
+            print(
+                f"  [WARNING] Sample {sample_index}: detokenization divergence "
+                f"= {divergence:.2%}"
+            )
 
-        if use_llm_tokenizer:
-            tokens = self.llm_tokenizer.tokenize_with_offsets(answer)
-            # Add POS tags for smart trigger
-            if self.trigger_strategy == TriggerStrategy.SMART_POS:
-                tokens = self.llm_tokenizer.add_pos_tags(tokens, answer)
-            # Compute offset mapping
-            detokenized_full = self.llm_tokenizer.get_detokenized_text(answer)
-            offset_mapper = OffsetMapper(answer, detokenized_full)
-            divergence = offset_mapper.check_divergence()
-            if divergence > 0.05:
-                print(
-                    f"  [WARNING] Sample {sample_index}: detokenization divergence "
-                    f"= {divergence:.2%} for tokenizer {self.llm_tokenizer.get_name()}"
-                )
-        else:
-            tokens = self.tokenizer.tokenize_with_offsets(answer)
-            offset_mapper = None
-
-        # Evaluate token by token
         token_steps: List[TokenStepResult] = []
         last_prediction: Dict[int, Tuple[bool, float]] = {}
         cumulative_gt = []
         cumulative_pred = []
         sample_start_time = time.time()
 
+        encoded_full = self.llm_tokenizer.tokenizer.encode(answer, add_special_tokens=False)
+
         for step, token in enumerate(tokens):
-            triggered = should_trigger(
-                token, step, self.trigger_strategy, self.step_size, self.pos_triggers
-            )
+            triggered = should_trigger(step)
 
             if triggered:
-                # Build the prefix text
-                if use_llm_tokenizer:
-                    encoded = self.llm_tokenizer.tokenizer.encode(
-                        answer, add_special_tokens=False
-                    )
-                    prefix_text = self.llm_tokenizer.tokenizer.decode(
-                        encoded[: step + 1], skip_special_tokens=True
-                    )
-                else:
-                    prefix_text = answer[: token.char_end]
+                prefix_text = self.llm_tokenizer.tokenizer.decode(
+                    encoded_full[: step + 1], skip_special_tokens=True
+                )
 
-                # Run detection
                 try:
                     predictions = self.detector.predict(
                         context=[context],
@@ -559,38 +407,32 @@ class EvaluationEngine:
                     print(f"  [ERROR] Detection failed at step {step}: {e}")
                     predictions = []
 
-                # Map predictions to tokens seen so far
                 tokens_so_far = tokens[: step + 1]
                 pred_map = map_predictions_to_tokens(
                     predictions, tokens_so_far, self.confidence_threshold
                 )
                 last_prediction = pred_map
 
-            # Get prediction for current token (carry-forward if not triggered)
             if token.index in last_prediction:
                 is_pred_hall, pred_conf = last_prediction[token.index]
             else:
                 is_pred_hall, pred_conf = False, 0.0
 
-            # Get ground truth for current token
-            if use_llm_tokenizer and offset_mapper:
-                orig_start, orig_end = offset_mapper.detok_range_to_orig(
-                    token.char_start, token.char_end
-                )
-                orig_token = TokenInfo(
-                    index=token.index,
-                    text=token.text,
-                    char_start=orig_start,
-                    char_end=orig_end,
-                )
-                is_gt_hall = is_token_hallucinated(orig_token, gt_labels)
-            else:
-                is_gt_hall = is_token_hallucinated(token, gt_labels)
+            orig_start, orig_end = offset_mapper.detok_range_to_orig(
+                token.char_start, token.char_end
+            )
+            orig_token = TokenInfo(
+                index=token.index,
+                text=token.text,
+                char_start=orig_start,
+                char_end=orig_end,
+            )
+            is_gt_hall = is_token_hallucinated(orig_token, gt_labels)
 
-            # Cumulative metrics
             cumulative_gt.append(is_gt_hall)
             cumulative_pred.append(is_pred_hall)
-            cum_prec, cum_rec, cum_f1 = compute_metrics(cumulative_gt, cumulative_pred)
+            _, _, cum_f1 = compute_metrics_class(cumulative_gt, cumulative_pred, positive_class=True)
+            cum_prec, cum_rec, _ = compute_metrics_class(cumulative_gt, cumulative_pred, positive_class=True)
 
             token_steps.append(TokenStepResult(
                 step=step,
@@ -608,10 +450,9 @@ class EvaluationEngine:
 
         sample_runtime = time.time() - sample_start_time
 
-        # Aggregate metrics for this sample
         all_gt = [ts.ground_truth for ts in token_steps]
         all_pred = [ts.predicted for ts in token_steps]
-        agg_prec, agg_rec, agg_f1 = compute_metrics(all_gt, all_pred)
+        agg_prec, agg_rec, agg_f1 = compute_metrics_class(all_gt, all_pred, positive_class=True)
 
         return SampleResult(
             sample_index=sample_index,
@@ -630,34 +471,14 @@ class EvaluationEngine:
 # ============================================================================
 
 def load_ragtruth_dataset(filepath: str, max_samples: Optional[int] = None) -> List[Dict]:
-    """
-    Load the RAGTruth dataset from a JSON file.
-
-    Args:
-        filepath: Path to the JSON file.
-        max_samples: If set, only load the first N samples. None = load all.
-
-    Returns:
-        List of sample dicts.
-    """
     with open(filepath, "r", encoding="utf-8") as f:
         data = json.load(f)
-
     if max_samples is not None:
         data = data[:max_samples]
-
     return data
 
 
 def extract_context_from_prompt(prompt: str) -> Tuple[str, str]:
-    """
-    Extract the context and question from a RAGTruth prompt.
-    The prompt typically contains instruction + context.
-    Returns (context, question).
-    """
-    # For summary tasks, the context is the news article in the prompt
-    # For data2txt tasks, the context is the structured data
-    # We treat the full prompt as both context and question for simplicity
     return prompt, prompt
 
 
@@ -666,7 +487,6 @@ def extract_context_from_prompt(prompt: str) -> Tuple[str, str]:
 # ============================================================================
 
 def export_per_step_csv(sample_results: List[SampleResult], filepath: str):
-    """Export per-step results to CSV."""
     with open(filepath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -686,49 +506,64 @@ def export_per_step_csv(sample_results: List[SampleResult], filepath: str):
                 ])
 
 
-def export_aggregate_csv(benchmark_result: BenchmarkResult, filepath: str):
-    """Export aggregate results to CSV."""
+def export_aggregate_csv(benchmark_results: List[BenchmarkResult], filepath: str):
+    """Write all model aggregates into a single comparison CSV."""
     with open(filepath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
-            "model_name", "trigger_strategy", "step_size", "tokenizer",
-            "num_samples", "precision", "recall", "f1", "total_runtime_seconds",
+            "model_name", "model_path", "trigger_strategy", "tokenizer", "num_samples",
+            "precision_micro", "recall_micro", "f1_micro",
+            "precision_class_1", "recall_class_1", "f1_binary_class_1",
+            "precision_class_0", "recall_class_0", "f1_binary_class_0",
+            "total_runtime_seconds",
         ])
-        writer.writerow([
-            benchmark_result.model_name,
-            benchmark_result.trigger_strategy,
-            benchmark_result.step_size,
-            benchmark_result.tokenizer_name or "spaCy",
-            benchmark_result.num_samples,
-            f"{benchmark_result.total_precision:.4f}",
-            f"{benchmark_result.total_recall:.4f}",
-            f"{benchmark_result.total_f1:.4f}",
-            f"{benchmark_result.total_runtime_seconds:.2f}",
-        ])
+        for br in benchmark_results:
+            writer.writerow([
+                br.model_name,
+                br.model_path,
+                br.trigger_strategy,
+                br.tokenizer_name,
+                br.num_samples,
+                f"{br.precision_micro:.4f}",
+                f"{br.recall_micro:.4f}",
+                f"{br.f1_micro:.4f}",
+                f"{br.precision_class_1:.4f}",
+                f"{br.recall_class_1:.4f}",
+                f"{br.f1_binary_class_1:.4f}",
+                f"{br.precision_class_0:.4f}",
+                f"{br.recall_class_0:.4f}",
+                f"{br.f1_binary_class_0:.4f}",
+                f"{br.total_runtime_seconds:.2f}",
+            ])
 
 
 def export_results_json(benchmark_result: BenchmarkResult, filepath: str):
-    """Export full results to JSON."""
     output = {
-        "model_name": benchmark_result.model_name,
-        "trigger_strategy": benchmark_result.trigger_strategy,
-        "step_size": benchmark_result.step_size,
-        "tokenizer_name": benchmark_result.tokenizer_name,
-        "num_samples": benchmark_result.num_samples,
-        "total_precision": benchmark_result.total_precision,
-        "total_recall": benchmark_result.total_recall,
-        "total_f1": benchmark_result.total_f1,
+        "model_name":            benchmark_result.model_name,
+        "model_path":            benchmark_result.model_path,
+        "trigger_strategy":      benchmark_result.trigger_strategy,
+        "tokenizer_name":        benchmark_result.tokenizer_name,
+        "num_samples":           benchmark_result.num_samples,
+        "precision_micro":       benchmark_result.precision_micro,
+        "recall_micro":          benchmark_result.recall_micro,
+        "f1_micro":              benchmark_result.f1_micro,
+        "precision_class_1":     benchmark_result.precision_class_1,
+        "recall_class_1":        benchmark_result.recall_class_1,
+        "f1_binary_class_1":     benchmark_result.f1_binary_class_1,
+        "precision_class_0":     benchmark_result.precision_class_0,
+        "recall_class_0":        benchmark_result.recall_class_0,
+        "f1_binary_class_0":     benchmark_result.f1_binary_class_0,
         "total_runtime_seconds": benchmark_result.total_runtime_seconds,
         "samples": [],
     }
     for sr in benchmark_result.sample_results:
         sample_out = {
-            "sample_index": sr.sample_index,
+            "sample_index":        sr.sample_index,
             "aggregate_precision": sr.aggregate_precision,
-            "aggregate_recall": sr.aggregate_recall,
-            "aggregate_f1": sr.aggregate_f1,
-            "runtime_seconds": sr.runtime_seconds,
-            "token_steps": [asdict(ts) for ts in sr.token_steps],
+            "aggregate_recall":    sr.aggregate_recall,
+            "aggregate_f1":        sr.aggregate_f1,
+            "runtime_seconds":     sr.runtime_seconds,
+            "token_steps":         [asdict(ts) for ts in sr.token_steps],
         }
         output["samples"].append(sample_out)
 
@@ -737,63 +572,60 @@ def export_results_json(benchmark_result: BenchmarkResult, filepath: str):
 
 
 # ============================================================================
-# Main Benchmark Runner
+# Benchmark Runner (per model)
 # ============================================================================
 
-def run_benchmark(
+def run_benchmark_for_model(
     dataset_path: str,
-    detector: HallucinationDetectorBase,
-    trigger_strategy: TriggerStrategy = TriggerStrategy.EVERY_TOKEN,
-    step_size: int = 1,
-    max_samples: Optional[int] = None,
-    llm_tokenizer_name: Optional[str] = None,
-    confidence_threshold: float = 0.90,
-    output_prefix: str = "benchmark",
+    model_name: str,
+    model_path: str,
+    llm_tokenizer: LLMTokenizerWrapper,
+    max_samples: Optional[int],
+    confidence_threshold: float,
+    output_prefix: str,
 ) -> BenchmarkResult:
-    """
-    Run the full benchmark.
+    print(f"\n{'#' * 70}")
+    print(f"# Evaluating: {model_name}")
+    print(f"# Path:       {model_path}")
+    print(f"{'#' * 70}\n")
 
-    Args:
-        dataset_path: Path to the RAGTruth JSON file.
-        detector: The hallucination detection model to evaluate.
-        trigger_strategy: Triggering strategy to use.
-        step_size: Step size for EVERY_N strategy.
-        max_samples: Number of samples to evaluate (None = all).
-        llm_tokenizer_name: Optional HuggingFace model name for LLM tokenizer.
-        confidence_threshold: Confidence threshold for hallucination prediction.
-        output_prefix: Prefix for output files.
+    # Start W&B run for this model
+    run = wandb.init(
+        entity=WANDB_ENTITY,
+        project=WANDB_PROJECT,
+        name=model_name,
+        config={
+            "model_name":           model_name,
+            "model_path":           model_path,
+            "trigger_strategy":     TriggerStrategy.EVERY_TOKEN.value,
+            "tokenizer":            LLM_TOKENIZER_NAME,
+            "confidence_threshold": confidence_threshold,
+            "max_samples":          max_samples,
+            "dataset_path":         dataset_path,
+        },
+        reinit=True,
+    )
 
-    Returns:
-        BenchmarkResult with all results.
-    """
     # Load dataset
     print(f"Loading dataset from {dataset_path}...")
     data = load_ragtruth_dataset(dataset_path, max_samples)
     print(f"Loaded {len(data)} samples.")
 
-    # Initialize tokenizer
-    llm_tokenizer = None
-    if llm_tokenizer_name:
-        print(f"Loading LLM tokenizer: {llm_tokenizer_name}...")
-        llm_tokenizer = LLMTokenizerWrapper(llm_tokenizer_name)
-
-    # Initialize engine
+    # Init detector + engine
+    detector = LettuceDetectWrapper(name=model_name, model_path=model_path)
     engine = EvaluationEngine(
         detector=detector,
         llm_tokenizer=llm_tokenizer,
-        trigger_strategy=trigger_strategy,
-        step_size=step_size,
         confidence_threshold=confidence_threshold,
     )
 
-    # Run evaluation
     all_sample_results: List[SampleResult] = []
     all_gt = []
     all_pred = []
     total_start = time.time()
 
     for i, sample in enumerate(data):
-        print(f"  Evaluating sample {i + 1}/{len(data)}...")
+        print(f"  [{model_name}] Evaluating sample {i + 1}/{len(data)}...")
         context, question = extract_context_from_prompt(sample["prompt"])
         answer = sample["answer"]
         labels = sample.get("labels", [])
@@ -807,10 +639,18 @@ def run_benchmark(
         )
         all_sample_results.append(result)
 
-        # Collect all token-level gt/pred for global metrics
         for ts in result.token_steps:
             all_gt.append(ts.ground_truth)
             all_pred.append(ts.predicted)
+
+        # Per-sample W&B log
+        run.log({
+            "sample_index":        i,
+            "sample_precision":    result.aggregate_precision,
+            "sample_recall":       result.aggregate_recall,
+            "sample_f1":           result.aggregate_f1,
+            "sample_runtime_s":    result.runtime_seconds,
+        })
 
         print(
             f"    P={result.aggregate_precision:.4f} "
@@ -820,55 +660,132 @@ def run_benchmark(
         )
 
     total_runtime = time.time() - total_start
-    total_prec, total_rec, total_f1 = compute_metrics(all_gt, all_pred)
+
+    # Compute final metrics
+    prec_micro, rec_micro, f1_micro = compute_metrics_micro(all_gt, all_pred)
+    prec_c1, rec_c1, f1_c1 = compute_metrics_class(all_gt, all_pred, positive_class=True)
+    prec_c0, rec_c0, f1_c0 = compute_metrics_class(all_gt, all_pred, positive_class=False)
 
     benchmark_result = BenchmarkResult(
-        model_name=detector.get_name(),
-        trigger_strategy=trigger_strategy.value,
-        step_size=step_size,
-        tokenizer_name=llm_tokenizer_name,
+        model_name=model_name,
+        model_path=model_path,
+        trigger_strategy=TriggerStrategy.EVERY_TOKEN.value,
+        tokenizer_name=LLM_TOKENIZER_NAME,
         num_samples=len(data),
-        total_precision=total_prec,
-        total_recall=total_rec,
-        total_f1=total_f1,
+        precision_micro=prec_micro,
+        recall_micro=rec_micro,
+        f1_micro=f1_micro,
+        precision_class_1=prec_c1,
+        recall_class_1=rec_c1,
+        f1_binary_class_1=f1_c1,
+        precision_class_0=prec_c0,
+        recall_class_0=rec_c0,
+        f1_binary_class_0=f1_c0,
         total_runtime_seconds=total_runtime,
         sample_results=all_sample_results,
     )
 
-    # Export results
-    print(f"\nExporting results...")
-    export_per_step_csv(all_sample_results, f"{output_prefix}_per_step.csv")
-    export_aggregate_csv(benchmark_result, f"{output_prefix}_aggregate.csv")
-    export_results_json(benchmark_result, f"{output_prefix}_full_results.json")
+    # Final W&B summary
+    run.summary["precision_micro"]       = prec_micro
+    run.summary["recall_micro"]          = rec_micro
+    run.summary["f1_micro"]              = f1_micro
+    run.summary["precision_class_1"]     = prec_c1
+    run.summary["recall_class_1"]        = rec_c1
+    run.summary["f1_binary_class_1"]     = f1_c1
+    run.summary["precision_class_0"]     = prec_c0
+    run.summary["recall_class_0"]        = rec_c0
+    run.summary["f1_binary_class_0"]     = f1_c0
+    run.summary["total_runtime_seconds"] = total_runtime
 
-    # Print summary
+    # Export per-model results
+    per_step_path = f"{output_prefix}_{model_name}_per_step.csv"
+    json_path     = f"{output_prefix}_{model_name}_full_results.json"
+    export_per_step_csv(all_sample_results, per_step_path)
+    export_results_json(benchmark_result, json_path)
+
+    # Log as W&B artifact
+    artifact = wandb.Artifact(f"{model_name}_results", type="benchmark_results")
+    artifact.add_file(per_step_path)
+    artifact.add_file(json_path)
+    run.log_artifact(artifact)
+
+    # Summary print
     print(f"\n{'=' * 60}")
-    print(f"BENCHMARK SUMMARY")
+    print(f"RESULTS: {model_name}")
     print(f"{'=' * 60}")
-    print(f"Model:             {detector.get_name()}")
-    print(f"Trigger Strategy:  {trigger_strategy.value}")
-    print(f"Step Size:         {step_size}")
-    print(f"Tokenizer:         {llm_tokenizer_name or 'spaCy (default)'}")
-    print(f"Samples:           {len(data)}")
-    print(f"{'=' * 60}")
-    print(f"Precision:         {total_prec:.4f}")
-    print(f"Recall:            {total_rec:.4f}")
-    print(f"F1:                {total_f1:.4f}")
-    print(f"Total Runtime:     {total_runtime:.2f}s")
-    print(f"{'=' * 60}")
+    print(f"Samples:              {len(data)}")
+    print(f"Total runtime:        {total_runtime:.2f}s")
+    print(f"--- Global (micro) ---")
+    print(f"  Precision:          {prec_micro:.4f}")
+    print(f"  Recall:             {rec_micro:.4f}")
+    print(f"  F1:                 {f1_micro:.4f}")
+    print(f"--- Class 1 (hallucinated) ---")
+    print(f"  Precision:          {prec_c1:.4f}")
+    print(f"  Recall:             {rec_c1:.4f}")
+    print(f"  F1:                 {f1_c1:.4f}")
+    print(f"--- Class 0 (supported) ---")
+    print(f"  Precision:          {prec_c0:.4f}")
+    print(f"  Recall:             {rec_c0:.4f}")
+    print(f"  F1:                 {f1_c0:.4f}")
+    print(f"{'=' * 60}\n")
+
+    run.finish()
 
     return benchmark_result
 
 
 # ============================================================================
-# Example Usage / CLI
+# Main: run both models
 # ============================================================================
+
+def main(
+    dataset_path: str,
+    max_samples: Optional[int],
+    confidence_threshold: float,
+    output_prefix: str,
+):
+    # Shared tokenizer (loaded once)
+    print(f"Loading Llama tokenizer: {LLM_TOKENIZER_NAME}...")
+    llm_tokenizer = LLMTokenizerWrapper(LLM_TOKENIZER_NAME)
+
+    all_results: List[BenchmarkResult] = []
+
+    for model_cfg in MODELS_TO_EVALUATE:
+        result = run_benchmark_for_model(
+            dataset_path=dataset_path,
+            model_name=model_cfg["name"],
+            model_path=model_cfg["model_path"],
+            llm_tokenizer=llm_tokenizer,
+            max_samples=max_samples,
+            confidence_threshold=confidence_threshold,
+            output_prefix=output_prefix,
+        )
+        all_results.append(result)
+
+    # Combined aggregate CSV
+    aggregate_path = f"{output_prefix}_aggregate.csv"
+    export_aggregate_csv(all_results, aggregate_path)
+    print(f"\nCombined aggregate CSV written to: {aggregate_path}")
+
+    # Final comparison print
+    print(f"\n{'=' * 70}")
+    print(f"FINAL COMPARISON")
+    print(f"{'=' * 70}")
+    print(f"{'Model':<40} {'F1_c1':>8} {'F1_c0':>8} {'Runtime':>10}")
+    print("-" * 70)
+    for br in all_results:
+        print(f"{br.model_name:<40} "
+              f"{br.f1_binary_class_1:>8.4f} "
+              f"{br.f1_binary_class_0:>8.4f} "
+              f"{br.total_runtime_seconds:>9.2f}s")
+    print(f"{'=' * 70}\n")
+
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Hallucination Detection Benchmark — Left-Encoder Evaluation"
+        description="RQ3 Benchmark: TinyLettuce vs. LettuceDetect-base"
     )
     parser.add_argument(
         "--dataset", type=str, required=True,
@@ -879,59 +796,19 @@ if __name__ == "__main__":
         help="Number of samples to evaluate (default: all)."
     )
     parser.add_argument(
-        "--detector", type=str, default="lettuce",
-        choices=["lettuce"],
-        help="Hallucination detection model to use."
-    )
-    parser.add_argument(
-        "--detector-model-path", type=str,
-        default="KRLabsOrg/tinylettuce-ettin-68m-en",
-        help="Model path for the detector."
-    )
-    parser.add_argument(
-        "--trigger", type=str, default="every_token",
-        choices=["every_token", "every_n", "smart_pos"],
-        help="Triggering strategy."
-    )
-    parser.add_argument(
-        "--step-size", type=int, default=1,
-        help="Step size for every_n trigger strategy."
-    )
-    parser.add_argument(
-        "--llm-tokenizer", type=str, default=None,
-        help="HuggingFace model name for LLM tokenizer (optional)."
-    )
-    parser.add_argument(
         "--confidence-threshold", type=float, default=0.90,
         help="Confidence threshold for hallucination prediction."
     )
     parser.add_argument(
-        "--output-prefix", type=str, default="benchmark",
+        "--output-prefix", type=str, default="rq3_benchmark",
         help="Prefix for output files."
     )
 
     args = parser.parse_args()
 
-    # Initialize detector
-    if args.detector == "lettuce":
-        detector = LettuceDetectWrapper(model_path=args.detector_model_path)
-    else:
-        raise ValueError(f"Unknown detector: {args.detector}")
-
-    # Map trigger strategy
-    trigger_map = {
-        "every_token": TriggerStrategy.EVERY_TOKEN,
-        "every_n": TriggerStrategy.EVERY_N,
-        "smart_pos": TriggerStrategy.SMART_POS,
-    }
-
-    run_benchmark(
+    main(
         dataset_path=args.dataset,
-        detector=detector,
-        trigger_strategy=trigger_map[args.trigger],
-        step_size=args.step_size,
         max_samples=args.max_samples,
-        llm_tokenizer_name=args.llm_tokenizer,
         confidence_threshold=args.confidence_threshold,
         output_prefix=args.output_prefix,
     )
