@@ -41,18 +41,16 @@ MAX_LENGTH      = 4096
 NUM_SAMPLES     = "FULL"
 EPOCHS          = 6
 NUM_LABELS      = 2
-
 FREEZE_BACKBONE = False
-
 STRATEGY        = "weighted"
 
-LLAMA_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"  
+LLAMA_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
 
 WANDB_ENTITY  = "lebeccard-technical-university-wien"
-WANDB_PROJECT = "train-tokenized-decoder-model"  
+WANDB_PROJECT = "train-tokenized-decoder-model"
 
 HF_USERNAME   = "lebe1"
-HF_MODEL_NAME = "lettuceprevent-ettin-decoder-68m-en-tokenized"  
+HF_MODEL_NAME = "lettucepreventer-ettin-decoder-68m-en-tokenized"
 HF_REPO_ID    = f"{HF_USERNAME}/{HF_MODEL_NAME}"
 
 # ============================================================
@@ -65,18 +63,10 @@ sweep_config = {
         "goal": "maximize",
     },
     "parameters": {
-        "learning_rate": {
-            "values": [1e-6, 5e-6, 1e-5],
-        },
-        "batch_size": {
-            "values": [8, 16],
-        },
-        "weight_decay": {
-            "values": [0.01, 0.05],
-        },
-        "warmup_ratio": {
-            "values": [0.1],
-        },
+        "learning_rate": {"values": [1e-6, 5e-6, 1e-5]},
+        "batch_size":    {"values": [4, 8]},
+        "weight_decay":  {"values": [0.01, 0.05]},
+        "warmup_ratio":  {"values": [0.1]},
     }
 }
 
@@ -91,13 +81,12 @@ SEP_ID = tokenizer.sep_token_id
 print(f"CLS token : {tokenizer.convert_ids_to_tokens([CLS_ID])} (id={CLS_ID})")
 print(f"SEP token : {tokenizer.convert_ids_to_tokens([SEP_ID])} (id={SEP_ID})")
 
-# Llama tokenizer for realistic token-boundary simulation
 llama_tokenizer = AutoTokenizer.from_pretrained(LLAMA_TOKENIZER_NAME)
 print(f"Llama tokenizer loaded: vocab_size={llama_tokenizer.vocab_size}")
 
 
 # ============================================================
-# 4. Token classifier 
+# 4. Token classifier (unchanged)
 # ============================================================
 class EttinTokenClassifier(PreTrainedModel):
     def __init__(self, config, num_labels: int = 2):
@@ -171,36 +160,57 @@ def build_char_mask(answer: str, labels: list) -> list:
     return mask
 
 
-# Expand partial hallucination labels to full Llama token boundaries
-def expand_char_mask_to_llama_boundaries(answer: str, char_mask: list) -> list:
-    """If ANY character within a Llama token's span is hallucinated,
-    mark ALL characters in that span as hallucinated.
-    This simulates the realistic scenario where Llama produces whole
-    tokens and the HDM can only accept or reject entire tokens."""
+def tokenize_text_via_llama_chunks(text: str, char_mask: list = None):
+    """
+    Tokenize text by first splitting it into Llama token chunks, decoding each
+    chunk individually, then tokenizing each chunk with the Ettin tokenizer
+    SEPARATELY. This forces Ettin's tokenization to respect Llama token
+    boundaries — simulating the way the HDM receives text during real
+    generation, where it sees accumulated text arriving at Llama-token
+    boundaries.
+
+    Returns:
+        input_ids: List[int] — Ettin token IDs
+        labels:    List[int] — hallucination labels per Ettin token
+                              (or None if char_mask is None — used for context/query)
+    """
     llama_enc = llama_tokenizer(
-        answer, add_special_tokens=False, return_offsets_mapping=True
+        text, add_special_tokens=False, return_offsets_mapping=True
     )
-    expanded = list(char_mask)  # copy
-    for cs, ce in llama_enc["offset_mapping"]:
-        if cs == ce:
+    llama_ids      = llama_enc["input_ids"]
+    llama_offsets  = llama_enc["offset_mapping"]
+
+    all_input_ids = []
+    all_labels    = [] if char_mask is not None else None
+
+    for llama_tok_id, (cs, ce) in zip(llama_ids, llama_offsets):
+        if cs == ce:  # safety: skip empty offsets
             continue
-        if any(expanded[i] == 1 for i in range(cs, min(ce, len(expanded)))):
-            for i in range(cs, min(ce, len(expanded))):
-                expanded[i] = 1
-    return expanded
 
+        # Decode this single Llama token back to text
+        chunk_text = llama_tokenizer.decode([llama_tok_id])
+        if not chunk_text:
+            continue
 
-# Llama encode→decode round-trip to simulate realistic text
-def llama_round_trip(text: str) -> str:
-    """Encode text with Llama tokenizer and decode back.
-    This ensures the text the Ettin model sees matches what it would
-    receive in a real Llama-based generation pipeline."""
-    token_ids = llama_tokenizer.encode(text, add_special_tokens=False)
-    return llama_tokenizer.decode(token_ids)
+        # Tokenize this chunk with Ettin IN ISOLATION
+        ettin_enc = tokenizer(chunk_text, add_special_tokens=False)
+        ettin_ids = ettin_enc["input_ids"]
+        if not ettin_ids:
+            continue
 
+        all_input_ids.extend(ettin_ids)
 
-def token_is_hallucinated(char_start, char_end, char_mask) -> int:
-    return int(any(char_mask[i] == 1 for i in range(char_start, char_end)))
+        # If labels are needed, assign the Llama-token-level label to every
+        # Ettin sub-token produced from this chunk
+        if char_mask is not None:
+            # A Llama token is hallucinated if ANY char in its span is hallucinated
+            is_hallucinated = int(any(
+                char_mask[i] == 1
+                for i in range(cs, min(ce, len(char_mask)))
+            ))
+            all_labels.extend([is_hallucinated] * len(ettin_ids))
+
+    return all_input_ids, all_labels
 
 
 def preprocess(sample: dict) -> dict:
@@ -209,45 +219,31 @@ def preprocess(sample: dict) -> dict:
     answer    = sample["answer"]
     char_mask = build_char_mask(answer, sample["labels"])
 
-    # expand hallucination mask to Llama token boundaries
-    char_mask = expand_char_mask_to_llama_boundaries(answer, char_mask)
+    # Tokenize context and query via Llama-chunk-by-chunk Ettin tokenization
+    # (labels are all -100 for these, so pass char_mask=None)
+    context_ids, _ = tokenize_text_via_llama_chunks(context, char_mask=None)
+    query_ids,   _ = tokenize_text_via_llama_chunks(query,   char_mask=None)
 
-    # Llama encode→decode round-trip for context and query
-    context = llama_round_trip(context)
-    query   = llama_round_trip(query)
-    # Note: answer is NOT round-tripped to preserve char_mask alignment
-
-    context_enc = tokenizer(context, add_special_tokens=False,
-                            return_offsets_mapping=True)
-    query_enc   = tokenizer(query,   add_special_tokens=False,
-                            return_offsets_mapping=True)
-    answer_enc  = tokenizer(answer,  add_special_tokens=False,
-                            return_offsets_mapping=True)
+    # Tokenize answer the same way, with labels aligned to Llama token boundaries
+    answer_ids, answer_labels = tokenize_text_via_llama_chunks(answer, char_mask=char_mask)
 
     input_ids = (
         [CLS_ID]
-        + context_enc["input_ids"]
+        + context_ids
         + [SEP_ID]
-        + query_enc["input_ids"]
+        + query_ids
         + [SEP_ID]
-        + answer_enc["input_ids"]
+        + answer_ids
         + [SEP_ID]
     )
 
     attention_mask = [1] * len(input_ids)
 
-    answer_labels = []
-    for cs, ce in answer_enc["offset_mapping"]:
-        if cs == 0 and ce == 0:
-            answer_labels.append(-100)
-        else:
-            answer_labels.append(token_is_hallucinated(cs, ce, char_mask))
-
     labels = (
         [-100]
-        + [-100] * len(context_enc["input_ids"])
+        + [-100] * len(context_ids)
         + [-100]
-        + [-100] * len(query_enc["input_ids"])
+        + [-100] * len(query_ids)
         + [-100]
         + answer_labels
         + [-100]
@@ -312,7 +308,7 @@ print("Preprocessing done.")
 
 
 # ============================================================
-# 7. Dataset class 
+# 7. Dataset class (unchanged)
 # ============================================================
 class HallucinationDataset(Dataset):
     def __init__(self, samples):
@@ -341,7 +337,7 @@ collator = DataCollatorForTokenClassification(
 
 
 # ============================================================
-# 8. Metrics 
+# 8. Metrics (unchanged)
 # ============================================================
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
@@ -355,20 +351,20 @@ def compute_metrics(eval_pred):
     mask        = flat_labels != -100
 
     return {
-        "f1_binary_class_1"  : f1_score(flat_labels[mask], flat_preds[mask], average="binary",  pos_label=1, zero_division="warn"),
-        "precision_class_1"  : precision_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=1, zero_division="warn"),
-        "recall_class_1"     : recall_score(flat_labels[mask], flat_preds[mask], average="binary",    pos_label=1, zero_division="warn"),
-        "f1_binary_class_0"  : f1_score(flat_labels[mask], flat_preds[mask], average="binary",  pos_label=0, zero_division="warn"),
-        "precision_class_0"  : precision_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=0, zero_division="warn"),
-        "recall_class_0"     : recall_score(flat_labels[mask], flat_preds[mask], average="binary",    pos_label=0, zero_division="warn"),
-        "f1_micro"           : f1_score(flat_labels[mask], flat_preds[mask], average="micro",    zero_division="warn"),
-        "precision_micro"    : precision_score(flat_labels[mask], flat_preds[mask], average="micro",  zero_division="warn"),
-        "recall_micro"       : recall_score(flat_labels[mask], flat_preds[mask], average="micro",     zero_division="warn"),
+        "f1_binary_class_1" : f1_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=1, zero_division="warn"),
+        "precision_class_1" : precision_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=1, zero_division="warn"),
+        "recall_class_1"    : recall_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=1, zero_division="warn"),
+        "f1_binary_class_0" : f1_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=0, zero_division="warn"),
+        "precision_class_0" : precision_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=0, zero_division="warn"),
+        "recall_class_0"    : recall_score(flat_labels[mask], flat_preds[mask], average="binary", pos_label=0, zero_division="warn"),
+        "f1_micro"          : f1_score(flat_labels[mask], flat_preds[mask], average="micro", zero_division="warn"),
+        "precision_micro"   : precision_score(flat_labels[mask], flat_preds[mask], average="micro", zero_division="warn"),
+        "recall_micro"      : recall_score(flat_labels[mask], flat_preds[mask], average="micro", zero_division="warn"),
     }
 
 
 # ============================================================
-# 9. Single sweep run (called by wandb agent)
+# 9. Single sweep run
 # ============================================================
 def train_sweep():
     timestamp_str = datetime.now().strftime("%Y-%m-%d-%H:%M")

@@ -1,0 +1,1034 @@
+====================================================================================================
+DEBUG: First training sample (LLAMA-CHUNKED ETTIN TOKENIZATION)
+====================================================================================================
+Answer (first 300 chars): Mezza Thyme is a highly-rated Mediterranean restaurant and bar in Santa Barbara, California. Located at 20 E Cota St, the establishment is known for its variety of dishes and its nightlife. It is open from 4:00 PM to 8:00 PM, Tuesday to Saturday. Customers appreciate the freshly made pita bread, wit...
+Hallucinated spans      : [{'start': 641, 'end': 663, 'text': 'but does not have WiFi', 'meta': 'HIGH INTRODUCTION OF NEW INFORMATION\nOriginal: "WiFi": null,\nGenerative: "...but does not have WiFi"', 'label_type': 'Evident Baseless Info', 'implicit_true': False, 'due_to_null': True}]
+
+----------------------------------------------------------------------------------------------------
+FULL ETTIN TOKEN SEQUENCE
+----------------------------------------------------------------------------------------------------
+  idx    tok_id                      token  label  meaning
+----------------------------------------------------------------------------------------------------
+    0     50281                      [CLS]   -100  masked
+    1       187                          Ċ   -100  masked
+    2     46912                         {'   -100  masked
+    3      1590                       name   -100  masked
+    4      5295                         ':   -100  masked
+    5       686                         Ġ'   -100  masked
+    6      5072                         Me   -100  masked
+    7     48407                        zza   -100  masked
+    8       596                        ĠTh   -100  masked
+    9     28705                        yme   -100  masked
+   10      1383                         ',   -100  masked
+   11       686                         Ġ'   -100  masked
+   12     12025                    address   -100  masked
+   13      5295                         ':   -100  masked
+   14       686                         Ġ'   -100  masked
+   15       938                         20   -100  masked
+   16       444                         ĠE   -100  masked
+   17       330                         ĠC   -100  masked
+   18      5503                        ota   -100  masked
+   19       659                        ĠSt   -100  masked
+   20      1383                         ',   -100  masked
+   21       686                         Ġ'   -100  masked
+   22     21280                       city   -100  masked
+   23      5295                         ':   -100  masked
+   24       686                         Ġ'   -100  masked
+   25     39356                      Santa   -100  masked
+   26     19917                   ĠBarbara   -100  masked
+   27      1383                         ',   -100  masked
+   28       686                         Ġ'   -100  masked
+   29      3409                      state   -100  masked
+   30      5295                         ':   -100  masked
+   31       686                         Ġ'   -100  masked
+   32      4280                         CA   -100  masked
+   33      1383                         ',   -100  masked
+   34       686                         Ġ'   -100  masked
+   35     34286                 categories   -100  masked
+   36      5295                         ':   -100  masked
+   37       686                         Ġ'   -100  masked
+   38        46                          M   -100  masked
+   39     15576                       edit   -100  masked
+   40      1000                        err   -100  masked
+   41     18313                      anean   -100  masked
+   42        13                          ,   -100  masked
+   43     39400                      ĠBars   -100  masked
+   44        13                          ,   -100  masked
+   45     11726                      ĠRest   -100  masked
+   46      4411                        aur   -100  masked
+   47      1103                       ants   -100  masked
+   48        13                          ,   -100  masked
+   49     12972                     ĠNight   -100  masked
+   50      8206                       life   -100  masked
+   51      1383                         ',   -100  masked
+   52       686                         Ġ'   -100  masked
+   53     22724                      hours   -100  masked
+   54      5295                         ':   -100  masked
+   55     27428                        Ġ{'   -100  masked
+   56     26788                     Monday   -100  masked
+   57      5295                         ':   -100  masked
+   58       686                         Ġ'   -100  masked
+   59        17                          0   -100  masked
+   60        27                          :   -100  masked
+   61        17                          0   -100  masked
+   62        14                          -   -100  masked
+   63        17                          0   -100  masked
+   64        27                          :   -100  masked
+   65        17                          0   -100  masked
+   66      1383                         ',   -100  masked
+   67       686                         Ġ'   -100  masked
+   68     28266                    Tuesday   -100  masked
+   69      5295                         ':   -100  masked
+   70       686                         Ġ'   -100  masked
+   71      1036                         16   -100  masked
+   72        27                          :   -100  masked
+   73        17                          0   -100  masked
+   74        14                          -   -100  masked
+   75       938                         20   -100  masked
+   76        27                          :   -100  masked
+   77        17                          0   -100  masked
+   78      1383                         ',   -100  masked
+   79       686                         Ġ'   -100  masked
+   80     28781                  Wednesday   -100  masked
+   81      5295                         ':   -100  masked
+   82       686                         Ġ'   -100  masked
+   83      1036                         16   -100  masked
+   84        27                          :   -100  masked
+   85        17                          0   -100  masked
+   86        14                          -   -100  masked
+   87       938                         20   -100  masked
+   88        27                          :   -100  masked
+   89        17                          0   -100  masked
+   90      1383                         ',   -100  masked
+   91       686                         Ġ'   -100  masked
+   92     28549                   Thursday   -100  masked
+   93      5295                         ':   -100  masked
+   94       686                         Ġ'   -100  masked
+   95      1036                         16   -100  masked
+   96        27                          :   -100  masked
+   97        17                          0   -100  masked
+   98        14                          -   -100  masked
+   99       938                         20   -100  masked
+  100        27                          :   -100  masked
+  101        17                          0   -100  masked
+  102      1383                         ',   -100  masked
+  103       686                         Ġ'   -100  masked
+  104     25897                     Friday   -100  masked
+  105      5295                         ':   -100  masked
+  106       686                         Ġ'   -100  masked
+  107      1036                         16   -100  masked
+  108        27                          :   -100  masked
+  109        17                          0   -100  masked
+  110        14                          -   -100  masked
+  111       938                         20   -100  masked
+  112        27                          :   -100  masked
+  113        17                          0   -100  masked
+  114      1383                         ',   -100  masked
+  115       686                         Ġ'   -100  masked
+  116     28007                   Saturday   -100  masked
+  117      5295                         ':   -100  masked
+  118       686                         Ġ'   -100  masked
+  119      1036                         16   -100  masked
+  120        27                          :   -100  masked
+  121        17                          0   -100  masked
+  122        14                          -   -100  masked
+  123       938                         20   -100  masked
+  124        27                          :   -100  masked
+  125        17                          0   -100  masked
+  126     35450                        '},   -100  masked
+  127       686                         Ġ'   -100  masked
+  128     26059                 attributes   -100  masked
+  129      5295                         ':   -100  masked
+  130     27428                        Ġ{'   -100  masked
+  131     27270                   Business   -100  masked
+  132     34438                       Park   -100  masked
+  133       272                        ing   -100  masked
+  134      5295                         ':   -100  masked
+  135     27428                        Ġ{'   -100  masked
+  136      5209                        gar   -100  masked
+  137       486                        age   -100  masked
+  138      5295                         ':   -100  masked
+  139     16708                     ĠFalse   -100  masked
+  140        13                          ,   -100  masked
+  141       686                         Ġ'   -100  masked
+  142     33151                     street   -100  masked
+  143      5295                         ':   -100  masked
+  144     11793                      ĠTrue   -100  masked
+  145        13                          ,   -100  masked
+  146       686                         Ġ'   -100  masked
+  147      7210                      valid   -100  masked
+  148       456                       ated   -100  masked
+  149      5295                         ':   -100  masked
+  150     16708                     ĠFalse   -100  masked
+  151        13                          ,   -100  masked
+  152       686                         Ġ'   -100  masked
+  153     11753                        lot   -100  masked
+  154      5295                         ':   -100  masked
+  155     16708                     ĠFalse   -100  masked
+  156        13                          ,   -100  masked
+  157       686                         Ġ'   -100  masked
+  158      6156                         va   -100  masked
+  159      1059                        let   -100  masked
+  160      5295                         ':   -100  masked
+  161     16708                     ĠFalse   -100  masked
+  162      2023                         },   -100  masked
+  163       686                         Ġ'   -100  masked
+  164     17613                       Rest   -100  masked
+  165      4411                        aur   -100  masked
+  166      1103                       ants   -100  masked
+  167      2632                        Res   -100  masked
+  168       677                        erv   -100  masked
+  169       569                     ations   -100  masked
+  170      5295                         ':   -100  masked
+  171     16708                     ĠFalse   -100  masked
+  172        13                          ,   -100  masked
+  173       686                         Ġ'   -100  masked
+  174      5677                        Out   -100  masked
+  175     11806                       door   -100  masked
+  176      3251                         Se   -100  masked
+  177       839                      ating   -100  masked
+  178      5295                         ':   -100  masked
+  179      8256                      ĠNone   -100  masked
+  180        13                          ,   -100  masked
+  181       686                         Ġ'   -100  masked
+  182        56                          W   -100  masked
+  183        74                          i   -100  masked
+  184     15723                         Fi   -100  masked
+  185      5295                         ':   -100  masked
+  186      8256                      ĠNone   -100  masked
+  187        13                          ,   -100  masked
+  188       686                         Ġ'   -100  masked
+  189     17613                       Rest   -100  masked
+  190      4411                        aur   -100  masked
+  191      1103                       ants   -100  masked
+  192     12864                       Take   -100  masked
+  193      5677                        Out   -100  masked
+  194      5295                         ':   -100  masked
+  195     11793                      ĠTrue   -100  masked
+  196        13                          ,   -100  masked
+  197       686                         Ġ'   -100  masked
+  198     17613                       Rest   -100  masked
+  199      4411                        aur   -100  masked
+  200      1103                       ants   -100  masked
+  201      8620                       Good   -100  masked
+  202      2214                        For   -100  masked
+  203     32357                     Groups   -100  masked
+  204      5295                         ':   -100  masked
+  205      8256                      ĠNone   -100  masked
+  206        13                          ,   -100  masked
+  207       686                         Ġ'   -100  masked
+  208     25843                      Music   -100  masked
+  209      5295                         ':   -100  masked
+  210     16708                     ĠFalse   -100  masked
+  211        13                          ,   -100  masked
+  212       686                         Ġ'   -100  masked
+  213     33818                        Amb   -100  masked
+  214      1482                      ience   -100  masked
+  215      5295                         ':   -100  masked
+  216     27428                        Ġ{'   -100  masked
+  217     47404                       tour   -100  masked
+  218     39660                       isty   -100  masked
+  219      5295                         ':   -100  masked
+  220      8256                      ĠNone   -100  masked
+  221        13                          ,   -100  masked
+  222       686                         Ġ'   -100  masked
+  223      1456                        hip   -100  masked
+  224      2971                       ster   -100  masked
+  225      5295                         ':   -100  masked
+  226      8256                      ĠNone   -100  masked
+  227        13                          ,   -100  masked
+  228       686                         Ġ'   -100  masked
+  229       409                        rom   -100  masked
+  230      6484                      antic   -100  masked
+  231      5295                         ':   -100  masked
+  232     11793                      ĠTrue   -100  masked
+  233        13                          ,   -100  masked
+  234       686                         Ġ'   -100  masked
+  235        69                          d   -100  masked
+  236       422                        ive   -100  masked
+  237        90                          y   -100  masked
+  238      5295                         ':   -100  masked
+  239      8256                      ĠNone   -100  masked
+  240        13                          ,   -100  masked
+  241       686                         Ġ'   -100  masked
+  242       565                        int   -100  masked
+  243      2542                      imate   -100  masked
+  244      5295                         ':   -100  masked
+  245      8256                      ĠNone   -100  masked
+  246        13                          ,   -100  masked
+  247       686                         Ġ'   -100  masked
+  248        85                          t   -100  masked
+  249      5047                       rend   -100  masked
+  250        90                          y   -100  masked
+  251      5295                         ':   -100  masked
+  252     11793                      ĠTrue   -100  masked
+  253        13                          ,   -100  masked
+  254       686                         Ġ'   -100  masked
+  255      8777                        ups   -100  masked
+  256     25912                       cale   -100  masked
+  257      5295                         ':   -100  masked
+  258      8256                      ĠNone   -100  masked
+  259        13                          ,   -100  masked
+  260       686                         Ġ'   -100  masked
+  261      2437                      class   -100  masked
+  262        90                          y   -100  masked
+  263      5295                         ':   -100  masked
+  264     11793                      ĠTrue   -100  masked
+  265        13                          ,   -100  masked
+  266       686                         Ġ'   -100  masked
+  267     16559                        cas   -100  masked
+  268       780                        ual   -100  masked
+  269      5295                         ':   -100  masked
+  270      8256                      ĠNone   -100  masked
+  271      8503                        }},   -100  masked
+  272       686                         Ġ'   -100  masked
+  273     21616                   business   -100  masked
+  274        64                          _   -100  masked
+  275       296                         st   -100  masked
+  276      1032                        ars   -100  masked
+  277      5295                         ':   -100  masked
+  278       209                          Ġ   -100  masked
+  279        22                          5   -100  masked
+  280        15                          .   -100  masked
+  281        17                          0   -100  masked
+  282        13                          ,   -100  masked
+  283       686                         Ġ'   -100  masked
+  284     15337                     review   -100  masked
+  285        64                          _   -100  masked
+  286      5374                       info   -100  masked
+  287      5295                         ':   -100  masked
+  288     33440                        Ġ[{   -100  masked
+  289         8                          '   -100  masked
+  290     15337                     review   -100  masked
+  291        64                          _   -100  masked
+  292       296                         st   -100  masked
+  293      1032                        ars   -100  masked
+  294      5295                         ':   -100  masked
+  295       209                          Ġ   -100  masked
+  296        22                          5   -100  masked
+  297        15                          .   -100  masked
+  298        17                          0   -100  masked
+  299        13                          ,   -100  masked
+  300       686                         Ġ'   -100  masked
+  301     15337                     review   -100  masked
+  302        64                          _   -100  masked
+  303      2754                       date   -100  masked
+  304      5295                         ':   -100  masked
+  305       686                         Ġ'   -100  masked
+  306     18161                        202   -100  masked
+  307        18                          1   -100  masked
+  308        14                          -   -100  masked
+  309      2904                         08   -100  masked
+  310        14                          -   -100  masked
+  311      1099                         25   -100  masked
+  312       209                          Ġ   -100  masked
+  313      2640                         02   -100  masked
+  314        27                          :   -100  masked
+  315      1012                         13   -100  masked
+  316        27                          :   -100  masked
+  317      1449                         40   -100  masked
+  318      1383                         ',   -100  masked
+  319       686                         Ġ'   -100  masked
+  320     15337                     review   -100  masked
+  321        64                          _   -100  masked
+  322      1156                       text   -100  masked
+  323      5295                         ':   -100  masked
+  324       346                         Ġ"   -100  masked
+  325      6872                      These   -100  masked
+  326      6068                      Ġguys   -100  masked
+  327       403                       Ġare   -100  masked
+  328       253                       Ġthe   -100  masked
+  329      1682                      Ġbest   -100  masked
+  330        15                          .   -100  masked
+  331      1284                        ĠAs   -100  masked
+  332       247                         Ġa   -100  masked
+  333       268                         Ġp   -100  masked
+  334      5741                        ita   -100  masked
+  335     10238                     Ġbread   -100  masked
+  336       345                       Ġcon   -100  masked
+  337      2369                         no   -100  masked
+  338     16886                       isse   -100  masked
+  339       321                         ur   -100  masked
+  340       309                         ĠI   -100  masked
+  341       452                      Ġhave   -100  masked
+  342      1029                      Ġhigh   -100  masked
+  343      7465                 Ġstandards   -100  masked
+  344        13                          ,   -100  masked
+  345       285                       Ġand   -100  masked
+  346       436                      Ġthis   -100  masked
+  347       268                         Ġp   -100  masked
+  348      5741                        ita   -100  masked
+  349       310                        Ġis   -100  masked
+  350       581                       Ġone   -100  masked
+  351       273                        Ġof   -100  masked
+  352       253                       Ġthe   -100  masked
+  353      1682                      Ġbest   -100  masked
+  354        15                          .   -100  masked
+  355     23089                      ĠMade   -100  masked
+  356      5352                     Ġfresh   -100  masked
+  357       562                       Ġout   -100  masked
+  358       273                        Ġof   -100  masked
+  359       253                       Ġthe   -100  masked
+  360     14195                      Ġoven   -100  masked
+  361        13                          ,   -100  masked
+  362       352                        Ġit   -100  masked
+  363      1904                      Ġdidn   -100  masked
+  364       626                         't   -100  masked
+  365      1014                      Ġeven   -100  masked
+  366       878                      Ġneed   -100  masked
+  367       667                       Ġany   -100  masked
+  368     12539                       Ġdip   -100  masked
+  369        15                          .   -100  masked
+  370      7964                Ġdefinitely   -100  masked
+  371      5583                 Ġrecommend   -100  masked
+  372      4672                         !!   -100  masked
+  373      1476                         !"   -100  masked
+  374      2023                         },   -100  masked
+  375     27428                        Ġ{'   -100  masked
+  376     15337                     review   -100  masked
+  377        64                          _   -100  masked
+  378       296                         st   -100  masked
+  379      1032                        ars   -100  masked
+  380      5295                         ':   -100  masked
+  381       209                          Ġ   -100  masked
+  382        22                          5   -100  masked
+  383        15                          .   -100  masked
+  384        17                          0   -100  masked
+  385        13                          ,   -100  masked
+  386       686                         Ġ'   -100  masked
+  387     15337                     review   -100  masked
+  388        64                          _   -100  masked
+  389      2754                       date   -100  masked
+  390      5295                         ':   -100  masked
+  391       686                         Ġ'   -100  masked
+  392     18161                        202   -100  masked
+  393        18                          1   -100  masked
+  394        14                          -   -100  masked
+  395      2922                         07   -100  masked
+  396        14                          -   -100  masked
+  397      1797                         21   -100  masked
+  398       209                          Ġ   -100  masked
+  399      2941                         03   -100  masked
+  400        27                          :   -100  masked
+  401      2945                         42   -100  masked
+  402        27                          :   -100  masked
+  403      1237                         32   -100  masked
+  404      1383                         ',   -100  masked
+  405       686                         Ġ'   -100  masked
+  406     15337                     review   -100  masked
+  407        64                          _   -100  masked
+  408      1156                       text   -100  masked
+  409      5295                         ':   -100  masked
+  410       686                         Ġ'   -100  masked
+  411      1231                         We   -100  masked
+  412       574                       Ġhad   -100  masked
+  413       247                         Ġa   -100  masked
+  414      1387                     Ġgroup   -100  masked
+  415       594                        Ġso   -100  masked
+  416      6960                   Ġordered   -100  masked
+  417       253                       Ġthe   -100  masked
+  418      1781                     Ġlarge   -100  masked
+  419     11152                   Ġchicken   -100  masked
+  420       499                        Ġpl   -100  masked
+  421      2569                      atter   -100  masked
+  422       285                       Ġand   -100  masked
+  423      2879                     Ġadded   -100  masked
+  424       690                      Ġsome   -100  masked
+  425     18512                       Ġfal   -100  masked
+  426      2320                         af   -100  masked
+  427       293                         el   -100  masked
+  428       285                       Ġand   -100  masked
+  429       270                         Ġb   -100  masked
+  430     10442                        aba   -100  masked
+  431       305                         Ġg   -100  masked
+  432      1136                        ann   -100  masked
+  433       276                         ou   -100  masked
+  434        75                          j   -100  masked
+  435     18068                         gh   -100  masked
+  436      1051                        ...   -100  masked
+  437       262                         it   -100  masked
+  438       369                       Ġwas   -100  masked
+  439      9828                    Ġplenty   -100  masked
+  440       273                        Ġof   -100  masked
+  441      2739                      Ġfood   -100  masked
+  442       285                       Ġand   -100  masked
+  443      8043                      Ġflav   -100  masked
+  444      2149                       ored   -100  masked
+  445       973                      Ġwell   -100  masked
+  446        15                          .   -100  masked
+  447       418                         ĠL   -100  masked
+  448      3149                       oved   -100  masked
+  449       253                       Ġthe   -100  masked
+  450     17426                    Ġgarlic   -100  masked
+  451     12364                     Ġsauce   -100  masked
+  452       285                       Ġand   -100  masked
+  453       253                       Ġthe   -100  masked
+  454       268                         Ġp   -100  masked
+  455      5741                        ita   -100  masked
+  456     37907                    Ġtasted   -100  masked
+  457       751                      Ġlike   -100  masked
+  458      1728                      Ġhome   -100  masked
+  459      1160                      Ġmade   -100  masked
+  460      9810                      Ġtort   -100  masked
+  461      6077                       illa   -100  masked
+  462        15                          .   -100  masked
+  463     15997                      ĠVery   -100  masked
+  464      5211                     Ġhappy   -100  masked
+  465       342                      Ġwith   -100  masked
+  466       436                      Ġthis   -100  masked
+  467      1659                     Ġplace   -100  masked
+  468     35450                        '},   -100  masked
+  469     27428                        Ġ{'   -100  masked
+  470     15337                     review   -100  masked
+  471        64                          _   -100  masked
+  472       296                         st   -100  masked
+  473      1032                        ars   -100  masked
+  474      5295                         ':   -100  masked
+  475       209                          Ġ   -100  masked
+  476        21                          4   -100  masked
+  477        15                          .   -100  masked
+  478        17                          0   -100  masked
+  479        13                          ,   -100  masked
+  480       686                         Ġ'   -100  masked
+  481     15337                     review   -100  masked
+  482        64                          _   -100  masked
+  483      2754                       date   -100  masked
+  484      5295                         ':   -100  masked
+  485       686                         Ġ'   -100  masked
+  486     18161                        202   -100  masked
+  487        18                          1   -100  masked
+  488        14                          -   -100  masked
+  489      2922                         07   -100  masked
+  490        14                          -   -100  masked
+  491      3071                         06   -100  masked
+  492       209                          Ġ   -100  masked
+  493       520                         01   -100  masked
+  494        27                          :   -100  masked
+  495      1237                         32   -100  masked
+  496        27                          :   -100  masked
+  497      1762                         05   -100  masked
+  498      1383                         ',   -100  masked
+  499       686                         Ġ'   -100  masked
+  500     15337                     review   -100  masked
+  501        64                          _   -100  masked
+  502      1156                       text   -100  masked
+  503      5295                         ':   -100  masked
+  504       686                         Ġ'   -100  masked
+  505      8620                       Good   -100  masked
+  506     10515                    ĠMiddle   -100  masked
+  507      5791                      ĠEast   -100  masked
+  508     11797                  Ġinspired   -100  masked
+  509      2739                      Ġfood   -100  masked
+  510        15                          .   -100  masked
+  511       380                       ĠThe   -100  masked
+  512       760                      Ġonly   -100  masked
+  513     42719                  Ġdownside   -100  masked
+  514       310                        Ġis   -100  masked
+  515       326                      Ġthat   -100  masked
+  516       253                       Ġthe   -100  masked
+  517      7911                    Ġprices   -100  masked
+  518       403                       Ġare   -100  masked
+  519     16624                     Ġsteep   -100  masked
+  520       323                       Ġfor   -100  masked
+  521       752                      Ġwhat   -100  masked
+  522       597                      Ġthey   -100  masked
+  523      5752                     Ġserve   -100  masked
+  524      2464                         .'   -100  masked
+  525        94                          }   -100  masked
+  526     18095                         ]}   -100  masked
+  527       187                          Ċ   -100  masked
+  528     35067                   Overview   -100  masked
+  529        27                          :   -100  masked
+  530     50282                      [SEP]   -100  masked
+  531     10548                       Inst   -100  masked
+  532      2705                    ruction   -100  masked
+  533        27                          :   -100  masked
+  534       187                          Ċ   -100  masked
+  535     10639                      Write   -100  masked
+  536       271                        Ġan   -100  masked
+  537      8103                 Ġobjective   -100  masked
+  538     18389                  Ġoverview   -100  masked
+  539       670                     Ġabout   -100  masked
+  540       253                       Ġthe   -100  masked
+  541      1563                 Ġfollowing   -100  masked
+  542      1980                     Ġlocal   -100  masked
+  543      2136                  Ġbusiness   -100  masked
+  544      1754                     Ġbased   -100  masked
+  545       760                      Ġonly   -100  masked
+  546       327                        Ġon   -100  masked
+  547       253                       Ġthe   -100  masked
+  548      2530                  Ġprovided   -100  masked
+  549     18872                Ġstructured   -100  masked
+  550       941                      Ġdata   -100  masked
+  551       275                        Ġin   -100  masked
+  552       253                       Ġthe   -100  masked
+  553     13922                      ĠJSON   -100  masked
+  554      5981                    Ġformat   -100  masked
+  555        15                          .   -100  masked
+  556      1422                       ĠYou   -100  masked
+  557       943                    Ġshould   -100  masked
+  558      2486                   Ġinclude   -100  masked
+  559      4278                   Ġdetails   -100  masked
+  560       285                       Ġand   -100  masked
+  561      3835                     Ġcover   -100  masked
+  562       253                       Ġthe   -100  masked
+  563      1491               Ġinformation   -100  masked
+  564      5393                 Ġmentioned   -100  masked
+  565       275                        Ġin   -100  masked
+  566       253                       Ġthe   -100  masked
+  567      6383                 Ġcustomers   -100  masked
+  568         8                          '   -100  masked
+  569      2278                    Ġreview   -100  masked
+  570        15                          .   -100  masked
+  571       380                       ĠThe   -100  masked
+  572     18389                  Ġoverview   -100  masked
+  573       943                    Ġshould   -100  masked
+  574       320                        Ġbe   -100  masked
+  575       209                          Ġ   -100  masked
+  576      2313                        100   -100  masked
+  577       428                         Ġ-   -100  masked
+  578       209                          Ġ   -100  masked
+  579      1518                        200   -100  masked
+  580      3000                     Ġwords   -100  masked
+  581        15                          .   -100  masked
+  582      5037                       ĠDon   -100  masked
+  583       626                         't   -100  masked
+  584      1056                      Ġmake   -100  masked
+  585       598                        Ġup   -100  masked
+  586      1491               Ġinformation   -100  masked
+  587        15                          .   -100  masked
+  588       209                          Ġ   -100  masked
+  589     50282                      [SEP]   -100  masked
+  590      5072                         Me      0  supported
+  591     48407                        zza      0  supported
+  592       596                        ĠTh      0  supported
+  593     28705                        yme      0  supported
+  594       310                        Ġis      0  supported
+  595       247                         Ġa      0  supported
+  596      4122                    Ġhighly      0  supported
+  597        14                          -      0  supported
+  598     14092                      rated      0  supported
+  599     21609             ĠMediterranean      0  supported
+  600     10301                Ġrestaurant      0  supported
+  601       285                       Ġand      0  supported
+  602      2534                       Ġbar      0  supported
+  603       275                        Ġin      0  supported
+  604     12126                     ĠSanta      0  supported
+  605     19917                   ĠBarbara      0  supported
+  606        13                          ,      0  supported
+  607      5002                ĠCalifornia      0  supported
+  608        15                          .      0  supported
+  609     18771                       ĠLoc      0  supported
+  610       456                       ated      0  supported
+  611       387                        Ġat      0  supported
+  612       209                          Ġ      0  supported
+  613       938                         20      0  supported
+  614       444                         ĠE      0  supported
+  615       330                         ĠC      0  supported
+  616      5503                        ota      0  supported
+  617       659                        ĠSt      0  supported
+  618        13                          ,      0  supported
+  619       253                       Ġthe      0  supported
+  620     13701             Ġestablishment      0  supported
+  621       310                        Ġis      0  supported
+  622      1929                     Ġknown      0  supported
+  623       323                       Ġfor      0  supported
+  624       697                       Ġits      0  supported
+  625      5235                   Ġvariety      0  supported
+  626       273                        Ġof      0  supported
+  627     17114                    Ġdishes      0  supported
+  628       285                       Ġand      0  supported
+  629       697                       Ġits      0  supported
+  630      2360                     Ġnight      0  supported
+  631      8206                       life      0  supported
+  632        15                          .      0  supported
+  633       733                        ĠIt      0  supported
+  634       310                        Ġis      0  supported
+  635      1527                      Ġopen      0  supported
+  636       432                      Ġfrom      0  supported
+  637       209                          Ġ      0  supported
+  638        21                          4      0  supported
+  639        27                          :      0  supported
+  640       361                         00      0  supported
+  641      5365                        ĠPM      0  supported
+  642       281                        Ġto      0  supported
+  643       209                          Ġ      0  supported
+  644        25                          8      0  supported
+  645        27                          :      0  supported
+  646       361                         00      0  supported
+  647      5365                        ĠPM      0  supported
+  648        13                          ,      0  supported
+  649      7948                   ĠTuesday      0  supported
+  650       281                        Ġto      0  supported
+  651      7814                  ĠSaturday      0  supported
+  652        15                          .      0  supported
+  653     49627                 ĠCustomers      0  supported
+  654     11435                Ġappreciate      0  supported
+  655       253                       Ġthe      0  supported
+  656     25547                   Ġfreshly      0  supported
+  657      1160                      Ġmade      0  supported
+  658       268                         Ġp      0  supported
+  659      5741                        ita      0  supported
+  660     10238                     Ġbread      0  supported
+  661        13                          ,      0  supported
+  662       342                      Ġwith      0  supported
+  663       581                       Ġone      0  supported
+  664     37317                  Ġreviewer      0  supported
+  665       354                       Ġpro      0  supported
+  666      7041                      claim      0  supported
+  667       272                        ing      0  supported
+  668       352                        Ġit      0  supported
+  669       347                        Ġas      0  supported
+  670       581                       Ġone      0  supported
+  671       273                        Ġof      0  supported
+  672       253                       Ġthe      0  supported
+  673      1682                      Ġbest      0  supported
+  674        15                          .      0  supported
+  675      5131                     ĠOther      0  supported
+  676      4633                   Ġpopular      0  supported
+  677      8910                      Ġmenu      0  supported
+  678      4957                     Ġitems      0  supported
+  679      2486                   Ġinclude      0  supported
+  680       253                       Ġthe      0  supported
+  681      1781                     Ġlarge      0  supported
+  682     11152                   Ġchicken      0  supported
+  683       499                        Ġpl      0  supported
+  684      2569                      atter      0  supported
+  685        13                          ,      0  supported
+  686     18512                       Ġfal      0  supported
+  687      2320                         af      0  supported
+  688       293                         el      0  supported
+  689        13                          ,      0  supported
+  690       285                       Ġand      0  supported
+  691       270                         Ġb      0  supported
+  692     10442                        aba      0  supported
+  693       305                         Ġg      0  supported
+  694      1136                        ann      0  supported
+  695       276                         ou      0  supported
+  696        75                          j      0  supported
+  697     18068                         gh      0  supported
+  698        15                          .      0  supported
+  699       380                       ĠThe      0  supported
+  700     10301                Ġrestaurant      0  supported
+  701       310                        Ġis      0  supported
+  702       671                      Ġalso      0  supported
+  703      4879                     Ġnoted      0  supported
+  704       323                       Ġfor      0  supported
+  705       697                       Ġits      0  supported
+  706     36018                  Ġhomemade      0  supported
+  707      9810                      Ġtort      0  supported
+  708      6077                       illa      0  supported
+  709        14                          -      0  supported
+  710      3022                       like      0  supported
+  711       268                         Ġp      0  supported
+  712      5741                        ita      0  supported
+  713       285                       Ġand      0  supported
+  714     17426                    Ġgarlic      0  supported
+  715     12364                     Ġsauce      0  supported
+  716        15                          .      0  supported
+  717      3900                     ĠWhile      0  supported
+  718      3189                        ĠMe      0  supported
+  719     48407                        zza      0  supported
+  720       596                        ĠTh      0  supported
+  721     28705                        yme      0  supported
+  722      1057                      Ġdoes      0  supported
+  723       417                       Ġnot      0  supported
+  724      3959                     Ġoffer      0  supported
+  725     28930               Ġreservation      0  supported
+  726      3238                  Ġservices      0  supported
+  727        13                          ,      0  supported
+  728       352                        Ġit      0  supported
+  729      1057                      Ġdoes      0  supported
+  730      2085                   Ġprovide      0  supported
+  731      1379                      Ġtake      0  supported
+  732        14                          -      0  supported
+  733       483                        out      0  supported
+  734      4610                   Ġoptions      0  supported
+  735        15                          .      0  supported
+  736       733                        ĠIt      0  supported
+  737       671                      Ġalso      0  supported
+  738      6131                    Ġoffers      0  supported
+  739      6406                    Ġstreet      0  supported
+  740     12102                   Ġparking      0  supported
+  741       533                       Ġbut      1  HALLUCINATED
+  742      1057                      Ġdoes      1  HALLUCINATED
+  743       417                       Ġnot      1  HALLUCINATED
+  744       452                      Ġhave      1  HALLUCINATED
+  745     41706                      ĠWiFi      1  HALLUCINATED
+  746       390                        Ġor      0  supported
+  747     13460                        Ġva      0  supported
+  748      1059                        let      0  supported
+  749      3238                  Ġservices      0  supported
+  750        15                          .      0  supported
+  751       380                       ĠThe      0  supported
+  752       717                        Ġam      0  supported
+  753      4193                         bi      0  supported
+  754       593                       ance      0  supported
+  755       310                        Ġis      0  supported
+  756      2529                 Ġdescribed      0  supported
+  757       347                        Ġas      0  supported
+  758     18109                  Ġromantic      0  supported
+  759       285                       Ġand      0  supported
+  760      9058                     Ġtrend      0  supported
+  761        90                          y      0  supported
+  762        13                          ,      0  supported
+  763      2403                    Ġmaking      0  supported
+  764       352                        Ġit      0  supported
+  765       247                         Ġa      0  supported
+  766      1270                     Ġgreat      0  supported
+  767      6308                      Ġspot      0  supported
+  768       323                       Ġfor      0  supported
+  769       247                         Ġa      0  supported
+  770     15120                    Ġcasual      0  supported
+  771      3522                      Ġdate      0  supported
+  772       390                        Ġor      0  supported
+  773       247                         Ġa      0  supported
+  774      2360                     Ġnight      0  supported
+  775       562                       Ġout      0  supported
+  776        15                          .      0  supported
+  777      1723                   ĠHowever      0  supported
+  778        13                          ,      0  supported
+  779       581                       Ġone      0  supported
+  780     37317                  Ġreviewer      0  supported
+  781      5393                 Ġmentioned      0  supported
+  782       326                      Ġthat      0  supported
+  783       253                       Ġthe      0  supported
+  784      7911                    Ġprices      0  supported
+  785      1537                     Ġmight      0  supported
+  786       320                        Ġbe      0  supported
+  787     16624                     Ġsteep      0  supported
+  788      7296               Ġconsidering      0  supported
+  789       253                       Ġthe      0  supported
+  790      2739                      Ġfood      0  supported
+  791       597                      Ġthey      0  supported
+  792      5752                     Ġserve      0  supported
+  793        15                          .      0  supported
+  794     50282                      [SEP]   -100  masked
+----------------------------------------------------------------------------------------------------
+Total tokens              : 795
+  masked (ctx+query+spec) : 591
+  supported               : 199
+  hallucinated            : 5
+
+====================================================================================================
+LLAMA → ETTIN ALIGNMENT FOR ANSWER TOKENS
+====================================================================================================
+   #           llama_token                 chunk                              ettin_tokens  label
+----------------------------------------------------------------------------------------------------
+    0                  'Me'                  'Me'                                      'Me'  supported
+    1                 'zza'                 'zza'                                     'zza'  supported
+    2                 'ĠTh'                 ' Th'                                     'ĠTh'  supported
+    3                 'yme'                 'yme'                                     'yme'  supported
+    4                 'Ġis'                 ' is'                                     'Ġis'  supported
+    5                  'Ġa'                  ' a'                                      'Ġa'  supported
+    6             'Ġhighly'             ' highly'                                 'Ġhighly'  supported
+    7              '-rated'              '-rated'                               '-' 'rated'  supported
+    8      'ĠMediterranean'      ' Mediterranean'                          'ĠMediterranean'  supported
+    9         'Ġrestaurant'         ' restaurant'                             'Ġrestaurant'  supported
+   10                'Ġand'                ' and'                                    'Ġand'  supported
+   11                'Ġbar'                ' bar'                                    'Ġbar'  supported
+   12                 'Ġin'                 ' in'                                     'Ġin'  supported
+   13              'ĠSanta'              ' Santa'                                  'ĠSanta'  supported
+   14            'ĠBarbara'            ' Barbara'                                'ĠBarbara'  supported
+   15                   ','                   ','                                       ','  supported
+   16         'ĠCalifornia'         ' California'                             'ĠCalifornia'  supported
+   17                   '.'                   '.'                                       '.'  supported
+   18            'ĠLocated'            ' Located'                             'ĠLoc' 'ated'  supported
+   19                 'Ġat'                 ' at'                                     'Ġat'  supported
+   20                   'Ġ'                   ' '                                       'Ġ'  supported
+   21                  '20'                  '20'                                      '20'  supported
+   22                  'ĠE'                  ' E'                                      'ĠE'  supported
+   23                  'ĠC'                  ' C'                                      'ĠC'  supported
+   24                 'ota'                 'ota'                                     'ota'  supported
+   25                 'ĠSt'                 ' St'                                     'ĠSt'  supported
+   26                   ','                   ','                                       ','  supported
+   27                'Ġthe'                ' the'                                    'Ġthe'  supported
+   28      'Ġestablishment'      ' establishment'                          'Ġestablishment'  supported
+   29                 'Ġis'                 ' is'                                     'Ġis'  supported
+   30              'Ġknown'              ' known'                                  'Ġknown'  supported
+   31                'Ġfor'                ' for'                                    'Ġfor'  supported
+   32                'Ġits'                ' its'                                    'Ġits'  supported
+   33            'Ġvariety'            ' variety'                                'Ġvariety'  supported
+   34                 'Ġof'                 ' of'                                     'Ġof'  supported
+   35             'Ġdishes'             ' dishes'                                 'Ġdishes'  supported
+   36                'Ġand'                ' and'                                    'Ġand'  supported
+   37                'Ġits'                ' its'                                    'Ġits'  supported
+   38          'Ġnightlife'          ' nightlife'                           'Ġnight' 'life'  supported
+   39                   '.'                   '.'                                       '.'  supported
+   40                 'ĠIt'                 ' It'                                     'ĠIt'  supported
+   41                 'Ġis'                 ' is'                                     'Ġis'  supported
+   42               'Ġopen'               ' open'                                   'Ġopen'  supported
+   43               'Ġfrom'               ' from'                                   'Ġfrom'  supported
+   44                   'Ġ'                   ' '                                       'Ġ'  supported
+   45                   '4'                   '4'                                       '4'  supported
+   46                   ':'                   ':'                                       ':'  supported
+   47                  '00'                  '00'                                      '00'  supported
+   48                 'ĠPM'                 ' PM'                                     'ĠPM'  supported
+   49                 'Ġto'                 ' to'                                     'Ġto'  supported
+   50                   'Ġ'                   ' '                                       'Ġ'  supported
+   51                   '8'                   '8'                                       '8'  supported
+   52                   ':'                   ':'                                       ':'  supported
+   53                  '00'                  '00'                                      '00'  supported
+   54                 'ĠPM'                 ' PM'                                     'ĠPM'  supported
+   55                   ','                   ','                                       ','  supported
+   56            'ĠTuesday'            ' Tuesday'                                'ĠTuesday'  supported
+   57                 'Ġto'                 ' to'                                     'Ġto'  supported
+   58           'ĠSaturday'           ' Saturday'                               'ĠSaturday'  supported
+   59                   '.'                   '.'                                       '.'  supported
+   60          'ĠCustomers'          ' Customers'                              'ĠCustomers'  supported
+   61         'Ġappreciate'         ' appreciate'                             'Ġappreciate'  supported
+   62                'Ġthe'                ' the'                                    'Ġthe'  supported
+   63            'Ġfreshly'            ' freshly'                                'Ġfreshly'  supported
+   64               'Ġmade'               ' made'                                   'Ġmade'  supported
+   65                  'Ġp'                  ' p'                                      'Ġp'  supported
+   66                 'ita'                 'ita'                                     'ita'  supported
+   67              'Ġbread'              ' bread'                                  'Ġbread'  supported
+   68                   ','                   ','                                       ','  supported
+   69               'Ġwith'               ' with'                                   'Ġwith'  supported
+   70                'Ġone'                ' one'                                    'Ġone'  supported
+   71           'Ġreviewer'           ' reviewer'                               'Ġreviewer'  supported
+   72           'Ġproclaim'           ' proclaim'                            'Ġpro' 'claim'  supported
+   73                 'ing'                 'ing'                                     'ing'  supported
+   74                 'Ġit'                 ' it'                                     'Ġit'  supported
+   75                 'Ġas'                 ' as'                                     'Ġas'  supported
+   76                'Ġone'                ' one'                                    'Ġone'  supported
+   77                 'Ġof'                 ' of'                                     'Ġof'  supported
+   78                'Ġthe'                ' the'                                    'Ġthe'  supported
+   79               'Ġbest'               ' best'                                   'Ġbest'  supported
+   80                   '.'                   '.'                                       '.'  supported
+   81              'ĠOther'              ' Other'                                  'ĠOther'  supported
+   82            'Ġpopular'            ' popular'                                'Ġpopular'  supported
+   83               'Ġmenu'               ' menu'                                   'Ġmenu'  supported
+   84              'Ġitems'              ' items'                                  'Ġitems'  supported
+   85            'Ġinclude'            ' include'                                'Ġinclude'  supported
+   86                'Ġthe'                ' the'                                    'Ġthe'  supported
+   87              'Ġlarge'              ' large'                                  'Ġlarge'  supported
+   88            'Ġchicken'            ' chicken'                                'Ġchicken'  supported
+   89                 'Ġpl'                 ' pl'                                     'Ġpl'  supported
+   90               'atter'               'atter'                                   'atter'  supported
+   91                   ','                   ','                                       ','  supported
+   92                'Ġfal'                ' fal'                                    'Ġfal'  supported
+   93                  'af'                  'af'                                      'af'  supported
+   94                  'el'                  'el'                                      'el'  supported
+   95                   ','                   ','                                       ','  supported
+   96                'Ġand'                ' and'                                    'Ġand'  supported
+   97                  'Ġb'                  ' b'                                      'Ġb'  supported
+   98                 'aba'                 'aba'                                     'aba'  supported
+   99                  'Ġg'                  ' g'                                      'Ġg'  supported
+  100                 'ann'                 'ann'                                     'ann'  supported
+  101                  'ou'                  'ou'                                      'ou'  supported
+  102                   'j'                   'j'                                       'j'  supported
+  103                  'gh'                  'gh'                                      'gh'  supported
+  104                   '.'                   '.'                                       '.'  supported
+  105                'ĠThe'                ' The'                                    'ĠThe'  supported
+  106         'Ġrestaurant'         ' restaurant'                             'Ġrestaurant'  supported
+  107                 'Ġis'                 ' is'                                     'Ġis'  supported
+  108               'Ġalso'               ' also'                                   'Ġalso'  supported
+  109              'Ġnoted'              ' noted'                                  'Ġnoted'  supported
+  110                'Ġfor'                ' for'                                    'Ġfor'  supported
+  111                'Ġits'                ' its'                                    'Ġits'  supported
+  112           'Ġhomemade'           ' homemade'                               'Ġhomemade'  supported
+  113               'Ġtort'               ' tort'                                   'Ġtort'  supported
+  114                'illa'                'illa'                                    'illa'  supported
+  115               '-like'               '-like'                                '-' 'like'  supported
+  116                  'Ġp'                  ' p'                                      'Ġp'  supported
+  117                 'ita'                 'ita'                                     'ita'  supported
+  118                'Ġand'                ' and'                                    'Ġand'  supported
+  119             'Ġgarlic'             ' garlic'                                 'Ġgarlic'  supported
+  120              'Ġsauce'              ' sauce'                                  'Ġsauce'  supported
+  121                   '.'                   '.'                                       '.'  supported
+  122              'ĠWhile'              ' While'                                  'ĠWhile'  supported
+  123                 'ĠMe'                 ' Me'                                     'ĠMe'  supported
+  124                 'zza'                 'zza'                                     'zza'  supported
+  125                 'ĠTh'                 ' Th'                                     'ĠTh'  supported
+  126                 'yme'                 'yme'                                     'yme'  supported
+  127               'Ġdoes'               ' does'                                   'Ġdoes'  supported
+  128                'Ġnot'                ' not'                                    'Ġnot'  supported
+  129              'Ġoffer'              ' offer'                                  'Ġoffer'  supported
+  130        'Ġreservation'        ' reservation'                            'Ġreservation'  supported
+  131           'Ġservices'           ' services'                               'Ġservices'  supported
+  132                   ','                   ','                                       ','  supported
+  133                 'Ġit'                 ' it'                                     'Ġit'  supported
+  134               'Ġdoes'               ' does'                                   'Ġdoes'  supported
+  135            'Ġprovide'            ' provide'                                'Ġprovide'  supported
+  136               'Ġtake'               ' take'                                   'Ġtake'  supported
+  137                '-out'                '-out'                                 '-' 'out'  supported
+  138            'Ġoptions'            ' options'                                'Ġoptions'  supported
+  139                   '.'                   '.'                                       '.'  supported
+  140                 'ĠIt'                 ' It'                                     'ĠIt'  supported
+  141               'Ġalso'               ' also'                                   'Ġalso'  supported
+  142             'Ġoffers'             ' offers'                                 'Ġoffers'  supported
+  143             'Ġstreet'             ' street'                                 'Ġstreet'  supported
+  144            'Ġparking'            ' parking'                                'Ġparking'  supported
+  145                'Ġbut'                ' but'                                    'Ġbut'  HALLUCINATED
+  146               'Ġdoes'               ' does'                                   'Ġdoes'  HALLUCINATED
+  147                'Ġnot'                ' not'                                    'Ġnot'  HALLUCINATED
+  148               'Ġhave'               ' have'                                   'Ġhave'  HALLUCINATED
+  149               'ĠWiFi'               ' WiFi'                                   'ĠWiFi'  HALLUCINATED
+  150                 'Ġor'                 ' or'                                     'Ġor'  supported
+  151                 'Ġva'                 ' va'                                     'Ġva'  supported
+  152                 'let'                 'let'                                     'let'  supported
+  153           'Ġservices'           ' services'                               'Ġservices'  supported
+  154                   '.'                   '.'                                       '.'  supported
+  155                'ĠThe'                ' The'                                    'ĠThe'  supported
+  156           'Ġambiance'           ' ambiance'                         'Ġam' 'bi' 'ance'  supported
+  157                 'Ġis'                 ' is'                                     'Ġis'  supported
+  158          'Ġdescribed'          ' described'                              'Ġdescribed'  supported
+  159                 'Ġas'                 ' as'                                     'Ġas'  supported
+  160           'Ġromantic'           ' romantic'                               'Ġromantic'  supported
+  161                'Ġand'                ' and'                                    'Ġand'  supported
+  162             'Ġtrendy'             ' trendy'                              'Ġtrend' 'y'  supported
+  163                   ','                   ','                                       ','  supported
+  164             'Ġmaking'             ' making'                                 'Ġmaking'  supported
+  165                 'Ġit'                 ' it'                                     'Ġit'  supported
+  166                  'Ġa'                  ' a'                                      'Ġa'  supported
+  167              'Ġgreat'              ' great'                                  'Ġgreat'  supported
+  168               'Ġspot'               ' spot'                                   'Ġspot'  supported
+  169                'Ġfor'                ' for'                                    'Ġfor'  supported
+  170                  'Ġa'                  ' a'                                      'Ġa'  supported
+  171             'Ġcasual'             ' casual'                                 'Ġcasual'  supported
+  172               'Ġdate'               ' date'                                   'Ġdate'  supported
+  173                 'Ġor'                 ' or'                                     'Ġor'  supported
+  174                  'Ġa'                  ' a'                                      'Ġa'  supported
+  175              'Ġnight'              ' night'                                  'Ġnight'  supported
+  176                'Ġout'                ' out'                                    'Ġout'  supported
+  177                   '.'                   '.'                                       '.'  supported
+  178            'ĠHowever'            ' However'                                'ĠHowever'  supported
+  179                   ','                   ','                                       ','  supported
+  180                'Ġone'                ' one'                                    'Ġone'  supported
+  181           'Ġreviewer'           ' reviewer'                               'Ġreviewer'  supported
+  182          'Ġmentioned'          ' mentioned'                              'Ġmentioned'  supported
+  183               'Ġthat'               ' that'                                   'Ġthat'  supported
+  184                'Ġthe'                ' the'                                    'Ġthe'  supported
+  185             'Ġprices'             ' prices'                                 'Ġprices'  supported
+  186              'Ġmight'              ' might'                                  'Ġmight'  supported
+  187                 'Ġbe'                 ' be'                                     'Ġbe'  supported
+  188              'Ġsteep'              ' steep'                                  'Ġsteep'  supported
+  189        'Ġconsidering'        ' considering'                            'Ġconsidering'  supported
+  190                'Ġthe'                ' the'                                    'Ġthe'  supported
+  191               'Ġfood'               ' food'                                   'Ġfood'  supported
+  192               'Ġthey'               ' they'                                   'Ġthey'  supported
+  193              'Ġserve'              ' serve'                                  'Ġserve'  supported
+  194                   '.'                   '.'                                       '.'  supported
+
+====================================================================================================
+SPLIT SUMMARY (Llama tokens that produced >1 Ettin sub-tokens)
+====================================================================================================
+Llama tokens that split into multiple Ettin tokens: 8 / 195
+              '-rated' → ['-', 'rated']
+            'ĠLocated' → ['ĠLoc', 'ated']
+          'Ġnightlife' → ['Ġnight', 'life']
+           'Ġproclaim' → ['Ġpro', 'claim']
+               '-like' → ['-', 'like']
+                '-out' → ['-', 'out']
+           'Ġambiance' → ['Ġam', 'bi', 'ance']
+             'Ġtrendy' → ['Ġtrend', 'y']
+
+====================================================================================================
+COMPARISON: direct Ettin tokenization of the full answer (no Llama chunking)
+====================================================================================================
+Direct Ettin tokens      : 200
+Llama-chunked Ettin tokens: 204
+
+First 30 direct tokens        : ['Me', 'zza', 'ĠTh', 'yme', 'Ġis', 'Ġa', 'Ġhighly', '-', 'rated', 'ĠMediterranean', 'Ġrestaurant', 'Ġand', 'Ġbar', 'Ġin', 'ĠSanta', 'ĠBarbara', ',', 'ĠCalifornia', '.', 'ĠLoc', 'ated', 'Ġat', 'Ġ20', 'ĠE', 'ĠC', 'ota', 'ĠSt', ',', 'Ġthe', 'Ġestablishment']
+First 30 Llama-chunked tokens : ['Me', 'zza', 'ĠTh', 'yme', 'Ġis', 'Ġa', 'Ġhighly', '-', 'rated', 'ĠMediterranean', 'Ġrestaurant', 'Ġand', 'Ġbar', 'Ġin', 'ĠSanta', 'ĠBarbara']
