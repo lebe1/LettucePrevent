@@ -50,7 +50,7 @@ WANDB_ENTITY  = "lebeccard-technical-university-wien"
 WANDB_PROJECT = "train-tokenized-decoder-model"
 
 HF_USERNAME   = "lebe1"
-HF_MODEL_NAME = "lettucepreventer-ettin-decoder-68m-en-tokenized"
+HF_MODEL_NAME = "lettuceprevent-ettin-decoder-68m-en-tokenized"
 HF_REPO_ID    = f"{HF_USERNAME}/{HF_MODEL_NAME}"
 
 # ============================================================
