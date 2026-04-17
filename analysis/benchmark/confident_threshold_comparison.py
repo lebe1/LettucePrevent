@@ -26,9 +26,9 @@ import torch
 import wandb
 from datasets import load_dataset
 
-import hallucination_benchmark as hb
-
 os.environ.setdefault("WEAVE_DISABLED", "true")
+
+import hallucination_benchmark as hb
 
 
 SWEEP_THRESHOLDS = [0.6, 0.7, 0.8, 0.9]
