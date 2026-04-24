@@ -1,0 +1,13 @@
+Run,Final eval/precision_micro,Max. eval/precision_micro,Step at Max.
+jumping-sweep-1,0.894804,0.894804,22638
+fanciful-sweep-2,0.895089,0.896416,15092
+daily-sweep-3,0.932087,0.932087,22638
+woven-sweep-4,0.932808,0.932808,22638
+chocolate-sweep-5,0.943561,0.943561,18865
+helpful-sweep-6,0.952192,0.952192,22638
+fiery-sweep-7,0.862904,0.86445,7548
+fine-sweep-8,0.860625,0.860625,11322
+revived-sweep-9,0.901402,0.911249,1887
+radiant-sweep-10,0.905798,0.911175,1887
+stellar-sweep-11,0.910454,0.91474,1887
+ethereal-sweep-12,0.908847,0.916677,1887

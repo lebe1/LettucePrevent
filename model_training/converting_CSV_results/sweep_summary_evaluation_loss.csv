@@ -1,0 +1,13 @@
+Run,Final eval/loss,Min. eval/loss,Step at Min.
+jumping-sweep-1,0.42552,0.421519,18865
+fanciful-sweep-2,0.430776,0.42737,18865
+daily-sweep-3,0.602537,0.408047,7546
+woven-sweep-4,0.606325,0.405891,7546
+chocolate-sweep-5,0.678847,0.411045,7546
+helpful-sweep-6,0.924998,0.41562,7546
+fiery-sweep-7,0.448491,0.44705,9435
+fine-sweep-8,0.447982,0.447982,11322
+revived-sweep-9,0.475358,0.430271,3774
+radiant-sweep-10,0.442429,0.426322,3774
+stellar-sweep-11,0.451508,0.41409,3774
+ethereal-sweep-12,0.452973,0.417061,3774
