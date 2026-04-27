@@ -7,7 +7,7 @@ Runs a W&B grid sweep over:
 
 Dataset setup:
 - wandb/RAGTruth-processed (test split)
-- 15 unique (context, query) samples per task_type
+- 50 unique (context, query) samples per task_type
 
 After all sweep runs, prints a ranked summary showing the best threshold
 per model based on F1 class 1, recall class 1, and runtime.
@@ -30,15 +30,18 @@ os.environ.setdefault("WEAVE_DISABLED", "true")
 
 import hallucination_benchmark as hb
 
+
 SWEEP_THRESHOLDS = [0.6, 0.7, 0.8, 0.9]
-UNIQUE_PAIRS_PER_TASK = 15
+UNIQUE_PAIRS_PER_TASK = 50
 DEFAULT_SWEEP_NAME = "confidence-threshold-comparison-rq3"
 DEFAULT_SWEEP_PROJECT = "hdm-benchmark-rq3-threshold-sweep"
 DEFAULT_OUTPUT_PREFIX = "rq3_confident_treshold_sweep"
 
-_SAMPLES_CACHE: Optional[List[Dict]] = None
-_TOKENIZER_CACHE = None  # will hold an hb.LLMTokenizerWrapper instance
 
+_SAMPLES_CACHE: Optional[List[Dict]] = None
+_TOKENIZER_CACHE: Optional[hb.LLMTokenizerWrapper] = None
+
+# Collects results across all sweep runs for final summary
 _ALL_RUN_RESULTS: List[Dict] = []
 
 
@@ -147,7 +150,7 @@ def evaluate_single_run():
     thr_label = f"{confidence_threshold:.1f}".replace(".", "_")
     run_name = f"{model_cfg['name']}_thr_{thr_label}"
     run.name = run_name
-
+    run.save()
 
     set_seed(seed)
 

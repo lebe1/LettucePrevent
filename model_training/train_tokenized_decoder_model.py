@@ -86,7 +86,7 @@ print(f"Llama tokenizer loaded: vocab_size={llama_tokenizer.vocab_size}")
 
 
 # ============================================================
-# 4. Token classifier (unchanged)
+# 4. Token classifier
 # ============================================================
 class EttinTokenClassifier(PreTrainedModel):
     def __init__(self, config, num_labels: int = 2):
@@ -308,7 +308,7 @@ print("Preprocessing done.")
 
 
 # ============================================================
-# 7. Dataset class (unchanged)
+# 7. Dataset class 
 # ============================================================
 class HallucinationDataset(Dataset):
     def __init__(self, samples):
@@ -337,7 +337,7 @@ collator = DataCollatorForTokenClassification(
 
 
 # ============================================================
-# 8. Metrics (unchanged)
+# 8. Metrics 
 # ============================================================
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
