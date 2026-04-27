@@ -30,8 +30,18 @@ import numpy as np
 import torch
 import wandb
 from datasets import load_dataset
+import warnings
 
 os.environ.setdefault("WEAVE_DISABLED", "true")
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*Pydantic serializer warnings.*",
+)
+warnings.filterwarnings(
+    "ignore",
+    message=r".*Expected `list\[str\]` but got `tuple`.*",
+)
 
 
 # ============================================================================
@@ -632,7 +642,6 @@ def evaluate_single_run():
     thr_label = f"{confidence_threshold:.1f}".replace(".", "_")
     run_name  = f"{model_cfg['name']}_thr_{thr_label}"
     run.name  = run_name
-    run.save()
 
     set_seed(seed)
 
