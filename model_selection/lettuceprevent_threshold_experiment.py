@@ -1,26 +1,10 @@
 """
-Calibrated threshold sweep for lettuceprevent decoder model.
+Threshold sweep for the lettuceprevent decoder model
 
-Pre-requisite: run calibrate_lettuceprevent.py first to produce
-lettuceprevent_calibration.json (contains fitted T and calibration prompts
-to exclude).
-
-Sample selection (different from the LettuceDetect sweep):
-- 50 unique (context, query) prompts per task type, in dataset order,
-  EXCLUDING the calibration prompts.
-- Each prompt is assigned ONE LLM answer in round-robin order:
-    1: gpt-4-0613
-    2: gpt-3.5-turbo-0613
-    3: mistral-7B-instruct
-    4: llama-2-7b-chat
-    5: llama-2-13b-chat
-    6: llama-2-70b-chat
-    7: gpt-4-0613 (cycle restarts)
-    ...
+Sample selection:
+- First 50 unique (context, query) prompts per task type, in dataset order.
+- Each prompt is assigned ONE LLM answer in round-robin order
 - Total: 50 × 3 = 150 sample-answer pairs.
-
-Each sweep run logs per-sample and global metrics to W&B, identical
-metric names as the LettuceDetect script for cross-model comparison.
 """
 
 import argparse
@@ -75,15 +59,13 @@ LLMS_ROUND_ROBIN          = [
     "llama-2-70b-chat",
 ]
 
-# Calibrated threshold range — after T<1, probabilities are spread out so
-# 0.5 is a meaningful boundary. We bracket above and below.
+# Threshold range — outputs sit in roughly [0.2, 0.85] based
+# on playground inspection. We bracket the operational range.
 SWEEP_THRESHOLDS = [0.4, 0.5, 0.6, 0.7]
 
-DEFAULT_SWEEP_NAME    = "confidence-threshold-lettuceprevent-calibrated-rq3"
-DEFAULT_SWEEP_PROJECT = "hdm-rq3-threshold-sweep-lettuceprevent-calibrated"
-DEFAULT_OUTPUT_PREFIX = "rq3_lettuceprevent_calibrated_sweep"
-
-DEFAULT_CALIBRATION_PATH = "lettuceprevent_calibration.json"
+DEFAULT_SWEEP_NAME    = "confidence-threshold-lettuceprevent-rq3"
+DEFAULT_SWEEP_PROJECT = "hdm-rq3-threshold-sweep-lettuceprevent"
+DEFAULT_OUTPUT_PREFIX = "rq3_lettuceprevent_sweep"
 
 
 # ============================================================================
@@ -139,7 +121,7 @@ class SampleResult:
 
 
 # ============================================================================
-# Model definition (same as calibration script)
+# Model definition
 # ============================================================================
 
 class EttinTokenClassifier(nn.Module):
@@ -157,7 +139,7 @@ class EttinTokenClassifier(nn.Module):
 
 
 # ============================================================================
-# Llama-driven Ettin tokenization (predict-side variant — no labels)
+# Llama-driven Ettin tokenization
 # ============================================================================
 
 def tokenize_text_via_llama_chunks(
@@ -191,7 +173,7 @@ def tokenize_text_via_llama_chunks(
 
 
 # ============================================================================
-# Llama tokenizer wrapper (drives per-step alignment in the eval engine)
+# Llama tokenizer wrapper
 # ============================================================================
 
 class LLMTokenizerWrapper:
@@ -220,7 +202,7 @@ class LLMTokenizerWrapper:
 
 
 # ============================================================================
-# Calibrated detector wrapper
+# Detector wrapper
 # ============================================================================
 
 class HallucinationDetectorBase(ABC):
@@ -230,10 +212,10 @@ class HallucinationDetectorBase(ABC):
     def predict(self, context, question, answer) -> List[Dict[str, Any]]: ...
 
 
-class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
+class LettucePreventDecoderWrapper(HallucinationDetectorBase):
     """
-    Same as LettucePreventDecoderWrapper but applies temperature scaling:
-    softmax(logits / T) instead of softmax(logits).
+    Inference wrapper for the lettuceprevent decoder model.
+    Uses raw softmax (no temperature scaling).
     """
 
     def __init__(
@@ -241,7 +223,6 @@ class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
         name: str,
         model_path: str,
         llama_tokenizer_name: str,
-        temperature: float,
         device: Optional[str] = None,
         max_length: int = MAX_LENGTH,
         torch_dtype: torch.dtype = torch.float32,
@@ -250,9 +231,6 @@ class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
         self.name        = name
         self.model_path  = model_path
         self.max_length  = max_length
-        self.temperature = float(temperature)
-        if self.temperature <= 0:
-            raise ValueError(f"Temperature must be positive, got {temperature}")
 
         self.device = torch.device(
             device if device else ("cuda" if torch.cuda.is_available() else "cpu")
@@ -282,7 +260,7 @@ class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
 
         self.model.to(self.device).to(torch_dtype)
         self.model.eval()
-        print(f"[{self.name}] Ready on {self.device} (T={self.temperature:.4f})")
+        print(f"[{self.name}] Ready on {self.device} (Raw softmax)")
 
     def get_name(self) -> str:
         return self.name
@@ -327,9 +305,8 @@ class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
         attention_mask_t = torch.tensor([attention_mask], dtype=torch.long, device=self.device)
         logits = self.model(input_ids=input_ids_t, attention_mask=attention_mask_t)
 
-        # ---- TEMPERATURE SCALING ---------------------------------------
-        scaled_logits = logits / self.temperature
-        probs_class_1 = torch.softmax(scaled_logits, dim=-1)[0, :, 1].float().cpu().numpy()
+        # ---- RAW SOFTMAX (no temperature scaling) ----------------------
+        probs_class_1 = torch.softmax(logits, dim=-1)[0, :, 1].float().cpu().numpy()
         # ----------------------------------------------------------------
 
         ans_probs = probs_class_1[answer_start : answer_start + len(ans_ids)]
@@ -349,7 +326,7 @@ class CalibratedLettucePreventDecoderWrapper(HallucinationDetectorBase):
 
 
 # ============================================================================
-# Offset mapper, label parsing, metrics — same as comparison script
+# Offset mapper, label parsing, metrics
 # ============================================================================
 
 class OffsetMapper:
@@ -537,23 +514,18 @@ class EvaluationEngine:
 
 
 # ============================================================================
-# Sample selection: round-robin LLM, exclude calibration prompts
+# Sample selection: first N prompts per task, round-robin LLM
 # ============================================================================
 
-def load_sweep_samples(
-    n_prompts_per_task: int,
-    excluded_prompts: List[Tuple[str, str, str]],
-) -> List[Dict]:
+def load_sweep_samples(n_prompts_per_task: int) -> List[Dict]:
     """
-    Select n_prompts_per_task unique prompts per task (in dataset order)
-    that are NOT in the calibration set, then assign each prompt one LLM
-    answer in round-robin order.
+    Select the first n_prompts_per_task unique (context, query) prompts per
+    task type, in dataset order. Each prompt gets one LLM answer assigned
+    in round-robin order across LLMS_ROUND_ROBIN.
     """
     print(f"Loading {HF_DATASET_NAME} (split={HF_DATASET_SPLIT})...")
     hf_ds      = load_dataset(HF_DATASET_NAME)
     test_split = hf_ds[HF_DATASET_SPLIT]
-
-    excluded = set(excluded_prompts)
 
     # For each (task, ctx, qry), collect a model -> row mapping
     rows_by_prompt: Dict[Tuple[str, str, str], Dict[str, Dict]] = {}
@@ -566,8 +538,6 @@ def load_sweep_samples(
         tt = row.get("task_type", "unknown")
         ctx = row["context"]; qry = row["query"]
         full_key = (tt, ctx, qry)
-        if full_key in excluded:
-            continue
         rows_by_prompt.setdefault(full_key, {})
         rows_by_prompt[full_key][row.get("model", "unknown")] = dict(row)
         seen_per_task.setdefault(tt, set())
@@ -580,7 +550,7 @@ def load_sweep_samples(
     samples: List[Dict] = []
     for tt in sorted(prompt_order_per_task.keys()):
         prompts = prompt_order_per_task[tt][:n_prompts_per_task]
-        print(f"  task_type={tt}: {len(prompts)} prompts (after excluding calibration)")
+        print(f"  task_type={tt}: {len(prompts)} prompts selected")
         skipped = 0
         for i, (ctx, qry) in enumerate(prompts):
             full_key = (tt, ctx, qry)
@@ -589,7 +559,6 @@ def load_sweep_samples(
             if preferred_llm in row_map:
                 row = row_map[preferred_llm]
             else:
-                # Fallback: use any available LLM, but warn
                 fallback = next(iter(row_map.values()))
                 print(f"    [WARN] prompt {i} task={tt}: preferred LLM "
                       f"'{preferred_llm}' not found, using '{fallback.get('model')}'")
@@ -608,7 +577,6 @@ def load_sweep_samples(
 
     print(f"\nTotal sweep samples: {len(samples)}")
 
-    # Distribution sanity check
     by_model = {}
     for s in samples:
         by_model[s["model"]] = by_model.get(s["model"], 0) + 1
@@ -623,30 +591,10 @@ def load_sweep_samples(
 # Sweep machinery
 # ============================================================================
 
-_SAMPLES_CACHE:   Optional[List[Dict]]                                 = None
-_TOKENIZER_CACHE: Optional[LLMTokenizerWrapper]                        = None
-_DETECTOR_CACHE:  Optional[CalibratedLettucePreventDecoderWrapper]     = None
-_TEMPERATURE:     Optional[float]                                      = None
-_EXCLUDED_PROMPTS: Optional[List[Tuple[str, str, str]]]                = None
-_ALL_RUN_RESULTS: List[Dict]                                           = []
-
-
-def load_calibration_artifact(path: str) -> Tuple[float, List[Tuple[str, str, str]]]:
-    if not os.path.isfile(path):
-        raise FileNotFoundError(
-            f"Calibration file not found: {path}\n"
-            f"Run calibrate_lettuceprevent.py first to produce it."
-        )
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    T = float(data["temperature"])
-    excluded = [
-        (p["task_type"], p["context"], p["query"])
-        for p in data.get("calibration_prompts", [])
-    ]
-    print(f"Loaded T={T:.4f} from {path}")
-    print(f"Excluding {len(excluded)} calibration prompts from sweep set")
-    return T, excluded
+_SAMPLES_CACHE:    Optional[List[Dict]]                          = None
+_TOKENIZER_CACHE:  Optional[LLMTokenizerWrapper]                 = None
+_DETECTOR_CACHE:   Optional[LettucePreventDecoderWrapper]        = None
+_ALL_RUN_RESULTS:  List[Dict]                                    = []
 
 
 def set_seed(seed):
@@ -654,12 +602,10 @@ def set_seed(seed):
 
 
 def load_samples(prompts_per_task: int) -> List[Dict]:
-    global _SAMPLES_CACHE, _EXCLUDED_PROMPTS
+    global _SAMPLES_CACHE
     if _SAMPLES_CACHE is not None:
         return _SAMPLES_CACHE
-    if _EXCLUDED_PROMPTS is None:
-        raise RuntimeError("Calibration artifact not loaded — call main() first")
-    _SAMPLES_CACHE = load_sweep_samples(prompts_per_task, _EXCLUDED_PROMPTS)
+    _SAMPLES_CACHE = load_sweep_samples(prompts_per_task)
     return _SAMPLES_CACHE
 
 
@@ -683,11 +629,10 @@ def get_tokenizer():
 def get_detector(model_cfg):
     global _DETECTOR_CACHE
     if _DETECTOR_CACHE is None or _DETECTOR_CACHE.name != model_cfg["name"]:
-        _DETECTOR_CACHE = CalibratedLettucePreventDecoderWrapper(
+        _DETECTOR_CACHE = LettucePreventDecoderWrapper(
             name=model_cfg["name"],
             model_path=model_cfg["model_path"],
             llama_tokenizer_name=LLM_TOKENIZER_NAME,
-            temperature=_TEMPERATURE,
         )
     return _DETECTOR_CACHE
 
@@ -723,7 +668,7 @@ def evaluate_single_run():
     model_cfg        = MODELS_TO_EVALUATE[model_idx]
 
     thr_label = f"{threshold:.1f}".replace(".", "_")
-    run.name  = f"{model_cfg['name']}_thr_{thr_label}"
+    run.name  = f"{model_cfg['name']}_uncal_thr_{thr_label}"
 
     set_seed(seed)
 
@@ -731,7 +676,7 @@ def evaluate_single_run():
     print(f"# Run:        {run.name}")
     print(f"# Model:      {model_cfg['name']}")
     print(f"# Threshold:  {threshold:.2f}")
-    print(f"# Temperature: {_TEMPERATURE:.4f}")
+    print(f"# Calibration: NONE (raw softmax)")
     print("#" * 70 + "\n")
 
     samples         = load_samples(prompts_per_task)
@@ -784,12 +729,10 @@ def evaluate_single_run():
 
     total_runtime = time.time() - total_start
 
-    # Pooled
     p_mic, r_mic, f_mic = compute_metrics_micro(all_gt, all_pred)
     p_c1, r_c1, f_c1    = compute_metrics_class(all_gt, all_pred, True)
     p_c0, r_c0, f_c0    = compute_metrics_class(all_gt, all_pred, False)
 
-    # Macro
     macro = {
         "macro_precision_class_1": _nanmean(per_sample_c1["precision"]),
         "macro_recall_class_1":    _nanmean(per_sample_c1["recall"]),
@@ -809,7 +752,6 @@ def evaluate_single_run():
     summary_payload = {
         "model_name": model_cfg["name"], "model_path": model_cfg["model_path"],
         "confidence_threshold": threshold,
-        "temperature": _TEMPERATURE,
         "num_samples": len(samples),
         "prompts_per_task": prompts_per_task,
         "sample_manifest_hash": manifest_hash,
@@ -830,7 +772,7 @@ def evaluate_single_run():
     out_path   = f"{output_prefix}_{safe_model}_thr_{thr_label}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(summary_payload, f, indent=2)
-    artifact = wandb.Artifact(f"{safe_model}_thr_{thr_label}", type="benchmark_results")
+    artifact = wandb.Artifact(f"{safe_model}_uncal_thr_{thr_label}", type="benchmark_results")
     artifact.add_file(out_path)
     run.log_artifact(artifact)
 
@@ -838,7 +780,7 @@ def evaluate_single_run():
 
     print(f"\n{'=' * 60}")
     print(f"RUN COMPLETE: {run.name}")
-    print(f"  Threshold:        {threshold} (T = {_TEMPERATURE:.4f})")
+    print(f"  Threshold:        {threshold} ")
     print(f"  Runtime:          {total_runtime:.2f}s")
     print(f"  Total tokens:     {total_tokens}")
     if total_tokens:
@@ -854,7 +796,7 @@ def print_final_summary():
     if not _ALL_RUN_RESULTS:
         print("No results — skipping summary."); return
     print("\n" + "=" * 80)
-    print("LETTUCEPREVENT (CALIBRATED) — THRESHOLD SWEEP SUMMARY")
+    print("LETTUCEPREVENT — THRESHOLD SWEEP SUMMARY")
     print("=" * 80)
     runs = sorted(_ALL_RUN_RESULTS, key=lambda r: r["confidence_threshold"])
     print(f"{'Thr':>5} {'F1_c1':>8} {'Rec_c1':>8} {'Prec_c1':>8} {'F1_mic':>8} {'Runtime':>10}")
@@ -876,8 +818,6 @@ def print_final_summary():
 def main():
     torch.set_float32_matmul_precision("high")
 
-    global _TEMPERATURE, _EXCLUDED_PROMPTS
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--entity",            type=str, default=WANDB_ENTITY)
     parser.add_argument("--project",           type=str, default=DEFAULT_SWEEP_PROJECT)
@@ -886,12 +826,9 @@ def main():
                         default=len(SWEEP_THRESHOLDS) * len(MODELS_TO_EVALUATE))
     parser.add_argument("--output-prefix",     type=str, default=DEFAULT_OUTPUT_PREFIX)
     parser.add_argument("--seed",              type=int, default=SEED)
-    parser.add_argument("--calibration-path",  type=str, default=DEFAULT_CALIBRATION_PATH)
     parser.add_argument("--prompts-per-task",  type=int, default=SWEEP_PROMPTS_PER_TASK)
     parser.add_argument("--create-only",       action="store_true")
     args = parser.parse_args()
-
-    _TEMPERATURE, _EXCLUDED_PROMPTS = load_calibration_artifact(args.calibration_path)
 
     if args.sweep_id:
         sweep_id = args.sweep_id
