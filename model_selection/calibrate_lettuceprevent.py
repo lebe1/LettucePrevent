@@ -27,6 +27,16 @@ import torch
 import torch.nn as nn
 from datasets import load_dataset
 from scipy.optimize import minimize_scalar
+from transformers import (
+    AutoModel,
+    AutoConfig,
+    PreTrainedModel,
+    AutoTokenizer
+)
+from transformers.modeling_outputs import TokenClassifierOutput
+from huggingface_hub import hf_hub_download
+from safetensors.torch import load_file as load_safetensors
+
 
 os.environ.setdefault("WEAVE_DISABLED", "true")
 warnings.filterwarnings("ignore", message=r".*Pydantic serializer warnings.*")
@@ -94,22 +104,6 @@ class EttinTokenClassifier(PreTrainedModel):
     def set_class_weights(self, weights: torch.Tensor):
         self.register_buffer("class_weights", weights)
 
-    @classmethod
-    def from_pretrained_model(cls, model_name, num_labels=2, freeze_backbone=True):
-        config     = AutoConfig.from_pretrained(model_name)
-        instance   = cls(config, num_labels=num_labels)
-        pretrained = AutoModel.from_pretrained(model_name)
-        instance.backbone.load_state_dict(pretrained.state_dict(), strict=False)
-        del pretrained
-
-        for param in instance.backbone.parameters():
-            param.requires_grad = not freeze_backbone
-        for param in instance.classifier.parameters():
-            param.requires_grad = True
-
-        nn.init.normal_(instance.classifier.weight, mean=0.0, std=0.01)
-        nn.init.zeros_(instance.classifier.bias)
-        return instance
 
 
 
@@ -167,8 +161,10 @@ def parse_hallucination_labels(raw):
             return []
     if not isinstance(raw, list):
         return []
-    return [l for l in raw if isinstance(l, dict) and "start" in l and "end" in l]
-
+    parsed = [l for l in raw if isinstance(l, dict) and "start" in l and "end" in l]
+    if len(parsed) != len(raw):
+        print(f"  WARNING: dropped {len(raw) - len(parsed)} malformed labels")
+    return parsed
 
 # ============================================================================
 # Calibration set loader — first N prompts per task, all 6 LLMs each
@@ -294,8 +290,9 @@ def collect_logits_and_labels(
                 if excess <= len(ctx_ids):
                     ctx_ids = ctx_ids[excess:]
                 else:
+                    remaining = excess - len(ctx_ids)
                     ctx_ids = []
-                    qry_ids = qry_ids[(excess - len(ctx_ids)):]
+                    qry_ids = qry_ids[remaining:]
 
             input_ids = (
                 [cls_id] + ctx_ids + [sep_id]
@@ -305,7 +302,11 @@ def collect_logits_and_labels(
             input_ids = input_ids[:max_length]
             attention_mask = [1] * len(input_ids)
             answer_start = 1 + len(ctx_ids) + 1 + len(qry_ids) + 1
-            answer_end   = answer_start + len(ans_ids)
+            answer_end   = min(answer_start + len(ans_ids), len(input_ids))
+            ans_labels   = ans_labels[:answer_end - answer_start]
+
+            if answer_end <= answer_start:
+                continue  
 
             input_ids_t      = torch.tensor([input_ids],      dtype=torch.long, device=device)
             attention_mask_t = torch.tensor([attention_mask], dtype=torch.long, device=device)
@@ -403,18 +404,21 @@ def main():
 
     samples, cal_prompts = load_calibration_set(args.prompts_per_task)
 
-    from transformers import AutoTokenizer, AutoConfig
     print(f"Loading Ettin tokenizer from {MODEL_PATH}")
     ettin_tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
     print(f"Loading Llama tokenizer ({LLM_TOKENIZER_NAME})")
     llama_tokenizer = AutoTokenizer.from_pretrained(LLM_TOKENIZER_NAME)
 
+    # In main(), right after loading the tokenizers:
+    assert ettin_tokenizer.cls_token_id is not None, \
+        "Ettin tokenizer has no CLS token — check special-token config"
+    assert ettin_tokenizer.sep_token_id is not None, \
+        "Ettin tokenizer has no SEP token — check special-token config"
+
     print(f"Loading model weights from {MODEL_PATH}")
     config = AutoConfig.from_pretrained(MODEL_PATH)
     model  = EttinTokenClassifier(config, num_labels=2)
 
-    from huggingface_hub import hf_hub_download
-    from safetensors.torch import load_file as load_safetensors
     weights_path = hf_hub_download(repo_id=MODEL_PATH, filename="model.safetensors")
     state_dict   = load_safetensors(weights_path)
     missing, unexpected = model.load_state_dict(state_dict, strict=False)
@@ -436,6 +440,9 @@ def main():
     nll_before = compute_nll(logits, labels, T=1.0)
     ece_before = compute_ece(logits, labels, T=1.0)
     T_star    = fit_temperature(logits, labels)
+    if abs(math.log(T_star)) > 2.9:
+        print(f"WARNING: T_star={T_star:.4f} near optimization boundary — "
+            f"calibration may be unreliable")
     nll_after  = compute_nll(logits, labels, T=T_star)
     ece_after  = compute_ece(logits, labels, T=T_star)
 
