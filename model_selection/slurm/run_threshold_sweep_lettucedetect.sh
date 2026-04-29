@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J conf-thr-sweep
+#SBATCH -J lettucedetect-thr-sweep
 #SBATCH --partition=GPU-a40
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

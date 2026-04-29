@@ -9,9 +9,9 @@ from safetensors.torch import load_file
 from .base_detector import BaseHallucinationDetector
 
 
-# ============================================================
-# Model architecture — must match train.py exactly
-# ============================================================
+# ===============================================================
+# Model architecture — matches train_tokenized_decoder_model.py 
+# ===============================================================
 class EttinTokenClassifier(PreTrainedModel):
     def __init__(self, config, num_labels: int = 2):
         super().__init__(config)
@@ -30,7 +30,7 @@ class EttinTokenClassifier(PreTrainedModel):
         loss = None
         if labels is not None:
             weight = self.class_weights if hasattr(self, "class_weights") else None
-            loss = nn.CrossEntropyLoss(ignore_index=-100, weight=weight)(
+            loss   = nn.CrossEntropyLoss(ignore_index=-100, weight=weight)(
                 logits.view(-1, self.num_labels), labels.view(-1)
             )
 
@@ -39,6 +39,26 @@ class EttinTokenClassifier(PreTrainedModel):
             hidden_states=outputs.hidden_states,
             attentions=outputs.attentions,
         )
+
+    def set_class_weights(self, weights: torch.Tensor):
+        self.register_buffer("class_weights", weights)
+
+    @classmethod
+    def from_pretrained_model(cls, model_name, num_labels=2, freeze_backbone=True):
+        config     = AutoConfig.from_pretrained(model_name)
+        instance   = cls(config, num_labels=num_labels)
+        pretrained = AutoModel.from_pretrained(model_name)
+        instance.backbone.load_state_dict(pretrained.state_dict(), strict=False)
+        del pretrained
+
+        for param in instance.backbone.parameters():
+            param.requires_grad = not freeze_backbone
+        for param in instance.classifier.parameters():
+            param.requires_grad = True
+
+        nn.init.normal_(instance.classifier.weight, mean=0.0, std=0.01)
+        nn.init.zeros_(instance.classifier.bias)
+        return instance
 
 
 # ============================================================
