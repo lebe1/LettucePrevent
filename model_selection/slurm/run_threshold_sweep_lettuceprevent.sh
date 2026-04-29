@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH -J lp-thr-sweep-uncal
-#SBATCH --partition=GPU-a40
+#SBATCH --partition=GPU-a100s
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
-#SBATCH --gres=gpu:a40:1
+#SBATCH --gres=gpu:a100s:1
 #SBATCH --time=24:00:00
 #SBATCH --mem=64GB
 #SBATCH --output=lettuceprevent_threshold_sweep_uncal_%j.txt
