@@ -20,7 +20,7 @@ nvidia-smi -L
 REPO_DIR="/home/e12133103/LettucePrevent"
 BENCHMARK_DIR="${REPO_DIR}/model_selection"
 RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/lettuceprevent-rq3-results}"
-VENV_PATH="${VENV_PATH:-${REPO_DIR}/Python312/bin/activate}"
+VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"

@@ -59,9 +59,7 @@ LLMS_ROUND_ROBIN          = [
     "llama-2-70b-chat",
 ]
 
-# Threshold range — outputs sit in roughly [0.2, 0.85] based
-# on playground inspection. We bracket the operational range.
-SWEEP_THRESHOLDS = [0.4, 0.5, 0.6, 0.7]
+SWEEP_THRESHOLDS = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 DEFAULT_SWEEP_NAME    = "confidence-threshold-lettuceprevent-rq3"
 DEFAULT_SWEEP_PROJECT = "hdm-rq3-threshold-sweep-lettuceprevent"

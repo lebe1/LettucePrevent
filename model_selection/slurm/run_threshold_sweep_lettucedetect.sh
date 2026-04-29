@@ -19,14 +19,14 @@ nvidia-smi -L
 REPO_DIR="/home/e12133103/LettucePrevent"
 BENCHMARK_DIR="${REPO_DIR}/model_selection"
 RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/confident-threshold-sweep-results}"
-VENV_PATH="${VENV_PATH:-${REPO_DIR}/Python312/bin/activate}"
+VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"
 WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq3-threshold-sweep}"
 SWEEP_COUNT="${SWEEP_COUNT:-8}"
 SWEEP_SEED="${SWEEP_SEED:-42}"
-OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq3_confident_threshold_sweep}"
+OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq3_lettucedetect_threshold_sweep}"
 
 # Use /share as scratch replacement (A100s VMs have no /scratch)
 JOB_TAG="${SLURM_JOB_ID:-manual_$$}"
@@ -109,7 +109,7 @@ print(f'[INFO] Authenticated as: {info[\"name\"]}')
 " || { echo "[ERROR] HF auth check failed"; exit 1; }
 
 # Verify source files exist before copying
-SCRIPT_NAME="confident_threshold_comparison.py"
+SCRIPT_NAME="lettucedetect_threshold_experiment.py"
 if [[ ! -f "${BENCHMARK_DIR}/${SCRIPT_NAME}" ]]; then
     echo "ERROR: ${BENCHMARK_DIR}/${SCRIPT_NAME} not found"
     exit 1

@@ -8,7 +8,6 @@ Runs a W&B grid sweep over:
 Sample selection (round-robin LLM, matching the decoder sweep for
 cross-model comparability):
 - 50 unique (context, query) prompts per task type, in dataset order,
-  optionally EXCLUDING the lettuceprevent calibration prompts.
 - Each prompt is assigned ONE LLM answer in round-robin order:
     1: gpt-4-0613
     2: gpt-3.5-turbo-0613
@@ -75,7 +74,7 @@ MODELS_TO_EVALUATE = [
 # Sweep-specific configuration
 # ============================================================================
 
-SWEEP_THRESHOLDS         = [0.6, 0.7, 0.8, 0.9]
+SWEEP_THRESHOLDS         = [0.5, 0.6, 0.7, 0.8, 0.9]
 UNIQUE_PAIRS_PER_TASK    = 50            # 50 prompts × 3 tasks = 150 samples
 LLMS_ROUND_ROBIN         = [
     "gpt-4-0613",
@@ -87,10 +86,7 @@ LLMS_ROUND_ROBIN         = [
 ]
 DEFAULT_SWEEP_NAME       = "confidence-threshold-comparison-rq3"
 DEFAULT_SWEEP_PROJECT    = "hdm-benchmark-rq3-threshold-sweep"
-DEFAULT_OUTPUT_PREFIX    = "rq3_confident_treshold_sweep"
-
-# Optional: file containing prompts to exclude (from lettuceprevent calibration)
-DEFAULT_CALIBRATION_PATH = "lettuceprevent_calibration.json"
+DEFAULT_OUTPUT_PREFIX    = "rq3_lettucedetect_treshold_sweep"
 
 
 # ============================================================================
@@ -487,32 +483,16 @@ class EvaluationEngine:
 
 
 # ============================================================================
-# Sample selection: round-robin LLM, optional calibration exclusion
+# Sample selection: round-robin LLM
 # ============================================================================
 
-def load_excluded_prompts(calibration_path: Optional[str]) -> List[Tuple[str, str, str]]:
-    """Return list of (task_type, context, query) tuples to exclude. Empty if no path."""
-    if calibration_path is None or calibration_path == "":
-        return []
-    if not os.path.isfile(calibration_path):
-        print(f"[WARN] Calibration file not found at {calibration_path} — "
-              f"continuing WITHOUT excluding any prompts.")
-        return []
-    with open(calibration_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    prompts = data.get("calibration_prompts", [])
-    excluded = [(p["task_type"], p["context"], p["query"]) for p in prompts]
-    print(f"[INFO] Loaded {len(excluded)} calibration prompts to exclude from {calibration_path}")
-    return excluded
 
 
 def load_benchmark_samples_for_sweep(
-    n_prompts_per_task: int,
-    excluded_prompts: List[Tuple[str, str, str]],
+    n_prompts_per_task: int
 ) -> List[Dict]:
     """
-    Select n_prompts_per_task unique prompts per task type, in dataset order,
-    excluding the calibration set. For each prompt, assign one LLM answer
+    Select n_prompts_per_task unique prompts per task type, in dataset order. For each prompt, assign one LLM answer
     in round-robin order.
     """
     print(
@@ -522,10 +502,10 @@ def load_benchmark_samples_for_sweep(
     hf_ds      = load_dataset(HF_DATASET_NAME)
     test_split = hf_ds[HF_DATASET_SPLIT]
 
-    excluded = set(excluded_prompts)
+
 
     # Walk dataset in order. For each task, collect first n unique prompts
-    # (skipping excluded), and for each prompt maintain a model -> row map.
+    # and for each prompt maintain a model -> row map.
     rows_by_prompt:        Dict[Tuple[str, str, str], Dict[str, Dict]] = {}
     prompt_order_per_task: Dict[str, List[Tuple[str, str]]]            = {}
     seen_per_task:         Dict[str, set]                              = {}
@@ -537,8 +517,6 @@ def load_benchmark_samples_for_sweep(
         ctx = row["context"]
         qry = row["query"]
         full_key = (tt, ctx, qry)
-        if full_key in excluded:
-            continue
 
         rows_by_prompt.setdefault(full_key, {})
         rows_by_prompt[full_key][row.get("model", "unknown")] = dict(row)
@@ -553,7 +531,7 @@ def load_benchmark_samples_for_sweep(
     samples: List[Dict] = []
     for tt in sorted(prompt_order_per_task.keys()):
         prompts = prompt_order_per_task[tt]
-        print(f"  task_type={tt}: {len(prompts)} prompts (after excluding calibration)")
+        print(f"  task_type={tt}: {len(prompts)} prompts")
         skipped = 0
         for i, (ctx, qry) in enumerate(prompts):
             full_key      = (tt, ctx, qry)
@@ -597,7 +575,6 @@ def load_benchmark_samples_for_sweep(
 
 _SAMPLES_CACHE:    Optional[List[Dict]]            = None
 _TOKENIZER_CACHE:  Optional[LLMTokenizerWrapper]   = None
-_EXCLUDED_PROMPTS: Optional[List[Tuple[str, str, str]]] = None
 _PROMPTS_PER_TASK: int                             = UNIQUE_PAIRS_PER_TASK
 _ALL_RUN_RESULTS:  List[Dict]                      = []
 
@@ -610,10 +587,8 @@ def get_samples() -> List[Dict]:
     global _SAMPLES_CACHE
     if _SAMPLES_CACHE is not None:
         return _SAMPLES_CACHE
-    if _EXCLUDED_PROMPTS is None:
-        raise RuntimeError("main() must initialize _EXCLUDED_PROMPTS before sweep starts")
     _SAMPLES_CACHE = load_benchmark_samples_for_sweep(
-        _PROMPTS_PER_TASK, _EXCLUDED_PROMPTS,
+        _PROMPTS_PER_TASK,
     )
     return _SAMPLES_CACHE
 
@@ -779,7 +754,6 @@ def evaluate_single_run():
     run.summary["sample_manifest_hash"]  = sample_manifest_hash
     run.summary["seed"]                  = seed
     run.summary["tokenizer_name"]        = LLM_TOKENIZER_NAME
-    run.summary["n_excluded_prompts"]    = len(_EXCLUDED_PROMPTS or [])
 
     run.summary["precision_micro"]       = prec_micro
     run.summary["recall_micro"]          = rec_micro
@@ -819,7 +793,6 @@ def evaluate_single_run():
         "unique_pairs_per_task":    _PROMPTS_PER_TASK,
         "sample_manifest_hash":     sample_manifest_hash,
         "seed":                     seed,
-        "n_excluded_prompts":       len(_EXCLUDED_PROMPTS or []),
 
         "precision_micro":          prec_micro,
         "recall_micro":             rec_micro,
@@ -955,7 +928,7 @@ def print_final_summary():
 def main():
     torch.set_float32_matmul_precision("high")
 
-    global _EXCLUDED_PROMPTS, _PROMPTS_PER_TASK
+    global _PROMPTS_PER_TASK
 
     parser = argparse.ArgumentParser(
         description="W&B sweep: confidence threshold comparison for TinyLettuce + LettuceDetect-base."
@@ -968,14 +941,9 @@ def main():
     parser.add_argument("--output-prefix",     type=str, default=DEFAULT_OUTPUT_PREFIX)
     parser.add_argument("--seed",              type=int, default=SEED)
     parser.add_argument("--prompts-per-task",  type=int, default=UNIQUE_PAIRS_PER_TASK)
-    parser.add_argument("--calibration-path",  type=str, default=DEFAULT_CALIBRATION_PATH,
-                        help="Path to lettuceprevent_calibration.json. Prompts listed there "
-                             "are excluded from the sweep set for cross-model comparability. "
-                             "Pass an empty string to disable exclusion.")
     parser.add_argument("--create-only",       action="store_true")
     args = parser.parse_args()
 
-    _EXCLUDED_PROMPTS = load_excluded_prompts(args.calibration_path)
     _PROMPTS_PER_TASK = args.prompts_per_task
 
     if args.sweep_id:
