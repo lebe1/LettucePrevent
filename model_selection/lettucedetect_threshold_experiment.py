@@ -1,17 +1,27 @@
 """
-Confidence threshold sweep for hallucination detection models — STANDALONE.
+Confidence threshold sweep for TinyLettuce + LettuceDetect-base — STANDALONE.
 
 Runs a W&B grid sweep over:
 - confidence_threshold: [0.6, 0.7, 0.8, 0.9]
 - model_idx: [0, 1]  (TinyLettuce and LettuceDetect-base)
 
-Dataset setup:
-- wandb/RAGTruth-processed (test split)
-- 15 unique (context, query) samples per task_type
+Sample selection (round-robin LLM, matching the decoder sweep for
+cross-model comparability):
+- 50 unique (context, query) prompts per task type, in dataset order,
+  optionally EXCLUDING the lettuceprevent calibration prompts.
+- Each prompt is assigned ONE LLM answer in round-robin order:
+    1: gpt-4-0613
+    2: gpt-3.5-turbo-0613
+    3: mistral-7B-instruct
+    4: llama-2-7b-chat
+    5: llama-2-13b-chat
+    6: llama-2-70b-chat
+    7: gpt-4-0613 (cycle restarts)
+    ...
+- Total: 50 × 3 = 150 sample-answer pairs per model.
 
 After all sweep runs, prints a ranked summary showing the best threshold
 per model based on F1 class 1, recall class 1, and runtime.
-
 """
 
 import argparse
@@ -22,6 +32,7 @@ import math
 import os
 import random
 import time
+import warnings
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
@@ -30,26 +41,19 @@ import numpy as np
 import torch
 import wandb
 from datasets import load_dataset
-import warnings
 
 os.environ.setdefault("WEAVE_DISABLED", "true")
 
-warnings.filterwarnings(
-    "ignore",
-    message=r".*Pydantic serializer warnings.*",
-)
-warnings.filterwarnings(
-    "ignore",
-    message=r".*Expected `list\[str\]` but got `tuple`.*",
-)
+warnings.filterwarnings("ignore", message=r".*Pydantic serializer warnings.*")
+warnings.filterwarnings("ignore", message=r".*Expected `list\[str\]` but got `tuple`.*")
 
 
 # ============================================================================
-# Configuration (mirrored from hallucination_benchmark.py)
+# Configuration
 # ============================================================================
 
-SEED = 42
-WANDB_ENTITY  = "lebeccard-technical-university-wien"
+SEED               = 42
+WANDB_ENTITY       = "lebeccard-technical-university-wien"
 LLM_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
 
 HF_DATASET_NAME  = "wandb/RAGTruth-processed"
@@ -72,14 +76,25 @@ MODELS_TO_EVALUATE = [
 # ============================================================================
 
 SWEEP_THRESHOLDS         = [0.6, 0.7, 0.8, 0.9]
-UNIQUE_PAIRS_PER_TASK    = 15
+UNIQUE_PAIRS_PER_TASK    = 50            # 50 prompts × 3 tasks = 150 samples
+LLMS_ROUND_ROBIN         = [
+    "gpt-4-0613",
+    "gpt-3.5-turbo-0613",
+    "mistral-7B-instruct",
+    "llama-2-7b-chat",
+    "llama-2-13b-chat",
+    "llama-2-70b-chat",
+]
 DEFAULT_SWEEP_NAME       = "confidence-threshold-comparison-rq3"
 DEFAULT_SWEEP_PROJECT    = "hdm-benchmark-rq3-threshold-sweep"
 DEFAULT_OUTPUT_PREFIX    = "rq3_confident_treshold_sweep"
 
+# Optional: file containing prompts to exclude (from lettuceprevent calibration)
+DEFAULT_CALIBRATION_PATH = "lettuceprevent_calibration.json"
+
 
 # ============================================================================
-# Data structures (copied from hallucination_benchmark.py)
+# Data structures
 # ============================================================================
 
 @dataclass
@@ -117,6 +132,7 @@ class TokenStepResult:
 class SampleResult:
     sample_index: int
     task_type: str
+    model: str                                # NEW: which LLM produced the answer
     context: str
     query: str
     answer: str
@@ -153,20 +169,14 @@ class LLMTokenizerWrapper:
     def tokenize_with_offsets(self, text: str) -> List[TokenInfo]:
         encoded = self.tokenizer.encode(text, add_special_tokens=False)
         tokens: List[TokenInfo] = []
-
         for i, _ in enumerate(encoded):
             prefix      = self.tokenizer.decode(encoded[: i + 1], skip_special_tokens=True)
             prev_prefix = self.tokenizer.decode(encoded[:i],      skip_special_tokens=True) if i > 0 else ""
-
-            char_start = len(prev_prefix)
-            char_end   = len(prefix)
-            token_text = prefix[char_start:]
-
+            char_start  = len(prev_prefix)
+            char_end    = len(prefix)
+            token_text  = prefix[char_start:]
             tokens.append(TokenInfo(
-                index=i,
-                text=token_text,
-                char_start=char_start,
-                char_end=char_end,
+                index=i, text=token_text, char_start=char_start, char_end=char_end,
             ))
         return tokens
 
@@ -184,12 +194,7 @@ class HallucinationDetectorBase(ABC):
     def get_name(self) -> str: ...
 
     @abstractmethod
-    def predict(
-        self,
-        context: List[str],
-        question: str,
-        answer: str,
-    ) -> List[Dict[str, Any]]: ...
+    def predict(self, context, question, answer) -> List[Dict[str, Any]]: ...
 
 
 class LettuceDetectWrapper(HallucinationDetectorBase):
@@ -215,7 +220,7 @@ class LettuceDetectWrapper(HallucinationDetectorBase):
 
 
 # ============================================================================
-# Offset mapper (handles tokenizer detokenization vs. original whitespace)
+# Offset mapper
 # ============================================================================
 
 class OffsetMapper:
@@ -232,20 +237,17 @@ class OffsetMapper:
             if self.original[i] == self.detokenized[j]:
                 self.orig_to_detok[i] = j
                 self.detok_to_orig[j] = i
-                i += 1
-                j += 1
+                i += 1; j += 1
             elif self.original[i] in (' ', '\n', '\t'):
                 i += 1
             elif self.detokenized[j] in (' ', '\n', '\t'):
                 j += 1
             else:
-                i += 1
-                j += 1
+                i += 1; j += 1
 
     def detok_range_to_orig(self, start: int, end: int) -> Tuple[int, int]:
         orig_start = self.detok_to_orig.get(start)
         orig_end   = self.detok_to_orig.get(end - 1)
-
         if orig_start is None:
             for s in range(start, end):
                 if s in self.detok_to_orig:
@@ -253,7 +255,6 @@ class OffsetMapper:
                     break
             if orig_start is None:
                 orig_start = start
-
         if orig_end is None:
             for e in range(end - 1, start - 1, -1):
                 if e in self.detok_to_orig:
@@ -261,7 +262,6 @@ class OffsetMapper:
                     break
             if orig_end is None:
                 orig_end = end - 1
-
         return orig_start, orig_end + 1
 
     def check_divergence(self) -> float:
@@ -271,7 +271,7 @@ class OffsetMapper:
 
 
 # ============================================================================
-# Label parsing
+# Label parsing & helpers
 # ============================================================================
 
 def parse_hallucination_labels(raw_labels):
@@ -323,7 +323,6 @@ def compute_metrics_class(
     tp = sum(1 for g, p in zip(ground_truths, predictions) if g == positive_class and p == positive_class)
     fp = sum(1 for g, p in zip(ground_truths, predictions) if g != positive_class and p == positive_class)
     fn = sum(1 for g, p in zip(ground_truths, predictions) if g == positive_class and p != positive_class)
-
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
     recall    = tp / (tp + fn) if (tp + fn) > 0 else 0.0
     f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
@@ -362,23 +361,12 @@ def compute_nine_metrics(gts: List[bool], preds: List[bool]) -> Dict[str, float]
 # NaN-aware per-sample helpers (for honest W&B charts)
 # ============================================================================
 
-def _per_sample_class_metric(
-    gt: List[bool],
-    pred: List[bool],
-    positive_class: bool,
-) -> Tuple[float, float, float]:
-    """
-    Per-sample (precision, recall, f1) for one class. Returns NaN when the
-    metric is mathematically undefined (zero denominator), so W&B charts
-    skip those points instead of plotting them as zeros.
-    """
+def _per_sample_class_metric(gt, pred, positive_class):
     tp = sum(1 for g, p in zip(gt, pred) if g == positive_class and p == positive_class)
     fp = sum(1 for g, p in zip(gt, pred) if g != positive_class and p == positive_class)
     fn = sum(1 for g, p in zip(gt, pred) if g == positive_class and p != positive_class)
-
     precision = tp / (tp + fp) if (tp + fp) > 0 else float("nan")
     recall    = tp / (tp + fn) if (tp + fn) > 0 else float("nan")
-
     if math.isnan(precision) or math.isnan(recall) or (precision + recall) == 0:
         f1 = float("nan")
     else:
@@ -386,14 +374,13 @@ def _per_sample_class_metric(
     return precision, recall, f1
 
 
-def _nanmean(values: List[float]) -> float:
-    """Mean ignoring NaNs. Returns NaN if all values are NaN."""
+def _nanmean(values):
     clean = [v for v in values if not (isinstance(v, float) and math.isnan(v))]
     return sum(clean) / len(clean) if clean else float("nan")
 
 
 # ============================================================================
-# Trigger logic (every-token)
+# Trigger logic
 # ============================================================================
 
 def should_trigger(step: int) -> bool:
@@ -401,28 +388,18 @@ def should_trigger(step: int) -> bool:
 
 
 # ============================================================================
-# Evaluation engine (copied from hallucination_benchmark.py)
+# Evaluation engine
 # ============================================================================
 
 class EvaluationEngine:
-    def __init__(
-        self,
-        detector: HallucinationDetectorBase,
-        llm_tokenizer: LLMTokenizerWrapper,
-        confidence_threshold: float = 0.90,
-    ):
+    def __init__(self, detector, llm_tokenizer, confidence_threshold=0.90):
         self.detector             = detector
         self.llm_tokenizer        = llm_tokenizer
         self.confidence_threshold = confidence_threshold
 
     def evaluate_sample(
-        self,
-        context: str,
-        query: str,
-        answer: str,
-        labels: List[Dict],
-        task_type: str,
-        sample_index: int = 0,
+        self, context, query, answer, labels,
+        task_type, model_name, sample_index=0,
     ) -> SampleResult:
         gt_labels = [
             GroundTruthLabel(start=l["start"], end=l["end"],
@@ -437,8 +414,8 @@ class EvaluationEngine:
         if divergence > 0.05:
             print(f"  [WARNING] Sample {sample_index}: detokenization divergence = {divergence:.2%}")
 
-        token_steps: List[TokenStepResult] = []
-        last_prediction: Dict[int, Tuple[bool, float]] = {}
+        token_steps:     List[TokenStepResult]            = []
+        last_prediction: Dict[int, Tuple[bool, float]]    = {}
         cumulative_gt:   List[bool] = []
         cumulative_pred: List[bool] = []
         sample_start_time = time.time()
@@ -447,24 +424,21 @@ class EvaluationEngine:
 
         for step, token in enumerate(tokens):
             triggered = should_trigger(step)
-
             if triggered:
                 prefix_text = self.llm_tokenizer.tokenizer.decode(
                     encoded_full[: step + 1], skip_special_tokens=True
                 )
                 try:
                     predictions = self.detector.predict(
-                        context=[context],
-                        question=query,
-                        answer=prefix_text,
+                        context=[context], question=query, answer=prefix_text,
                     )
                 except Exception as e:
                     print(f"  [ERROR] Detection failed at step {step}: {e}")
                     predictions = []
 
-                tokens_so_far   = tokens[: step + 1]
-                pred_map        = map_predictions_to_tokens(
-                    predictions, tokens_so_far, self.confidence_threshold
+                tokens_so_far = tokens[: step + 1]
+                pred_map      = map_predictions_to_tokens(
+                    predictions, tokens_so_far, self.confidence_threshold,
                 )
                 last_prediction = pred_map
 
@@ -477,31 +451,23 @@ class EvaluationEngine:
                 token.char_start, token.char_end
             )
             orig_token = TokenInfo(
-                index=token.index,
-                text=token.text,
-                char_start=orig_start,
-                char_end=orig_end,
+                index=token.index, text=token.text,
+                char_start=orig_start, char_end=orig_end,
             )
             is_gt_hall = is_token_hallucinated(orig_token, gt_labels)
 
             cumulative_gt.append(is_gt_hall)
             cumulative_pred.append(is_pred_hall)
             cum_prec, cum_rec, cum_f1 = compute_metrics_class(
-                cumulative_gt, cumulative_pred, positive_class=True
+                cumulative_gt, cumulative_pred, positive_class=True,
             )
 
             token_steps.append(TokenStepResult(
-                step=step,
-                token=token.text,
-                token_char_start=token.char_start,
-                token_char_end=token.char_end,
-                ground_truth=is_gt_hall,
-                predicted=is_pred_hall,
-                confidence=pred_conf,
-                was_triggered=triggered,
-                cumulative_precision=cum_prec,
-                cumulative_recall=cum_rec,
-                cumulative_f1=cum_f1,
+                step=step, token=token.text,
+                token_char_start=token.char_start, token_char_end=token.char_end,
+                ground_truth=is_gt_hall, predicted=is_pred_hall,
+                confidence=pred_conf, was_triggered=triggered,
+                cumulative_precision=cum_prec, cumulative_recall=cum_rec, cumulative_f1=cum_f1,
             ))
 
         sample_runtime = time.time() - sample_start_time
@@ -511,26 +477,118 @@ class EvaluationEngine:
         nine = compute_nine_metrics(all_gt, all_pred)
 
         return SampleResult(
-            sample_index=sample_index,
-            task_type=task_type,
-            context=context,
-            query=query,
-            answer=answer,
+            sample_index=sample_index, task_type=task_type, model=model_name,
+            context=context, query=query, answer=answer,
             token_steps=token_steps,
-            aggregate_precision=agg_prec,
-            aggregate_recall=agg_rec,
-            aggregate_f1=agg_f1,
+            aggregate_precision=agg_prec, aggregate_recall=agg_rec, aggregate_f1=agg_f1,
             runtime_seconds=sample_runtime,
-            precision_micro=nine["precision_micro"],
-            recall_micro=nine["recall_micro"],
-            f1_micro=nine["f1_micro"],
-            precision_class_1=nine["precision_class_1"],
-            recall_class_1=nine["recall_class_1"],
-            f1_binary_class_1=nine["f1_binary_class_1"],
-            precision_class_0=nine["precision_class_0"],
-            recall_class_0=nine["recall_class_0"],
-            f1_binary_class_0=nine["f1_binary_class_0"],
+            **{k: nine[k] for k in nine},
         )
+
+
+# ============================================================================
+# Sample selection: round-robin LLM, optional calibration exclusion
+# ============================================================================
+
+def load_excluded_prompts(calibration_path: Optional[str]) -> List[Tuple[str, str, str]]:
+    """Return list of (task_type, context, query) tuples to exclude. Empty if no path."""
+    if calibration_path is None or calibration_path == "":
+        return []
+    if not os.path.isfile(calibration_path):
+        print(f"[WARN] Calibration file not found at {calibration_path} — "
+              f"continuing WITHOUT excluding any prompts.")
+        return []
+    with open(calibration_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    prompts = data.get("calibration_prompts", [])
+    excluded = [(p["task_type"], p["context"], p["query"]) for p in prompts]
+    print(f"[INFO] Loaded {len(excluded)} calibration prompts to exclude from {calibration_path}")
+    return excluded
+
+
+def load_benchmark_samples_for_sweep(
+    n_prompts_per_task: int,
+    excluded_prompts: List[Tuple[str, str, str]],
+) -> List[Dict]:
+    """
+    Select n_prompts_per_task unique prompts per task type, in dataset order,
+    excluding the calibration set. For each prompt, assign one LLM answer
+    in round-robin order.
+    """
+    print(
+        f"Loading HF dataset: {HF_DATASET_NAME} "
+        f"(split={HF_DATASET_SPLIT}, prompts_per_task={n_prompts_per_task})..."
+    )
+    hf_ds      = load_dataset(HF_DATASET_NAME)
+    test_split = hf_ds[HF_DATASET_SPLIT]
+
+    excluded = set(excluded_prompts)
+
+    # Walk dataset in order. For each task, collect first n unique prompts
+    # (skipping excluded), and for each prompt maintain a model -> row map.
+    rows_by_prompt:        Dict[Tuple[str, str, str], Dict[str, Dict]] = {}
+    prompt_order_per_task: Dict[str, List[Tuple[str, str]]]            = {}
+    seen_per_task:         Dict[str, set]                              = {}
+
+    for row in test_split:
+        if row.get("hallucination_labels") in (None, ""):
+            continue
+        tt  = row.get("task_type", "unknown")
+        ctx = row["context"]
+        qry = row["query"]
+        full_key = (tt, ctx, qry)
+        if full_key in excluded:
+            continue
+
+        rows_by_prompt.setdefault(full_key, {})
+        rows_by_prompt[full_key][row.get("model", "unknown")] = dict(row)
+
+        seen_per_task.setdefault(tt, set())
+        prompt_order_per_task.setdefault(tt, [])
+        if (ctx, qry) not in seen_per_task[tt] and len(prompt_order_per_task[tt]) < n_prompts_per_task:
+            seen_per_task[tt].add((ctx, qry))
+            prompt_order_per_task[tt].append((ctx, qry))
+
+    # Build sample list with round-robin LLM assignment
+    samples: List[Dict] = []
+    for tt in sorted(prompt_order_per_task.keys()):
+        prompts = prompt_order_per_task[tt]
+        print(f"  task_type={tt}: {len(prompts)} prompts (after excluding calibration)")
+        skipped = 0
+        for i, (ctx, qry) in enumerate(prompts):
+            full_key      = (tt, ctx, qry)
+            preferred_llm = LLMS_ROUND_ROBIN[i % len(LLMS_ROUND_ROBIN)]
+            row_map       = rows_by_prompt[full_key]
+            if preferred_llm in row_map:
+                row = row_map[preferred_llm]
+            else:
+                fallback = next(iter(row_map.values()))
+                print(f"    [WARN] prompt {i} task={tt}: preferred LLM "
+                      f"'{preferred_llm}' not found, using '{fallback.get('model')}'")
+                row = fallback
+                skipped += 1
+            samples.append({
+                "task_type": tt,
+                "context":   row["context"],
+                "query":     row["query"],
+                "answer":    row["output"],
+                "model":     row.get("model", "unknown"),
+                "labels":    parse_hallucination_labels(row["hallucination_labels"]),
+            })
+        if skipped > 0:
+            print(f"    [WARN] {skipped} prompts used fallback LLM in task {tt}")
+
+    print(f"\nTotal benchmark samples: {len(samples)}")
+
+    # Distribution sanity check
+    by_model: Dict[str, int] = {}
+    for s in samples:
+        by_model[s["model"]] = by_model.get(s["model"], 0) + 1
+    print("LLM distribution:")
+    for m, n in sorted(by_model.items()):
+        print(f"  {m}: {n}")
+
+    return samples
 
 
 # ============================================================================
@@ -539,70 +597,38 @@ class EvaluationEngine:
 
 _SAMPLES_CACHE:    Optional[List[Dict]]            = None
 _TOKENIZER_CACHE:  Optional[LLMTokenizerWrapper]   = None
+_EXCLUDED_PROMPTS: Optional[List[Tuple[str, str, str]]] = None
+_PROMPTS_PER_TASK: int                             = UNIQUE_PAIRS_PER_TASK
 _ALL_RUN_RESULTS:  List[Dict]                      = []
 
 
 def set_seed(seed: int):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
+    random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
 
 
-def load_benchmark_samples_for_sweep() -> List[Dict]:
+def get_samples() -> List[Dict]:
     global _SAMPLES_CACHE
     if _SAMPLES_CACHE is not None:
         return _SAMPLES_CACHE
-
-    print(
-        f"Loading HF dataset: {HF_DATASET_NAME} "
-        f"(split={HF_DATASET_SPLIT}, unique_pairs_per_task={UNIQUE_PAIRS_PER_TASK})..."
+    if _EXCLUDED_PROMPTS is None:
+        raise RuntimeError("main() must initialize _EXCLUDED_PROMPTS before sweep starts")
+    _SAMPLES_CACHE = load_benchmark_samples_for_sweep(
+        _PROMPTS_PER_TASK, _EXCLUDED_PROMPTS,
     )
-    hf_ds      = load_dataset(HF_DATASET_NAME)
-    test_split = hf_ds[HF_DATASET_SPLIT]
-
-    filtered = [
-        dict(row) for row in test_split
-        if row.get("hallucination_labels") not in (None, "")
-    ]
-
-    by_task: Dict[str, Dict[tuple, Dict]] = {}
-    for row in filtered:
-        tt  = row.get("task_type", "unknown")
-        key = (row["context"], row["query"])
-        if tt not in by_task:
-            by_task[tt] = {}
-        if key not in by_task[tt] and len(by_task[tt]) < UNIQUE_PAIRS_PER_TASK:
-            by_task[tt][key] = row
-
-    benchmark_samples: List[Dict] = []
-    for tt in sorted(by_task.keys()):
-        mapping = by_task[tt]
-        print(f"  task_type={tt}: {len(mapping)} unique (context, query) pairs")
-        for row in mapping.values():
-            benchmark_samples.append({
-                "task_type": tt,
-                "context":   row["context"],
-                "query":     row["query"],
-                "answer":    row["output"],
-                "labels":    parse_hallucination_labels(row["hallucination_labels"]),
-            })
-
-    print(f"Total benchmark samples: {len(benchmark_samples)}")
-    _SAMPLES_CACHE = benchmark_samples
-    return benchmark_samples
+    return _SAMPLES_CACHE
 
 
-def build_sample_manifest_hash(samples: List[Dict]) -> str:
+def build_sample_manifest_hash(samples):
     payload = [
-        {"task_type": s["task_type"], "context": s["context"],
-         "query": s["query"], "answer": s["answer"]}
+        {"task_type": s["task_type"], "model": s["model"],
+         "context": s["context"], "query": s["query"], "answer": s["answer"]}
         for s in samples
     ]
     raw = json.dumps(payload, ensure_ascii=False, sort_keys=True).encode("utf-8")
     return hashlib.sha256(raw).hexdigest()
 
 
-def get_tokenizer() -> LLMTokenizerWrapper:
+def get_tokenizer():
     global _TOKENIZER_CACHE
     if _TOKENIZER_CACHE is None:
         print(f"Loading tokenizer: {LLM_TOKENIZER_NAME}")
@@ -610,7 +636,7 @@ def get_tokenizer() -> LLMTokenizerWrapper:
     return _TOKENIZER_CACHE
 
 
-def build_sweep_config(output_prefix: str, seed: int) -> Dict:
+def build_sweep_config(output_prefix, seed, prompts_per_task):
     return {
         "name":   DEFAULT_SWEEP_NAME,
         "method": "grid",
@@ -620,6 +646,7 @@ def build_sweep_config(output_prefix: str, seed: int) -> Dict:
             "model_idx":             {"values": list(range(len(MODELS_TO_EVALUATE)))},
             "output_prefix":         {"value":  output_prefix},
             "seed":                  {"value":  seed},
+            "prompts_per_task":      {"value":  prompts_per_task},
         },
     }
 
@@ -629,7 +656,6 @@ def build_sweep_config(output_prefix: str, seed: int) -> Dict:
 # ============================================================================
 
 def evaluate_single_run():
-    """Single W&B agent run for one (model_idx, confidence_threshold) pair."""
     run = wandb.init()
     cfg = wandb.config
 
@@ -651,24 +677,20 @@ def evaluate_single_run():
     print(f"# Threshold: {confidence_threshold:.2f}")
     print("#" * 70 + "\n")
 
-    samples              = load_benchmark_samples_for_sweep()
+    samples              = get_samples()
     sample_manifest_hash = build_sample_manifest_hash(samples)
     llm_tokenizer        = get_tokenizer()
     detector             = LettuceDetectWrapper(
-        name=model_cfg["name"],
-        model_path=model_cfg["model_path"],
+        name=model_cfg["name"], model_path=model_cfg["model_path"],
     )
     engine = EvaluationEngine(
-        detector=detector,
-        llm_tokenizer=llm_tokenizer,
+        detector=detector, llm_tokenizer=llm_tokenizer,
         confidence_threshold=confidence_threshold,
     )
 
     all_sample_results: List[SampleResult] = []
     all_gt:   List[bool] = []
     all_pred: List[bool] = []
-
-    # Per-sample arrays for macro-style averaging at the end
     per_sample_c1    = {"precision": [], "recall": [], "f1": []}
     per_sample_c0    = {"precision": [], "recall": [], "f1": []}
     per_sample_micro = {"precision": [], "recall": [], "f1": []}
@@ -678,45 +700,35 @@ def evaluate_single_run():
     for i, sample in enumerate(samples):
         print(
             f"  [{model_cfg['name']} @ thr={confidence_threshold}] "
-            f"sample {i + 1}/{len(samples)} (task={sample['task_type']})"
+            f"sample {i + 1}/{len(samples)} (task={sample['task_type']}, model={sample['model']})"
         )
         result = engine.evaluate_sample(
-            context=sample["context"],
-            query=sample["query"],
-            answer=sample["answer"],
-            labels=sample["labels"],
-            task_type=sample["task_type"],
+            context=sample["context"], query=sample["query"],
+            answer=sample["answer"], labels=sample["labels"],
+            task_type=sample["task_type"], model_name=sample["model"],
             sample_index=i,
         )
         all_sample_results.append(result)
 
         sample_gt   = [ts.ground_truth for ts in result.token_steps]
         sample_pred = [ts.predicted     for ts in result.token_steps]
-        all_gt.extend(sample_gt)
-        all_pred.extend(sample_pred)
+        all_gt.extend(sample_gt); all_pred.extend(sample_pred)
 
-        # NaN-aware per-sample metrics (replace sklearn-style 0-on-undefined)
-        prec_c1_s, rec_c1_s, f1_c1_s = _per_sample_class_metric(sample_gt, sample_pred, positive_class=True)
-        prec_c0_s, rec_c0_s, f1_c0_s = _per_sample_class_metric(sample_gt, sample_pred, positive_class=False)
+        prec_c1_s, rec_c1_s, f1_c1_s = _per_sample_class_metric(sample_gt, sample_pred, True)
+        prec_c0_s, rec_c0_s, f1_c0_s = _per_sample_class_metric(sample_gt, sample_pred, False)
         prec_micro_s, rec_micro_s, f1_micro_s = result.precision_micro, result.recall_micro, result.f1_micro
 
-        per_sample_c1["precision"].append(prec_c1_s)
-        per_sample_c1["recall"].append(rec_c1_s)
-        per_sample_c1["f1"].append(f1_c1_s)
-        per_sample_c0["precision"].append(prec_c0_s)
-        per_sample_c0["recall"].append(rec_c0_s)
-        per_sample_c0["f1"].append(f1_c0_s)
-        per_sample_micro["precision"].append(prec_micro_s)
-        per_sample_micro["recall"].append(rec_micro_s)
-        per_sample_micro["f1"].append(f1_micro_s)
+        per_sample_c1["precision"].append(prec_c1_s); per_sample_c1["recall"].append(rec_c1_s); per_sample_c1["f1"].append(f1_c1_s)
+        per_sample_c0["precision"].append(prec_c0_s); per_sample_c0["recall"].append(rec_c0_s); per_sample_c0["f1"].append(f1_c0_s)
+        per_sample_micro["precision"].append(prec_micro_s); per_sample_micro["recall"].append(rec_micro_s); per_sample_micro["f1"].append(f1_micro_s)
 
-        # Diagnostic counts so you can see WHY a metric is NaN
         n_pos_gt   = sum(1 for g in sample_gt   if g)
         n_pos_pred = sum(1 for p in sample_pred if p)
 
         run.log({
             "sample_index":             i,
             "task_type":                sample["task_type"],
+            "model":                    sample["model"],
             "sample_runtime_s":         result.runtime_seconds,
             "sample_n_tokens":          len(sample_gt),
             "sample_n_pos_gt":          n_pos_gt,
@@ -737,7 +749,7 @@ def evaluate_single_run():
 
     total_runtime = time.time() - total_start
 
-    # ----- Pooled (headline RQ3 numbers) -----
+    # ----- Pooled (headline) -----
     prec_micro, rec_micro, f1_micro = compute_metrics_micro(all_gt, all_pred)
     prec_c1,    rec_c1,    f1_c1    = compute_metrics_class(all_gt, all_pred, positive_class=True)
     prec_c0,    rec_c0,    f1_c0    = compute_metrics_class(all_gt, all_pred, positive_class=False)
@@ -763,12 +775,12 @@ def evaluate_single_run():
     run.summary["model_path"]            = model_cfg["model_path"]
     run.summary["confidence_threshold"]  = confidence_threshold
     run.summary["num_samples"]           = len(samples)
-    run.summary["unique_pairs_per_task"] = UNIQUE_PAIRS_PER_TASK
+    run.summary["unique_pairs_per_task"] = _PROMPTS_PER_TASK
     run.summary["sample_manifest_hash"]  = sample_manifest_hash
     run.summary["seed"]                  = seed
     run.summary["tokenizer_name"]        = LLM_TOKENIZER_NAME
+    run.summary["n_excluded_prompts"]    = len(_EXCLUDED_PROMPTS or [])
 
-    # Pooled
     run.summary["precision_micro"]       = prec_micro
     run.summary["recall_micro"]          = rec_micro
     run.summary["f1_micro"]              = f1_micro
@@ -779,7 +791,6 @@ def evaluate_single_run():
     run.summary["recall_class_0"]        = rec_c0
     run.summary["f1_binary_class_0"]     = f1_c0
 
-    # Macro
     run.summary["macro_precision_micro"]   = avg_prec_mi
     run.summary["macro_recall_micro"]      = avg_rec_mi
     run.summary["macro_f1_micro"]          = avg_f1_mi
@@ -790,54 +801,50 @@ def evaluate_single_run():
     run.summary["macro_recall_class_0"]    = avg_rec_c0
     run.summary["macro_f1_class_0"]        = avg_f1_c0
 
-    # Diagnostics
     run.summary["total_tokens"]   = total_tokens
     run.summary["total_pos_gt"]   = total_pos_gt
     run.summary["total_pos_pred"] = total_pos_pred
     run.summary["frac_pos_gt"]    = total_pos_gt   / total_tokens if total_tokens else 0.0
     run.summary["frac_pos_pred"]  = total_pos_pred / total_tokens if total_tokens else 0.0
-
     run.summary["total_runtime_seconds"] = total_runtime
 
     # ----- Local JSON dump -----
     safe_model  = model_cfg["name"].replace("/", "_")
     result_path = f"{output_prefix}_{safe_model}_thr_{thr_label}.json"
     result_dict = {
-        "model_name":            model_cfg["name"],
-        "model_path":            model_cfg["model_path"],
-        "confidence_threshold":  confidence_threshold,
-        "num_samples":           len(samples),
-        "unique_pairs_per_task": UNIQUE_PAIRS_PER_TASK,
-        "sample_manifest_hash":  sample_manifest_hash,
-        "seed":                  seed,
+        "model_name":               model_cfg["name"],
+        "model_path":               model_cfg["model_path"],
+        "confidence_threshold":     confidence_threshold,
+        "num_samples":              len(samples),
+        "unique_pairs_per_task":    _PROMPTS_PER_TASK,
+        "sample_manifest_hash":     sample_manifest_hash,
+        "seed":                     seed,
+        "n_excluded_prompts":       len(_EXCLUDED_PROMPTS or []),
 
-        # Pooled
-        "precision_micro":       prec_micro,
-        "recall_micro":          rec_micro,
-        "f1_micro":              f1_micro,
-        "precision_class_1":     prec_c1,
-        "recall_class_1":        rec_c1,
-        "f1_binary_class_1":     f1_c1,
-        "precision_class_0":     prec_c0,
-        "recall_class_0":        rec_c0,
-        "f1_binary_class_0":     f1_c0,
+        "precision_micro":          prec_micro,
+        "recall_micro":             rec_micro,
+        "f1_micro":                 f1_micro,
+        "precision_class_1":        prec_c1,
+        "recall_class_1":           rec_c1,
+        "f1_binary_class_1":        f1_c1,
+        "precision_class_0":        prec_c0,
+        "recall_class_0":           rec_c0,
+        "f1_binary_class_0":        f1_c0,
 
-        # Macro
-        "macro_precision_micro":   avg_prec_mi,
-        "macro_recall_micro":      avg_rec_mi,
-        "macro_f1_micro":          avg_f1_mi,
-        "macro_precision_class_1": avg_prec_c1,
-        "macro_recall_class_1":    avg_rec_c1,
-        "macro_f1_class_1":        avg_f1_c1,
-        "macro_precision_class_0": avg_prec_c0,
-        "macro_recall_class_0":    avg_rec_c0,
-        "macro_f1_class_0":        avg_f1_c0,
+        "macro_precision_micro":    avg_prec_mi,
+        "macro_recall_micro":       avg_rec_mi,
+        "macro_f1_micro":           avg_f1_mi,
+        "macro_precision_class_1":  avg_prec_c1,
+        "macro_recall_class_1":     avg_rec_c1,
+        "macro_f1_class_1":         avg_f1_c1,
+        "macro_precision_class_0":  avg_prec_c0,
+        "macro_recall_class_0":     avg_rec_c0,
+        "macro_f1_class_0":         avg_f1_c0,
 
-        # Diagnostics
-        "total_tokens":          total_tokens,
-        "total_pos_gt":          total_pos_gt,
-        "total_pos_pred":        total_pos_pred,
-        "total_runtime_seconds": total_runtime,
+        "total_tokens":             total_tokens,
+        "total_pos_gt":             total_pos_gt,
+        "total_pos_pred":           total_pos_pred,
+        "total_runtime_seconds":    total_runtime,
     }
     with open(result_path, "w", encoding="utf-8") as f:
         json.dump(result_dict, f, indent=2)
@@ -848,47 +855,29 @@ def evaluate_single_run():
 
     _ALL_RUN_RESULTS.append(result_dict)
 
-    # ----- Console summary -----
     print(f"\n{'=' * 60}")
     print(f"RUN COMPLETE: {run_name}")
     print(f"{'=' * 60}")
     print(f"Model:              {model_cfg['name']}")
     print(f"Threshold:          {confidence_threshold}")
     print(f"Runtime:            {total_runtime:.2f}s")
-    print(f"--- Diagnostics ---")
-    print(f"  Total tokens:     {total_tokens}")
+    print(f"Total tokens:       {total_tokens}")
     if total_tokens:
-        print(f"  Class-1 GT:       {total_pos_gt} ({100 * total_pos_gt / total_tokens:.2f}%)")
-        print(f"  Class-1 pred:     {total_pos_pred} ({100 * total_pos_pred / total_tokens:.2f}%)")
-    print(f"--- Global (micro) ---")
-    print(f"  Precision:        {prec_micro:.4f}")
-    print(f"  Recall:           {rec_micro:.4f}")
-    print(f"  F1:               {f1_micro:.4f}")
-    print(f"--- Class 1 (hallucinated) — POOLED ---")
-    print(f"  Precision:        {prec_c1:.4f}")
-    print(f"  Recall:           {rec_c1:.4f}")
-    print(f"  F1:               {f1_c1:.4f}")
-    print(f"--- Class 1 (hallucinated) — MACRO (avg over samples) ---")
-    print(f"  Precision:        {avg_prec_c1:.4f}")
-    print(f"  Recall:           {avg_rec_c1:.4f}")
-    print(f"  F1:               {avg_f1_c1:.4f}")
-    print(f"--- Class 0 (supported) — POOLED ---")
-    print(f"  Precision:        {prec_c0:.4f}")
-    print(f"  Recall:           {rec_c0:.4f}")
-    print(f"  F1:               {f1_c0:.4f}")
+        print(f"Class-1 GT:         {total_pos_gt} ({100 * total_pos_gt / total_tokens:.2f}%)")
+        print(f"Class-1 pred:       {total_pos_pred} ({100 * total_pos_pred / total_tokens:.2f}%)")
+    print(f"Pooled  F1 c1:      {f1_c1:.4f}  Recall: {rec_c1:.4f}  Prec: {prec_c1:.4f}")
+    print(f"Macro   F1 c1:      {avg_f1_c1:.4f}")
     print(f"{'=' * 60}\n")
-
     run.finish()
 
 
 # ============================================================================
-# Final summary across all sweep runs
+# Final summary
 # ============================================================================
 
 def print_final_summary():
     if not _ALL_RUN_RESULTS:
-        print("No results collected — skipping summary.")
-        return
+        print("No results collected — skipping summary."); return
 
     print("\n" + "=" * 100)
     print("CONFIDENCE THRESHOLD SWEEP — FINAL SUMMARY")
@@ -900,8 +889,7 @@ def print_final_summary():
         f"{'Model':<45} {'Thr':>5} {'F1_c1':>8} {'Rec_c1':>8} "
         f"{'Prec_c1':>8} {'F1_c0':>8} {'F1_mic':>8} {'Runtime':>10}"
     )
-    print(header)
-    print("-" * 100)
+    print(header); print("-" * 100)
 
     best_per_model: Dict[str, Dict] = {}
 
@@ -921,7 +909,6 @@ def print_final_summary():
                 f"{r['f1_micro']:>8.4f} "
                 f"{r['total_runtime_seconds']:>9.2f}s"
             )
-
         best                 = max(model_runs, key=lambda r: r["f1_binary_class_1"])
         best_per_model[model] = best
         print()
@@ -938,7 +925,6 @@ def print_final_summary():
         print(f"  F1 c0:     {best['f1_binary_class_0']:.4f}")
         print(f"  F1 micro:  {best['f1_micro']:.4f}")
         print(f"  Runtime:   {best['total_runtime_seconds']:.2f}s")
-
     print("\n" + "=" * 100)
 
     summary = {
@@ -969,32 +955,38 @@ def print_final_summary():
 def main():
     torch.set_float32_matmul_precision("high")
 
+    global _EXCLUDED_PROMPTS, _PROMPTS_PER_TASK
+
     parser = argparse.ArgumentParser(
-        description="W&B sweep: confidence threshold comparison for both models."
+        description="W&B sweep: confidence threshold comparison for TinyLettuce + LettuceDetect-base."
     )
-    parser.add_argument("--entity",        type=str, default=WANDB_ENTITY,
-                        help="W&B entity.")
-    parser.add_argument("--project",       type=str, default=DEFAULT_SWEEP_PROJECT,
-                        help="W&B project name for the sweep.")
-    parser.add_argument("--sweep-id",      type=str, default=None,
-                        help="Existing W&B sweep id. If omitted, a new sweep is created.")
-    parser.add_argument("--count",         type=int,
-                        default=len(SWEEP_THRESHOLDS) * len(MODELS_TO_EVALUATE),
-                        help="How many agent runs to execute.")
-    parser.add_argument("--output-prefix", type=str, default=DEFAULT_OUTPUT_PREFIX,
-                        help="Prefix for per-run local result files.")
-    parser.add_argument("--seed",          type=int, default=SEED,
-                        help="Global random seed.")
-    parser.add_argument("--create-only",   action="store_true",
-                        help="Create sweep and print id, but do not start the agent.")
+    parser.add_argument("--entity",            type=str, default=WANDB_ENTITY)
+    parser.add_argument("--project",           type=str, default=DEFAULT_SWEEP_PROJECT)
+    parser.add_argument("--sweep-id",          type=str, default=None)
+    parser.add_argument("--count",             type=int,
+                        default=len(SWEEP_THRESHOLDS) * len(MODELS_TO_EVALUATE))
+    parser.add_argument("--output-prefix",     type=str, default=DEFAULT_OUTPUT_PREFIX)
+    parser.add_argument("--seed",              type=int, default=SEED)
+    parser.add_argument("--prompts-per-task",  type=int, default=UNIQUE_PAIRS_PER_TASK)
+    parser.add_argument("--calibration-path",  type=str, default=DEFAULT_CALIBRATION_PATH,
+                        help="Path to lettuceprevent_calibration.json. Prompts listed there "
+                             "are excluded from the sweep set for cross-model comparability. "
+                             "Pass an empty string to disable exclusion.")
+    parser.add_argument("--create-only",       action="store_true")
     args = parser.parse_args()
+
+    _EXCLUDED_PROMPTS = load_excluded_prompts(args.calibration_path)
+    _PROMPTS_PER_TASK = args.prompts_per_task
 
     if args.sweep_id:
         sweep_id = args.sweep_id
         print(f"Using existing sweep_id: {sweep_id}")
     else:
-        sweep_config = build_sweep_config(output_prefix=args.output_prefix, seed=args.seed)
-        sweep_id     = wandb.sweep(sweep=sweep_config, entity=args.entity, project=args.project)
+        sweep_config = build_sweep_config(
+            output_prefix=args.output_prefix, seed=args.seed,
+            prompts_per_task=args.prompts_per_task,
+        )
+        sweep_id = wandb.sweep(sweep=sweep_config, entity=args.entity, project=args.project)
         print(f"Created sweep_id: {sweep_id}")
 
     if args.create_only:
@@ -1002,11 +994,8 @@ def main():
 
     print(f"Starting W&B agent for sweep_id={sweep_id} with count={args.count}")
     wandb.agent(
-        sweep_id=sweep_id,
-        function=evaluate_single_run,
-        entity=args.entity,
-        project=args.project,
-        count=args.count,
+        sweep_id=sweep_id, function=evaluate_single_run,
+        entity=args.entity, project=args.project, count=args.count,
     )
 
     print_final_summary()
