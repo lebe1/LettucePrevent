@@ -310,7 +310,8 @@ def collect_logits_and_labels(
 
             input_ids_t      = torch.tensor([input_ids],      dtype=torch.long, device=device)
             attention_mask_t = torch.tensor([attention_mask], dtype=torch.long, device=device)
-            logits = model(input_ids=input_ids_t, attention_mask=attention_mask_t)
+            outputs = model(input_ids=input_ids_t, attention_mask=attention_mask_t)
+            logits  = outputs.logits
 
             ans_logits = logits[0, answer_start:answer_end, :].cpu().float().numpy()
             assert len(ans_logits) == len(ans_labels)
