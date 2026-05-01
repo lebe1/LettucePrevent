@@ -75,11 +75,11 @@ DETECTOR_TYPES_SWEEPED = [
 # Edit these once the sweep finishes.
 DETECTOR_BEST_THRESHOLDS = {
     "lettucedetect":  0.6,    # LettuceDetect-base optimum from sweep
-    "lettuceprevent": 0.7,    # decoder optimum from sweep (TODO: confirm)
+    "lettuceprevent": 0.8,    # decoder optimum from sweep 
 }
 
 # When detector_type == 'lettucedetect' we default to LettuceDetect-base for
-# RQ1 (it strongly outperformed TinyLettuce in the threshold sweep).
+# RQ1 (it outperformed TinyLettuce in the threshold sweep).
 LETTUCEDETECT_MODEL_PATH = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
 
 # When detector_type == 'lettuceprevent' the decoder model_path.
