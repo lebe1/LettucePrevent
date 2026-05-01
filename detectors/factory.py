@@ -1,14 +1,20 @@
 from .base_detector import BaseHallucinationDetector
 from .number_detector import NumberHallucinationDetector
-from .tiny_lettuce_detector import TinyLettuceDetector
-from .ettin_decoder_detector import EttinDecoderDetector
+from .lettucedetect_detector import LettuceDetectDetector
+from .lettuceprevent_detector import LettucePreventDetector
 
 
-# -------------------------- Detector Factory ------------------
+VALID_DETECTOR_TYPES = {
+    "lettucedetect",
+    "lettuceprevent",
+    "number",
+    "baseline-run-numbers",
+    "baseline-run-facts",
+}
+
+
 class DetectorFactory:
-    """
-    Factory class for creating different types of hallucination detectors.
-    """
+    """Factory class for creating hallucination detectors."""
 
     @staticmethod
     def create_detector(
@@ -16,52 +22,56 @@ class DetectorFactory:
         tokenizer,
         input_text: str,
         **kwargs,
-    ) -> BaseHallucinationDetector:
+    ):
         """
         Create a hallucination detector of the specified type.
 
         Args:
-            detector_type       : 'tinylettuce', 'ettin', 'number', or 'none'
-            tokenizer           : Tokenizer instance of the generation model
-            input_text          : Full input context passed to the generation model
-            **kwargs            : Additional arguments forwarded to the detector:
-                                  - confidence_threshold (float) for tinylettuce / ettin
-                                  - model_path (str) required for ettin
+            detector_type:
+                'lettucedetect'         -> any model from KRLabsOrg lettucedetect family
+                                           (default: tinylettuce-ettin-68m-en)
+                'lettuceprevent'        -> custom Ettin-decoder classifier
+                'number'                -> rule-based number detector
+                                           (uses local summary-only dataset)
+                'baseline-run-numbers'  -> no detector, local summary dataset
+                'baseline-run-facts'    -> no detector, HF RAGTruth dataset
+            tokenizer    : generator's tokenizer
+            input_text   : full input/context for this prompt
+            **kwargs     : forwarded; relevant keys are
+                           - confidence_threshold (float)
+                           - model_path           (str)
 
         Returns:
-            BaseHallucinationDetector instance, or None for 'none'
+            BaseHallucinationDetector or None for the two baselines.
+
+        Raises:
+            ValueError on unknown detector_type.
         """
-        if detector_type.lower() == 'tinylettuce':
-            confidence_threshold = kwargs.get('confidence_threshold', 0.9)
-            return TinyLettuceDetector(
-                tokenizer,
-                input_text,
-                confidence_threshold=confidence_threshold,
+        det = detector_type.lower()
+
+        if det == "lettucedetect":
+            return LettuceDetectDetector(
+                tokenizer=tokenizer,
+                input_text=input_text,
+                confidence_threshold=kwargs.get("confidence_threshold", 0.9),
+                model_path=kwargs.get("model_path"),
             )
 
-        elif detector_type.lower() == 'ettin':
-            confidence_threshold = kwargs.get('confidence_threshold', 0.9)
-            model_path = kwargs.get('model_path')
-            if model_path is None:
-                raise ValueError(
-                    "EttinDecoderDetector requires 'model_path' to be passed "
-                    "as a keyword argument to create_detector()."
-                )
-            return EttinDecoderDetector(
-                tokenizer,
-                input_text,
-                model_path=model_path,
-                confidence_threshold=confidence_threshold,
+        if det == "lettuceprevent":
+            return LettucePreventDetector(
+                tokenizer=tokenizer,
+                input_text=input_text,
+                confidence_threshold=kwargs.get("confidence_threshold", 0.9),
+                model_path=kwargs.get("model_path"),
             )
 
-        elif detector_type.lower() == 'number':
+        if det == "number":
             return NumberHallucinationDetector(tokenizer, input_text)
 
-        elif detector_type.lower() == 'none':
+        if det in ("baseline-run-numbers", "baseline-run-facts"):
             return None
 
-        else:
-            raise ValueError(
-                f"Unknown detector type: '{detector_type}'. "
-                f"Available: 'tinylettuce', 'ettin', 'number', 'none'"
-            )
+        raise ValueError(
+            f"Unknown detector type: '{detector_type}'. "
+            f"Available: {sorted(VALID_DETECTOR_TYPES)}"
+        )
