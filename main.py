@@ -6,7 +6,7 @@ without W&B — runs once with the constants below.
 
 Sweep dimensions:
   - GENERATOR_MODELS       (3 values)
-  - DETECTOR_TYPES_SWEEPED (3 values: lettucedetect, lettuceprevent, baseline-run-facts)
+  - DETECTOR_TYPES_SWEEPED (2 values: lettuceprevent, baseline-run-facts)
 
 Outside the sweep:
   - 'number' and 'baseline-run-numbers' run on local summary-only data (existing
