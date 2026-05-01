@@ -66,7 +66,6 @@ GENERATOR_MODELS = [
 
 # Detectors included in the W&B sweep.
 DETECTOR_TYPES_SWEEPED = [
-    "lettucedetect",
     "lettuceprevent",
     "baseline-run-facts",
 ]
