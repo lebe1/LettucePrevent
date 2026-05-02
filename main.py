@@ -70,6 +70,13 @@ DETECTOR_TYPES_SWEEPED = [
     "baseline-run-facts",
 ]
 
+# Skip-threshold values to sweep over. Default keeps current behavior (never
+# skip), so changing to a different list is what enables the RQ2 study.
+SKIP_THRESHOLDS = [0.8, 0.9, 1.0]
+
+# Per-task prompt cap for the sweep. RQ1 = 150, RQ2 = 50.
+N_PER_TASK = 50
+
 # Per-detector confidence thresholds (best from RQ3 threshold sweep).
 # Edit these once the sweep finishes.
 DETECTOR_BEST_THRESHOLDS = {
@@ -95,8 +102,7 @@ GENERATION_CONFIG_KWARGS = {
 
 # System prompt for instruction-tuned generators.
 SYSTEM_PROMPT = (
-    "You always respond very precise and clear. You never exceed the maximum "
-    "number of words that is asked for. Always end your answer with a complete "
+    "You always respond very precise and clear. Always end your answer with a complete "
     "sentence and a period! Only stick to the information provided from the input!"
 )
 
@@ -105,7 +111,6 @@ LAST_K_TOKENS_TO_CONSIDER = 10
 TOP_K_LOGITS              = 10
 PENALTY_VALUE             = 0
 USE_ALL_TOKENS            = True
-LOGITS_SKIP_THRESHOLD     = 1.0
 
 # Misc.
 SEED                      = 14
@@ -134,7 +139,6 @@ def make_deterministic(seed: int) -> None:
     hf_set_seed(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    # As of torch 1.8+, the algorithmic side of things:
     try:
         torch.use_deterministic_algorithms(True, warn_only=True)
     except Exception:
@@ -143,7 +147,7 @@ def make_deterministic(seed: int) -> None:
 
 
 # ===========================================================================
-# Stopping criteria — preserves the per-token print of the original script
+# Stopping criteria \u2014 preserves the per-token print of the original script
 # ===========================================================================
 
 class TokenPrintStoppingCriteria(StoppingCriteria):
@@ -157,13 +161,10 @@ class TokenPrintStoppingCriteria(StoppingCriteria):
 
 
 # ===========================================================================
-# Single-cell execution
+# Helpers
 # ===========================================================================
 
-def build_messages_for_generator(
-    generator_model_name: str,
-    prompt: str,
-):
+def build_messages_for_generator(generator_model_name: str, prompt: str):
     """Most chat templates accept the same role-based dict format."""
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -184,20 +185,31 @@ def resolve_detector_kwargs(detector_type: str) -> dict:
     return kwargs
 
 
+# ===========================================================================
+# Single-cell execution
+# ===========================================================================
+
 def run_one_cell(
     generator_model: str,
     detector_type: str,
     output_prefix: str,
     n_per_task: int,
     confidence_floor_post_eval: float,
+    skip_threshold: float,
     use_wandb: bool = True,
 ):
-    """Run generation + post-eval for a single (generator, detector) cell."""
+    """
+    Run generation + post-eval for a single
+    (generator, detector, skip_threshold) cell.
+    """
 
     # ----- W&B init -----
     run = None
     if use_wandb:
-        run_name = f"{generator_model.split('/')[-1]}__{detector_type}"
+        run_name = (
+            f"{generator_model.split('/')[-1]}__"
+            f"{detector_type}__skip_{skip_threshold:.2f}"
+        )
         run = wandb.init(
             entity=WANDB_ENTITY,
             project=WANDB_PROJECT,
@@ -211,7 +223,7 @@ def run_one_cell(
                 "top_k_logits":               TOP_K_LOGITS,
                 "penalty_value":              str(PENALTY_VALUE),
                 "use_all_tokens":             USE_ALL_TOKENS,
-                "logits_skip_threshold":      LOGITS_SKIP_THRESHOLD,
+                "logits_skip_threshold":      skip_threshold,
                 "lettucedetect_model_path":   LETTUCEDETECT_MODEL_PATH,
                 "lettuceprevent_model_path":  LETTUCEPREVENT_MODEL_PATH,
                 "detector_thresholds":        DETECTOR_BEST_THRESHOLDS,
@@ -230,10 +242,11 @@ def run_one_cell(
         local_summary_filepath=LOCAL_SUMMARY_FILE,
         n_per_task=n_per_task,
     )
-    print(f"\n>>> Generator: {generator_model}")
-    print(f">>> Detector:  {detector_type}")
-    print(f">>> Source:    {source_label}")
-    print(f">>> Prompts:   {len(prompts)}\n")
+    print(f"\n>>> Generator:      {generator_model}")
+    print(f">>> Detector:       {detector_type}")
+    print(f">>> Skip threshold: {skip_threshold}")
+    print(f">>> Source:         {source_label}")
+    print(f">>> Prompts:        {len(prompts)}\n")
 
     # ----- Load generator -----
     print(f"Loading generator tokenizer + model: {generator_model}")
@@ -259,6 +272,8 @@ def run_one_cell(
     detector_kwargs = resolve_detector_kwargs(detector_type)
     results = []
     total_modifications = 0
+    total_skips = 0
+    total_checks = 0
     overall_start = time.time()
     overall_start_dt = datetime.now()
 
@@ -268,7 +283,7 @@ def run_one_cell(
         raw_prompt = item["prompt"]
         task_type = item.get("task_type", "Summary")
 
-        # Build per-prompt detector + processor (caches are scoped to prompt).
+        # Build per-prompt detector + processor (caches scoped to prompt).
         logits_processor = None
         detector = DetectorFactory.create_detector(
             detector_type=detector_type,
@@ -283,7 +298,7 @@ def run_one_cell(
                 top_k_logits=TOP_K_LOGITS,
                 penalty_value=PENALTY_VALUE,
                 use_all_tokens=USE_ALL_TOKENS,
-                skip_threshold=LOGITS_SKIP_THRESHOLD,
+                skip_threshold=skip_threshold,
             )
 
         messages = build_messages_for_generator(generator_model, raw_prompt)
@@ -337,6 +352,7 @@ def run_one_cell(
             "duration_seconds":  prompt_dur,
             "detector_type":     detector_type,
             "generator_model":   generator_model,
+            "skip_threshold":    skip_threshold,
         }
 
         if detector_type == "lettucedetect":
@@ -354,8 +370,13 @@ def run_one_cell(
             result_data["logits_modifications"] = 0
             result_data["comparison_experiment"] = True
 
+        # Always record skip/check counters when a logits processor was used.
         if logits_processor is not None:
+            result_data["hdm_skip_count"]  = logits_processor.skip_count
+            result_data["hdm_check_count"] = logits_processor.check_count
             total_modifications += logits_processor.modifications_count
+            total_skips          += logits_processor.skip_count
+            total_checks         += logits_processor.check_count
 
         results.append(result_data)
 
@@ -365,6 +386,8 @@ def run_one_cell(
                 "task_type":            task_type,
                 "duration_seconds":     prompt_dur,
                 "logits_modifications": result_data.get("logits_modifications", 0),
+                "hdm_skip_count":       result_data.get("hdm_skip_count", 0),
+                "hdm_check_count":      result_data.get("hdm_check_count", 0),
             })
 
     overall_end = time.time()
@@ -375,6 +398,7 @@ def run_one_cell(
         "_meta": {
             "generator_model":   generator_model,
             "detector_type":     detector_type,
+            "skip_threshold":    skip_threshold,
             "system_prompt":     SYSTEM_PROMPT,
             "num_prompts":       len(prompts),
             "total_generations": len(prompts),
@@ -389,19 +413,22 @@ def run_one_cell(
                 "top_k_logits":               TOP_K_LOGITS,
                 "penalty_value":              str(PENALTY_VALUE),
                 "use_all_tokens":             USE_ALL_TOKENS,
-                "logits_skip_threshold":      LOGITS_SKIP_THRESHOLD,
+                "logits_skip_threshold":      skip_threshold,
                 "confidence_threshold":       detector_kwargs.get("confidence_threshold"),
                 "lettucedetect_model_path":   LETTUCEDETECT_MODEL_PATH if detector_type == "lettucedetect" else None,
                 "lettuceprevent_model_path":  LETTUCEPREVENT_MODEL_PATH if detector_type == "lettuceprevent" else None,
             },
             "total_logits_modifications": total_modifications,
+            "total_hdm_skips":            total_skips,
+            "total_hdm_checks":           total_checks,
         }
     })
 
     # ----- Save raw generations -----
     timestamp = overall_start_dt.strftime("%Y%m%d_%H%M%S")
     safe_gen   = generator_model.replace("/", "_")
-    base_name  = f"{output_prefix}_{safe_gen}_{detector_type}_{timestamp}"
+    skip_label = f"skip_{skip_threshold:.2f}".replace(".", "_")
+    base_name  = f"{output_prefix}_{safe_gen}_{detector_type}_{skip_label}_{timestamp}"
     gen_path   = f"{DATA_DIR}/{base_name}_generations.json"
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(gen_path, "w", encoding="utf-8") as f:
@@ -434,9 +461,14 @@ def run_one_cell(
     if run is not None:
         run.summary["total_generations"]          = len(items_for_eval)
         run.summary["total_logits_modifications"] = total_modifications
+        run.summary["total_hdm_skips"]            = total_skips
+        run.summary["total_hdm_checks"]           = total_checks
+        run.summary["skip_rate"] = (
+            total_skips / total_checks if total_checks else 0.0
+        )
         run.summary["total_runtime_seconds"]      = total_dur
-        run.summary["post_eval_total_hallucinations"]       = stats["total"]["hallucinations"]
-        run.summary["post_eval_items_with_hallucinations"]  = stats["total"]["items_with_hallucinations"]
+        run.summary["post_eval_total_hallucinations"]      = stats["total"]["hallucinations"]
+        run.summary["post_eval_items_with_hallucinations"] = stats["total"]["items_with_hallucinations"]
         for label, n in stats["total"]["buckets"].items():
             run.summary[f"post_eval_total_bucket_{label}"] = n
         for tt, info in stats["per_task"].items():
@@ -447,7 +479,8 @@ def run_one_cell(
                 run.summary[f"post_eval_{tt}_bucket_{label}"] = n
 
         artifact = wandb.Artifact(
-            f"{safe_gen}__{detector_type}__results", type="rq1_results",
+            f"{safe_gen}__{detector_type}__{skip_label}__results",
+            type="rq_results",
         )
         artifact.add_file(gen_path)
         artifact.add_file(halluc_json_path)
@@ -459,6 +492,10 @@ def run_one_cell(
     print(f"  Generations:          {len(items_for_eval)}")
     print(f"  Total runtime:        {total_dur}s")
     print(f"  Logits modifications: {total_modifications}")
+    print(f"  HDM skips:            {total_skips}")
+    print(f"  HDM checks:           {total_checks}")
+    if total_checks:
+        print(f"  Skip rate:            {total_skips / total_checks:.4f}")
     print(f"  Post-eval hallucs:    {stats['total']['hallucinations']} "
           f"in {stats['total']['items_with_hallucinations']} items")
 
@@ -474,24 +511,27 @@ def sweep_train_fn():
     run_one_cell(
         generator_model            = cfg.generator_model,
         detector_type              = cfg.detector_type,
+        skip_threshold             = float(cfg.skip_threshold),
         output_prefix              = cfg.get("output_prefix", "rq1"),
-        n_per_task                 = int(cfg.get("n_per_task", 150)),
+        n_per_task                 = int(cfg.get("n_per_task", N_PER_TASK)),
         confidence_floor_post_eval = float(cfg.get("post_eval_floor", 0.70)),
         use_wandb                  = False,  # already in a wandb run
     )
-    # Re-finalize the agent's run (run_one_cell created its own).
     if run is not None and not run._is_finished:
         run.finish()
 
 
-def build_sweep_config(output_prefix: str, n_per_task: int, post_eval_floor: float) -> dict:
+def build_sweep_config(
+    output_prefix: str, n_per_task: int, post_eval_floor: float,
+) -> dict:
     return {
-        "name":   "rq1-generator-detector-sweep",
+        "name":   "rq-generator-detector-skip-sweep",
         "method": "grid",
         "metric": {"name": "post_eval_total_hallucinations", "goal": "minimize"},
         "parameters": {
             "generator_model":  {"values": GENERATOR_MODELS},
             "detector_type":    {"values": DETECTOR_TYPES_SWEEPED},
+            "skip_threshold":   {"values": SKIP_THRESHOLDS},
             "output_prefix":    {"value":  output_prefix},
             "n_per_task":       {"value":  n_per_task},
             "post_eval_floor":  {"value":  post_eval_floor},
@@ -504,20 +544,26 @@ def build_sweep_config(output_prefix: str, n_per_task: int, post_eval_floor: flo
 # ===========================================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="RQ1 main entry point.")
+    parser = argparse.ArgumentParser(description="RQ1 / RQ2 main entry point.")
     parser.add_argument(
         "--mode",
         choices=["sweep-create", "sweep-agent", "single"],
         default="single",
         help="sweep-create: register sweep id only. "
              "sweep-agent: run as a sweep worker. "
-             "single: one (generator, detector) cell, no W&B sweep.",
+             "single: one cell, no W&B sweep.",
     )
     parser.add_argument("--sweep-id", type=str, default=None,
                         help="Existing W&B sweep id to attach the agent to.")
-    parser.add_argument("--count", type=int,
-                        default=len(GENERATOR_MODELS) * len(DETECTOR_TYPES_SWEEPED),
-                        help="Max sweep runs this agent will execute.")
+    parser.add_argument(
+        "--count", type=int,
+        default=(
+            len(GENERATOR_MODELS)
+            * len(DETECTOR_TYPES_SWEEPED)
+            * len(SKIP_THRESHOLDS)
+        ),
+        help="Max sweep runs this agent will execute.",
+    )
     parser.add_argument("--entity",  type=str, default=WANDB_ENTITY)
     parser.add_argument("--project", type=str, default=WANDB_PROJECT)
 
@@ -528,8 +574,15 @@ def main():
                         default="lettucedetect",
                         choices=sorted(VALID_DETECTOR_TYPES),
                         help="Used in --mode single.")
+    parser.add_argument(
+        "--skip-threshold", type=float, default=1.0,
+        help="Used in --mode single. Generator-confidence threshold above "
+             "which the HDM check is skipped. With 1.0 the HDM is never "
+             "skipped (top-k softmax is bounded by 1.0). Lower values trade "
+             "quality for speed.",
+    )
 
-    parser.add_argument("--n-per-task", type=int, default=150)
+    parser.add_argument("--n-per-task", type=int, default=N_PER_TASK)
     parser.add_argument("--post-eval-floor", type=float, default=0.70,
                         help="LettuceDetect-base confidence floor for post-eval.")
     parser.add_argument("--output-prefix", type=str, default="rq1")
@@ -570,6 +623,7 @@ def main():
     run_one_cell(
         generator_model            = args.generator_model,
         detector_type              = args.detector_type,
+        skip_threshold             = args.skip_threshold,
         output_prefix              = args.output_prefix,
         n_per_task                 = args.n_per_task,
         confidence_floor_post_eval = args.post_eval_floor,
