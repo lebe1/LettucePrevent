@@ -125,6 +125,7 @@ def make_deterministic(seed: int) -> None:
     hf_set_seed(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
+    torch.set_float32_matmul_precision("high")
     try:
         torch.use_deterministic_algorithms(True, warn_only=True)
     except Exception:
