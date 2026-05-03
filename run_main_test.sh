@@ -154,3 +154,69 @@ echo ""
     --n-per-task 2 \
     --output-prefix "${OUTPUT_PREFIX}" \
     --no-wandb
+
+# ---------------------------------------------------------------------------
+# Smoke test: single cell, Qwen + lettuceprevent + skip=1.0, 2 prompts/task
+# ---------------------------------------------------------------------------
+echo ""
+echo "================================================================"
+echo "Running smoke test:"
+echo "  Generator:   Qwen"
+echo "  Detector:    lettuceprevent"
+echo "  Skip thr:    1.0"
+echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "================================================================"
+echo ""
+
+"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+    --mode single \
+    --generator-model Qwen/Qwen2.5-14B-Instruct \
+    --detector-type lettuceprevent \
+    --skip-threshold 1.0 \
+    --n-per-task 2 \
+    --output-prefix "${OUTPUT_PREFIX}" \
+    --no-wandb
+
+# ---------------------------------------------------------------------------
+# Smoke test: single cell, Llama + lettuceprevent + skip=1.0, 2 prompts/task
+# ---------------------------------------------------------------------------
+echo ""
+echo "================================================================"
+echo "Running smoke test:"
+echo "  Generator:   Llama"
+echo "  Detector:    lettuceprevent"
+echo "  Skip thr:    1.0"
+echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "================================================================"
+echo ""
+
+"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+    --mode single \
+    --generator-model meta-llama/Llama-2-7b-chat-hf \
+    --detector-type lettuceprevent \
+    --skip-threshold 1.0 \
+    --n-per-task 2 \
+    --output-prefix "${OUTPUT_PREFIX}" \
+    --no-wandb
+
+# ---------------------------------------------------------------------------
+# Smoke test: single cell, Mistral + baseline + skip=1.0, 2 prompts/task
+# ---------------------------------------------------------------------------
+echo ""
+echo "================================================================"
+echo "Running smoke test:"
+echo "  Generator:   mistralai/Mistral-7B-Instruct-v0.2"
+echo "  Detector:    lettuceprevent"
+echo "  Skip thr:    1.0"
+echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "================================================================"
+echo ""
+
+"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+    --mode single \
+    --generator-model mistralai/Mistral-7B-Instruct-v0.2 \
+    --detector-type baseline-run-facts \
+    --skip-threshold 1.0 \
+    --n-per-task 2 \
+    --output-prefix "${OUTPUT_PREFIX}" \
+    --no-wandb
