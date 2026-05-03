@@ -40,7 +40,7 @@ export SCRATCH_DIR="${WORK_DIR}"
 export WEAVE_DISABLED="true"
 export HF_HOME="/share/${USER}/.cache/huggingface"
 export HF_DATASETS_CACHE="${HF_HOME}/datasets"
-export HF_HOME="${HF_HOME}/transformers"
+export TRANSFORMERS_CACHE="${HF_HOME}/transformers"
 unset HF_DATASETS_OFFLINE || true
 
 mkdir -p "${HF_HOME}"
