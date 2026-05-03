@@ -1,24 +1,24 @@
 """
-RQ1 main entry point.
+Main entry point experiments.
 
-Runs a single (generator, detector) cell of the W&B sweep, or — when invoked
+Runs a single (generator, detector, skip threshold) cell of the W&B sweep, or — when invoked
 without W&B — runs once with the constants below.
 
 Sweep dimensions:
   - GENERATOR_MODELS       (3 values)
   - DETECTOR_TYPES_SWEEPED (2 values: lettuceprevent, baseline-run-facts)
+  - SKIP_THRESHOLDS        (optional: only confidence level of the generating model lower than skip threshold will be evaluated for hallucinations)
 
 Outside the sweep:
   - 'number' and 'baseline-run-numbers' run on local summary-only data (existing
     experiment is finished, kept available for manual reruns).
-
-Generation strategy is deterministic beam search by default. All seeds are
-fixed to make the run reproducible.
 """
+
+import os
+
 
 import argparse
 import json
-import os
 import random
 import time
 import warnings
@@ -39,9 +39,14 @@ from transformers import (
     set_seed as hf_set_seed,
 )
 
+# IMPORTANT: set the debug-print env var BEFORE importing detector modules,
+# since they read it at import time.
+DEBUG_PRINT_TO_CONSOLE = False
+os.environ["DEBUG_PRINT_TO_CONSOLE"] = "1" if DEBUG_PRINT_TO_CONSOLE else "0"
+
+from detectors.dataset_loader import load_prompts_for_detector
 from detectors.factory import DetectorFactory, VALID_DETECTOR_TYPES
 from logits_processors.hallucination_logits_processor import HallucinationLogitsProcessor
-from detectors.dataset_loader import load_prompts_for_detector
 from analysis.post_eval import (
     evaluate_generated_answers,
     write_hallucinations_json,
@@ -54,65 +59,46 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 
 # ===========================================================================
-# Top-of-file configuration (edit here, not in CLI)
+# Top-of-file configuration
 # ===========================================================================
 
-# Generators included in the W&B sweep.
 GENERATOR_MODELS = [
     "mistralai/Mistral-7B-Instruct-v0.2",
     "meta-llama/Llama-2-7b-chat-hf",
     "Qwen/Qwen2.5-14B-Instruct",
 ]
 
-# Detectors included in the W&B sweep.
 DETECTOR_TYPES_SWEEPED = [
     "lettuceprevent",
     "baseline-run-facts",
 ]
 
-# Skip-threshold values to sweep over. Default keeps current behavior (never
-# skip), so changing to a different list is what enables the RQ2 study.
-SKIP_THRESHOLDS = [0.8, 0.9, 1.0]
+SKIP_THRESHOLDS = [0.8,0.9,0.99,1.0]
+N_PER_TASK = 20
 
-# Per-task prompt cap for the sweep. RQ1 = 150, RQ2 = 50.
-N_PER_TASK = 50
-
-# Per-detector confidence thresholds (best from RQ3 threshold sweep).
-# Edit these once the sweep finishes.
 DETECTOR_BEST_THRESHOLDS = {
-    "lettucedetect":  0.6,    # LettuceDetect-base optimum from sweep
-    "lettuceprevent": 0.8,    # decoder optimum from sweep 
+    "lettucedetect":  0.6,
+    "lettuceprevent": 0.8,
 }
 
-# When detector_type == 'lettucedetect' we default to LettuceDetect-base for
-# RQ1 (it outperformed TinyLettuce in the threshold sweep).
 LETTUCEDETECT_MODEL_PATH = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
-
-# When detector_type == 'lettuceprevent' the decoder model_path.
 LETTUCEPREVENT_MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
 
-# Beam search settings — kept as a top-level dict, easy to tweak.
+# Beam search settings. NUM_BEAMS = 1 = greedy (3-4x faster than 4-beam).
+NUM_BEAMS = 1
 GENERATION_CONFIG_KWARGS = {
     "max_new_tokens":       300,
     "min_length":           150,
     "do_sample":            False,
-    "num_beams":            4,
+    "num_beams":            NUM_BEAMS,
     "num_return_sequences": 1,
 }
 
-# System prompt for instruction-tuned generators.
-SYSTEM_PROMPT = (
-    "You always respond very precise and clear. Always end your answer with a complete "
-    "sentence and a period! Only stick to the information provided from the input!"
-)
-
-# LogitsProcessor settings.
 LAST_K_TOKENS_TO_CONSIDER = 10
 TOP_K_LOGITS              = 10
 PENALTY_VALUE             = 0
 USE_ALL_TOKENS            = True
 
-# Misc.
 SEED                      = 14
 DATA_DIR                  = "./data"
 LOCAL_SUMMARY_FILE        = f"{DATA_DIR}/ragtruth_unique_summary_prompts.json"
@@ -125,12 +111,6 @@ WANDB_PROJECT             = "hdm-rq1"
 # ===========================================================================
 
 def make_deterministic(seed: int) -> None:
-    """
-    Set every seed and flag we know about. With do_sample=False this is
-    sufficient: beam search is deterministic given identical model state and
-    inputs, and the cuDNN flags below pin down the remaining sources of
-    floating-point nondeterminism on CUDA kernels.
-    """
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -147,10 +127,12 @@ def make_deterministic(seed: int) -> None:
 
 
 # ===========================================================================
-# Stopping criteria \u2014 preserves the per-token print of the original script
+# Stopping criteria
 # ===========================================================================
 
 class TokenPrintStoppingCriteria(StoppingCriteria):
+    """Per-token printing for debugging. Only used when DEBUG_PRINT_TO_CONSOLE=True."""
+
     def __init__(self, tokenizer):
         self.tokenizer = tokenizer
 
@@ -165,15 +147,12 @@ class TokenPrintStoppingCriteria(StoppingCriteria):
 # ===========================================================================
 
 def build_messages_for_generator(generator_model_name: str, prompt: str):
-    """Most chat templates accept the same role-based dict format."""
     return [
-        {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user",   "content": prompt},
     ]
 
 
 def resolve_detector_kwargs(detector_type: str) -> dict:
-    """Build kwargs forwarded to DetectorFactory.create_detector."""
     det = detector_type.lower()
     kwargs: dict = {}
     if det == "lettucedetect":
@@ -198,12 +177,6 @@ def run_one_cell(
     skip_threshold: float,
     use_wandb: bool = True,
 ):
-    """
-    Run generation + post-eval for a single
-    (generator, detector, skip_threshold) cell.
-    """
-
-    # ----- W&B init -----
     run = None
     if use_wandb:
         run_name = (
@@ -219,6 +192,7 @@ def run_one_cell(
                 "detector_type":              detector_type,
                 "seed":                       SEED,
                 "generation_kwargs":          GENERATION_CONFIG_KWARGS,
+                "num_beams":                  NUM_BEAMS,
                 "last_k_tokens_to_consider":  LAST_K_TOKENS_TO_CONSIDER,
                 "top_k_logits":               TOP_K_LOGITS,
                 "penalty_value":              str(PENALTY_VALUE),
@@ -229,14 +203,13 @@ def run_one_cell(
                 "detector_thresholds":        DETECTOR_BEST_THRESHOLDS,
                 "post_eval_confidence_floor": confidence_floor_post_eval,
                 "n_per_task":                 n_per_task,
-                "system_prompt":              SYSTEM_PROMPT,
+                "debug_print_to_console":     DEBUG_PRINT_TO_CONSOLE,
             },
             reinit=True,
         )
 
     make_deterministic(SEED)
 
-    # ----- Load prompts -----
     prompts, source_label = load_prompts_for_detector(
         detector_type=detector_type,
         local_summary_filepath=LOCAL_SUMMARY_FILE,
@@ -246,9 +219,10 @@ def run_one_cell(
     print(f">>> Detector:       {detector_type}")
     print(f">>> Skip threshold: {skip_threshold}")
     print(f">>> Source:         {source_label}")
-    print(f">>> Prompts:        {len(prompts)}\n")
+    print(f">>> Prompts:        {len(prompts)}")
+    print(f">>> Num beams:      {NUM_BEAMS}")
+    print(f">>> Debug print:    {DEBUG_PRINT_TO_CONSOLE}\n")
 
-    # ----- Load generator -----
     print(f"Loading generator tokenizer + model: {generator_model}")
     tokenizer = AutoTokenizer.from_pretrained(generator_model)
     if tokenizer.pad_token is None:
@@ -268,7 +242,6 @@ def run_one_cell(
         eos_token_id=tokenizer.eos_token_id,
     )
 
-    # ----- Generate -----
     detector_kwargs = resolve_detector_kwargs(detector_type)
     results = []
     total_modifications = 0
@@ -283,7 +256,6 @@ def run_one_cell(
         raw_prompt = item["prompt"]
         task_type = item.get("task_type", "Summary")
 
-        # Build per-prompt detector + processor (caches scoped to prompt).
         logits_processor = None
         detector = DetectorFactory.create_detector(
             detector_type=detector_type,
@@ -299,6 +271,7 @@ def run_one_cell(
                 penalty_value=PENALTY_VALUE,
                 use_all_tokens=USE_ALL_TOKENS,
                 skip_threshold=skip_threshold,
+                debug_print=DEBUG_PRINT_TO_CONSOLE,
             )
 
         messages = build_messages_for_generator(generator_model, raw_prompt)
@@ -311,20 +284,16 @@ def run_one_cell(
         )
         input_data = {k: v.to(model.device) for k, v in input_data.items()}
 
-        # Re-seed for every prompt to guarantee that, with the SAME prompt,
-        # generation is identical even if the loop above had any incidental
-        # nondeterminism.
         torch.manual_seed(SEED + prompt_idx)
-
-        token_print_criteria = StoppingCriteriaList(
-            [TokenPrintStoppingCriteria(tokenizer)]
-        )
 
         gen_kwargs = dict(
             **input_data,
             generation_config=gen_config,
-            stopping_criteria=token_print_criteria,
         )
+        if DEBUG_PRINT_TO_CONSOLE:
+            gen_kwargs["stopping_criteria"] = StoppingCriteriaList(
+                [TokenPrintStoppingCriteria(tokenizer)]
+            )
         if logits_processor is not None:
             gen_kwargs["logits_processor"] = LogitsProcessorList([logits_processor])
 
@@ -370,7 +339,6 @@ def run_one_cell(
             result_data["logits_modifications"] = 0
             result_data["comparison_experiment"] = True
 
-        # Always record skip/check counters when a logits processor was used.
         if logits_processor is not None:
             result_data["hdm_skip_count"]  = logits_processor.skip_count
             result_data["hdm_check_count"] = logits_processor.check_count
@@ -393,13 +361,11 @@ def run_one_cell(
     overall_end = time.time()
     total_dur = round(overall_end - overall_start, 2)
 
-    # ----- Generation metadata block -----
     results.append({
         "_meta": {
             "generator_model":   generator_model,
             "detector_type":     detector_type,
             "skip_threshold":    skip_threshold,
-            "system_prompt":     SYSTEM_PROMPT,
             "num_prompts":       len(prompts),
             "total_generations": len(prompts),
             "seed":              SEED,
@@ -424,7 +390,6 @@ def run_one_cell(
         }
     })
 
-    # ----- Save raw generations -----
     timestamp = overall_start_dt.strftime("%Y%m%d_%H%M%S")
     safe_gen   = generator_model.replace("/", "_")
     skip_label = f"skip_{skip_threshold:.2f}".replace(".", "_")
@@ -435,12 +400,10 @@ def run_one_cell(
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"Saved generations: {gen_path}")
 
-    # Free generator memory before loading post-eval model.
     del model
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
 
-    # ----- Post-eval on every generation -----
     print("\n" + "=" * 60)
     print("Post-eval with LettuceDetect-base")
     print("=" * 60)
@@ -457,7 +420,6 @@ def run_one_cell(
     print(f"Saved post-eval JSON: {halluc_json_path}")
     print(f"Saved post-eval TXT:  {stats_txt_path}")
 
-    # ----- Final W&B logging -----
     if run is not None:
         run.summary["total_generations"]          = len(items_for_eval)
         run.summary["total_logits_modifications"] = total_modifications
@@ -505,7 +467,6 @@ def run_one_cell(
 # ===========================================================================
 
 def sweep_train_fn():
-    """W&B sweep agent target."""
     run = wandb.init()
     cfg = wandb.config
     run_one_cell(
@@ -515,7 +476,7 @@ def sweep_train_fn():
         output_prefix              = cfg.get("output_prefix", "rq1"),
         n_per_task                 = int(cfg.get("n_per_task", N_PER_TASK)),
         confidence_floor_post_eval = float(cfg.get("post_eval_floor", 0.70)),
-        use_wandb                  = False,  # already in a wandb run
+        use_wandb                  = False,
     )
     if run is not None and not run._is_finished:
         run.finish()
@@ -549,12 +510,8 @@ def main():
         "--mode",
         choices=["sweep-create", "sweep-agent", "single"],
         default="single",
-        help="sweep-create: register sweep id only. "
-             "sweep-agent: run as a sweep worker. "
-             "single: one cell, no W&B sweep.",
     )
-    parser.add_argument("--sweep-id", type=str, default=None,
-                        help="Existing W&B sweep id to attach the agent to.")
+    parser.add_argument("--sweep-id", type=str, default=None)
     parser.add_argument(
         "--count", type=int,
         default=(
@@ -562,32 +519,20 @@ def main():
             * len(DETECTOR_TYPES_SWEEPED)
             * len(SKIP_THRESHOLDS)
         ),
-        help="Max sweep runs this agent will execute.",
     )
     parser.add_argument("--entity",  type=str, default=WANDB_ENTITY)
     parser.add_argument("--project", type=str, default=WANDB_PROJECT)
 
     parser.add_argument("--generator-model", type=str,
-                        default=GENERATOR_MODELS[0],
-                        help="Used in --mode single.")
+                        default=GENERATOR_MODELS[0])
     parser.add_argument("--detector-type",   type=str,
                         default="lettucedetect",
-                        choices=sorted(VALID_DETECTOR_TYPES),
-                        help="Used in --mode single.")
-    parser.add_argument(
-        "--skip-threshold", type=float, default=1.0,
-        help="Used in --mode single. Generator-confidence threshold above "
-             "which the HDM check is skipped. With 1.0 the HDM is never "
-             "skipped (top-k softmax is bounded by 1.0). Lower values trade "
-             "quality for speed.",
-    )
-
+                        choices=sorted(VALID_DETECTOR_TYPES))
+    parser.add_argument("--skip-threshold", type=float, default=1.0)
     parser.add_argument("--n-per-task", type=int, default=N_PER_TASK)
-    parser.add_argument("--post-eval-floor", type=float, default=0.70,
-                        help="LettuceDetect-base confidence floor for post-eval.")
+    parser.add_argument("--post-eval-floor", type=float, default=0.70)
     parser.add_argument("--output-prefix", type=str, default="rq1")
-    parser.add_argument("--no-wandb", action="store_true",
-                        help="Skip W&B for --mode single.")
+    parser.add_argument("--no-wandb", action="store_true")
 
     args = parser.parse_args()
 
@@ -619,7 +564,6 @@ def main():
         )
         return
 
-    # --mode single
     run_one_cell(
         generator_model            = args.generator_model,
         detector_type              = args.detector_type,

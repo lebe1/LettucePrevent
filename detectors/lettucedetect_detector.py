@@ -2,6 +2,8 @@ from typing import Optional
 from lettucedetect.models.inference import HallucinationDetector
 
 from .base_detector import BaseHallucinationDetector
+import os
+DEBUG_PRINT = os.environ.get("DEBUG_PRINT_TO_CONSOLE", "0") == "1"
 
 
 # ---------------------------------------------------------------------------
@@ -54,11 +56,11 @@ class LettuceDetectDetector(BaseHallucinationDetector):
         # out of current_sequence.
         self._context_list = [input_text]
         self._input_text_len = len(input_text)
-
-        print(
-            f"Initialized LettuceDetectDetector (model_path='{self.model_path}', "
-            f"threshold={confidence_threshold})"
-        )
+        if DEBUG_PRINT:
+            print(
+                f"Initialized LettuceDetectDetector (model_path='{self.model_path}', "
+                f"threshold={confidence_threshold})"
+            )
 
     def _next_token_text(self, current_ids, next_token_id: int) -> str:
         """
@@ -123,7 +125,7 @@ class LettuceDetectDetector(BaseHallucinationDetector):
                 # Span must overlap the tail of the potential answer
                 # (where the new token sits).
                 tail = potential_answer[-len(span_text) - 10:] if span_text else ""
-                if span_text and span_text in tail:
+                if span_text and span_text in tail and DEBUG_PRINT:
                     print(
                         f"LettuceDetect detected hallucination: '{span_text}' "
                         f"(confidence: {confidence:.3f})"
