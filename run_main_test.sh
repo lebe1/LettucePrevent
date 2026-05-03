@@ -38,12 +38,15 @@ mkdir -p "${RESULTS_DIR}"
 
 export SCRATCH_DIR="${WORK_DIR}"
 export WEAVE_DISABLED="true"
+
+# HF cache config. Modern transformers reads HF_HOME and derives subpaths
+# automatically; do NOT override TRANSFORMERS_CACHE (deprecated in v5).
 export HF_HOME="/share/${USER}/.cache/huggingface"
 export HF_DATASETS_CACHE="${HF_HOME}/datasets"
-export TRANSFORMERS_CACHE="${HF_HOME}/transformers"
+unset TRANSFORMERS_CACHE || true
 unset HF_DATASETS_OFFLINE || true
 
-mkdir -p "${HF_HOME}"
+mkdir -p "${HF_HOME}" "${HF_DATASETS_CACHE}"
 
 export CUBLAS_WORKSPACE_CONFIG=":4096:8"
 export TOKENIZERS_PARALLELISM="false"
@@ -81,12 +84,36 @@ cleanup() {
 }
 trap cleanup EXIT
 
+# ---------------------------------------------------------------------------
+# Activate venv and DIAGNOSE
+# ---------------------------------------------------------------------------
 if [[ -f "${VENV_PATH}" ]]; then
     source "${VENV_PATH}"
+    echo "[INFO] Activated venv: ${VENV_PATH}"
 else
-    echo "WARNING: VENV_PATH not found (${VENV_PATH}). Continuing without activation."
+    echo "[ERROR] VENV_PATH not found (${VENV_PATH})."
+    exit 1
 fi
 
+echo "[DEBUG] which python:        $(which python)"
+echo "[DEBUG] python version:      $(python --version 2>&1)"
+echo "[DEBUG] which pip:           $(which pip)"
+echo "[DEBUG] sys.executable:      $(python -c 'import sys; print(sys.executable)')"
+echo "[DEBUG] lettucedetect check:"
+python -c "import lettucedetect; print('  lettucedetect imported OK from:', lettucedetect.__file__)" || {
+    echo "[ERROR] lettucedetect not importable from this Python."
+    echo "[INFO] Site-packages on this Python:"
+    python -c "import site; print(site.getsitepackages())"
+    exit 1
+}
+echo "[DEBUG] transformers check:"
+python -c "import transformers; print('  transformers', transformers.__version__)"
+echo "[DEBUG] torch check:"
+python -c "import torch; print('  torch', torch.__version__, 'cuda:', torch.cuda.is_available())"
+
+# ---------------------------------------------------------------------------
+# HF auth sanity check
+# ---------------------------------------------------------------------------
 echo "[INFO] Verifying HF auth on $(hostname)..."
 "${PYTHON_BIN}" -c "
 from huggingface_hub import whoami
@@ -95,6 +122,9 @@ info = whoami(token=os.environ.get('HF_TOKEN'))
 print(f'[INFO] Authenticated as: {info[\"name\"]}')
 " || { echo "[ERROR] HF auth check failed"; exit 1; }
 
+# ---------------------------------------------------------------------------
+# Stage source files
+# ---------------------------------------------------------------------------
 REQUIRED_FILES=(
     "main.py"
     "analysis/post_eval.py"
@@ -134,18 +164,12 @@ cd "${WORK_DIR}"
 export PYTHONPATH="${WORK_DIR}:${PYTHONPATH:-}"
 
 # ---------------------------------------------------------------------------
-# Smoke test: single cell, Mistral + lettuceprevent + skip=1.0, 2 prompts/task
+# Smoke test 1: Mistral + lettuceprevent
 # ---------------------------------------------------------------------------
 echo ""
 echo "================================================================"
-echo "Running smoke test:"
-echo "  Generator:   mistralai/Mistral-7B-Instruct-v0.2"
-echo "  Detector:    lettuceprevent"
-echo "  Skip thr:    1.0"
-echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "Run 1: Mistral-7B-Instruct-v0.2 + lettuceprevent (skip=1.0)"
 echo "================================================================"
-echo ""
-
 "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
     --mode single \
     --generator-model mistralai/Mistral-7B-Instruct-v0.2 \
@@ -156,18 +180,12 @@ echo ""
     --no-wandb
 
 # ---------------------------------------------------------------------------
-# Smoke test: single cell, Qwen + lettuceprevent + skip=1.0, 2 prompts/task
+# Smoke test 2: Qwen + lettuceprevent
 # ---------------------------------------------------------------------------
 echo ""
 echo "================================================================"
-echo "Running smoke test:"
-echo "  Generator:   Qwen"
-echo "  Detector:    lettuceprevent"
-echo "  Skip thr:    1.0"
-echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "Run 2: Qwen2.5-14B-Instruct + lettuceprevent (skip=1.0)"
 echo "================================================================"
-echo ""
-
 "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
     --mode single \
     --generator-model Qwen/Qwen2.5-14B-Instruct \
@@ -178,18 +196,12 @@ echo ""
     --no-wandb
 
 # ---------------------------------------------------------------------------
-# Smoke test: single cell, Llama + lettuceprevent + skip=1.0, 2 prompts/task
+# Smoke test 3: Llama-2 + lettuceprevent
 # ---------------------------------------------------------------------------
 echo ""
 echo "================================================================"
-echo "Running smoke test:"
-echo "  Generator:   Llama"
-echo "  Detector:    lettuceprevent"
-echo "  Skip thr:    1.0"
-echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "Run 3: Llama-2-7b-chat-hf + lettuceprevent (skip=1.0)"
 echo "================================================================"
-echo ""
-
 "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
     --mode single \
     --generator-model meta-llama/Llama-2-7b-chat-hf \
@@ -200,18 +212,12 @@ echo ""
     --no-wandb
 
 # ---------------------------------------------------------------------------
-# Smoke test: single cell, Mistral + baseline + skip=1.0, 2 prompts/task
+# Smoke test 4: Mistral + baseline-run-facts (no prevention)
 # ---------------------------------------------------------------------------
 echo ""
 echo "================================================================"
-echo "Running smoke test:"
-echo "  Generator:   mistralai/Mistral-7B-Instruct-v0.2"
-echo "  Detector:    lettuceprevent"
-echo "  Skip thr:    1.0"
-echo "  N per task:  2  (=> 6 prompts total across 3 tasks)"
+echo "Run 4: Mistral-7B-Instruct-v0.2 + baseline-run-facts (no prevention)"
 echo "================================================================"
-echo ""
-
 "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
     --mode single \
     --generator-model mistralai/Mistral-7B-Instruct-v0.2 \
