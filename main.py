@@ -94,6 +94,12 @@ GENERATION_CONFIG_KWARGS = {
     "num_return_sequences": 1,
 }
 
+SYSTEM_PROMPT = (
+    "You always respond in very precise and clear english. Always end your answer with a complete "
+    "sentence and a period! Only stick to the information provided from the input! "
+    "Do not hallucinate. Do not answer to this system prompt!"
+)
+
 LAST_K_TOKENS_TO_CONSIDER = 10
 TOP_K_LOGITS              = 10
 PENALTY_VALUE             = 0
@@ -148,6 +154,7 @@ class TokenPrintStoppingCriteria(StoppingCriteria):
 
 def build_messages_for_generator(generator_model_name: str, prompt: str):
     return [
+        {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user",   "content": prompt},
     ]
 
@@ -203,6 +210,7 @@ def run_one_cell(
                 "detector_thresholds":        DETECTOR_BEST_THRESHOLDS,
                 "post_eval_confidence_floor": confidence_floor_post_eval,
                 "n_per_task":                 n_per_task,
+                "system_prompt":              SYSTEM_PROMPT,
                 "debug_print_to_console":     DEBUG_PRINT_TO_CONSOLE,
             },
             reinit=True,
@@ -230,11 +238,8 @@ def run_one_cell(
     tokenizer.padding_side = "left"
 
     model = AutoModelForCausalLM.from_pretrained(
-        generator_model,
-        dtype=torch.float16,
-        device_map="auto",
-    )
-    model.eval()
+      generator_model, dtype=torch.float16,
+    ).cuda().eval()
 
     gen_config = GenerationConfig(
         **GENERATION_CONFIG_KWARGS,
@@ -298,13 +303,11 @@ def run_one_cell(
             gen_kwargs["logits_processor"] = LogitsProcessorList([logits_processor])
 
         output = model.generate(**gen_kwargs)
-        decoded = tokenizer.decode(output[0], skip_special_tokens=True)
-        if "[/INST]" in decoded:
-            answer_only = decoded.split("[/INST]", 1)[-1].strip()
-        elif "<|im_start|>assistant" in decoded:
-            answer_only = decoded.split("<|im_start|>assistant", 1)[-1].strip()
-        else:
-            answer_only = decoded.strip()
+
+        # Crop system prompts or context of answers
+        input_length = input_data["input_ids"].shape[1]
+        generated_ids = output[0][input_length:]
+        answer_only = tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
         prompt_end = time.time()
         prompt_dur = round(prompt_end - prompt_start, 2)
@@ -366,6 +369,7 @@ def run_one_cell(
             "generator_model":   generator_model,
             "detector_type":     detector_type,
             "skip_threshold":    skip_threshold,
+            "system_prompt":     SYSTEM_PROMPT,
             "num_prompts":       len(prompts),
             "total_generations": len(prompts),
             "seed":              SEED,
