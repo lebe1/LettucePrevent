@@ -105,7 +105,7 @@ TOP_K_LOGITS              = 10
 PENALTY_VALUE             = 0
 USE_ALL_TOKENS            = True
 
-SEED                      = 14
+SEED                      = 42
 DATA_DIR                  = "./data"
 LOCAL_SUMMARY_FILE        = f"{DATA_DIR}/ragtruth_unique_summary_prompts.json"
 WANDB_ENTITY              = "lebeccard-technical-university-wien"
@@ -314,7 +314,7 @@ def run_one_cell(
         prompt_dur = round(prompt_end - prompt_start, 2)
 
         result_data = {
-            "prompt":            raw_prompt,
+            "context":           raw_prompt,
             "query":             item.get("query"),
             "answer":            answer_only,
             "task_type":         task_type,

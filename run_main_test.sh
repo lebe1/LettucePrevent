@@ -166,50 +166,50 @@ export PYTHONPATH="${WORK_DIR}:${PYTHONPATH:-}"
 # ---------------------------------------------------------------------------
 # Smoke test 1: Mistral + lettuceprevent
 # ---------------------------------------------------------------------------
-echo ""
-echo "================================================================"
-echo "Run 1: Mistral-7B-Instruct-v0.2 + lettuceprevent (skip=1.0)"
-echo "================================================================"
-"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-    --mode single \
-    --generator-model mistralai/Mistral-7B-Instruct-v0.2 \
-    --detector-type lettuceprevent \
-    --skip-threshold 1.0 \
-    --n-per-task 2 \
-    --output-prefix "${OUTPUT_PREFIX}" \
-    --no-wandb
+# echo ""
+# echo "================================================================"
+# echo "Run 1: Mistral-7B-Instruct-v0.2 + lettuceprevent (skip=1.0)"
+# echo "================================================================"
+# "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+#     --mode single \
+#     --generator-model mistralai/Mistral-7B-Instruct-v0.2 \
+#     --detector-type lettuceprevent \
+#     --skip-threshold 1.0 \
+#     --n-per-task 2 \
+#     --output-prefix "${OUTPUT_PREFIX}" \
+#     --no-wandb
 
-# ---------------------------------------------------------------------------
-# Smoke test 2: Qwen + lettuceprevent
-# ---------------------------------------------------------------------------
-echo ""
-echo "================================================================"
-echo "Run 2: Qwen2.5-14B-Instruct + lettuceprevent (skip=1.0)"
-echo "================================================================"
-"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-    --mode single \
-    --generator-model Qwen/Qwen2.5-14B-Instruct \
-    --detector-type lettuceprevent \
-    --skip-threshold 1.0 \
-    --n-per-task 2 \
-    --output-prefix "${OUTPUT_PREFIX}" \
-    --no-wandb
+# # ---------------------------------------------------------------------------
+# # Smoke test 2: Qwen + lettuceprevent
+# # ---------------------------------------------------------------------------
+# echo ""
+# echo "================================================================"
+# echo "Run 2: Qwen2.5-14B-Instruct + lettuceprevent (skip=1.0)"
+# echo "================================================================"
+# "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+#     --mode single \
+#     --generator-model Qwen/Qwen2.5-14B-Instruct \
+#     --detector-type lettuceprevent \
+#     --skip-threshold 1.0 \
+#     --n-per-task 2 \
+#     --output-prefix "${OUTPUT_PREFIX}" \
+#     --no-wandb
 
-# ---------------------------------------------------------------------------
-# Smoke test 3: Llama-2 + lettuceprevent
-# ---------------------------------------------------------------------------
-echo ""
-echo "================================================================"
-echo "Run 3: Llama-2-7b-chat-hf + lettuceprevent (skip=1.0)"
-echo "================================================================"
-"${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-    --mode single \
-    --generator-model meta-llama/Llama-2-7b-chat-hf \
-    --detector-type lettuceprevent \
-    --skip-threshold 1.0 \
-    --n-per-task 2 \
-    --output-prefix "${OUTPUT_PREFIX}" \
-    --no-wandb
+# # ---------------------------------------------------------------------------
+# # Smoke test 3: Llama-2 + lettuceprevent
+# # ---------------------------------------------------------------------------
+# echo ""
+# echo "================================================================"
+# echo "Run 3: Llama-2-7b-chat-hf + lettuceprevent (skip=1.0)"
+# echo "================================================================"
+# "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
+#     --mode single \
+#     --generator-model meta-llama/Llama-2-7b-chat-hf \
+#     --detector-type lettuceprevent \
+#     --skip-threshold 1.0 \
+#     --n-per-task 2 \
+#     --output-prefix "${OUTPUT_PREFIX}" \
+#     --no-wandb
 
 # ---------------------------------------------------------------------------
 # Smoke test 4: Mistral + baseline-run-facts (no prevention)
