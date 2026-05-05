@@ -85,7 +85,7 @@ LETTUCEDETECT_MODEL_PATH = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
 LETTUCEPREVENT_MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
 
 # Beam search settings. NUM_BEAMS = 1 = greedy (3-4x faster than 4-beam).
-NUM_BEAMS = 1
+NUM_BEAMS = 4
 GENERATION_CONFIG_KWARGS = {
     "max_new_tokens":       300,
     "min_length":           150,
@@ -472,12 +472,30 @@ def run_one_cell(
 # ===========================================================================
 
 def sweep_train_fn():
+    """W&B sweep agent target."""
     run = wandb.init()
     cfg = wandb.config
+
+    detector_type   = cfg.detector_type
+    skip_threshold  = float(cfg.skip_threshold)
+
+    # Baseline detectors don't run an HDM, so skip_threshold has no effect.
+    # Run only at skip_threshold == 1.0 (the canonical "no skip" value) and
+    # short-circuit the other thresholds to avoid duplicate work.
+    is_baseline = detector_type.lower().startswith("baseline-")
+    if is_baseline and skip_threshold != 1.0:
+        run.summary["skipped_duplicate"] = True
+        run.summary["reason"] = (
+            f"Baseline run for skip_threshold={skip_threshold} would be "
+            f"identical to skip_threshold=1.0; skipping to avoid duplicate work."
+        )
+        run.finish()
+        return
+
     run_one_cell(
         generator_model            = cfg.generator_model,
-        detector_type              = cfg.detector_type,
-        skip_threshold             = float(cfg.skip_threshold),
+        detector_type              = detector_type,
+        skip_threshold             = skip_threshold,
         output_prefix              = cfg.get("output_prefix", "rq1"),
         n_per_task                 = int(cfg.get("n_per_task", N_PER_TASK)),
         confidence_floor_post_eval = float(cfg.get("post_eval_floor", 0.70)),
