@@ -69,16 +69,25 @@ GENERATOR_MODELS = [
 ]
 
 DETECTOR_TYPES_SWEEPED = [
+    "lettuceprevent",
     "baseline-run-facts",
 ]
 
 SKIP_THRESHOLDS = [1.0]
 N_PER_TASK = 20
 
-DETECTOR_BEST_THRESHOLDS = {
+DETECTORS_BEST_CONFIDENCE_THRESHOLDS = {
+    "tinylettuce":    0.5,
     "lettucedetect":  0.6,
     "lettuceprevent": 0.8,
 }
+
+MODELS_BEST_SKIP_THRESHOLDS = {
+    "mistralai/Mistral-7B-Instruct-v0.2":  0.8,
+    "meta-llama/Llama-2-7b-chat-hf": 1.0,
+    "Qwen/Qwen2.5-14B-Instruct": 0.99
+}
+
 
 LETTUCEDETECT_MODEL_PATH = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
 LETTUCEPREVENT_MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
@@ -475,11 +484,16 @@ def sweep_train_fn():
     run = wandb.init()
     cfg = wandb.config
 
-    detector_type   = cfg.detector_type
-    skip_threshold  = float(cfg.skip_threshold)
+    detector_type  = cfg.detector_type
+    generator_model = cfg.generator_model
+
+    # Derive skip threshold from the model's best known threshold
+    skip_threshold = float(
+        MODELS_BEST_SKIP_THRESHOLDS.get(generator_model, 1.0)
+    )
 
     run_one_cell(
-        generator_model            = cfg.generator_model,
+        generator_model            = generator_model,
         detector_type              = detector_type,
         skip_threshold             = skip_threshold,
         output_prefix              = cfg.get("output_prefix", "rq1"),
@@ -495,13 +509,14 @@ def build_sweep_config(
     output_prefix: str, n_per_task: int, post_eval_floor: float,
 ) -> dict:
     return {
-        "name":   "rq-generator-detector-skip-sweep",
+        "name":   "rq-generator-detector-sweep",
         "method": "grid",
         "metric": {"name": "post_eval_total_hallucinations", "goal": "minimize"},
         "parameters": {
             "generator_model":  {"values": GENERATOR_MODELS},
             "detector_type":    {"values": DETECTOR_TYPES_SWEEPED},
-            "skip_threshold":   {"values": SKIP_THRESHOLDS},
+            #"skip_threshold":   {"values": SKIP_THRESHOLDS},
+            # optionally add skip_threshold as sweep dimension;
             "output_prefix":    {"value":  output_prefix},
             "n_per_task":       {"value":  n_per_task},
             "post_eval_floor":  {"value":  post_eval_floor},
@@ -526,7 +541,7 @@ def main():
         default=(
             len(GENERATOR_MODELS)
             * len(DETECTOR_TYPES_SWEEPED)
-            * len(SKIP_THRESHOLDS)
+            # * len(SKIP_THRESHOLDS) optionally add this for sweeping over several skip thresholds
         ),
     )
     parser.add_argument("--entity",  type=str, default=WANDB_ENTITY)

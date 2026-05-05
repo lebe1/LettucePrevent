@@ -16,13 +16,13 @@ nvidia-smi -L
 
 REPO_DIR="/home/e12133103/LettucePrevent"
 RQ1_DIR="${REPO_DIR}"
-RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq1-results}"
+RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq1-skip-thresholds-results}"
 VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"
-WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq1}"
-SWEEP_COUNT="${SWEEP_COUNT:-9}"
+WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq1-skip-thresholds}"
+SWEEP_COUNT="${SWEEP_COUNT:-6}"
 N_PER_TASK="${N_PER_TASK:-150}"
 POST_EVAL_FLOOR="${POST_EVAL_FLOOR:-0.70}"
 OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq1}"
