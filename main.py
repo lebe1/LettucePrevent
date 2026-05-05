@@ -69,11 +69,10 @@ GENERATOR_MODELS = [
 ]
 
 DETECTOR_TYPES_SWEEPED = [
-    "lettuceprevent",
     "baseline-run-facts",
 ]
 
-SKIP_THRESHOLDS = [0.8,0.9,0.99,1.0]
+SKIP_THRESHOLDS = [1.0]
 N_PER_TASK = 20
 
 DETECTOR_BEST_THRESHOLDS = {
@@ -478,19 +477,6 @@ def sweep_train_fn():
 
     detector_type   = cfg.detector_type
     skip_threshold  = float(cfg.skip_threshold)
-
-    # Baseline detectors don't run an HDM, so skip_threshold has no effect.
-    # Run only at skip_threshold == 1.0 (the canonical "no skip" value) and
-    # short-circuit the other thresholds to avoid duplicate work.
-    is_baseline = detector_type.lower().startswith("baseline-")
-    if is_baseline and skip_threshold != 1.0:
-        run.summary["skipped_duplicate"] = True
-        run.summary["reason"] = (
-            f"Baseline run for skip_threshold={skip_threshold} would be "
-            f"identical to skip_threshold=1.0; skipping to avoid duplicate work."
-        )
-        run.finish()
-        return
 
     run_one_cell(
         generator_model            = cfg.generator_model,
