@@ -5,18 +5,18 @@ Runs a single (generator, detector, skip threshold) cell of the W&B sweep, or �
 without W&B — runs once with the constants below.
 
 Sweep dimensions:
-  - GENERATOR_MODELS       (3 values)
-  - DETECTOR_TYPES_SWEEPED (2 values: lettuceprevent, baseline-run-facts)
-  - SKIP_THRESHOLDS        (optional: only confidence level of the generating model lower than skip threshold will be evaluated for hallucinations)
+  --rq1  Full test set sweep: GENERATOR_MODELS × DETECTOR_TYPES_SWEEPED
+         Skip threshold is derived per-model from MODELS_BEST_SKIP_THRESHOLDS.
+         Answers RQ1: hallucination reduction vs. unmodified baseline.
 
-Outside the sweep:
-  - 'number' and 'baseline-run-numbers' run on local summary-only data (existing
-    experiment is finished, kept available for manual reruns).
+  --rq2  Skip-threshold sweep: GENERATOR_MODELS × SKIP_THRESHOLDS
+         Detector is fixed to DETECTOR_TYPE_RQ2, n_per_task is kept small (N_PER_TASK).
+         Answers RQ2: runtime / accuracy trade-off across skip thresholds.
+
+  (neither flag)  Single run with --generator-model / --detector-type / --skip-threshold.
 """
 
 import os
-
-
 import argparse
 import json
 import random
@@ -73,7 +73,16 @@ DETECTOR_TYPES_SWEEPED = [
     "baseline-run-facts",
 ]
 
-SKIP_THRESHOLDS = [1.0]
+# RQ2: grid of skip thresholds to evaluate the runtime/accuracy trade-off.
+SKIP_THRESHOLDS = [0.8, 0.9, 0.99, 1.0]
+
+# RQ2 uses a single fixed detector so that skip_threshold is the only
+# varying dimension (besides the generator model).
+DETECTOR_TYPE_RQ2 = "lettuceprevent"
+
+# RQ1: small sample size used during the skip-threshold sweep (RQ2).
+# RQ1 uses the full dataset (n_per_task=None → load_prompts_for_detector
+# returns all available prompts).
 N_PER_TASK = 20
 
 DETECTORS_BEST_CONFIDENCE_THRESHOLDS = {
@@ -83,13 +92,13 @@ DETECTORS_BEST_CONFIDENCE_THRESHOLDS = {
 }
 
 MODELS_BEST_SKIP_THRESHOLDS = {
-    "mistralai/Mistral-7B-Instruct-v0.2":  0.8,
-    "meta-llama/Llama-2-7b-chat-hf": 1.0,
-    "Qwen/Qwen2.5-14B-Instruct": 0.99
+    "mistralai/Mistral-7B-Instruct-v0.2": 0.8,
+    "meta-llama/Llama-2-7b-chat-hf":      1.0,
+    "Qwen/Qwen2.5-14B-Instruct":          0.99,
 }
 
 
-LETTUCEDETECT_MODEL_PATH = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+LETTUCEDETECT_MODEL_PATH  = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
 LETTUCEPREVENT_MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
 
 # Beam search settings. NUM_BEAMS = 1 = greedy (3-4x faster than 4-beam).
@@ -117,7 +126,8 @@ SEED                      = 42
 DATA_DIR                  = "./data"
 LOCAL_SUMMARY_FILE        = f"{DATA_DIR}/ragtruth_unique_summary_prompts.json"
 WANDB_ENTITY              = "lebeccard-technical-university-wien"
-WANDB_PROJECT             = "hdm-rq1"
+WANDB_PROJECT_RQ1         = "hdm-rq1"
+WANDB_PROJECT_RQ2         = "hdm-rq2"
 
 
 # ===========================================================================
@@ -188,9 +198,10 @@ def run_one_cell(
     generator_model: str,
     detector_type: str,
     output_prefix: str,
-    n_per_task: int,
+    n_per_task: int | None,
     confidence_floor_post_eval: float,
     skip_threshold: float,
+    wandb_project: str,
     use_wandb: bool = True,
 ):
     run = None
@@ -201,7 +212,7 @@ def run_one_cell(
         )
         run = wandb.init(
             entity=WANDB_ENTITY,
-            project=WANDB_PROJECT,
+            project=wandb_project,
             name=run_name,
             config={
                 "generator_model":            generator_model,
@@ -247,7 +258,7 @@ def run_one_cell(
     tokenizer.padding_side = "left"
 
     model = AutoModelForCausalLM.from_pretrained(
-      generator_model, dtype=torch.float16,
+        generator_model, dtype=torch.float16,
     ).cuda().eval()
 
     gen_config = GenerationConfig(
@@ -300,10 +311,7 @@ def run_one_cell(
 
         torch.manual_seed(SEED + prompt_idx)
 
-        gen_kwargs = dict(
-            **input_data,
-            generation_config=gen_config,
-        )
+        gen_kwargs = dict(**input_data, generation_config=gen_config)
         if DEBUG_PRINT_TO_CONSOLE:
             gen_kwargs["stopping_criteria"] = StoppingCriteriaList(
                 [TokenPrintStoppingCriteria(tokenizer)]
@@ -441,15 +449,15 @@ def run_one_cell(
         run.summary["skip_rate"] = (
             total_skips / total_checks if total_checks else 0.0
         )
-        run.summary["total_runtime_seconds"]      = total_dur
-        run.summary["post_eval_total_hallucinations"]      = stats["total"]["hallucinations"]
-        run.summary["post_eval_items_with_hallucinations"] = stats["total"]["items_with_hallucinations"]
+        run.summary["total_runtime_seconds"]                   = total_dur
+        run.summary["post_eval_total_hallucinations"]          = stats["total"]["hallucinations"]
+        run.summary["post_eval_items_with_hallucinations"]     = stats["total"]["items_with_hallucinations"]
         for label, n in stats["total"]["buckets"].items():
             run.summary[f"post_eval_total_bucket_{label}"] = n
         for tt, info in stats["per_task"].items():
-            run.summary[f"post_eval_{tt}_items"]                 = info["items"]
-            run.summary[f"post_eval_{tt}_items_with_halluc"]     = info["items_with_hallucinations"]
-            run.summary[f"post_eval_{tt}_hallucinations"]        = info["hallucinations"]
+            run.summary[f"post_eval_{tt}_items"]              = info["items"]
+            run.summary[f"post_eval_{tt}_items_with_halluc"]  = info["items_with_hallucinations"]
+            run.summary[f"post_eval_{tt}_hallucinations"]     = info["hallucinations"]
             for label, n in info["buckets"].items():
                 run.summary[f"post_eval_{tt}_bucket_{label}"] = n
 
@@ -476,52 +484,102 @@ def run_one_cell(
 
 
 # ===========================================================================
-# Sweep entry
+# Sweep configs
 # ===========================================================================
 
-def sweep_train_fn():
-    """W&B sweep agent target."""
+def build_sweep_config_rq1(
+    output_prefix: str,
+    post_eval_floor: float,
+) -> dict:
+    """
+    RQ1: full test set, all generator models x all detector types.
+    Skip threshold is fixed per model via MODELS_BEST_SKIP_THRESHOLDS
+    (resolved inside sweep_fn_rq1, not swept as a grid dimension).
+    n_per_task=None → full dataset.
+    """
+    return {
+        "name":   "rq1-hallucination-reduction",
+        "method": "grid",
+        "metric": {"name": "post_eval_total_hallucinations", "goal": "minimize"},
+        "parameters": {
+            "generator_model": {"values": GENERATOR_MODELS},
+            "detector_type":   {"values": DETECTOR_TYPES_SWEEPED},
+            "output_prefix":   {"value":  output_prefix},
+            "n_per_task":      {"value":  None},       # full dataset
+            "post_eval_floor": {"value":  post_eval_floor},
+        },
+    }
+
+
+def build_sweep_config_rq2(
+    output_prefix: str,
+    post_eval_floor: float,
+) -> dict:
+    """
+    RQ2: skip-threshold trade-off, all generator models x all skip thresholds.
+    Detector is fixed to DETECTOR_TYPE_RQ2; n_per_task is kept small.
+    """
+    return {
+        "name":   "rq2-skip-threshold-tradeoff",
+        "method": "grid",
+        "metric": {"name": "post_eval_total_hallucinations", "goal": "minimize"},
+        "parameters": {
+            "generator_model": {"values": GENERATOR_MODELS},
+            "skip_threshold":  {"values": SKIP_THRESHOLDS},
+            "detector_type":   {"value":  DETECTOR_TYPE_RQ2},
+            "output_prefix":   {"value":  output_prefix},
+            "n_per_task":      {"value":  N_PER_TASK},
+            "post_eval_floor": {"value":  post_eval_floor},
+        },
+    }
+
+
+# ===========================================================================
+# Sweep agent targets
+# ===========================================================================
+
+def sweep_fn_rq1():
+    """W&B sweep agent target for RQ1."""
     run = wandb.init()
     cfg = wandb.config
 
-    detector_type  = cfg.detector_type
     generator_model = cfg.generator_model
+    detector_type   = cfg.detector_type
 
-    # Derive skip threshold from the model's best known threshold
-    skip_threshold = float(
-        MODELS_BEST_SKIP_THRESHOLDS.get(generator_model, 1.0)
-    )
+    # Best known skip threshold per model; fall back to 1.0 (no skipping).
+    skip_threshold = float(MODELS_BEST_SKIP_THRESHOLDS.get(generator_model, 1.0))
 
     run_one_cell(
         generator_model            = generator_model,
         detector_type              = detector_type,
         skip_threshold             = skip_threshold,
         output_prefix              = cfg.get("output_prefix", "rq1"),
-        n_per_task                 = int(cfg.get("n_per_task", N_PER_TASK)),
+        n_per_task                 = cfg.get("n_per_task", None),
         confidence_floor_post_eval = float(cfg.get("post_eval_floor", 0.70)),
-        use_wandb                  = False,
+        wandb_project              = WANDB_PROJECT_RQ1,
+        use_wandb                  = False,  # outer run already open
     )
     if run is not None and not run._is_finished:
         run.finish()
 
 
-def build_sweep_config(
-    output_prefix: str, n_per_task: int, post_eval_floor: float,
-) -> dict:
-    return {
-        "name":   "rq-generator-detector-sweep",
-        "method": "grid",
-        "metric": {"name": "post_eval_total_hallucinations", "goal": "minimize"},
-        "parameters": {
-            "generator_model":  {"values": GENERATOR_MODELS},
-            "detector_type":    {"values": DETECTOR_TYPES_SWEEPED},
-            #"skip_threshold":   {"values": SKIP_THRESHOLDS},
-            # optionally add skip_threshold as sweep dimension;
-            "output_prefix":    {"value":  output_prefix},
-            "n_per_task":       {"value":  n_per_task},
-            "post_eval_floor":  {"value":  post_eval_floor},
-        },
-    }
+def sweep_fn_rq2():
+    """W&B sweep agent target for RQ2."""
+    run = wandb.init()
+    cfg = wandb.config
+
+    run_one_cell(
+        generator_model            = cfg.generator_model,
+        detector_type              = cfg.detector_type,
+        skip_threshold             = float(cfg.skip_threshold),
+        output_prefix              = cfg.get("output_prefix", "rq2"),
+        n_per_task                 = int(cfg.get("n_per_task", N_PER_TASK)),
+        confidence_floor_post_eval = float(cfg.get("post_eval_floor", 0.70)),
+        wandb_project              = WANDB_PROJECT_RQ2,
+        use_wandb                  = False,  # outer run already open
+    )
+    if run is not None and not run._is_finished:
+        run.finish()
 
 
 # ===========================================================================
@@ -529,65 +587,114 @@ def build_sweep_config(
 # ===========================================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="RQ1 / RQ2 main entry point.")
-    parser.add_argument(
-        "--mode",
-        choices=["sweep-create", "sweep-agent", "single"],
-        default="single",
+    parser = argparse.ArgumentParser(
+        description="Hallucination prevention experiments — RQ1 / RQ2 entry point.",
+        formatter_class=argparse.RawTextHelpFormatter,
     )
-    parser.add_argument("--sweep-id", type=str, default=None)
+
+    # ── Research-question flags (mutually exclusive) ──────────────────────
+    rq_group = parser.add_mutually_exclusive_group()
+    rq_group.add_argument(
+        "--rq1",
+        action="store_true",
+        help=(
+            "RQ1 sweep: full test set, all generator models × all detector types.\n"
+            "Skip threshold fixed per model from MODELS_BEST_SKIP_THRESHOLDS.\n"
+            "Logs to W&B project: %(prog)s → " + WANDB_PROJECT_RQ1
+        ),
+    )
+    rq_group.add_argument(
+        "--rq2",
+        action="store_true",
+        help=(
+            "RQ2 sweep: skip-threshold trade-off, all generator models × SKIP_THRESHOLDS.\n"
+            f"Detector fixed to '{DETECTOR_TYPE_RQ2}', n_per_task={N_PER_TASK}.\n"
+            "Logs to W&B project: %(prog)s → " + WANDB_PROJECT_RQ2
+        ),
+    )
+
+    # ── Sweep control ──────────────────────────────────────────────────────
     parser.add_argument(
-        "--count", type=int,
-        default=(
-            len(GENERATOR_MODELS)
-            * len(DETECTOR_TYPES_SWEEPED)
-            # * len(SKIP_THRESHOLDS) optionally add this for sweeping over several skip thresholds
+        "--sweep-id",
+        type=str,
+        default=None,
+        help="Existing W&B sweep ID to attach an agent to (skips sweep creation).",
+    )
+    parser.add_argument(
+        "--count",
+        type=int,
+        default=None,
+        help=(
+            "Max number of sweep runs for the agent.\n"
+            "Defaults to the full grid size for the chosen RQ."
         ),
     )
     parser.add_argument("--entity",  type=str, default=WANDB_ENTITY)
-    parser.add_argument("--project", type=str, default=WANDB_PROJECT)
 
-    parser.add_argument("--generator-model", type=str,
-                        default=GENERATOR_MODELS[0])
-    parser.add_argument("--detector-type",   type=str,
-                        default="lettucedetect",
-                        choices=sorted(VALID_DETECTOR_TYPES))
-    parser.add_argument("--skip-threshold", type=float, default=1.0)
-    parser.add_argument("--n-per-task", type=int, default=N_PER_TASK)
+    # ── Single-run options (used when neither --rq1 nor --rq2 is set) ──────
+    parser.add_argument("--generator-model", type=str, default=GENERATOR_MODELS[0])
+    parser.add_argument(
+        "--detector-type",
+        type=str,
+        default="lettucedetect",
+        choices=sorted(VALID_DETECTOR_TYPES),
+    )
+    parser.add_argument("--skip-threshold",  type=float, default=1.0)
+    parser.add_argument("--n-per-task",      type=int,   default=N_PER_TASK)
     parser.add_argument("--post-eval-floor", type=float, default=0.70)
-    parser.add_argument("--output-prefix", type=str, default="rq1")
-    parser.add_argument("--no-wandb", action="store_true")
+    parser.add_argument("--output-prefix",   type=str,   default="single")
+    parser.add_argument("--no-wandb",        action="store_true")
 
     args = parser.parse_args()
 
-    if args.mode == "sweep-create":
-        cfg = build_sweep_config(
-            output_prefix=args.output_prefix,
-            n_per_task=args.n_per_task,
-            post_eval_floor=args.post_eval_floor,
+    # ── RQ1 sweep ─────────────────────────────────────────────────────────
+    if args.rq1:
+        cfg = build_sweep_config_rq1(
+            output_prefix  = args.output_prefix if args.output_prefix != "single" else "rq1",
+            post_eval_floor = args.post_eval_floor,
         )
-        sweep_id = wandb.sweep(sweep=cfg, entity=args.entity, project=args.project)
-        print(f"Created sweep_id: {sweep_id}")
-        return
-
-    if args.mode == "sweep-agent":
-        if not args.sweep_id:
-            cfg = build_sweep_config(
-                output_prefix=args.output_prefix,
-                n_per_task=args.n_per_task,
-                post_eval_floor=args.post_eval_floor,
-            )
-            sweep_id = wandb.sweep(sweep=cfg, entity=args.entity, project=args.project)
-            print(f"Created sweep_id (agent will run it): {sweep_id}")
-        else:
+        if args.sweep_id:
             sweep_id = args.sweep_id
+            print(f"Attaching RQ1 agent to existing sweep: {sweep_id}")
+        else:
+            sweep_id = wandb.sweep(sweep=cfg, entity=args.entity, project=WANDB_PROJECT_RQ1)
+            print(f"Created RQ1 sweep: {sweep_id}")
 
+        count = args.count or (len(GENERATOR_MODELS) * len(DETECTOR_TYPES_SWEEPED))
         wandb.agent(
-            sweep_id=sweep_id, function=sweep_train_fn,
-            entity=args.entity, project=args.project, count=args.count,
+            sweep_id=sweep_id,
+            function=sweep_fn_rq1,
+            entity=args.entity,
+            project=WANDB_PROJECT_RQ1,
+            count=count,
         )
         return
 
+    # ── RQ2 sweep ─────────────────────────────────────────────────────────
+    if args.rq2:
+        cfg = build_sweep_config_rq2(
+            output_prefix   = args.output_prefix if args.output_prefix != "single" else "rq2",
+            post_eval_floor = args.post_eval_floor,
+        )
+        if args.sweep_id:
+            sweep_id = args.sweep_id
+            print(f"Attaching RQ2 agent to existing sweep: {sweep_id}")
+        else:
+            sweep_id = wandb.sweep(sweep=cfg, entity=args.entity, project=WANDB_PROJECT_RQ2)
+            print(f"Created RQ2 sweep: {sweep_id}")
+
+        count = args.count or (len(GENERATOR_MODELS) * len(SKIP_THRESHOLDS))
+        wandb.agent(
+            sweep_id=sweep_id,
+            function=sweep_fn_rq2,
+            entity=args.entity,
+            project=WANDB_PROJECT_RQ2,
+            count=count,
+        )
+        return
+
+    # ── Single run (no RQ flag) ────────────────────────────────────────────
+    wandb_project = WANDB_PROJECT_RQ1  # sensible default for ad-hoc runs
     run_one_cell(
         generator_model            = args.generator_model,
         detector_type              = args.detector_type,
@@ -595,6 +702,7 @@ def main():
         output_prefix              = args.output_prefix,
         n_per_task                 = args.n_per_task,
         confidence_floor_post_eval = args.post_eval_floor,
+        wandb_project              = wandb_project,
         use_wandb                  = not args.no_wandb,
     )
 
