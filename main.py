@@ -63,8 +63,8 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 # ===========================================================================
 
 GENERATOR_MODELS = [
-    "mistralai/Mistral-7B-Instruct-v0.2",
-    "meta-llama/Llama-2-7b-chat-hf",
+    # "mistralai/Mistral-7B-Instruct-v0.2",
+    # "meta-llama/Llama-2-7b-chat-hf",
     "Qwen/Qwen2.5-14B-Instruct",
 ]
 
@@ -102,7 +102,7 @@ LETTUCEDETECT_MODEL_PATH  = "KRLabsOrg/lettucedect-base-modernbert-en-v1"
 LETTUCEPREVENT_MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
 
 # Beam search settings. NUM_BEAMS = 1 = greedy (3-4x faster than 4-beam).
-NUM_BEAMS = 4
+NUM_BEAMS = 1
 GENERATION_CONFIG_KWARGS = {
     "max_new_tokens":       300,
     "min_length":           150,

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J rq1-generator-detector-sweep
+#SBATCH -J rq1-hallucination-reduction
 #SBATCH --partition=GPU-a100s
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:a100s:1
 #SBATCH --time=72:00:00
 #SBATCH --mem=128GB
-#SBATCH --output=rq1_generator_detector_sweep.txt
+#SBATCH --output=rq1_hallucination_reduction_%j.txt
 
 set -euo pipefail
 
@@ -15,15 +15,11 @@ echo "${SLURM_JOB_NODELIST}"
 nvidia-smi -L
 
 REPO_DIR="/home/e12133103/LettucePrevent"
-RQ1_DIR="${REPO_DIR}"
-RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq1-skip-thresholds-results}"
+RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq1-results}"
 VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"
-WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq1-skip-thresholds}"
-SWEEP_COUNT="${SWEEP_COUNT:-6}"
-N_PER_TASK="${N_PER_TASK:-150}"
 POST_EVAL_FLOOR="${POST_EVAL_FLOOR:-0.70}"
 OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq1}"
 
@@ -33,11 +29,7 @@ mkdir -p "${WORK_DIR}"
 chmod 700 "${WORK_DIR}"
 
 echo "Using WORK_DIR=${WORK_DIR}"
-echo "Using RQ1_DIR=${RQ1_DIR}"
-
-if [[ -z "${SLURM_JOB_ID:-}" ]]; then
-    echo "WARNING: SLURM_JOB_ID is not set. Script appears to run outside sbatch."
-fi
+echo "Using REPO_DIR=${REPO_DIR}"
 
 mkdir -p "${RESULTS_DIR}"
 
@@ -78,6 +70,9 @@ fi
 export HUGGING_FACE_HUB_TOKEN="${HF_TOKEN}"
 export HUGGINGFACE_HUB_TOKEN="${HF_TOKEN}"
 
+# ---------------------------------------------------------------------------
+# Cleanup: copy results back and remove scratch
+# ---------------------------------------------------------------------------
 cleanup() {
     echo "Copying outputs back to ${RESULTS_DIR}"
     if [[ -d "${WORK_DIR}/data" ]]; then
@@ -90,12 +85,18 @@ cleanup() {
 }
 trap cleanup EXIT
 
+# ---------------------------------------------------------------------------
+# Activate virtual environment
+# ---------------------------------------------------------------------------
 if [[ -f "${VENV_PATH}" ]]; then
     source "${VENV_PATH}"
 else
     echo "WARNING: VENV_PATH not found (${VENV_PATH}). Continuing without activation."
 fi
 
+# ---------------------------------------------------------------------------
+# Verify HF authentication
+# ---------------------------------------------------------------------------
 echo "[INFO] Verifying HF auth on $(hostname)..."
 "${PYTHON_BIN}" -c "
 from huggingface_hub import whoami
@@ -105,16 +106,7 @@ print(f'[INFO] Authenticated as: {info[\"name\"]}')
 " || { echo "[ERROR] HF auth check failed"; exit 1; }
 
 # ---------------------------------------------------------------------------
-# File layout (matches the user's repo structure)
-#   main.py
-#   analysis/post_eval.py
-#   detectors/dataset_loader.py
-#   detectors/factory.py
-#   detectors/base_detector.py
-#   detectors/lettucedetect_detector.py
-#   detectors/lettuceprevent_detector.py
-#   detectors/number_detector.py
-#   logits_processors/hallucination_logits_processor.py
+# Copy required source files to WORK_DIR
 # ---------------------------------------------------------------------------
 REQUIRED_FILES=(
     "main.py"
@@ -127,9 +119,10 @@ REQUIRED_FILES=(
     "detectors/number_detector.py"
     "logits_processors/hallucination_logits_processor.py"
 )
+
 for rel in "${REQUIRED_FILES[@]}"; do
-    if [[ ! -f "${RQ1_DIR}/${rel}" ]]; then
-        echo "ERROR: ${RQ1_DIR}/${rel} not found"
+    if [[ ! -f "${REPO_DIR}/${rel}" ]]; then
+        echo "ERROR: ${REPO_DIR}/${rel} not found"
         exit 1
     fi
 done
@@ -140,20 +133,19 @@ mkdir -p "${WORK_DIR}/analysis" \
          "${WORK_DIR}/data"
 
 for rel in "${REQUIRED_FILES[@]}"; do
-    cp "${RQ1_DIR}/${rel}" "${WORK_DIR}/${rel}"
+    cp "${REPO_DIR}/${rel}" "${WORK_DIR}/${rel}"
 done
 
-# __init__.py for every package directory
 for d in analysis detectors logits_processors; do
-    if [[ -f "${RQ1_DIR}/${d}/__init__.py" ]]; then
-        cp "${RQ1_DIR}/${d}/__init__.py" "${WORK_DIR}/${d}/__init__.py"
+    if [[ -f "${REPO_DIR}/${d}/__init__.py" ]]; then
+        cp "${REPO_DIR}/${d}/__init__.py" "${WORK_DIR}/${d}/__init__.py"
     else
         : > "${WORK_DIR}/${d}/__init__.py"
     fi
 done
 
-if [[ -f "${RQ1_DIR}/data/ragtruth_unique_summary_prompts.json" ]]; then
-    cp "${RQ1_DIR}/data/ragtruth_unique_summary_prompts.json" \
+if [[ -f "${REPO_DIR}/data/ragtruth_unique_summary_prompts.json" ]]; then
+    cp "${REPO_DIR}/data/ragtruth_unique_summary_prompts.json" \
        "${WORK_DIR}/data/ragtruth_unique_summary_prompts.json"
 fi
 
@@ -161,27 +153,28 @@ cd "${WORK_DIR}"
 export PYTHONPATH="${WORK_DIR}:${PYTHONPATH:-}"
 
 # ---------------------------------------------------------------------------
-# Sweep execution
+# RQ1 sweep execution
+# Launches a W&B grid sweep over GENERATOR_MODELS × DETECTOR_TYPES_SWEEPED.
+# Skip threshold is resolved per model inside sweep_fn_rq1 via
+# MODELS_BEST_SKIP_THRESHOLDS — it is NOT a sweep dimension here.
 # ---------------------------------------------------------------------------
+SWEEP_COUNT="${SWEEP_COUNT:-6}"  # = len(GENERATOR_MODELS) × len(DETECTOR_TYPES_SWEEPED)
+
 if [[ -n "${SWEEP_ID:-}" ]]; then
-    echo "Using existing sweep id: ${SWEEP_ID}"
+    echo "[INFO] Attaching agent to existing RQ1 sweep: ${SWEEP_ID}"
     "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-        --mode sweep-agent \
+        --rq1 \
         --sweep-id "${SWEEP_ID}" \
-        --entity "${WANDB_ENTITY}" \
-        --project "${WANDB_PROJECT}" \
-        --count "${SWEEP_COUNT}" \
-        --n-per-task "${N_PER_TASK}" \
+        --entity   "${WANDB_ENTITY}" \
+        --count    "${SWEEP_COUNT}" \
         --post-eval-floor "${POST_EVAL_FLOOR}" \
-        --output-prefix "${OUTPUT_PREFIX}"
+        --output-prefix   "${OUTPUT_PREFIX}"
 else
-    echo "Creating new sweep and running agent."
+    echo "[INFO] Creating new RQ1 sweep and running agent."
     "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-        --mode sweep-agent \
-        --entity "${WANDB_ENTITY}" \
-        --project "${WANDB_PROJECT}" \
-        --count "${SWEEP_COUNT}" \
-        --n-per-task "${N_PER_TASK}" \
+        --rq1 \
+        --entity  "${WANDB_ENTITY}" \
+        --count   "${SWEEP_COUNT}" \
         --post-eval-floor "${POST_EVAL_FLOOR}" \
-        --output-prefix "${OUTPUT_PREFIX}"
+        --output-prefix   "${OUTPUT_PREFIX}"
 fi
