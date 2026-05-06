@@ -172,10 +172,10 @@ def resolve_detector_kwargs(detector_type: str) -> dict:
     det = detector_type.lower()
     kwargs: dict = {}
     if det == "lettucedetect":
-        kwargs["confidence_threshold"] = DETECTOR_BEST_THRESHOLDS["lettucedetect"]
+        kwargs["confidence_threshold"] = DETECTORS_BEST_CONFIDENCE_THRESHOLDS["lettucedetect"]
         kwargs["model_path"] = LETTUCEDETECT_MODEL_PATH
     elif det == "lettuceprevent":
-        kwargs["confidence_threshold"] = DETECTOR_BEST_THRESHOLDS["lettuceprevent"]
+        kwargs["confidence_threshold"] = DETECTORS_BEST_CONFIDENCE_THRESHOLDS["lettuceprevent"]
         kwargs["model_path"] = LETTUCEPREVENT_MODEL_PATH
     return kwargs
 
@@ -216,7 +216,7 @@ def run_one_cell(
                 "logits_skip_threshold":      skip_threshold,
                 "lettucedetect_model_path":   LETTUCEDETECT_MODEL_PATH,
                 "lettuceprevent_model_path":  LETTUCEPREVENT_MODEL_PATH,
-                "detector_thresholds":        DETECTOR_BEST_THRESHOLDS,
+                "detector_thresholds":        DETECTORS_BEST_CONFIDENCE_THRESHOLDS,
                 "post_eval_confidence_floor": confidence_floor_post_eval,
                 "n_per_task":                 n_per_task,
                 "system_prompt":              SYSTEM_PROMPT,
