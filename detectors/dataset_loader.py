@@ -1,6 +1,7 @@
 """Dataset loader for RQ1 experiments."""
 
 import json
+import math
 from typing import Dict, List, Tuple
 
 from datasets import load_dataset
@@ -32,22 +33,28 @@ def load_local_summary_prompts(filepath: str) -> List[Dict]:
 
 
 def load_hf_ragtruth_prompts(
-    n_per_task: int = UNIQUE_PAIRS_PER_TASK,
+    n_per_task: int | None = UNIQUE_PAIRS_PER_TASK,
 ) -> List[Dict]:
     """
     Load wandb/RAGTruth-processed test split, select the first n_per_task
     unique (context, query) pairs per task type in dataset order. All three
     task types (Summary, QA, Data2txt) are included.
 
+    If n_per_task is None, no per-task cap is applied (full test split).
+
     No LLM-answer assignment is performed: RQ1 generates the answers itself.
     The 'prompt' field given to the generator is just the row's context, since
     that is what was used at training time for these task types in RAGTruth.
     """
+    # Treat None as "no cap" so the >= comparison below stays simple.
+    cap: float = math.inf if n_per_task is None else n_per_task
+
     print(f"Loading HF dataset: {HF_DATASET_NAME} (split={HF_DATASET_SPLIT})...")
     hf_ds = load_dataset(HF_DATASET_NAME)
     test_split = hf_ds[HF_DATASET_SPLIT]
 
     seen_per_task: Dict[str, set] = {}
+    counts_per_task: Dict[str, int] = {}
     selected: List[Dict] = []
 
     for row in test_split:
@@ -61,8 +68,8 @@ def load_hf_ragtruth_prompts(
         seen_per_task.setdefault(tt, set())
 
         # Per-task cap: first n_per_task unique (context, query) pairs only.
-        already_have = sum(1 for s in selected if s["task_type"] == tt)
-        if already_have >= n_per_task:
+        already_have = counts_per_task.get(tt, 0)
+        if already_have >= cap:
             continue
         if (ctx, qry) in seen_per_task[tt]:
             continue
@@ -75,6 +82,7 @@ def load_hf_ragtruth_prompts(
             "counts": None,
             "_source": "hf-ragtruth",
         })
+        counts_per_task[tt] = already_have + 1
 
     print(f"Selected {len(selected)} HF prompts:")
     by_task: Dict[str, int] = {}
@@ -89,7 +97,7 @@ def load_hf_ragtruth_prompts(
 def load_prompts_for_detector(
     detector_type: str,
     local_summary_filepath: str = "./data/ragtruth_unique_summary_prompts.json",
-    n_per_task: int = UNIQUE_PAIRS_PER_TASK,
+    n_per_task: int | None = UNIQUE_PAIRS_PER_TASK,
 ) -> Tuple[List[Dict], str]:
     """
     Load the appropriate prompt set for the given detector type.

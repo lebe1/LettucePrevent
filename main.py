@@ -80,7 +80,7 @@ SKIP_THRESHOLDS = [0.8, 0.9, 0.99, 1.0]
 # varying dimension (besides the generator model).
 DETECTOR_TYPE_RQ2 = "lettuceprevent"
 
-# RQ1: small sample size used during the skip-threshold sweep (RQ2).
+# RQ2: small sample size used during the skip-threshold sweep
 # RQ1 uses the full dataset (n_per_task=None → load_prompts_for_detector
 # returns all available prompts).
 N_PER_TASK = 20
