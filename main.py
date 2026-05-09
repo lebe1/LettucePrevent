@@ -65,7 +65,8 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 GENERATOR_MODELS = [
     # "mistralai/Mistral-7B-Instruct-v0.2",
     # "meta-llama/Llama-2-7b-chat-hf",
-    "Qwen/Qwen2.5-14B-Instruct",
+    # "Qwen/Qwen2.5-14B-Instruct",
+    "meta-llama/Llama-3.3-70B-Instruct",
 ]
 
 DETECTOR_TYPES_SWEEPED = [

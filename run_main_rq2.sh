@@ -16,17 +16,17 @@ nvidia-smi -L
 
 REPO_DIR="/home/e12133103/LettucePrevent"
 RQ1_DIR="${REPO_DIR}"
-RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq2-results}"
+RESULTS_DIR="${RESULTS_DIR:-/share/${USER}/rq2-results-llama3-1}"
 VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"
-WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq2}"
+WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq2-llama3.1}"
 # 3 generators x 2 detectors x 4 skip thresholds = 24 cells
 SWEEP_COUNT="${SWEEP_COUNT:-24}"
 N_PER_TASK="${N_PER_TASK:-20}"
 POST_EVAL_FLOOR="${POST_EVAL_FLOOR:-0.70}"
-OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq2}"
+OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq2_llama_3_1}"
 
 JOB_TAG="${SLURM_JOB_ID:-manual_$$}"
 WORK_DIR="/share/${USER}/scratch_jobs/${JOB_TAG}"
