@@ -21,9 +21,8 @@ VENV_PATH="${VENV_PATH:-/home/e12133103/Python312/bin/activate}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 
 WANDB_ENTITY="${WANDB_ENTITY:-lebeccard-technical-university-wien}"
-WANDB_PROJECT="${WANDB_PROJECT:-hdm-rq2-llama3.1}"
-# 3 generators x 2 detectors x 4 skip thresholds = 24 cells
-SWEEP_COUNT="${SWEEP_COUNT:-24}"
+# 3 generators x 4 skip thresholds = 12 cells (detector is fixed in RQ2)
+SWEEP_COUNT="${SWEEP_COUNT:-12}"
 N_PER_TASK="${N_PER_TASK:-20}"
 POST_EVAL_FLOOR="${POST_EVAL_FLOOR:-0.70}"
 OUTPUT_PREFIX="${OUTPUT_PREFIX:-rq2_llama_3_1}"
@@ -48,8 +47,6 @@ export WANDB_CACHE_DIR="${WORK_DIR}/.wandb_cache"
 export WANDB_DATA_DIR="${WORK_DIR}/.wandb_data"
 export WEAVE_DISABLED="true"
 
-# HF cache config. Modern transformers reads HF_HOME and derives subpaths.
-# Do NOT set TRANSFORMERS_CACHE (deprecated, causes warnings + broke last run).
 export HF_HOME="/share/${USER}/.cache/huggingface"
 export HF_DATASETS_CACHE="${HF_HOME}/datasets"
 unset TRANSFORMERS_CACHE || true
@@ -96,7 +93,7 @@ cleanup() {
 trap cleanup EXIT
 
 # ---------------------------------------------------------------------------
-# Activate venv 
+# Activate venv
 # ---------------------------------------------------------------------------
 if [[ -f "${VENV_PATH}" ]]; then
     source "${VENV_PATH}"
@@ -122,7 +119,7 @@ print(f'[INFO] Authenticated as: {info[\"name\"]}')
 # ---------------------------------------------------------------------------
 REQUIRED_FILES=(
     "main.py"
-    "analysis/post_eval.py"
+    "analysis/factual_detection/post_eval.py"
     "detectors/dataset_loader.py"
     "detectors/factory.py"
     "detectors/base_detector.py"
@@ -138,7 +135,7 @@ for rel in "${REQUIRED_FILES[@]}"; do
     fi
 done
 
-mkdir -p "${WORK_DIR}/analysis" \
+mkdir -p "${WORK_DIR}/analysis/factual_detection" \
          "${WORK_DIR}/detectors" \
          "${WORK_DIR}/logits_processors" \
          "${WORK_DIR}/data"
@@ -147,7 +144,7 @@ for rel in "${REQUIRED_FILES[@]}"; do
     cp "${RQ1_DIR}/${rel}" "${WORK_DIR}/${rel}"
 done
 
-for d in analysis detectors logits_processors; do
+for d in analysis analysis/factual_detection detectors logits_processors; do
     if [[ -f "${RQ1_DIR}/${d}/__init__.py" ]]; then
         cp "${RQ1_DIR}/${d}/__init__.py" "${WORK_DIR}/${d}/__init__.py"
     else
@@ -167,22 +164,20 @@ export PYTHONPATH="${WORK_DIR}:${PYTHONPATH:-}"
 # Sweep execution
 # ---------------------------------------------------------------------------
 if [[ -n "${SWEEP_ID:-}" ]]; then
-    echo "Using existing sweep id: ${SWEEP_ID}"
+    echo "Attaching RQ2 agent to existing sweep: ${SWEEP_ID}"
     "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-        --mode sweep-agent \
+        --rq2 \
         --sweep-id "${SWEEP_ID}" \
         --entity "${WANDB_ENTITY}" \
-        --project "${WANDB_PROJECT}" \
         --count "${SWEEP_COUNT}" \
         --n-per-task "${N_PER_TASK}" \
         --post-eval-floor "${POST_EVAL_FLOOR}" \
         --output-prefix "${OUTPUT_PREFIX}"
 else
-    echo "Creating new sweep and running agent."
+    echo "Creating new RQ2 sweep and running agent."
     "${PYTHON_BIN}" "${WORK_DIR}/main.py" \
-        --mode sweep-agent \
+        --rq2 \
         --entity "${WANDB_ENTITY}" \
-        --project "${WANDB_PROJECT}" \
         --count "${SWEEP_COUNT}" \
         --n-per-task "${N_PER_TASK}" \
         --post-eval-floor "${POST_EVAL_FLOOR}" \
