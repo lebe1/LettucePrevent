@@ -1,0 +1,60 @@
+=== rq1_Qwen_Qwen2.5-14B-Instruct_baseline-run-facts_skip_0_99_20260507_004408_generations.json ===
+
+Total duration (meta) : 3395.35s
+Num generations       : 450
+Mean                  : 7.54s
+Median                : 7.54s
+Min                   : 1.21s
+Max                   : 15.05s
+
+
+=== rq1_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_99_20260506_224836_generations.json ===
+
+Total duration (meta) : 6863.12s
+Num generations       : 450
+Mean                  : 15.25s
+Median                : 14.57s
+Min                   : 3.28s
+Max                   : 37.19s
+
+
+=== rq1_meta-llama_Llama-2-7b-chat-hf_baseline-run-facts_skip_1_00_20260506_204635_generations.json ===
+
+Total duration (meta) : 4367.90s
+Num generations       : 450
+Mean                  : 9.71s
+Median                : 11.42s
+Min                   : 0.92s
+Max                   : 12.47s
+
+
+=== rq1_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260506_103738_generations.json ===
+
+Total duration (meta) : 36790.87s
+Num generations       : 450
+Mean                  : 81.76s
+Median                : 59.05s
+Min                   : 7.15s
+Max                   : 251.01s
+
+
+=== rq1_mistralai_Mistral-7B-Instruct-v0.2_baseline-run-facts_skip_0_80_20260506_195023_generations.json ===
+
+Total duration (meta) : 3306.20s
+Num generations       : 450
+Mean                  : 7.35s
+Median                : 7.21s
+Min                   : 1.22s
+Max                   : 12.28s
+
+
+=== rq1_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260506_082206_generations.json ===
+
+Total duration (meta) : 8075.93s
+Num generations       : 450
+Mean                  : 17.95s
+Median                : 17.20s
+Min                   : 5.39s
+Max                   : 62.82s
+
+
