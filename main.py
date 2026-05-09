@@ -47,7 +47,7 @@ os.environ["DEBUG_PRINT_TO_CONSOLE"] = "1" if DEBUG_PRINT_TO_CONSOLE else "0"
 from detectors.dataset_loader import load_prompts_for_detector
 from detectors.factory import DetectorFactory, VALID_DETECTOR_TYPES
 from logits_processors.hallucination_logits_processor import HallucinationLogitsProcessor
-from analysis.post_eval import (
+from LettucePrevent.analysis.factual_detection.post_eval import (
     evaluate_generated_answers,
     write_hallucinations_json,
     write_stats_txt,
