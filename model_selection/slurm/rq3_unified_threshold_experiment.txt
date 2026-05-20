@@ -1,0 +1,3452 @@
+a-a100-qs-8
+GPU 0: NVIDIA A100-SXM4-40GB (UUID: GPU-20ba0c05-0e8e-173e-cd38-8266307ad780)
+Using WORK_DIR=/share/e12133103/scratch_jobs/443225
+Using BENCHMARK_DIR=/home/e12133103/LettucePrevent/model_selection
+[INFO] HF_TOKEN loaded from /home/e12133103/.cache/huggingface/token (length: 37)
+[INFO] Verifying HF auth on a-a100-qs-8...
+[INFO] Authenticated as: lebe1
+Creating new sweep and running agent.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Agent Starting Run: zsb05aoc with config:
+wandb: 	confidence_threshold: 0.5
+wandb: 	model_idx: 0
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Currently logged in as: lebeccard (lebeccard-technical-university-wien) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run zsb05aoc
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_152357-zsb05aoc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jumping-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/zsb05aoc
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: updating run metadata; uploading artifact tinylettuce-ettin-68m-en_thr_0_5
+wandb: uploading artifact tinylettuce-ettin-68m-en_thr_0_5
+wandb: uploading history steps 148-149, summary, console lines 170-185
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ██▆█▇██▇▆▇█▆███████▇▇██▆████▇▆███▇█▁████
+wandb:        sample_f1_class_1 █     ▅   ▃                    ▁        
+wandb:          sample_f1_micro ▆▇▇▆██▆▆█▇▇█▇█▆▇▅████▇█▆▇█▇█████▇█▇█▁▇██
+wandb:             sample_index ▁▁▁▁▂▂▂▃▃▃▃▄▄▄▄▄▄▄▄▄▅▅▅▅▆▆▆▆▇▇▇▇▇▇██████
+wandb:   sample_mean_step_lat_s █▂▃▂▂▃▂▂▂▁▂▁▁▁▁▁▂▁▂▁▁▂▁▁▁▂▁▂▁▃▂▁▁▁▁▁▁▂▁▂
+wandb:          sample_n_pos_gt ▃▇▁▅▁▄▇▂▃▃▄▁▁▁▁▁▁▁▁▁▃▁▁▁▁▄▂▅▁█▁▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▁▁▁▁▁▂▂▁▃▂▁▃▁▁▁▁▁▃▁▁▃▁▁▁▁▁▁▁▁▁▁▁▂▁█▂▁▁▁
+wandb:          sample_n_tokens ▆▅▆▅▄█▄▃▆▇▄▄▅▆▅▂▅▃▃▄▆▂▇▁▆▃▃▃▂▆▂▃▅▅▆▃▃▅▁▂
+wandb: sample_precision_class_0 ███▇█▇█▇█▇██▇▇▇▇█▁██████████▇▇▆█▇███▂███
+wandb: sample_precision_class_1  ▅▁ ▇▁ █▄█▂     █▁ ▁▁ ▁   █  ▁█ ▁     ▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.5
+wandb:       f1_binary_class_0 0.97898
+wandb:       f1_binary_class_1 0.30103
+wandb:                f1_micro 0.95918
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01786
+wandb:        macro_f1_class_0 0.97576
+wandb:        macro_f1_class_1 0.3797
+wandb:          macro_f1_micro 0.96195
+wandb: macro_precision_class_0 0.96654
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run tinylettuce-ettin-68m-en_thr_0_5 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/zsb05aoc
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_152357-zsb05aoc/logs
+wandb: Agent Starting Run: u8bzy985 with config:
+wandb: 	confidence_threshold: 0.5
+wandb: 	model_idx: 1
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run u8bzy985
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_153443-u8bzy985
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run usual-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/u8bzy985
+wandb: Detected [openai] in use.
+wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+wandb: updating run metadata; uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_5
+wandb: uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_5
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇▆█▇▇█▇██▇▇█▇██▇██▇█▇▅████████▇█▇███▂▁██
+wandb:        sample_f1_class_1     ▄▅▁▃▂  ▃ ▃              ▆  ▇   █    
+wandb:          sample_f1_micro ▇█▆██▇██▆▇▇▇█▆█▃██▁█▇███████▇█▇▇▆▇▇█▆███
+wandb:             sample_index ▁▁▁▁▁▂▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇███
+wandb:   sample_mean_step_lat_s ▄▄▄▂▃▂▂▂▃▂▄▁▁▁▂▁▂▂▁▁▁▁▃▂▂▁▂▃▃█▂▆▄▃▄▁▁▁▃▆
+wandb:          sample_n_pos_gt ▁▁▁▃▁▁▂▅▁▁▂▁▁▄▃▁█▁▁▁▂▁▂▁▄▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▃█▂▄▃▂▂▃█▂▃▃▂▁▁▁▃▁▂▁▄▁▃▂▁▂▁▁▃▃▃▁▁▄▂▂▄▁▁▅
+wandb:          sample_n_tokens ▆▅▄▇▅▄▇▃▄▂█▄▆▆▃▃▆▅▂▁▆▁▄▂▂▆▃▁▃▂▃▅▅▃▅▃▂▅▁▅
+wandb: sample_precision_class_0 ██▆█▇▆█████▇██▇██▇███████████▆█▇█▇████▁█
+wandb: sample_precision_class_1 █▃▁▁▆▇▃▃ ▃▁  ▁▁▁ ▄    ▁▁▁▁▁▁ ▁▁▁▁▁█▁▁▁  
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.5
+wandb:       f1_binary_class_0 0.97522
+wandb:       f1_binary_class_1 0.35972
+wandb:                f1_micro 0.95228
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.03399
+wandb:        macro_f1_class_0 0.9716
+wandb:        macro_f1_class_1 0.44339
+wandb:          macro_f1_micro 0.95389
+wandb: macro_precision_class_0 0.97078
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettucedetect-base-modernbert-en-v1_thr_0_5 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/u8bzy985
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_153443-u8bzy985/logs
+wandb: Agent Starting Run: 5joga35k with config:
+wandb: 	confidence_threshold: 0.5
+wandb: 	model_idx: 2
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 5joga35k
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_154625-5joga35k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wise-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/5joga35k
+wandb: updating run metadata; uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_5
+wandb: uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_5
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 █▂██▇▇█▇▄▄▆█▅█▅█▇██▇█▇▁█▇█▇█▇▇█████▇██▇█
+wandb:        sample_f1_class_1 ▁      ▄▃ ▅▃                       █    
+wandb:          sample_f1_micro █▅▁█▆▇▆▇██▄█▆▇▇▇███▇███▆▇▅██████▇█▇█████
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   sample_mean_step_lat_s ▅▅▇▇▇▆▆▄▃█▃▃▅▃▆▅▆▂▁▆█▃▃▄▂▂▂▆▆▄▆▃▃▅▂▅▃▁▂▃
+wandb:          sample_n_pos_gt ▂▃▁▁▂▁▂▁▁▂▃▂▃▃▁▁▁▁▁█▂▂▁▁▁▁▁▂▁▄▁▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▂▁▃▂▃▃▁▃▁▁▁▁▂▁█▁▅▃▁▁▂▂▁▁▂▂▁▁▁▄▁▂▁▂▂▁▁▁▁
+wandb:          sample_n_tokens ▃▅▄▅▃▆▄▄▄▂▄▅▅▂▂▁▂▃▄▆▂█▅▄▁▃▃▃▃▂▃▃▄▄▂▁▁▄▂▁
+wandb: sample_precision_class_0 █▄████▆██████▆████████▁██▄██████████████
+wandb: sample_precision_class_1  ▂▁▄▁▆ ▂ █▂▂▁ ▁▁▅ ▁ █▁▁      ▆▁ ▁ ▁▁▁▁  
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.5
+wandb:       f1_binary_class_0 0.95299
+wandb:       f1_binary_class_1 0.34394
+wandb:                f1_micro 0.91227
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.09319
+wandb:        macro_f1_class_0 0.95281
+wandb:        macro_f1_class_1 0.41204
+wandb:          macro_f1_micro 0.92091
+wandb: macro_precision_class_0 0.98091
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettuceprevent-ettin-decoder-68m-en_thr_0_5 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/5joga35k
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_154625-5joga35k/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: eqnkd8mi with config:
+wandb: 	confidence_threshold: 0.6
+wandb: 	model_idx: 0
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run eqnkd8mi
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_155548-eqnkd8mi
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wild-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/eqnkd8mi
+wandb: updating run metadata; uploading artifact tinylettuce-ettin-68m-en_thr_0_6
+wandb: uploading artifact tinylettuce-ettin-68m-en_thr_0_6
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇██▇█▇▇████▇███████▇██▇██████▇█████▁█▃██
+wandb:        sample_f1_class_1  █ ▃▇ ▅  ▄▇  ▂▁               ▂         
+wandb:          sample_f1_micro █▇▇█▇▅▇▇▇▇▅▆██▇▃▇███████████▇▇██▄▇███▇▁█
+wandb:             sample_index ▁▁▂▂▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇████
+wandb:   sample_mean_step_lat_s ▇▄▄▄▄▃▄▃▅█▂▂▃▂▂▁▂▃▄▅▅▃▃▃▂▁▂▂▃▆▁▆▄█▇█▂▂▂▅
+wandb:          sample_n_pos_gt ▄▃▁▁▅▂▂▂▂▁▂▁▁▁█▁▁▁▁▁▄▁▁▁▁▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▁▄▁▁▁▁▂▂▁▁▁▁▁█▁▄▁▁▃▁▁▁▁▁▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁
+wandb:          sample_n_tokens ▅▆▅▄▇▃▆▄▅▄▄▄▅▂▅▄▂▂▃▃▂▂▄▂▃█▄▃▄▂▂▂▅▅▄▂▁▂▁▃
+wandb: sample_precision_class_0 ███▅███▅▇▇██▆▆█████▁███▇█████▇▄█▃▆██████
+wandb: sample_precision_class_1   ▁▁  ▂█ ▃▁ ▆    ▁ ▁ ▃▁▁       ▁ ▁  ▁   
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.6
+wandb:       f1_binary_class_0 0.97916
+wandb:       f1_binary_class_1 0.29093
+wandb:                f1_micro 0.95951
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01658
+wandb:        macro_f1_class_0 0.97577
+wandb:        macro_f1_class_1 0.38547
+wandb:          macro_f1_micro 0.96212
+wandb: macro_precision_class_0 0.96606
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run tinylettuce-ettin-68m-en_thr_0_6 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/eqnkd8mi
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_155548-eqnkd8mi/logs
+wandb: Agent Starting Run: xdpl2x4q with config:
+wandb: 	confidence_threshold: 0.6
+wandb: 	model_idx: 1
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run xdpl2x4q
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_160631-xdpl2x4q
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run colorful-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/xdpl2x4q
+wandb: updating run metadata; uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_6
+wandb: uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_6
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading output.log
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ██▇▇███▆▅▇█▆▇█████▇█████████▇█▇▇▇██▁▆███
+wandb:        sample_f1_class_1 ▁  ▄▅ ▆▅▃▃▄  ▂▄                 █       
+wandb:          sample_f1_micro █▆▇██▆█▅▇▇██▇██████▆▅█████▇██▆▇█▇██▁██▇█
+wandb:             sample_index ▁▁▁▁▂▂▂▃▃▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▆▆▇▇▇███
+wandb:   sample_mean_step_lat_s ▃▄▃▃▂▂▂▃▆▂▂▁▂▁▂▂▁▂▂▂▂▁▃▂▂▁▃▁▁▁▂▁▃█▄▂▃▃▂▁
+wandb:          sample_n_pos_gt ▂▁▂▁▁▁▁▃▃▁▅▂▂▁▁▂▄▃▁▁▁▁▁▁▃▁▁▁▄▁▁▁▁▂▁▁▁█▁▁
+wandb:        sample_n_pos_pred ▂▂▇▆▃▁▂▂▂▄▅▃▂▃▁▁▁▂█▁▁▂▁▁▂▁▂▁▁▂▂█▁▁▁▁▁▁▄▁
+wandb:          sample_n_tokens ▇▃▄▅▃▄▇▄▃▃▄▇▄▇▄▅▂▂▅▆▅▄▆█▂▃▁▂▂▆▂▁▅▄▅▃▂▁▃▁
+wandb: sample_precision_class_0 ▇███▇▇██▇█████▇▁███▇███████▇█▆▇▇███▃█▃██
+wandb: sample_precision_class_1 █▁▁▆▁▁█▁▁▃▁▁▄▁▁▁ ▇ ▁▁   ▁ ▁ ▁▁▁█ ▁ ▁▁▁▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.6
+wandb:       f1_binary_class_0 0.9763
+wandb:       f1_binary_class_1 0.35975
+wandb:                f1_micro 0.95429
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.03086
+wandb:        macro_f1_class_0 0.97265
+wandb:        macro_f1_class_1 0.44053
+wandb:          macro_f1_micro 0.95595
+wandb: macro_precision_class_0 0.9703
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettucedetect-base-modernbert-en-v1_thr_0_6 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/xdpl2x4q
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_160631-xdpl2x4q/logs
+wandb: Agent Starting Run: 34bggghz with config:
+wandb: 	confidence_threshold: 0.6
+wandb: 	model_idx: 2
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 34bggghz
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_161813-34bggghz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lively-sweep-6
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/34bggghz
+wandb: updating run metadata; uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_6
+wandb: uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_6
+wandb: uploading output.log; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇▁██▇▆▇▇▄▆▃▆█▆██▆▆█████▇██████▇▆▇▇█▇█▇▇█
+wandb:        sample_f1_class_1 ▃ ▇  █ ▂  ▂         ▁                   
+wandb:          sample_f1_micro ▁█▆▇▆▆▂█▅██▄▄▇███▄▇██▄▆█▅▆████▇███▆█████
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▆▆▆▇▇▇▇▇▇▇▇█████
+wandb:   sample_mean_step_lat_s ▃▅▄▄▆▇▃▄▅▃▅▄▆▄▃▂▄▁▁▂▂▅█▃▅▁▂▂▁▂▅▃▄▅▅▁▁▅▂▁
+wandb:          sample_n_pos_gt ▅▃▁▅▁▅▂▃▂▃▁▁▄▂▄▁▁▁▂▁▁▁▁▁▁▁▂▂▁▁▁▁▁▁▁█▁▁▁▁
+wandb:        sample_n_pos_pred ▁▁▁▁▃▂▂▃▂▂▁▃▁▆▂▁▁▁▁█▁▁▂▁▁▁▁▁▁▁▂▁▁▂▁▁▁▁▁▁
+wandb:          sample_n_tokens ▄▄▃▄▄▄▆▃▆▃▃▄▃▃▄▆▂▂▃▄▄▅▂▄█▂▂▅▂▃▁▂▄▄▅▄▁▂▂▄
+wandb: sample_precision_class_0 ▅▂█████▇█▇█▇████████▁█████████████▆█▃███
+wandb: sample_precision_class_1  ▁ ▁▁▁▁▂▂ ▁  ▅▁▁▁▁▁ █ ▁▁▁  ▁  ▇▁   ▁▆ ▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.6
+wandb:       f1_binary_class_0 0.96171
+wandb:       f1_binary_class_1 0.36944
+wandb:                f1_micro 0.9278
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.07397
+wandb:        macro_f1_class_0 0.96225
+wandb:        macro_f1_class_1 0.44062
+wandb:          macro_f1_micro 0.93629
+wandb: macro_precision_class_0 0.97936
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettuceprevent-ettin-decoder-68m-en_thr_0_6 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/34bggghz
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_161813-34bggghz/logs
+wandb: Agent Starting Run: m5c96c9w with config:
+wandb: 	confidence_threshold: 0.7
+wandb: 	model_idx: 0
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run m5c96c9w
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_162727-m5c96c9w
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run playful-sweep-7
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/m5c96c9w
+wandb: updating run metadata; uploading artifact tinylettuce-ettin-68m-en_thr_0_7
+wandb: uploading artifact tinylettuce-ettin-68m-en_thr_0_7
+wandb: uploading config.yaml; uploading output.log; uploading wandb-summary.json
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 █▇███▇▇███▇██████▁██████████▇██████▁█▃██
+wandb:        sample_f1_class_1     ▂  ▄▂ ▅ ▂     ▄  ▁         █        
+wandb:          sample_f1_micro ▇█▆█▆▆▆▅▆█▆▇▇█▇▆███████████▇▇▇█████▁▇███
+wandb:             sample_index ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇█
+wandb:   sample_mean_step_lat_s ▆▃▄▆▆▄▄▇▄▄▄▅▆▄▅▃▃▂▃▁▂▃▃▂▅▅▂▂▆▄▂▃▂▆▆▂▄▂▃█
+wandb:          sample_n_pos_gt ▁▂▁▃▂▂▁▁▁▁▁▂▃▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁
+wandb:        sample_n_pos_pred ▁▂▁▁▂▁▁▁▁▂▁▁▁▁▁▁▁▂▁█▃▃▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁
+wandb:          sample_n_tokens ▄▂▄▃▃▃▃▃▄▅▆▃▂▅▂▄▃▅▂▂▄▂▄▅█▂▁▇▁▃▂▂▃▃▁▄▃▃▂▂
+wandb: sample_precision_class_0 ███▆█▄▇███▄▅██▃▇▁███████████▆███▆███████
+wandb: sample_precision_class_1 ▄▁ ▇▃█▂██▅        ▁ ▁█ ▁       █ ▁      
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.7
+wandb:       f1_binary_class_0 0.97955
+wandb:       f1_binary_class_1 0.28136
+wandb:                f1_micro 0.96023
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01481
+wandb:        macro_f1_class_0 0.97604
+wandb:        macro_f1_class_1 0.38382
+wandb:          macro_f1_micro 0.96268
+wandb: macro_precision_class_0 0.96567
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run tinylettuce-ettin-68m-en_thr_0_7 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/m5c96c9w
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_162727-m5c96c9w/logs
+wandb: Agent Starting Run: bgh3damk with config:
+wandb: 	confidence_threshold: 0.7
+wandb: 	model_idx: 1
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run bgh3damk
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_163808-bgh3damk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run copper-sweep-8
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/bgh3damk
+wandb: updating run metadata; uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_7
+wandb: uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_7
+wandb: uploading history steps 149-149, summary, console lines 157-171
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ██▇█▇██▇▇▇▇███▆█▇▇████▁██▆████████▇▇█▃██
+wandb:        sample_f1_class_1 ▇▁▄ ▅ ▃▃▄ ▄▁       ▄ █              ▂   
+wandb:          sample_f1_micro █▇█▇█▇▆▆▇▄▇█████▁███████████▇▇▇█████▅█▇█
+wandb:             sample_index ▁▁▁▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▆▆▇▇▇▇███
+wandb:   sample_mean_step_lat_s ▄▄▃▄▄▃▂▃█▂▄▃▂▄▂▃▁▁▃▁▃▂▄▂▁▁▂▁▃▂▄▃█▆▄▇▁▄▁█
+wandb:          sample_n_pos_gt ▂▁▁▂▁▁▁▁▁▁▆▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁
+wandb:        sample_n_pos_pred ▂▂▃▂▃▃▁▁▁█▁▁▁▁▆▁▅▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▇▁▁▁▁▁
+wandb:          sample_n_tokens █▃▅▅█▃▅▄▃▇▅▆▃▂▃▆▁▃▇▆▁▂▇▃▆▄▃▇▂▇▂▃▆▆▄▆▃▅▃▂
+wandb: sample_precision_class_0 ███▇██▇█▇█▇▇█▇▇▇██▇█▁█████████▇▇█▇████▃█
+wandb: sample_precision_class_1 ▁▅▁▅██▅▂▄▁    ▁ ▁▁▁ ▁    ▁▁█ ▁▁▃   ▁▁▁▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.7
+wandb:       f1_binary_class_0 0.97717
+wandb:       f1_binary_class_1 0.35467
+wandb:                f1_micro 0.95589
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.02781
+wandb:        macro_f1_class_0 0.97354
+wandb:        macro_f1_class_1 0.43808
+wandb:          macro_f1_micro 0.95764
+wandb: macro_precision_class_0 0.96973
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettucedetect-base-modernbert-en-v1_thr_0_7 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/bgh3damk
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_163808-bgh3damk/logs
+wandb: Agent Starting Run: ns4w10h8 with config:
+wandb: 	confidence_threshold: 0.7
+wandb: 	model_idx: 2
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run ns4w10h8
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_164946-ns4w10h8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cosmic-sweep-9
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/ns4w10h8
+wandb: updating run metadata; uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_7
+wandb: uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_7
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇▅█▆▇█▄▃▆▇▅▅██▇▁▇▅██▇███████▇█▇▇▇██▆████
+wandb:        sample_f1_class_1   ▃  ▁▅▅▇▄ ▃   ▄      ▁           ▃ █   
+wandb:          sample_f1_micro █▂▆█▆▆▇█▄▃███▆▄▄█████▅▁████▆▇▇▇▇██▆▇▇███
+wandb:             sample_index ▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▇▇▇▇▇▇▇▇███
+wandb:   sample_mean_step_lat_s ▂▃▃▅▃▃▄▆▃▅▅▆▄▄▁▂▃▂▂▂▁█▃▅▂▂▂▂▁▁▅▃▂▂▃▁▁▂▃▂
+wandb:          sample_n_pos_gt ▁▁▃▅▁▂▂▁▁▁▂▁▁█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂▁▂▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▂▁▄█▁▁▂▃▆█▄▆█▃▁▂▁█▁▁▃▂▁▁▁▂▁▁▂▁▁▁▄▁▁▂▁▂▁▃
+wandb:          sample_n_tokens ▇▄▇█▄▅▄▇▅▄▂▅▂▅▇▄▂▂▃▅▅█▃▃▂▂▆▃▃▃▄▅▅▃▅▂▁▃▃▅
+wandb: sample_precision_class_0 ▄██▂█▅▆▇█▂█▄█████████████████▄▄██▁██████
+wandb: sample_precision_class_1 ▃▁ ▁▂▁▂▃ ▃  ▅▁ ▆  █▁  █▁▁   ▇▁ ▇  ▁ █   
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.7
+wandb:       f1_binary_class_0 0.96848
+wandb:       f1_binary_class_1 0.3867
+wandb:                f1_micro 0.94004
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.05723
+wandb:        macro_f1_class_0 0.96918
+wandb:        macro_f1_class_1 0.46113
+wandb:          macro_f1_micro 0.94799
+wandb: macro_precision_class_0 0.97733
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettuceprevent-ettin-decoder-68m-en_thr_0_7 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/ns4w10h8
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_164946-ns4w10h8/logs
+wandb: Agent Starting Run: 4mv4wg7v with config:
+wandb: 	confidence_threshold: 0.8
+wandb: 	model_idx: 0
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 4mv4wg7v
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_165909-4mv4wg7v
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run easy-sweep-10
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/4mv4wg7v
+wandb: updating run metadata; uploading artifact tinylettuce-ettin-68m-en_thr_0_8
+wandb: uploading artifact tinylettuce-ettin-68m-en_thr_0_8
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ██▆███▇▆█▇██▇▆▇█▅█████████████▆███▆██▇▁█
+wandb:        sample_f1_class_1  ▅   ▂ ▃▅▃     ▄▇             ▁  █      
+wandb:          sample_f1_micro ▇█▆███▆▆▇██▇█▇▇█████▇████████▇█▇███▁████
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▄▅▅▅▅▅▅▅▆▆▆▆▆▆▇▇███
+wandb:   sample_mean_step_lat_s ▅▅▃▄▄▃▇▄▃▄▄▅▂▁▃▃▂▁▂▂▁▃▂▂▂▆▂▇▁▄▇▆▅▅▁▁▃▅▁█
+wandb:          sample_n_pos_gt ▂▁▁▁▁▁▁▂▃▂▁▁▃▁▁█▁▁▁▁▁▁▁▁▁▁▂▃▁▁▂▁▁▂▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▁▇█▅▁▂▁▃▄▅▅▅▁▁▁▄▁▁▄▁▁▁▂▁▁▁▁▁▁▁▅▂▁▁▁▁▆▁▁
+wandb:          sample_n_tokens ▃▄▃▄▃▆▆▅▄▅▆▂▄▂▂▅▂▆▃▃▄▄█▅▇▂▅▂▁▅▃▄▅▄▂▃▄▄▁▄
+wandb: sample_precision_class_0 ▇███▇▇▇██▇█▆████▅█▁███████████▇██▇██▁███
+wandb: sample_precision_class_1   ▄▁▇ ▆█▆█  ▁  ▁    █▁▁     █  ▁   ▁  █ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.8
+wandb:       f1_binary_class_0 0.97972
+wandb:       f1_binary_class_1 0.25
+wandb:                f1_micro 0.96051
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01212
+wandb:        macro_f1_class_0 0.97619
+wandb:        macro_f1_class_1 0.35773
+wandb:          macro_f1_micro 0.963
+wandb: macro_precision_class_0 0.96474
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run tinylettuce-ettin-68m-en_thr_0_8 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/4mv4wg7v
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_165909-4mv4wg7v/logs
+wandb: Agent Starting Run: df5jg5wu with config:
+wandb: 	confidence_threshold: 0.8
+wandb: 	model_idx: 1
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run df5jg5wu
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_171005-df5jg5wu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run usual-sweep-11
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/df5jg5wu
+wandb: updating run metadata; uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_8
+wandb: uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_8
+wandb: uploading history steps 148-149, summary, console lines 156-171
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 █▇█▇███▇█▇███▇███▆▁█▇█████▇███████▇█▃███
+wandb:        sample_f1_class_1   ▄  ▅  ▃▃▁ ▃           ▃      ▇   ▇  █ 
+wandb:          sample_f1_micro ██▇▇███▇█▆██████▂▇███████▇█▇▆█████▅▇▁███
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   sample_mean_step_lat_s ▃▃▄▃▂▂▂▂▂▆▂▃▂▁▂▂▂▁▂▁▂▁▃▂▁▁▁▂▂▁▁▃▁▁█▃▄▃▂▂
+wandb:          sample_n_pos_gt ▁▁▁▁▁▁▄▁▂▁▂▁▁▃▃▁▁▁█▇▁▁▁▁▁▁▁▁▁▂▁▁▁▁▄▁▁▁▁▁
+wandb:        sample_n_pos_pred ▂▆▅▅▂▁▂▁▃▇▃▁▂▁▁▁▃▁▁▄▁▂▁▂▁▁▁▁▁▁▂█▁▁▁▄▁▁▁▁
+wandb:          sample_n_tokens ▄▆▃▅▄▅▄▆▆▃▅▃▂▃▅▆▆▃▅▂▅▆█▃▃▃▁▂▃▁▁▂▅▄▃▁▂▂▁▂
+wandb: sample_precision_class_0 ▅█████▅▆██▅█████▇██▇██████▅▅▁█▃▆█▅██████
+wandb: sample_precision_class_1 █▆▁ ▁▇▁    ▁▂ ▁█     ▁▇▁  ▁  █▁ ▁ ▅▁  ▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.8
+wandb:       f1_binary_class_0 0.97825
+wandb:       f1_binary_class_1 0.34966
+wandb:                f1_micro 0.9579
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.0242
+wandb:        macro_f1_class_0 0.97472
+wandb:        macro_f1_class_1 0.42794
+wandb:          macro_f1_micro 0.95969
+wandb: macro_precision_class_0 0.96893
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettucedetect-base-modernbert-en-v1_thr_0_8 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/df5jg5wu
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_171005-df5jg5wu/logs
+wandb: Agent Starting Run: 582t5nal with config:
+wandb: 	confidence_threshold: 0.8
+wandb: 	model_idx: 2
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 582t5nal
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_172154-582t5nal
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run proud-sweep-12
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/582t5nal
+wandb: updating run metadata; uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_8
+wandb: uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_8
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading output.log
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ██▆▃▇▆▅▇██▄▂████▇████▁██████▆▇█▇▇███████
+wandb:        sample_f1_class_1     █▃▁▅ ▅ ▇                    ▁       
+wandb:          sample_f1_micro ▄▇▂██▄▆█▁██▁████▄██████████████▆██▆█▆▆▇█
+wandb:             sample_index ▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▅▅▅▅▆▆▆▆▇▇▇▇▇▇█████
+wandb:   sample_mean_step_lat_s ▃▂▄▃█▇▃▆▆▃▅▅▄▇▂▂▁▂▃▄▂▁▄▅▁▅▅▂▁▇▁▅▂▃▂▆▆▂▁▅
+wandb:          sample_n_pos_gt ▁▂▁▃▁▁▁▃▂▃▁▃▁▁▃▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▂▂▁▃▂▄▁▁▁▁▁▂▁▁▁▁█▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▅▁▁▁▁▁
+wandb:          sample_n_tokens ▅▇▆▅▆▄▆█▆▅▆█▅▃▆▇▆▇▁▂▅▇█▂▁▅▄▅▃▃▃▆▆▇▄▃▂▁▆▅
+wandb: sample_precision_class_0 ▇██▇█▆██▆██▇████▇█████████████▇███████▁█
+wandb: sample_precision_class_1 ▅▄▄  ▇▂▁▁█▃  ▃▄  ▁ ▁▁         ▇ ▁   █ ▁ 
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.8
+wandb:       f1_binary_class_0 0.9745
+wandb:       f1_binary_class_1 0.39743
+wandb:                f1_micro 0.95108
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.04065
+wandb:        macro_f1_class_0 0.97518
+wandb:        macro_f1_class_1 0.46511
+wandb:          macro_f1_micro 0.95883
+wandb: macro_precision_class_0 0.97475
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettuceprevent-ettin-decoder-68m-en_thr_0_8 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/582t5nal
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_172154-582t5nal/logs
+wandb: Agent Starting Run: b2drrnag with config:
+wandb: 	confidence_threshold: 0.9
+wandb: 	model_idx: 0
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run b2drrnag
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_173111-b2drrnag
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lilac-sweep-13
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/b2drrnag
+wandb: updating run metadata; uploading artifact tinylettuce-ettin-68m-en_thr_0_9
+wandb: uploading artifact tinylettuce-ettin-68m-en_thr_0_9
+wandb: uploading output.log
+wandb: uploading history steps 147-149, summary, console lines 155-171
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 █▇███▇██▇████▇▇█▅███▇█▅██████▇▇███▇█▁███
+wandb:        sample_f1_class_1   █         ▁                           
+wandb:          sample_f1_micro █▇▅█▆█▅▇▆██▄▅█▁█████████▇██████▆▇███▆███
+wandb:             sample_index ▁▁▁▁▂▂▂▂▂▂▂▂▃▃▄▄▄▄▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇████
+wandb:   sample_mean_step_lat_s ▅▄▆▆▅▄▄▄▄█▃▅█▆▂▂▂▁▂▂▂▁▃▃▃▄▂▂▅▇▂▆▆▄▆▂▂▁▁▃
+wandb:          sample_n_pos_gt ▄▂▁▄▁▁▁▃▃▁▃▂▃▁▇▁▁▂▁█▁▁▂▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▁▁▁▁▂▄▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁
+wandb:          sample_n_tokens ▄▆▃▃▆▆▅▅▄▂▂▂▂▄▃▆▃█▁▂▂▃▃▂▆▁▃▂▃▁▂▄▄▅▃▂▁▂▄▂
+wandb: sample_precision_class_0 ██▆██▆█▆█▆▁██▇███▇███████▆▇█▆███████████
+wandb: sample_precision_class_1  ▅    █    ▆   █▁▁ █▁           ▁    ▁  
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.9
+wandb:       f1_binary_class_0 0.98019
+wandb:       f1_binary_class_1 0.21516
+wandb:                f1_micro 0.96135
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.00871
+wandb:        macro_f1_class_0 0.97654
+wandb:        macro_f1_class_1 0.35808
+wandb:          macro_f1_micro 0.96363
+wandb: macro_precision_class_0 0.96387
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run tinylettuce-ettin-68m-en_thr_0_9 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/b2drrnag
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_173111-b2drrnag/logs
+wandb: Agent Starting Run: q1tdufgj with config:
+wandb: 	confidence_threshold: 0.9
+wandb: 	model_idx: 1
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run q1tdufgj
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_174213-q1tdufgj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eager-sweep-14
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/q1tdufgj
+wandb: updating run metadata; uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_9
+wandb: uploading artifact lettucedetect-base-modernbert-en-v1_thr_0_9
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇██▇█▇▇███▆▇███▆█████▅█████▇▇██████▁████
+wandb:        sample_f1_class_1  ▅  █▃   ▅▁▇▃                           
+wandb:          sample_f1_micro ██▆█▆▅███▇▇▆██████▁▇████████████▇█▇████▇
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇▇███
+wandb:   sample_mean_step_lat_s █▃▃▃▃▂▂▂▃▃▂▆▂▂▁▂▁▂▂▁▂▂▃▁▂▁▁▁▁▁▂▁▂▃▁▂▁▂▃▂
+wandb:          sample_n_pos_gt ▃▁▁▁▂▁▁▂▂▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁█▁▁▁
+wandb:        sample_n_pos_pred ▁▁▂▁▁▂▅▅▂▁▂▆▁▂▂▄▁▂▁▁▃▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁
+wandb:          sample_n_tokens ▄▂▅▄▃▆▆▄▃▄▂▃▅▅▆▃▄▂▂▃▅▄▃▅█▁▇▂▁▃▂▅▃▄▃▂▃▂▁▄
+wandb: sample_precision_class_0 ▇█████▆▇████▆▇████▄████████▇████▇████▁██
+wandb: sample_precision_class_1 ▁█▃▅▁▆▁ █▂▅▁█▇▁  ▁▁█ ▁▁           ▁ █   
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.9
+wandb:       f1_binary_class_0 0.98009
+wandb:       f1_binary_class_1 0.34445
+wandb:                f1_micro 0.96135
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01842
+wandb:        macro_f1_class_0 0.97688
+wandb:        macro_f1_class_1 0.43457
+wandb:          macro_f1_micro 0.96368
+wandb: macro_precision_class_0 0.9681
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettucedetect-base-modernbert-en-v1_thr_0_9 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/q1tdufgj
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_174213-q1tdufgj/logs
+wandb: Agent Starting Run: zjdbjtb0 with config:
+wandb: 	confidence_threshold: 0.9
+wandb: 	model_idx: 2
+wandb: 	output_prefix: rq3_unified_sweep
+wandb: 	prompts_per_task: 50
+wandb: 	seed: 42
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run zjdbjtb0
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/443225/wandb/wandb/run-20260430_175417-zjdbjtb0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run major-sweep-15
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/zjdbjtb0
+wandb: updating run metadata; uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_9
+wandb: uploading artifact lettuceprevent-ettin-decoder-68m-en_thr_0_9
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading output.log
+wandb: 
+wandb: Run history:
+wandb:        sample_f1_class_0 ▇▆██▇████▇▇████▇█████████▇▆██████████▁██
+wandb:        sample_f1_class_1  ▅     ▅▁  ▃ ▂      █                   
+wandb:          sample_f1_micro ██▇████▅█▅█▆█▄█▅███▇██▁████████▅▇▇█▇████
+wandb:             sample_index ▁▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▇▇▇▇██
+wandb:   sample_mean_step_lat_s ▆▆▇█▇▄▆▄▂▅▅▃▆▃▃▃▄▆▂▄█▄▃▁▃▁▃▂▂▃▇▄▆▃▂▂▄▃▂▃
+wandb:          sample_n_pos_gt ▁█▄█▂▅▅▃▁▆▁▄▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▅▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        sample_n_pos_pred ▁▄▁▅▄▁▃▁▆▁█▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▁▁▁
+wandb:          sample_n_tokens ▃▆▅▅▄▆▄▄▅▄▄▅▅▄▃▃▅▅▁▂▅▃▁▆▂█▃▃▁▆▃▅▅▆▃▂▁▃▅▅
+wandb: sample_precision_class_0 █▇█▇██▇████▇▇██▇█▁██▇████████▇▆███▆█████
+wandb: sample_precision_class_1  █▁ ▇  ▂▂▄   ▁█                         
+wandb:                       +5 ...
+wandb: 
+wandb: Run summary:
+wandb:    confidence_threshold 0.9
+wandb:       f1_binary_class_0 0.97877
+wandb:       f1_binary_class_1 0.27298
+wandb:                f1_micro 0.95874
+wandb:             frac_pos_gt 0.04053
+wandb:           frac_pos_pred 0.01621
+wandb:        macro_f1_class_0 0.97593
+wandb:        macro_f1_class_1 0.39267
+wandb:          macro_f1_micro 0.96273
+wandb: macro_precision_class_0 0.96551
+wandb:                     +45 ...
+wandb: 
+wandb: 🚀 View run lettuceprevent-ettin-decoder-68m-en_thr_0_9 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/runs/zjdbjtb0
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260430_175417-zjdbjtb0/logs
+Create sweep with ID: utq76rpp
+Sweep URL: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq3-unified/sweeps/utq76rpp
+Created sweep_id: utq76rpp
+Starting agent for sweep_id=utq76rpp, count=15
+
+######################################################################
+# Run:        tinylettuce-ettin-68m-en_thr_0_5
+# Model:      tinylettuce-ettin-68m-en (lettucedetect)
+# Threshold:  0.50
+######################################################################
+
+Loading wandb/RAGTruth-processed (split=test)...
+  task_type=Data2txt: 50 prompts selected
+  task_type=QA: 50 prompts selected
+  task_type=Summary: 50 prompts selected
+
+Total sweep samples: 150
+LLM distribution:
+  gpt-3.5-turbo-0613: 27
+  gpt-4-0613: 27
+  llama-2-13b-chat: 24
+  llama-2-70b-chat: 24
+  llama-2-7b-chat: 24
+  mistral-7B-instruct: 24
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: tinylettuce-ettin-68m-en_thr_0_5
+  Threshold:           0.5 
+  Total predict time:  621.99s
+  Wallclock:           627.79s
+  Mean step latency:   24.96ms
+  Median step lat.:    23.96ms
+  P95 step latency:    33.18ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        445 (1.79%)
+  Pooled F1 c1:        0.3010  Recall: 0.2168  Prec: 0.4921
+  Macro  F1 c1:        0.3797
+============================================================
+
+
+######################################################################
+# Run:        lettucedetect-base-modernbert-en-v1_thr_0_5
+# Model:      lettucedetect-base-modernbert-en-v1 (lettucedetect)
+# Threshold:  0.50
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettucedetect-base-modernbert-en-v1_thr_0_5
+  Threshold:           0.5 
+  Total predict time:  686.87s
+  Wallclock:           693.15s
+  Mean step latency:   27.57ms
+  Median step lat.:    26.42ms
+  P95 step latency:    37.25ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        847 (3.40%)
+  Pooled F1 c1:        0.3597  Recall: 0.3307  Prec: 0.3943
+  Macro  F1 c1:        0.4434
+============================================================
+
+
+######################################################################
+# Run:        lettuceprevent-ettin-decoder-68m-en_thr_0_5
+# Model:      lettuceprevent-ettin-decoder-68m-en (lettuceprevent_decoder)
+# Threshold:  0.50
+######################################################################
+
+[lettuceprevent-ettin-decoder-68m-en] Loading Ettin tokenizer from lebe1/lettuceprevent-ettin-decoder-68m-en
+[lettuceprevent-ettin-decoder-68m-en] Loading Llama tokenizer for boundary alignment
+[lettuceprevent-ettin-decoder-68m-en] Loading model weights
+[lettuceprevent-ettin-decoder-68m-en] WARNING: unexpected keys: ['class_weights']
+[lettuceprevent-ettin-decoder-68m-en] Ready on cuda (raw softmax)
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettuceprevent-ettin-decoder-68m-en_thr_0_5
+  Threshold:           0.5 
+  Total predict time:  521.46s
+  Wallclock:           540.97s
+  Mean step latency:   20.93ms
+  Median step lat.:    20.15ms
+  P95 step latency:    26.95ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        2322 (9.32%)
+  Pooled F1 c1:        0.3439  Recall: 0.5673  Prec: 0.2468
+  Macro  F1 c1:        0.4120
+============================================================
+
+
+######################################################################
+# Run:        tinylettuce-ettin-68m-en_thr_0_6
+# Model:      tinylettuce-ettin-68m-en (lettucedetect)
+# Threshold:  0.60
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: tinylettuce-ettin-68m-en_thr_0_6
+  Threshold:           0.6 
+  Total predict time:  624.03s
+  Wallclock:           630.67s
+  Mean step latency:   25.04ms
+  Median step lat.:    24.38ms
+  P95 step latency:    33.26ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        413 (1.66%)
+  Pooled F1 c1:        0.2909  Recall: 0.2050  Prec: 0.5012
+  Macro  F1 c1:        0.3855
+============================================================
+
+
+######################################################################
+# Run:        lettucedetect-base-modernbert-en-v1_thr_0_6
+# Model:      lettucedetect-base-modernbert-en-v1 (lettucedetect)
+# Threshold:  0.60
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettucedetect-base-modernbert-en-v1_thr_0_6
+  Threshold:           0.6 
+  Total predict time:  685.98s
+  Wallclock:           692.62s
+  Mean step latency:   27.53ms
+  Median step lat.:    26.71ms
+  P95 step latency:    36.64ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        769 (3.09%)
+  Pooled F1 c1:        0.3598  Recall: 0.3168  Prec: 0.4161
+  Macro  F1 c1:        0.4405
+============================================================
+
+
+######################################################################
+# Run:        lettuceprevent-ettin-decoder-68m-en_thr_0_6
+# Model:      lettuceprevent-ettin-decoder-68m-en (lettuceprevent_decoder)
+# Threshold:  0.60
+######################################################################
+
+[lettuceprevent-ettin-decoder-68m-en] Loading Ettin tokenizer from lebe1/lettuceprevent-ettin-decoder-68m-en
+[lettuceprevent-ettin-decoder-68m-en] Loading Llama tokenizer for boundary alignment
+[lettuceprevent-ettin-decoder-68m-en] Loading model weights
+[lettuceprevent-ettin-decoder-68m-en] WARNING: unexpected keys: ['class_weights']
+[lettuceprevent-ettin-decoder-68m-en] Ready on cuda (raw softmax)
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettuceprevent-ettin-decoder-68m-en_thr_0_6
+  Threshold:           0.6 
+  Total predict time:  521.88s
+  Wallclock:           541.41s
+  Mean step latency:   20.94ms
+  Median step lat.:    20.17ms
+  P95 step latency:    26.98ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        1843 (7.40%)
+  Pooled F1 c1:        0.3694  Recall: 0.5218  Prec: 0.2859
+  Macro  F1 c1:        0.4406
+============================================================
+
+
+######################################################################
+# Run:        tinylettuce-ettin-68m-en_thr_0_7
+# Model:      tinylettuce-ettin-68m-en (lettucedetect)
+# Threshold:  0.70
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: tinylettuce-ettin-68m-en_thr_0_7
+  Threshold:           0.7 
+  Total predict time:  625.88s
+  Wallclock:           632.54s
+  Mean step latency:   25.12ms
+  Median step lat.:    24.50ms
+  P95 step latency:    33.51ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        369 (1.48%)
+  Pooled F1 c1:        0.2814  Recall: 0.1921  Prec: 0.5257
+  Macro  F1 c1:        0.3838
+============================================================
+
+
+######################################################################
+# Run:        lettucedetect-base-modernbert-en-v1_thr_0_7
+# Model:      lettucedetect-base-modernbert-en-v1 (lettucedetect)
+# Threshold:  0.70
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettucedetect-base-modernbert-en-v1_thr_0_7
+  Threshold:           0.7 
+  Total predict time:  682.91s
+  Wallclock:           689.21s
+  Mean step latency:   27.41ms
+  Median step lat.:    26.51ms
+  P95 step latency:    36.82ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        693 (2.78%)
+  Pooled F1 c1:        0.3547  Recall: 0.2990  Prec: 0.4358
+  Macro  F1 c1:        0.4381
+============================================================
+
+
+######################################################################
+# Run:        lettuceprevent-ettin-decoder-68m-en_thr_0_7
+# Model:      lettuceprevent-ettin-decoder-68m-en (lettuceprevent_decoder)
+# Threshold:  0.70
+######################################################################
+
+[lettuceprevent-ettin-decoder-68m-en] Loading Ettin tokenizer from lebe1/lettuceprevent-ettin-decoder-68m-en
+[lettuceprevent-ettin-decoder-68m-en] Loading Llama tokenizer for boundary alignment
+[lettuceprevent-ettin-decoder-68m-en] Loading model weights
+[lettuceprevent-ettin-decoder-68m-en] WARNING: unexpected keys: ['class_weights']
+[lettuceprevent-ettin-decoder-68m-en] Ready on cuda (raw softmax)
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettuceprevent-ettin-decoder-68m-en_thr_0_7
+  Threshold:           0.7 
+  Total predict time:  531.34s
+  Wallclock:           551.44s
+  Mean step latency:   21.32ms
+  Median step lat.:    20.56ms
+  P95 step latency:    27.51ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        1426 (5.72%)
+  Pooled F1 c1:        0.3867  Recall: 0.4663  Prec: 0.3303
+  Macro  F1 c1:        0.4611
+============================================================
+
+
+######################################################################
+# Run:        tinylettuce-ettin-68m-en_thr_0_8
+# Model:      tinylettuce-ettin-68m-en (lettucedetect)
+# Threshold:  0.80
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: tinylettuce-ettin-68m-en_thr_0_8
+  Threshold:           0.8 
+  Total predict time:  638.74s
+  Wallclock:           645.64s
+  Mean step latency:   25.63ms
+  Median step lat.:    25.08ms
+  P95 step latency:    34.01ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        302 (1.21%)
+  Pooled F1 c1:        0.2500  Recall: 0.1624  Prec: 0.5430
+  Macro  F1 c1:        0.3577
+============================================================
+
+
+######################################################################
+# Run:        lettucedetect-base-modernbert-en-v1_thr_0_8
+# Model:      lettucedetect-base-modernbert-en-v1 (lettucedetect)
+# Threshold:  0.80
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettucedetect-base-modernbert-en-v1_thr_0_8
+  Threshold:           0.8 
+  Total predict time:  691.51s
+  Wallclock:           698.24s
+  Mean step latency:   27.75ms
+  Median step lat.:    26.74ms
+  P95 step latency:    37.58ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        603 (2.42%)
+  Pooled F1 c1:        0.3497  Recall: 0.2792  Prec: 0.4677
+  Macro  F1 c1:        0.4279
+============================================================
+
+
+######################################################################
+# Run:        lettuceprevent-ettin-decoder-68m-en_thr_0_8
+# Model:      lettuceprevent-ettin-decoder-68m-en (lettuceprevent_decoder)
+# Threshold:  0.80
+######################################################################
+
+[lettuceprevent-ettin-decoder-68m-en] Loading Ettin tokenizer from lebe1/lettuceprevent-ettin-decoder-68m-en
+[lettuceprevent-ettin-decoder-68m-en] Loading Llama tokenizer for boundary alignment
+[lettuceprevent-ettin-decoder-68m-en] Loading model weights
+[lettuceprevent-ettin-decoder-68m-en] WARNING: unexpected keys: ['class_weights']
+[lettuceprevent-ettin-decoder-68m-en] Ready on cuda (raw softmax)
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettuceprevent-ettin-decoder-68m-en_thr_0_8
+  Threshold:           0.8 
+  Total predict time:  524.52s
+  Wallclock:           544.19s
+  Mean step latency:   21.05ms
+  Median step lat.:    20.24ms
+  P95 step latency:    27.11ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        1013 (4.07%)
+  Pooled F1 c1:        0.3974  Recall: 0.3980  Prec: 0.3968
+  Macro  F1 c1:        0.4651
+============================================================
+
+
+######################################################################
+# Run:        tinylettuce-ettin-68m-en_thr_0_9
+# Model:      tinylettuce-ettin-68m-en (lettucedetect)
+# Threshold:  0.90
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: tinylettuce-ettin-68m-en_thr_0_9
+  Threshold:           0.9 
+  Total predict time:  647.57s
+  Wallclock:           654.60s
+  Mean step latency:   25.99ms
+  Median step lat.:    24.98ms
+  P95 step latency:    34.66ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        217 (0.87%)
+  Pooled F1 c1:        0.2152  Recall: 0.1307  Prec: 0.6083
+  Macro  F1 c1:        0.3581
+============================================================
+
+
+######################################################################
+# Run:        lettucedetect-base-modernbert-en-v1_thr_0_9
+# Model:      lettucedetect-base-modernbert-en-v1 (lettucedetect)
+# Threshold:  0.90
+######################################################################
+
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettucedetect-base-modernbert-en-v1_thr_0_9
+  Threshold:           0.9 
+  Total predict time:  705.99s
+  Wallclock:           713.07s
+  Mean step latency:   28.33ms
+  Median step lat.:    27.14ms
+  P95 step latency:    38.61ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        459 (1.84%)
+  Pooled F1 c1:        0.3445  Recall: 0.2505  Prec: 0.5512
+  Macro  F1 c1:        0.4346
+============================================================
+
+
+######################################################################
+# Run:        lettuceprevent-ettin-decoder-68m-en_thr_0_9
+# Model:      lettuceprevent-ettin-decoder-68m-en (lettuceprevent_decoder)
+# Threshold:  0.90
+######################################################################
+
+[lettuceprevent-ettin-decoder-68m-en] Loading Ettin tokenizer from lebe1/lettuceprevent-ettin-decoder-68m-en
+[lettuceprevent-ettin-decoder-68m-en] Loading Llama tokenizer for boundary alignment
+[lettuceprevent-ettin-decoder-68m-en] Loading model weights
+[lettuceprevent-ettin-decoder-68m-en] WARNING: unexpected keys: ['class_weights']
+[lettuceprevent-ettin-decoder-68m-en] Ready on cuda (raw softmax)
+  sample 1/150 (task=Data2txt, model=gpt-4-0613)
+  sample 2/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 3/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 4/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 5/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 6/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 7/150 (task=Data2txt, model=gpt-4-0613)
+  sample 8/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 9/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 10/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 11/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 12/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 13/150 (task=Data2txt, model=gpt-4-0613)
+  sample 14/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 15/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 16/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 17/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 18/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 19/150 (task=Data2txt, model=gpt-4-0613)
+  sample 20/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 21/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 22/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 23/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 24/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 25/150 (task=Data2txt, model=gpt-4-0613)
+  sample 26/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 27/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 28/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 29/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 30/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 31/150 (task=Data2txt, model=gpt-4-0613)
+  sample 32/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 33/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 34/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 35/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 36/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 37/150 (task=Data2txt, model=gpt-4-0613)
+  sample 38/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 39/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 40/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 41/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 42/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 43/150 (task=Data2txt, model=gpt-4-0613)
+  sample 44/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 45/150 (task=Data2txt, model=mistral-7B-instruct)
+  sample 46/150 (task=Data2txt, model=llama-2-7b-chat)
+  sample 47/150 (task=Data2txt, model=llama-2-13b-chat)
+  sample 48/150 (task=Data2txt, model=llama-2-70b-chat)
+  sample 49/150 (task=Data2txt, model=gpt-4-0613)
+  sample 50/150 (task=Data2txt, model=gpt-3.5-turbo-0613)
+  sample 51/150 (task=QA, model=gpt-4-0613)
+  sample 52/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 53/150 (task=QA, model=mistral-7B-instruct)
+  sample 54/150 (task=QA, model=llama-2-7b-chat)
+  sample 55/150 (task=QA, model=llama-2-13b-chat)
+  sample 56/150 (task=QA, model=llama-2-70b-chat)
+  sample 57/150 (task=QA, model=gpt-4-0613)
+  sample 58/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 59/150 (task=QA, model=mistral-7B-instruct)
+  sample 60/150 (task=QA, model=llama-2-7b-chat)
+  sample 61/150 (task=QA, model=llama-2-13b-chat)
+  sample 62/150 (task=QA, model=llama-2-70b-chat)
+  sample 63/150 (task=QA, model=gpt-4-0613)
+  sample 64/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 65/150 (task=QA, model=mistral-7B-instruct)
+  sample 66/150 (task=QA, model=llama-2-7b-chat)
+  sample 67/150 (task=QA, model=llama-2-13b-chat)
+  sample 68/150 (task=QA, model=llama-2-70b-chat)
+  sample 69/150 (task=QA, model=gpt-4-0613)
+  sample 70/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 71/150 (task=QA, model=mistral-7B-instruct)
+  sample 72/150 (task=QA, model=llama-2-7b-chat)
+  sample 73/150 (task=QA, model=llama-2-13b-chat)
+  sample 74/150 (task=QA, model=llama-2-70b-chat)
+  sample 75/150 (task=QA, model=gpt-4-0613)
+  sample 76/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 77/150 (task=QA, model=mistral-7B-instruct)
+  sample 78/150 (task=QA, model=llama-2-7b-chat)
+  sample 79/150 (task=QA, model=llama-2-13b-chat)
+  sample 80/150 (task=QA, model=llama-2-70b-chat)
+  sample 81/150 (task=QA, model=gpt-4-0613)
+  sample 82/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 83/150 (task=QA, model=mistral-7B-instruct)
+  sample 84/150 (task=QA, model=llama-2-7b-chat)
+  sample 85/150 (task=QA, model=llama-2-13b-chat)
+  sample 86/150 (task=QA, model=llama-2-70b-chat)
+  sample 87/150 (task=QA, model=gpt-4-0613)
+  sample 88/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 89/150 (task=QA, model=mistral-7B-instruct)
+  sample 90/150 (task=QA, model=llama-2-7b-chat)
+  sample 91/150 (task=QA, model=llama-2-13b-chat)
+  sample 92/150 (task=QA, model=llama-2-70b-chat)
+  sample 93/150 (task=QA, model=gpt-4-0613)
+  sample 94/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 95/150 (task=QA, model=mistral-7B-instruct)
+  sample 96/150 (task=QA, model=llama-2-7b-chat)
+  sample 97/150 (task=QA, model=llama-2-13b-chat)
+  sample 98/150 (task=QA, model=llama-2-70b-chat)
+  sample 99/150 (task=QA, model=gpt-4-0613)
+  sample 100/150 (task=QA, model=gpt-3.5-turbo-0613)
+  sample 101/150 (task=Summary, model=gpt-4-0613)
+  sample 102/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 103/150 (task=Summary, model=mistral-7B-instruct)
+  sample 104/150 (task=Summary, model=llama-2-7b-chat)
+  sample 105/150 (task=Summary, model=llama-2-13b-chat)
+  sample 106/150 (task=Summary, model=llama-2-70b-chat)
+  sample 107/150 (task=Summary, model=gpt-4-0613)
+  sample 108/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 109/150 (task=Summary, model=mistral-7B-instruct)
+  sample 110/150 (task=Summary, model=llama-2-7b-chat)
+  sample 111/150 (task=Summary, model=llama-2-13b-chat)
+  sample 112/150 (task=Summary, model=llama-2-70b-chat)
+  sample 113/150 (task=Summary, model=gpt-4-0613)
+  sample 114/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 115/150 (task=Summary, model=mistral-7B-instruct)
+  sample 116/150 (task=Summary, model=llama-2-7b-chat)
+  sample 117/150 (task=Summary, model=llama-2-13b-chat)
+  sample 118/150 (task=Summary, model=llama-2-70b-chat)
+  sample 119/150 (task=Summary, model=gpt-4-0613)
+  sample 120/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 121/150 (task=Summary, model=mistral-7B-instruct)
+  sample 122/150 (task=Summary, model=llama-2-7b-chat)
+  sample 123/150 (task=Summary, model=llama-2-13b-chat)
+  sample 124/150 (task=Summary, model=llama-2-70b-chat)
+  sample 125/150 (task=Summary, model=gpt-4-0613)
+  sample 126/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 127/150 (task=Summary, model=mistral-7B-instruct)
+  sample 128/150 (task=Summary, model=llama-2-7b-chat)
+  sample 129/150 (task=Summary, model=llama-2-13b-chat)
+  sample 130/150 (task=Summary, model=llama-2-70b-chat)
+  sample 131/150 (task=Summary, model=gpt-4-0613)
+  sample 132/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 133/150 (task=Summary, model=mistral-7B-instruct)
+  sample 134/150 (task=Summary, model=llama-2-7b-chat)
+  sample 135/150 (task=Summary, model=llama-2-13b-chat)
+  sample 136/150 (task=Summary, model=llama-2-70b-chat)
+  sample 137/150 (task=Summary, model=gpt-4-0613)
+  sample 138/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 139/150 (task=Summary, model=mistral-7B-instruct)
+  sample 140/150 (task=Summary, model=llama-2-7b-chat)
+  sample 141/150 (task=Summary, model=llama-2-13b-chat)
+  sample 142/150 (task=Summary, model=llama-2-70b-chat)
+  sample 143/150 (task=Summary, model=gpt-4-0613)
+  sample 144/150 (task=Summary, model=gpt-3.5-turbo-0613)
+  sample 145/150 (task=Summary, model=mistral-7B-instruct)
+  sample 146/150 (task=Summary, model=llama-2-7b-chat)
+  sample 147/150 (task=Summary, model=llama-2-13b-chat)
+  sample 148/150 (task=Summary, model=llama-2-70b-chat)
+  sample 149/150 (task=Summary, model=gpt-4-0613)
+  sample 150/150 (task=Summary, model=gpt-3.5-turbo-0613)
+
+============================================================
+RUN COMPLETE: lettuceprevent-ettin-decoder-68m-en_thr_0_9
+  Threshold:           0.9 
+  Total predict time:  522.88s
+  Wallclock:           542.61s
+  Mean step latency:   20.98ms
+  Median step lat.:    20.22ms
+  P95 step latency:    27.12ms
+  Total tokens:        24917
+  Class-1 GT:          1010 (4.05%)
+  Class-1 pred:        404 (1.62%)
+  Pooled F1 c1:        0.2730  Recall: 0.1911  Prec: 0.4777
+  Macro  F1 c1:        0.3927
+============================================================
+
+
+==============================================================================================================
+RQ3 UNIFIED THRESHOLD SWEEP - FINAL SUMMARY
+==============================================================================================================
+Model                                        Thr    F1_c1   Rec_c1  Prec_c1   F1_mic   PredTime  StepLat(ms)
+--------------------------------------------------------------------------------------------------------------
+lettucedetect-base-modernbert-en-v1          0.5   0.3597   0.3307   0.3943   0.9523    686.87s       27.57
+lettucedetect-base-modernbert-en-v1          0.6   0.3598   0.3168   0.4161   0.9543    685.98s       27.53
+lettucedetect-base-modernbert-en-v1          0.7   0.3547   0.2990   0.4358   0.9559    682.91s       27.41
+lettucedetect-base-modernbert-en-v1          0.8   0.3497   0.2792   0.4677   0.9579    691.51s       27.75
+lettucedetect-base-modernbert-en-v1          0.9   0.3445   0.2505   0.5512   0.9614    705.99s       28.33
+
+lettuceprevent-ettin-decoder-68m-en          0.5   0.3439   0.5673   0.2468   0.9123    521.46s       20.93
+lettuceprevent-ettin-decoder-68m-en          0.6   0.3694   0.5218   0.2859   0.9278    521.88s       20.94
+lettuceprevent-ettin-decoder-68m-en          0.7   0.3867   0.4663   0.3303   0.9400    531.34s       21.32
+lettuceprevent-ettin-decoder-68m-en          0.8   0.3974   0.3980   0.3968   0.9511    524.52s       21.05
+lettuceprevent-ettin-decoder-68m-en          0.9   0.2730   0.1911   0.4777   0.9587    522.88s       20.98
+
+tinylettuce-ettin-68m-en                     0.5   0.3010   0.2168   0.4921   0.9592    621.99s       24.96
+tinylettuce-ettin-68m-en                     0.6   0.2909   0.2050   0.5012   0.9595    624.03s       25.04
+tinylettuce-ettin-68m-en                     0.7   0.2814   0.1921   0.5257   0.9602    625.88s       25.12
+tinylettuce-ettin-68m-en                     0.8   0.2500   0.1624   0.5430   0.9605    638.74s       25.63
+tinylettuce-ettin-68m-en                     0.9   0.2152   0.1307   0.6083   0.9614    647.57s       25.99
+
+==============================================================================================================
+BEST THRESHOLD PER MODEL (by F1 class 1, pooled)
+==============================================================================================================
+
+  Model:               lettucedetect-base-modernbert-en-v1
+  Threshold:           0.6
+  F1 c1:               0.3598
+  Recall c1:           0.3168
+  Prec c1:             0.4161
+  F1 micro:            0.9543
+  Total predict time:  685.98s
+  Mean step latency:   27.53ms
+  P95 step latency:    36.64ms
+
+  Model:               lettuceprevent-ettin-decoder-68m-en
+  Threshold:           0.8
+  F1 c1:               0.3974
+  Recall c1:           0.3980
+  Prec c1:             0.3968
+  F1 micro:            0.9511
+  Total predict time:  524.52s
+  Mean step latency:   21.05ms
+  P95 step latency:    27.11ms
+
+  Model:               tinylettuce-ettin-68m-en
+  Threshold:           0.5
+  F1 c1:               0.3010
+  Recall c1:           0.2168
+  Prec c1:             0.4921
+  F1 micro:            0.9592
+  Total predict time:  621.99s
+  Mean step latency:   24.96ms
+  P95 step latency:    33.18ms
+
+==============================================================================================================
+Summary saved: rq3_unified_sweep_summary.json
+Copying outputs back to /share/e12133103/rq3-unified-sweep-results
+Job finished. Results in /share/e12133103/rq3-unified-sweep-results
