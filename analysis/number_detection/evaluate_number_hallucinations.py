@@ -37,7 +37,7 @@ from scipy import stats
 from word2number import w2n
 
 
-ALPHA_BONFERRONI = 0.025  # 0.05 / 2 tests
+ALPHA_BONFERRONI = 0.05 / 6  # 0.05 / 2 tests * 3 models
 
 
 # ----------------------------------------------------------------------------
