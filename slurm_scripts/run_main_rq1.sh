@@ -110,7 +110,7 @@ print(f'[INFO] Authenticated as: {info[\"name\"]}')
 # ---------------------------------------------------------------------------
 REQUIRED_FILES=(
     "main.py"
-    "analysis/post_eval.py"
+    "analysis/factual_detection/post_eval.py"
     "detectors/dataset_loader.py"
     "detectors/factory.py"
     "detectors/base_detector.py"
