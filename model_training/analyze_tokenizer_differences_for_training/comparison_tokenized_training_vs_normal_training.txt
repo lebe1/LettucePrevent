@@ -1029,6 +1029,3 @@ COMPARISON: direct Ettin tokenization of the full answer (no Llama chunking)
 ====================================================================================================
 Direct Ettin tokens      : 200
 Llama-chunked Ettin tokens: 204
-
-First 30 direct tokens        : ['Me', 'zza', 'ĠTh', 'yme', 'Ġis', 'Ġa', 'Ġhighly', '-', 'rated', 'ĠMediterranean', 'Ġrestaurant', 'Ġand', 'Ġbar', 'Ġin', 'ĠSanta', 'ĠBarbara', ',', 'ĠCalifornia', '.', 'ĠLoc', 'ated', 'Ġat', 'Ġ20', 'ĠE', 'ĠC', 'ota', 'ĠSt', ',', 'Ġthe', 'Ġestablishment']
-First 30 Llama-chunked tokens : ['Me', 'zza', 'ĠTh', 'yme', 'Ġis', 'Ġa', 'Ġhighly', '-', 'rated', 'ĠMediterranean', 'Ġrestaurant', 'Ġand', 'Ġbar', 'Ġin', 'ĠSanta', 'ĠBarbara']
