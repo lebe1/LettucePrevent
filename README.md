@@ -196,3 +196,5 @@ MIT — see [LICENSE](LICENSE).
 <img src="./huggingface_posts/visualizations/5.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
 <img src="./huggingface_posts/visualizations/6.jpg" alt="Alt Text" style="width:100%; height:auto;">
+
+Note: Anybody who is annoyed by the probability sample numbers, which are greater than 1 when summed up... I am too and I realized it a bit too late. But it is on my TODO
