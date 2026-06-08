@@ -55,7 +55,7 @@ warnings.filterwarnings("ignore", message=r".*Expected `list\[str\]` but got `tu
 # ============================================================================
 
 SEED               = 42
-WANDB_ENTITY       = "lebeccard-technical-university-wien"
+WANDB_ENTITY       = "TODO"
 LLM_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
 HF_DATASET_NAME    = "wandb/RAGTruth-processed"
 HF_DATASET_SPLIT   = "test"
@@ -90,8 +90,8 @@ LLMS_ROUND_ROBIN           = [
     "llama-2-70b-chat",
 ]
 
-DEFAULT_SWEEP_NAME    = "rq3-unified-threshold-sweep"
-DEFAULT_SWEEP_PROJECT = "hdm-rq3-unified"
+DEFAULT_SWEEP_NAME    = "TODO"
+DEFAULT_SWEEP_PROJECT = "TODO"
 DEFAULT_OUTPUT_PREFIX = "rq3_unified_sweep"
 
 

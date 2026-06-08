@@ -62,8 +62,8 @@ random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 
-WANDB_ENTITY  = "lebeccard-technical-university-wien"
-WANDB_PROJECT = "hdm-benchmark-rq3"
+WANDB_ENTITY  = "TODO"
+WANDB_PROJECT = "TODO"
 
 LLM_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
 
