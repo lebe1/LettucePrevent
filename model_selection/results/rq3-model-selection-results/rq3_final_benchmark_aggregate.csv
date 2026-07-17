@@ -1,0 +1,4 @@
+model_name,model_path,confidence_threshold,trigger_strategy,tokenizer,num_samples,precision_micro,recall_micro,f1_micro,precision_class_1,recall_class_1,f1_binary_class_1,precision_class_0,recall_class_0,f1_binary_class_0,total_runtime_seconds
+tinylettuce-ettin-68m-en,KRLabsOrg/tinylettuce-ettin-68m-en,0.5000,every_token,meta-llama/Llama-3.1-8B,450,0.9587,0.9587,0.9587,0.3930,0.2243,0.2856,0.9708,0.9868,0.9787,1411.75
+lettucedetect-base-modernbert-en-v1,KRLabsOrg/lettucedect-base-modernbert-en-v1,0.6000,every_token,meta-llama/Llama-3.1-8B,450,0.9543,0.9543,0.9543,0.3695,0.3427,0.3556,0.9750,0.9777,0.9763,1989.76
+lettuceprevent-ettin-decoder-68m-en,lebe1/lettuceprevent-ettin-decoder-68m-en,0.8000,every_token,meta-llama/Llama-3.1-8B,450,0.9489,0.9489,0.9489,0.3473,0.4410,0.3886,0.9784,0.9683,0.9734,1247.89

@@ -1,0 +1,12 @@
+wandb_version: 1
+
+confidence_threshold:
+  value: 0.5
+model_idx:
+  value: 1
+output_prefix:
+  value: rq3_unified_sweep
+prompts_per_task:
+  value: 50
+seed:
+  value: 42

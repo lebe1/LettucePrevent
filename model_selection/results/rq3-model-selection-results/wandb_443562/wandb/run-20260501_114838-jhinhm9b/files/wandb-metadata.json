@@ -1,0 +1,68 @@
+{
+  "os": "Linux-6.1.169-1.el9.elrepo.x86_64-x86_64-with-glibc2.34",
+  "python": "CPython 3.12.11",
+  "startedAt": "2026-05-01T11:48:38.441232Z",
+  "args": [
+    "--output-prefix",
+    "rq3_final_benchmark"
+  ],
+  "program": "/share/e12133103/scratch_jobs/443562/model_selection.py",
+  "codePath": "model_selection.py",
+  "codePathLocal": "model_selection.py",
+  "email": "l.beccard@proton.me",
+  "root": "/share/e12133103/scratch_jobs/443562/wandb",
+  "host": "avm-a100-qs-9.novalocal",
+  "executable": "/home/e12133103/Python312/bin/python",
+  "cpu_count": 68,
+  "cpu_count_logical": 68,
+  "disk": {
+    "/": {
+      "total": "106150473728",
+      "used": "19071033344"
+    }
+  },
+  "memory": {
+    "total": "1267670532096"
+  },
+  "slurm": {
+    "cluster_name": "datalab",
+    "conf": "/etc/slurm/slurm.conf",
+    "cpus_on_node": "4",
+    "cpus_per_task": "4",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "default",
+    "job_cpus_per_node": "4",
+    "job_end_time": "1777722504",
+    "job_gid": "10553",
+    "job_gpus": "3",
+    "job_id": "443562",
+    "job_name": "rq3-final-benchmark",
+    "job_nodelist": "avm-a100-qs-9",
+    "job_num_nodes": "1",
+    "job_partition": "GPU-a100s",
+    "job_qos": "normal",
+    "job_start_time": "1777636104",
+    "job_uid": "10553",
+    "job_user": "e12133103",
+    "jobid": "443562",
+    "localid": "0",
+    "mem_per_node": "65536",
+    "nnodes": "1",
+    "nodeid": "0",
+    "nodelist": "avm-a100-qs-9",
+    "nprocs": "1",
+    "ntasks": "1",
+    "oom_kill_step": "0",
+    "prio_process": "0",
+    "procid": "0",
+    "submit_dir": "/home/e12133103/LettucePrevent/model_selection/slurm",
+    "submit_host": "slurm-head-3.novalocal",
+    "task_pid": "14186",
+    "tasks_per_node": "1",
+    "topology_addr": "avm-a100-qs-9",
+    "topology_addr_pattern": "node",
+    "tres_per_task": "cpu=4"
+  },
+  "writerId": "z83vvsqr3ldmnvib9fqaxwfhlgbgttek"
+}

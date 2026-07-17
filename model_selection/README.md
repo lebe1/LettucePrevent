@@ -8,17 +8,19 @@ Models compared:
 - `KRLabsOrg/lettucedect-base-modernbert-en-v1` (encoder)
 - `lebe1/lettuceprevent-ettin-decoder-68m-en` (decoder)
 
-All three models are evaluated on the same prefixes, produced by simulating token-by-token generation with the `meta-llama/Llama-3.1-8B` tokenizer on the `wandb/RAGTruth-processed` test split.
+All three models are evaluated on the same prefixes, produced by simulating token-by-token generation with the `meta-llama/Llama-3.1-8B` tokenizer on the `wandb/RAGTruth-processed` test split. Samples are unique (context, query) prompts per task type in dataset order, with one LLM answer assigned per prompt in round-robin fashion over the six RAGTruth generator LLMs — the same selection policy in both steps, so the sweep's subset is a strict subset of the final evaluation set.
 
 ## Layout
 
 ```
 model_selection/
-├── threshold_experiment.py   # step 1: per-model threshold sweep
+├── threshold_experiment.py   # step 1: per-model threshold sweep (W&B grid sweep)
 ├── model_selection.py        # step 2: final 3-way comparison
-├── results/                  # CSV / JSON outputs from both scripts
-└── slurm/                    # contains HPC submit scripts
-└── README
+├── results/
+│   ├── rq3-unified-sweep-results/       # step 1 outputs: per-run JSONs + sweep summary
+│   └── rq3-model-selection-results/     # step 2 outputs: CSVs + JSONs
+├── slurm/                    # sbatch submit scripts + job logs (.txt)
+└── README.md
 ```
 
 ## Pipeline
@@ -28,10 +30,12 @@ model_selection/
 W&B grid sweep over `MODELS_TO_EVALUATE × SWEEP_THRESHOLDS = [0.5, 0.6, 0.7, 0.8, 0.9]` on **50 unique (context, query) prompts per task type** (150 samples per cell). Only `detector.predict(...)` is timed, so the runtime metric is fair across encoders and the decoder.
 
 ```bash
-python threshold_experiment.py
+python threshold_experiment.py --entity <wandb-entity> --project <wandb-project>
 ```
 
-Outputs one JSON per (model, threshold) plus a final printed table of the best threshold per model.
+Further flags: `--sweep-id` (attach to an existing sweep), `--count`, `--seed`, `--prompts-per-task`, `--output-prefix`, `--create-only`.
+
+Outputs one JSON per (model, threshold), a `*_summary.json` with the best threshold per model, and a final printed summary table.
 
 ### Step 2 — `model_selection.py`
 
@@ -48,12 +52,16 @@ Outputs (in the working dir, then moved to `results/`):
 - `{prefix}_aggregate.csv` — model-level comparison
 - `{prefix}_per_sample_comparison.json` — sample-centric side-by-side
 
+### SLURM
+
+`slurm/` contains sbatch scripts for both steps (`run_general_threshold_sweep.sh` for step 1, `run_model_selection.sh` for step 2) plus the corresponding job logs. Paths (repo, venv, results dir) are hardcoded/env-overridable at the top of each script — adjust them to your cluster before submitting.
+
 ## Requirements
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r ../requirements.txt   # requirements.txt lives at the repo root
 ```
 
 Requires a CUDA-capable GPU. Tested with Python 3.10+ and PyTorch with CUDA.
@@ -77,10 +85,10 @@ pip install wandb
 wandb login   # paste your API key from https://wandb.ai/authorize
 ```
 
-Then update the entity/project names at the top of each script to point to your own W&B workspace:
+Then point the scripts to your own W&B workspace:
 
-- `threshold_experiment.py`: `WANDB_ENTITY`, `DEFAULT_SWEEP_PROJECT`
-- `model_selection.py`: `WANDB_ENTITY`, `WANDB_PROJECT`
+- `threshold_experiment.py`: pass `--entity` / `--project` (or edit `WANDB_ENTITY`, `DEFAULT_SWEEP_PROJECT`)
+- `model_selection.py`: edit `WANDB_ENTITY`, `WANDB_PROJECT` at the top of the script
 
 ## Experiment Results
 
