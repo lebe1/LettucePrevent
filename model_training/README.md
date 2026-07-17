@@ -14,7 +14,7 @@ Two scripts are present:
 
 | Folder | Contents |
 |---|---|
-| `results/model_archives/` | Compressed checkpoints for all 12 sweep runs (~13 GB total), plus `SHA256SUMS.txt` for integrity verification |
+| `results/model_archives/` | `SHA256SUMS.txt` for integrity verification with the model archives being pushed as release assets on Github (see chapter below)|
 | `results/wandb_export/` | Per-run metric history CSVs and a combined sweep overview, exported from WandB |
 | `converting_CSV_results/` | Scripts and pre-converted CSVs that reshape the raw WandB exports into a format suitable for plotting |
 | `analyze_tokenizer_differences_for_training/` | One-off analysis comparing the Ettin and Llama-3.1 tokenizers as used in the training pipeline |
