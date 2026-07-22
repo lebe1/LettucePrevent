@@ -1,16 +1,51 @@
 # LettucePrevent
 
+<div align="center">
+  <img src="./huggingface_posts/visualizations/LettucePrevent.png" alt="Alt Text" style="width:40%; height:auto;">
+</div>
+
+
 Real-time prevention of factual hallucinations in Retrieval-Augmented Generation (RAG) by hooking a token-level hallucination detection model (HDM) into the generator's logits during decoding.
 
-At each decoding step, the candidate top-k tokens are scored by an HDM (e.g. [LettuceDetect](https://github.com/KRLabsOrg/LettuceDetect) or a custom *LettucePrevent* variant). Tokens predicted to introduce a hallucination are penalized before the next token is sampled, so unsupported content is suppressed *before* it is generated.
+At each decoding step, the candidate top-k tokens are scored by an HDM (e.g. [LettucePrevent](https://huggingface.co/lebe1/lettuceprevent-ettin-decoder-68m-en) or [LettuceDetect](https://github.com/KRLabsOrg/LettuceDetect)). Tokens predicted to introduce a hallucination are penalized before the next token is sampled, so unsupported content is suppressed *before* it is generated.
 
-This repository contains the experimental code for the master thesis *"Real-time Prevention of Factual Hallucinations in Retrieval-Augmented Generation"* (TU Wien, Data Science).
+This repository contains the experimental code for the master thesis [*"Real-time Prevention of Factual Hallucinations in Retrieval-Augmented Generation"*](https://repositum.tuwien.at/handle/20.500.12708/229242)
+
+
+
+## Mechanism visually explained
 
 <img src="./huggingface_posts/visualizations/NumberLogitsProcessor.gif" alt="Alt Text" style="width:70%; height:auto;">
 
 Scroll to the bottom to see each slide of this GIF.
 
+## Repository layout
+
+```
+LettucePrevent/
+├── main.py               # Experiment entry point: single runs + RQ1/RQ2 W&B sweeps
+├── detectors/            # HDM wrappers (LettucePrevent, LettuceDetect, number detector), detector factory, dataset loading
+├── logits_processors/    # HallucinationLogitsProcessor — hooks the detector into the generator's decoding loop (the core mechanism)
+├── preprocess/           # Extracts the unique RAGTruth summary prompts consumed by the number detector (see Dataset preparation)
+├── analysis/             # Post-hoc evaluation of run outputs + raw thesis result data
+├── model_selection/      # Benchmark of candidate HDMs (threshold sweep + head-to-head comparison)
+├── model_training/       # Training of the LettucePrevent HDM on RAGTruth (W&B hyperparameter sweep)
+├── slurm_scripts/        # sbatch submit scripts for --rq1 / --rq2 on an HPC cluster (Slurm)
+├── playground/           # Exploratory one-off scripts (beam search, tokenizer experiments) — not part of the pipeline
+├── huggingface_posts/    # Hugging Face blog post draft + the visualizations embedded in this README
+├── data/                 # Inputs (RAGTruth prompts) and run outputs (generations, hallucinations, stats)
+└── requirements.txt
+```
+
+Three subprojects ship their own README with full instructions and results:
+
+- [`analysis/README.md`](analysis/README.md) — evaluation pipelines for the number and factual experiments.
+- [`model_selection/README.md`](model_selection/README.md) — how the three candidate HDMs were compared and why `lettuceprevent` was selected.
+- [`model_training/README.md`](model_training/README.md) — how the LettucePrevent HDM was trained, including how to download the model archives from the GitHub release.
+
 ## Requirements
+
+### 1. Python environment
 
 ```bash
 python -m venv .venv
@@ -19,35 +54,62 @@ pip install -r requirements.txt
 ```
 
 Requires a CUDA-capable GPU. Tested with Python 3.10+ and PyTorch with CUDA.
+The default generator model is `meta-llama/Llama-3.3-70B-Instruct`, which needs A100-class hardware — pass `--generator-model` (e.g. `mistralai/Mistral-7B-Instruct-v0.2`) to run on a smaller GPU.
 
-**Hugging Face.** Some models (e.g. `meta-llama/Llama-3.1-8B`) are gated and the dataset is pulled via 🤗 `datasets`, so a Hugging Face account and CLI login are required:
+### 2. Hugging Face login
+
+Some models (e.g. `meta-llama/Llama-3.1-8B`) are gated and the dataset is pulled via 🤗 `datasets`, so a Hugging Face account and CLI login are required:
 
 1. Create an account at <https://huggingface.co/join> and request access to the gated Llama models on their model pages.
 2. Create a read token at <https://huggingface.co/settings/tokens>.
-3. Log in once on the machine running the experiments:
+3. Log in once on the machine running the experiments (the `hf` CLI is already installed via `requirements.txt`):
 ```bash
-   pip install -U "huggingface_hub[cli]"
    hf auth login   # paste your token when prompted
 ```
 
 After this, `wandb/RAGTruth-processed` and all model weights are downloaded automatically — no manual dataset download needed.
 
-**Weights & Biases.** Both scripts log to W&B. Log in once:
+### 3. Weights & Biases
+
+Single runs can skip W&B entirely with `--no-wandb`. The sweep modes (`--rq1` / `--rq2`) always log to W&B, so for those log in once (`wandb` is already installed via `requirements.txt`):
 
 ```bash
-pip install wandb
 wandb login   # paste your API key from https://wandb.ai/authorize
 ```
 
-Then update the entity/project names at the top of each script to point to your own W&B workspace:
+Then update `WANDB_ENTITY` (and optionally `WANDB_PROJECT_RQ1` / `WANDB_PROJECT_RQ2`) at the top of `main.py` to point to your own workspace, or pass `--entity` on the command line.
 
-- `threshold_experiment.py`: `WANDB_ENTITY`, `DEFAULT_SWEEP_PROJECT`
-- `model_selection.py`: `WANDB_ENTITY`, `WANDB_PROJECT`
+### 4. RAGTruth summary prompts — only for the number detector
+
+The `number` and `baseline-run-numbers` detector types read local RAGTruth summary prompts from `./data/ragtruth_unique_summary_prompts.json`. To reconstruct, how this file was created, we explain it in the [Dataset preparation](#dataset-preparation) steps. All other detector types pull their dataset automatically from Hugging Face — no preparation needed.
+
+### 5. Verify the setup
+
+Each of the following commands runs a minimal end-to-end experiment (one prompt per task type, `--skip-threshold 1.0` = detector consulted at every step) and writes its outputs to `./data/`:
+
+```bash
+# LettucePrevent HDM — the detector used in both RQ1 and RQ2
+python main.py --detector-type lettuceprevent --n-per-task 1 --skip-threshold 1.0 --no-wandb
+
+# LettuceDetect HDM
+python main.py --detector-type lettucedetect --n-per-task 1 --skip-threshold 1.0 --no-wandb
+
+# Baseline (no logits processor) — the RQ1 control arm
+python main.py --detector-type baseline-run-facts --n-per-task 1 --skip-threshold 1.0 --no-wandb
+
+# Number detector — requires step 4 (local RAGTruth summary prompts)
+python main.py --detector-type number --n-per-task 1 --skip-threshold 1.0 --no-wandb
+
+# Minimal RQ2 sweep: creates a W&B sweep and runs a single cell — requires step 3
+python main.py --rq2 --count 1 --output-prefix smoke
+```
+
+If these finish without errors, the full experiments described under [Usage](#usage) will run as well.
 
 ## Dataset preparation
 
-If you are interested to execute experiments with the numbers detector, the experiments use the [RAGTruth](https://github.com/ParticleMedia/RAGTruth) summary prompts.
-For the other detectors, another dataset from Huggingface is used and the next steps are not necessary.
+In the very beginning the experiments were executed with the numbers detector only, where the experiments use the [RAGTruth](https://github.com/ParticleMedia/RAGTruth) summary prompts.
+To reconstruct the creation of `./data/ragtruth_unique_summary_prompts.json`,, which is the file consumed by `main.py` (`LOCAL_SUMMARY_FILE`), the two steps are necessary.
 
 1. Download `ragtruth_data.json` from the official repository:
    <https://github.com/ParticleMedia/RAGTruth/tree/main/dataset>
@@ -60,7 +122,6 @@ For the other detectors, another dataset from Huggingface is used and the next s
    python extract_unique_summary_prompts.py
 ```
 
-   This produces `./data/ragtruth_unique_summary_prompts.json`, which is the file consumed by `main.py` (`LOCAL_SUMMARY_FILE`).
 
 ## Usage
 
@@ -142,12 +203,12 @@ Hallucinated spans per text on the full evaluation set of 450 prompts, with each
 | Model                    | Plain run | LettucePrevent run | Relative change |
 | ------------------------ | --------- | ------------------ | --------------- |
 | Qwen2.5 14B Instruct     | 1 808     | 1 741              | −3.71 %         |
-| Mistral 7B Instruct v0.2 | 2 232     | 2 269              | −26.61 %        |
-| Llama 7 2B               | 2 837     | 2 082              | +1.66 %         |
+| Mistral 7B Instruct v0.2 | 2 232     | 2 269              | +1.66 %         |
+| Llama 7 2B               | 2 837     | 2 082              | −26.61 %        |
 
 The strongest reduction is observed on Llama-2-7B, while the other two models show essentially no net change at its tuned operating point.
 
-For more experiment results, read the other READMEs in the subfolders.
+For more experiment results, see [`analysis/README.md`](analysis/README.md) (evaluation details behind the tables above), [`model_selection/README.md`](model_selection/README.md) (HDM benchmark results) and [`model_training/README.md`](model_training/README.md) (training sweep results).
 
 ### W&B sweeps (RQ1 / RQ2)
 
@@ -175,9 +236,6 @@ python main.py --rq2
 - Cap the number of runs per agent with `--count N`.
 - Each sweep run resolves its config inside `sweep_fn_rq1` / `sweep_fn_rq2`, which delegates to `run_one_cell` with `use_wandb=False` (the outer agent run is already open). The cell logs per-prompt metrics, a results summary, and uploads `generations.json`, `hallucinations.json`, and `stats.txt` as a W&B artifact.
 
-## HPC
-
-> *Hint:* If you are running this on an HPC cluster (Slurm), ready-to-use submit scripts are available in `slurm_scripts/`.
 
 ## License
 
@@ -197,4 +255,4 @@ MIT — see [LICENSE](LICENSE).
 
 <img src="./huggingface_posts/visualizations/6.jpg" alt="Alt Text" style="width:100%; height:auto;">
 
-Note: Anybody who is annoyed by the probability sample numbers, which are greater than 1 when summed up... I am too and I realized it a bit too late. But it is on my TODO
+Note: This slide deck was created to illustrate the whole process in a simplified way. Therefore, it states probability instead of logits score (where the magic actually happens in the transformers library) and it also uses bad probability sample figures being bigger than one when summed up.
