@@ -126,7 +126,7 @@ USE_ALL_TOKENS            = True
 SEED                      = 42
 DATA_DIR                  = "./data"
 LOCAL_SUMMARY_FILE        = f"{DATA_DIR}/ragtruth_unique_summary_prompts.json"
-WANDB_ENTITY              = "lebeccard-technical-university-wien"
+WANDB_ENTITY              = "TODO"
 WANDB_PROJECT_RQ1         = "hdm-rq1"
 WANDB_PROJECT_RQ2         = "hdm-rq2"
 

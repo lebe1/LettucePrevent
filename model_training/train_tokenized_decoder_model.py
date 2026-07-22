@@ -46,8 +46,8 @@ STRATEGY        = "weighted"
 
 LLAMA_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"
 
-WANDB_ENTITY  = "lebeccard-technical-university-wien"
-WANDB_PROJECT = "train-tokenized-decoder-model"
+WANDB_ENTITY  = "TODO"
+WANDB_PROJECT = "TODO"
 
 HF_USERNAME   = "lebe1"
 HF_MODEL_NAME = "lettuceprevent-ettin-decoder-68m-en-tokenized"
