@@ -1,0 +1,200 @@
+=== rq1_meta-llama_Llama-2-7b-chat-hf_baseline-run-facts_skip_1_00_20260506_204635_stats.txt ===
+
+Post-eval model: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Confidence floor: 0.7
+
+--- Summary ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 546
+    95%-100%: 395
+    90%-95%: 35
+    85%-90%: 25
+    80%-85%: 26
+    75%-80%: 24
+    70%-75%: 41
+
+--- QA ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 485
+    95%-100%: 341
+    90%-95%: 37
+    85%-90%: 29
+    80%-85%: 18
+    75%-80%: 25
+    70%-75%: 35
+
+--- Data2txt ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 1806
+    95%-100%: 940
+    90%-95%: 269
+    85%-90%: 195
+    80%-85%: 142
+    75%-80%: 137
+    70%-75%: 123
+
+--- TOTAL ---
+  Items: 450
+  Items with hallucinations: 450
+  Hallucinations: 2837
+    95%-100%: 1676
+    90%-95%: 341
+    85%-90%: 249
+    80%-85%: 186
+    75%-80%: 186
+    70%-75%: 199
+
+
+=== rq1_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260506_103738_stats.txt ===
+
+Post-eval model: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Confidence floor: 0.7
+
+--- Summary ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 581
+    95%-100%: 413
+    90%-95%: 48
+    85%-90%: 25
+    80%-85%: 22
+    75%-80%: 32
+    70%-75%: 41
+
+--- QA ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 443
+    95%-100%: 329
+    90%-95%: 30
+    85%-90%: 21
+    80%-85%: 16
+    75%-80%: 20
+    70%-75%: 27
+
+--- Data2txt ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 1058
+    95%-100%: 588
+    90%-95%: 131
+    85%-90%: 95
+    80%-85%: 98
+    75%-80%: 67
+    70%-75%: 79
+
+--- TOTAL ---
+  Items: 450
+  Items with hallucinations: 450
+  Hallucinations: 2082
+    95%-100%: 1330
+    90%-95%: 209
+    85%-90%: 141
+    80%-85%: 136
+    75%-80%: 119
+    70%-75%: 147
+
+
+=== rq1_mistralai_Mistral-7B-Instruct-v0.2_baseline-run-facts_skip_0_80_20260506_195023_stats.txt ===
+
+Post-eval model: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Confidence floor: 0.7
+
+--- Summary ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 390
+    95%-100%: 315
+    90%-95%: 15
+    85%-90%: 15
+    80%-85%: 14
+    75%-80%: 13
+    70%-75%: 18
+
+--- QA ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 359
+    95%-100%: 272
+    90%-95%: 14
+    85%-90%: 17
+    80%-85%: 14
+    75%-80%: 19
+    70%-75%: 23
+
+--- Data2txt ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 1483
+    95%-100%: 711
+    90%-95%: 261
+    85%-90%: 164
+    80%-85%: 131
+    75%-80%: 117
+    70%-75%: 99
+
+--- TOTAL ---
+  Items: 450
+  Items with hallucinations: 450
+  Hallucinations: 2232
+    95%-100%: 1298
+    90%-95%: 290
+    85%-90%: 196
+    80%-85%: 159
+    75%-80%: 149
+    70%-75%: 140
+
+
+=== rq1_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260506_082206_stats.txt ===
+
+Post-eval model: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Confidence floor: 0.7
+
+--- Summary ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 437
+    95%-100%: 345
+    90%-95%: 24
+    85%-90%: 12
+    80%-85%: 26
+    75%-80%: 13
+    70%-75%: 17
+
+--- QA ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 361
+    95%-100%: 264
+    90%-95%: 25
+    85%-90%: 16
+    80%-85%: 19
+    75%-80%: 17
+    70%-75%: 20
+
+--- Data2txt ---
+  Items: 150
+  Items with hallucinations: 150
+  Hallucinations: 1471
+    95%-100%: 702
+    90%-95%: 271
+    85%-90%: 131
+    80%-85%: 145
+    75%-80%: 113
+    70%-75%: 109
+
+--- TOTAL ---
+  Items: 450
+  Items with hallucinations: 450
+  Hallucinations: 2269
+    95%-100%: 1311
+    90%-95%: 320
+    85%-90%: 159
+    80%-85%: 190
+    75%-80%: 143
+    70%-75%: 146
+
+

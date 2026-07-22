@@ -1,0 +1,150 @@
+=== rq2_Qwen_Qwen2.5-14B-Instruct_baseline-run-facts_skip_0_80_20260504_184628_generations.json ===
+
+Total duration (meta) : 506.02s
+Num generations       : 60
+Mean                  : 8.43s
+Median                : 8.41s
+Min                   : 4.29s
+Max                   : 14.84s
+
+
+=== rq2_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_80_20260504_153424_generations.json ===
+
+Total duration (meta) : 766.42s
+Num generations       : 60
+Mean                  : 12.77s
+Median                : 12.29s
+Min                   : 7.22s
+Max                   : 25.55s
+
+
+=== rq2_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_90_20260504_170627_generations.json ===
+
+Total duration (meta) : 798.79s
+Num generations       : 60
+Mean                  : 13.31s
+Median                : 12.69s
+Min                   : 6.90s
+Max                   : 26.01s
+
+
+=== rq2_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_99_20260504_172014_generations.json ===
+
+Total duration (meta) : 857.41s
+Num generations       : 60
+Mean                  : 14.29s
+Median                : 13.50s
+Min                   : 7.61s
+Max                   : 29.03s
+
+
+=== rq2_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_1_00_20260504_173702_generations.json ===
+
+Total duration (meta) : 1059.74s
+Num generations       : 60
+Mean                  : 17.66s
+Median                : 16.62s
+Min                   : 8.50s
+Max                   : 46.51s
+
+
+=== rq2_meta-llama_Llama-2-7b-chat-hf_baseline-run-facts_skip_0_80_20260504_182141_generations.json ===
+
+Total duration (meta) : 608.79s
+Num generations       : 60
+Mean                  : 10.15s
+Median                : 12.08s
+Min                   : 1.84s
+Max                   : 12.46s
+
+
+=== rq2_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_80_20260504_142210_generations.json ===
+
+Total duration (meta) : 853.41s
+Num generations       : 60
+Mean                  : 14.22s
+Median                : 14.71s
+Min                   : 3.87s
+Max                   : 27.50s
+
+
+=== rq2_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_90_20260504_143649_generations.json ===
+
+Total duration (meta) : 899.83s
+Num generations       : 60
+Mean                  : 15.00s
+Median                : 15.18s
+Min                   : 4.18s
+Max                   : 38.40s
+
+
+=== rq2_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_99_20260504_145215_generations.json ===
+
+Total duration (meta) : 1023.96s
+Num generations       : 60
+Mean                  : 17.06s
+Median                : 16.11s
+Min                   : 4.60s
+Max                   : 42.36s
+
+
+=== rq2_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260504_150945_generations.json ===
+
+Total duration (meta) : 1414.93s
+Num generations       : 60
+Mean                  : 23.58s
+Median                : 25.05s
+Min                   : 5.27s
+Max                   : 42.08s
+
+
+=== rq2_mistralai_Mistral-7B-Instruct-v0.2_baseline-run-facts_skip_0_80_20260504_155119_generations.json ===
+
+Total duration (meta) : 492.33s
+Num generations       : 60
+Mean                  : 8.21s
+Median                : 8.31s
+Min                   : 3.18s
+Max                   : 12.26s
+
+
+=== rq2_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260504_131947_generations.json ===
+
+Total duration (meta) : 782.99s
+Num generations       : 60
+Mean                  : 13.05s
+Median                : 11.53s
+Min                   : 5.34s
+Max                   : 50.68s
+
+
+=== rq2_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_90_20260504_133322_generations.json ===
+
+Total duration (meta) : 799.99s
+Num generations       : 60
+Mean                  : 13.33s
+Median                : 12.34s
+Min                   : 5.63s
+Max                   : 35.79s
+
+
+=== rq2_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_99_20260504_134705_generations.json ===
+
+Total duration (meta) : 885.79s
+Num generations       : 60
+Mean                  : 14.76s
+Median                : 13.77s
+Min                   : 6.11s
+Max                   : 33.89s
+
+
+=== rq2_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_1_00_20260504_140214_generations.json ===
+
+Total duration (meta) : 1160.62s
+Num generations       : 60
+Mean                  : 19.34s
+Median                : 18.61s
+Min                   : 8.00s
+Max                   : 32.93s
+
+

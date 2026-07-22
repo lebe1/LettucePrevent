@@ -1,0 +1,3246 @@
+[
+  {
+    "Summary :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 0,
+          "end": 105,
+          "confidence": 0.9969205856323242,
+          "text": "The FBI charged a Philadelphia woman, Keonna Thomas, with attempting to travel overseas to fight for ISIS",
+          "prompt_number": 0,
+          "task_type": "Summary"
+        },
+        {
+          "start": 106,
+          "end": 1085,
+          "confidence": 0.9997214674949646,
+          "text": " She is one of three women arrested this week on terror charges. According to an FBI complaint, Thomas sent numerous social media messages dating back to August 2013, expressing her desire to join ISIS and become a martyr. The messages included quotes such as \"If we truly knew the realities... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs]\" and \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI also stated that Thomas purchased an electronic visa to Turkey on March 23, which is known as the easiest place to enter Syria and join ISIS. An ISIS manual advises recruits to buy round-trip tickets to vacation spots such as Spain and then purchase tickets for their real destination once they arrive overseas. Thomas was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization and could face up to 15 years in prison.",
+          "prompt_number": 0,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 405,
+          "confidence": 0.9988952279090881,
+          "text": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants due to the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health officials have warned consumers not to eat any Blue Bell-branded products made at the Broken Arrow, Oklahoma, plant, including 3-ounce servings marked with the letters O, P, Q, R, S, or T behind the coding date.",
+          "prompt_number": 1,
+          "task_type": "Summary"
+        },
+        {
+          "start": 515,
+          "end": 1197,
+          "confidence": 0.9997907280921936,
+          "text": " Blue Bell has recalled other products and is shutting down the Broken Arrow facility \"out of an abundance of caution\" to search for a possible cause of contamination. The CDC advises individuals and institutions to check their freezers for the recalled products and throw them away. This is the first product recall in Blue Bell Creameries' 108-year history. Listeriosis is a serious infection caused by eating food contaminated with listeria, and primarily affects the elderly, pregnant women, newborns, and people with weakened immune systems. Symptoms of a listeria infection include fever and muscle aches, sometimes associated with diarrhea or other gastrointestinal symptoms.",
+          "prompt_number": 1,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 536,
+          "confidence": 0.9998281002044678,
+          "text": "According to the Columbia Journalism School professors' outside review, the failure of Rolling Stone's article about a purported gang rape at the University of Virginia resulted in an institutional failure in the magazine's editorial process. The review found that the failure encompassed reporting, editing, editorial supervision, and fact-checking. The magazine's managing editor, Will Dana, apologized to readers and those damaged by the article, including members of the Phi Kappa Psi fraternity and UVA administrators and students.",
+          "prompt_number": 2,
+          "task_type": "Summary"
+        },
+        {
+          "start": 577,
+          "end": 1015,
+          "confidence": 0.9994776844978333,
+          "text": " or other fraternities on campus can sue for defamation, the Virginia Supreme Court has established the elements of libel, which are (1) publication of (2) an actionable statement with (3) the requisite intent. An actionable statement is one that is both false and defamatory, and the plaintiff must show that the defendant knew the statement was false or believed it without a reasonable basis or acted negligently in checking the facts.",
+          "prompt_number": 2,
+          "task_type": "Summary"
+        },
+        {
+          "start": 1025,
+          "end": 1292,
+          "confidence": 0.9971857666969299,
+          "text": " there are strict rules about who can be a plaintiff in a defamation action. The identity of the aspiring plaintiff matters, and government entities, such as UVA, cannot sue for defamation. Fraternities are not individuals, and statements about a group without naming",
+          "prompt_number": 2,
+          "task_type": "Summary"
+        },
+        {
+          "start": 52,
+          "end": 517,
+          "confidence": 0.9990056157112122,
+          "text": "When I was elected to the Kentucky State Senate in 1967, I became the first woman and the first person of color to serve in the body. Five decades later, I find it almost unfathomable that a politician from my own state is attempting to launch his presidential campaign on a record that includes questioning landmark voting rights and civil rights legislation. But that is what Rand Paul, who today declared he's running for president of the United States, is doing",
+          "prompt_number": 3,
+          "task_type": "Summary"
+        },
+        {
+          "start": 518,
+          "end": 791,
+          "confidence": 0.9985577464103699,
+          "text": " His campaign team told reporters last week that his campaign announcement message would be about \"expanding the Republican Party\" -- a message of inclusion. But those of us listening today who he is hoping to include, heard nothing more than hype. I'm not buying it. Since",
+          "prompt_number": 3,
+          "task_type": "Summary"
+        },
+        {
+          "start": 884,
+          "end": 988,
+          "confidence": 0.9878937602043152,
+          "text": " He's tried to brand himself as the GOP's minority outreach candidate. The problem for Paul, and the GOP",
+          "prompt_number": 3,
+          "task_type": "Summary"
+        },
+        {
+          "start": 997,
+          "end": 1216,
+          "confidence": 0.998437225818634,
+          "text": ", is that they don't back up their words with their policies. Yes, it's about time that Republicans started seriously considering the fact that black voters are an important piece of the electoral puzzle. But they can't",
+          "prompt_number": 3,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 556,
+          "confidence": 0.9999485015869141,
+          "text": "Mary Kay Letourneau and her husband, Vili Fualaau, are still happily together despite her jail time for their sexual relationship. They will celebrate their 10th wedding anniversary on May 20. During an exclusive interview with Barbara Walters on ABC's \"20/20,\" Letourneau will discuss what makes their marriage work, her plans to teach again, and her intention to have her status as a registered sex offender lifted. Fualaau will also share his experiences with alcoholism, depression, and why he believes the system failed him while he was still a minor.",
+          "prompt_number": 4,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 188,
+          "confidence": 0.9920536279678345,
+          "text": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted in 2013. The photographer, Daniel Ramos, had filed a civil suit against West after the hip-hop star attacked him",
+          "prompt_number": 5,
+          "task_type": "Summary"
+        },
+        {
+          "start": 225,
+          "end": 504,
+          "confidence": 0.9996705055236816,
+          "text": " him at Los Angeles International Airport. West pleaded no contest to a misdemeanor count of battery and was sentenced to two years' probation, anger management sessions, and community service. The case had been set for trial next week, but it was dismissed due to the settlement",
+          "prompt_number": 5,
+          "task_type": "Summary"
+        },
+        {
+          "start": 553,
+          "end": 685,
+          "confidence": 0.9984878301620483,
+          "text": " but Ramos' lawyer, Gloria Allred, said that West apologized to her client. The incident was caught on video and showed West rushing",
+          "prompt_number": 5,
+          "task_type": "Summary"
+        },
+        {
+          "start": 745,
+          "end": 927,
+          "confidence": 0.9976997971534729,
+          "text": ". Allred said that the case sent an important message that celebrities are not above the law and have no right to physically attack someone simply because they were asked a question.",
+          "prompt_number": 5,
+          "task_type": "Summary"
+        },
+        {
+          "start": 60,
+          "end": 421,
+          "confidence": 0.9991632699966431,
+          "text": "B.B. King, the legendary blues musician, was hospitalized for dehydration due to his Type II diabetes. However, his daughter, Claudette King, told the Los Angeles Times that he is now feeling much better and is expected to leave the hospital today. King's publicist, Angela Moore, confirmed that he is back home resting and spending time with his grandchildren.",
+          "prompt_number": 6,
+          "task_type": "Summary"
+        },
+        {
+          "start": 557,
+          "end": 975,
+          "confidence": 0.9999974966049194,
+          "text": " King has used various models of Gibson guitars over the years, including his signature model Lucille, which was officially dropped by Gibson in the 1980s. Some of his notable hits include \"The Thrill Is Gone,\" \"There Must be a Better World Somewhere,\" and \"When Love Comes to Town,\" a collaboration with U2. Last year, King canceled the remainder of his tour due to dehydration and exhaustion after a show in Chicago.",
+          "prompt_number": 6,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 110,
+          "confidence": 0.9985656142234802,
+          "text": "Chris Copeland of the Indiana Pacers was stabbed outside a nightclub in New York City early Wednesday morning,",
+          "prompt_number": 7,
+          "task_type": "Summary"
+        },
+        {
+          "start": 114,
+          "end": 467,
+          "confidence": 0.9988722205162048,
+          "text": " two Atlanta Hawks players, Pero Antic and Thabo Sefolosha, were arrested on charges of obstruction and disorderly conduct. According to police, Copeland was stabbed in the abdomen and arm by a 22-year-old man who approached him and his companion, Katrine Saltara, outside the club. The suspect stabbed Saltara and another woman before fleeing the scene",
+          "prompt_number": 7,
+          "task_type": "Summary"
+        },
+        {
+          "start": 468,
+          "end": 609,
+          "confidence": 0.9979536533355713,
+          "text": " Antic and Sefolosha were taken into custody after they interfered with police trying to establish a crime scene and pushed a police officer.",
+          "prompt_number": 7,
+          "task_type": "Summary"
+        },
+        {
+          "start": 698,
+          "end": 913,
+          "confidence": 0.9962037205696106,
+          "text": " and neither will be in uniform. Copeland is in stable condition at a New York hospital after suffering a knife wound to his left elbow and abdomen. The NBA and the Hawks front office are investigating the incident.",
+          "prompt_number": 7,
+          "task_type": "Summary"
+        },
+        {
+          "start": 7,
+          "end": 46,
+          "confidence": 0.9951255917549133,
+          "text": " the Tejano star who died 20 years ago,",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 108,
+          "end": 485,
+          "confidence": 0.9981971383094788,
+          "text": ". Her family is working with Acrovirt LLC, a Nevada-based tech company, to create a hologram-like figure of the singer that will be \"walking, talking, singing, and dancing digital embodiment\" of her persona. According to her sister, Suzette Quintanilla, the technology is not creepy or weird, but rather something amazing that will allow new fans to experience Selena's legacy.",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 515,
+          "end": 699,
+          "confidence": 0.9977428913116455,
+          "text": " the One\" and will include the release of new songs and videos, collaborations with current hit artists, and a tour in 2018. Selena is not the first performer to try the virtual route,",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 810,
+          "end": 992,
+          "confidence": 0.9984707236289978,
+          "text": " One\" through an Indiegogo campaign starting April 16. The commemorative Fiesta de la Flor in Corpus Christi, Texas, which celebrates Selena's life, is scheduled for April 17 and 18.",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 47,
+          "end": 459,
+          "confidence": 0.9979456067085266,
+          "text": "Getting caught napping on the job in the cargo hold of a plane is never a good idea. Alaska Airlines Flight 448 experienced this firsthand when a ramp agent from Menzies Aviation, a contractor for Alaska Airlines, was found asleep in the cargo hold during a flight from Seattle-Tacoma International Airport to Los Angeles on Monday afternoon. The pilot reported unusual banging sounds coming from the cargo hold,",
+          "prompt_number": 9,
+          "task_type": "Summary"
+        },
+        {
+          "start": 571,
+          "end": 1255,
+          "confidence": 0.9991994500160217,
+          "text": " pressurized and temperature-controlled, and the plane was only in the air for 14 minutes. The passengers were unaware of the situation until they heard banging and yelling coming from the cargo hold. A federal air marshal intervened and alerted the flight crew, who made an emergency landing in Los Angeles. The ramp agent was taken to an area hospital as a precaution but was later released after passing a drug test. Alaska Airlines is investigating the incident, and all ramp employees undergo full criminal background checks before being hired. The flight with 170 passengers and six crew members on board made it to Los Angeles early Monday evening without any further incidents",
+          "prompt_number": 9,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 541,
+          "confidence": 0.9999547004699707,
+          "text": "Emy Afalava, a loyal American and decorated veteran, was born in American Samoa, a U.S. territory since 1900. Despite being subject to American law his whole life, Afalava has been denied the right to vote because the federal government insists that he is no citizen. This injustice clouds the recent celebration of the 115th anniversary of American Samoa's decision to join the United States. Afalava and other American Samoans are now seeking to right this wrong in a federal lawsuit before the D.C. Circuit. A decision could come any day.",
+          "prompt_number": 10,
+          "task_type": "Summary"
+        },
+        {
+          "start": 134,
+          "end": 422,
+          "confidence": 0.9997920393943787,
+          "text": "Iman: We love Michael Jackson, Lionel Richie -- stuff my mom would listen to and play -- and the Spice Girls. We used to die for the Spice Girls. I love new artists now but I don't know if it's a nostalgia, but I remember ... my mom used to pump whatever -- Mariah Carey, Whitney Houston.",
+          "prompt_number": 11,
+          "task_type": "Summary"
+        },
+        {
+          "start": 430,
+          "end": 799,
+          "confidence": 0.9998303651809692,
+          "text": " We've been working with Elijah Kelley -- he's actually an actor. He was in \"Hairspray,\" \"The Butler,\" and most recently he was in the George Lucas animation, \"Strange Magic.\" That's what he's more known for but his first passion is music. He's an incredible producer, writer and singer. I just felt like he was always the missing piece. He brought everything together.",
+          "prompt_number": 11,
+          "task_type": "Summary"
+        },
+        {
+          "start": 808,
+          "end": 888,
+          "confidence": 0.97434401512146,
+          "text": " now that you've found your \"missing piece,\" how would you describe your sound?\n",
+          "prompt_number": 11,
+          "task_type": "Summary"
+        },
+        {
+          "start": 889,
+          "end": 1109,
+          "confidence": 0.9989314675331116,
+          "text": "Siham: Our music before was experimenting with Afrobeat sounds but now it's more of a fusion (of what) we are inspired by. It's pop with undertones of hip hop and rhythmic African percussion. It's a fusion of everything.",
+          "prompt_number": 11,
+          "task_type": "Summary"
+        },
+        {
+          "start": 61,
+          "end": 300,
+          "confidence": 0.9997857213020325,
+          "text": " that includes a permanent solution to the \"doc fix\" and a two-year extension of a popular children's health insurance program. The bill passed with 92 votes in favor and 8 against. The issue of payments to Medicare providers has been a th",
+          "prompt_number": 12,
+          "task_type": "Summary"
+        },
+        {
+          "start": 303,
+          "end": 844,
+          "confidence": 0.9999929666519165,
+          "text": "y issue for years, and the bill's passage is being hailed as a major accomplishment by Senate Finance Committee Chairman Orrin Hatch of Utah. However, some conservative senators, including Republican presidential candidate Ted Cruz of Texas, have expressed opposition to the bill due to its high cost and lack of offsetting measures. The bill now heads to President Barack Obama's desk for signing, after which it will provide relief to physicians who were facing cuts to their payments due to the expiration of the last temporary \"doc fix.\"",
+          "prompt_number": 12,
+          "task_type": "Summary"
+        },
+        {
+          "start": 51,
+          "end": 156,
+          "confidence": 0.9987282156944275,
+          "text": " A trailer for Zack Snyder's \"Batman v. Superman: Dawn of Justice\" leaked online before being taken down.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 157,
+          "end": 381,
+          "confidence": 0.9999334812164307,
+          "text": "* The trailer features commentators' voices over footage of Superman, with opinions on the superhero ranging from \"savior\" to \"guy trying to do the right thing.\"\n* Ryan Gosling is in talks to star in a \"Blade Runner\" sequel.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 382,
+          "end": 513,
+          "confidence": 0.9999374151229858,
+          "text": "* A blurred image of Ben Affleck's face appears before a masked Batman appears, followed by a face-off between the two superheroes.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 514,
+          "end": 668,
+          "confidence": 0.999363124370575,
+          "text": "* The highly anticipated footage was set to premiere in Imax theaters on Monday.\n* Zack Snyder teased the trailer by releasing a short excerpt on Twitter.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 696,
+          "end": 801,
+          "confidence": 0.9993304014205933,
+          "text": " of Justice\" will be released on March 25, 2016 and stars Affleck as Batman and Henry Cavill as Superman.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 802,
+          "end": 899,
+          "confidence": 0.9995519518852234,
+          "text": "* The film also stars Amy Adams.\n* Mark Hamill's autograph costs $50 at \"Star Wars\" celebrations.",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 95,
+          "end": 1286,
+          "confidence": 0.9999539852142334,
+          "text": " state with envoys and interests in nearly every country, while also shepherding nearly 1 billion Catholic souls. The Vatican has walked the line between spiritual and worldly concerns for centuries, and popes have had to make difficult choices between adopting a sharp tongue or the discretion of a diplomat. In a recent example, Pope Francis faced a dilemma when commemorating the 100th anniversary of the Armenian genocide. While previous popes had finessed the issue, Francis chose to use the word \"genocide\" in a roundabout way by quoting a document issued by his predecessor, John Paul II. This decision was met with criticism from Turkey, which recalled its Vatican ambassador and summoned the Vatican's ambassador for a meeting. The Turkish Foreign Ministry called the Pope's use of the word \"unacceptable\" and \"out of touch with both historical facts and legal basis.\" However, Francis has shown a willingness to engage in geopolitics and has helped broker a backroom detente between the United States and Cuba, as well as invited Israeli and Palestinian leaders for an unprecedented prayer service at the Vatican. Despite the criticism, Francis encouraged his priests to speak fran",
+          "prompt_number": 14,
+          "task_type": "Summary"
+        },
+        {
+          "start": 52,
+          "end": 235,
+          "confidence": 0.9991839528083801,
+          "text": "From the giant sequoias of Yosemite to the geysers of Yellowstone, the United States' national parks were made for you and me. And for Saturday and Sunday, they're also free. (period)",
+          "prompt_number": 15,
+          "task_type": "Summary"
+        },
+        {
+          "start": 163,
+          "end": 392,
+          "confidence": 0.9883580803871155,
+          "text": "O) deployed the second remote-controlled robot last week after the first one broke down. The robot detected lower radiation levels and temperature than expected, indicating that cooling systems were working effectively, according",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 426,
+          "end": 842,
+          "confidence": 0.9998854398727417,
+          "text": " \"It is a great step forward towards the decommissioning work as we can earn necessary data for the next investigation,\" said Akira Ono, the chief of Fukushima Daiichi plant. TEPCO said the yellow seen on the images seemed to suggest a discoloration of the grating, though the cause was unknown. It said the green glow could not be seen when filmed from other angles. The shape-shifting robots were sent in to assess",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 860,
+          "end": 958,
+          "confidence": 0.9965823292732239,
+          "text": " of the reactors that suffered a meltdown after a devastating earthquake and tsunami in March 2011",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 974,
+          "end": 1152,
+          "confidence": 0.9983252882957458,
+          "text": " site's still too dangerous for workers to enter. The first robot, which was sent in on April 10, stalled after moving about 10 meters, according to a statement released by TEPCO",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 1153,
+          "end": 1259,
+          "confidence": 0.9995377063751221,
+          "text": " A report and footage from the robot showed that a fallen object had blocked its path and left it stranded",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 436,
+          "confidence": 0.9996169805526733,
+          "text": "The bombs tore through the bodies of the victims, singeing flesh, shattering bones, and severing muscles. The jury heard heartbreaking testimony from the families and loved ones of the victims, who described the impact of Tsarnaev's actions on their lives. The victims included Krystle Campbell, a 29-year-old restaurant manager who was killed in the first blast, and Martin Richard, an 8-year-old boy who was killed in the second blast",
+          "prompt_number": 17,
+          "task_type": "Summary"
+        },
+        {
+          "start": 437,
+          "end": 868,
+          "confidence": 0.9998570680618286,
+          "text": " The jury also heard from survivors who were injured in the bombings, including Celeste Corcoran, who lost both legs in the attack. The prosecutor, Nadine Pellegrini, showed the jury photographs of the victims and their happy, smiling faces, contrasted with a defiant image of Tsarnaev in a holding cell. She argued that Tsarnaev's actions were cruel and without remorse, and that he deserves to be held accountable for his crimes.",
+          "prompt_number": 17,
+          "task_type": "Summary"
+        },
+        {
+          "start": 116,
+          "end": 445,
+          "confidence": 0.9998003840446472,
+          "text": "1. Eric Church & Keith Urban provide an opening wallop.\n2. Reba McEntire demonstrates how it's done.\n3. Taylor Swift singing in the audience.\n4. Garth Brooks' All-American salute.\n5. Taylor Swift's mom makes an appearance.\n6. Christina Aguilera joins Rascal Flatts.\n7. Miranda Lambert domination.\n8. Jason Aldean comes on strong.",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        },
+        {
+          "start": 446,
+          "end": 505,
+          "confidence": 0.9877091646194458,
+          "text": "9. Little Big Town brings Provocative 'Girl Crush' to ACMs.",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        },
+        {
+          "start": 602,
+          "end": 764,
+          "confidence": 0.9995444416999817,
+          "text": "1. Tony Romo.\n2. The length of the awards show.\n3. Some of the Milestone Awards seemed rushed.\n4. Steven Tyler's facial hair.\n5. Twitter calling out Taylor Swift.",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 37,
+          "confidence": 0.9979934692382812,
+          "text": "Prince Jan Zylinski, a Polish prince,",
+          "prompt_number": 19,
+          "task_type": "Summary"
+        },
+        {
+          "start": 122,
+          "end": 323,
+          "confidence": 0.9995536208152771,
+          "text": "el in London's Hyde Park over Farage's immigration policy. Zylinski is fed up with the discrimination against Poles living in Britain and wants to settle the matter in a traditional 18th century manner",
+          "prompt_number": 19,
+          "task_type": "Summary"
+        },
+        {
+          "start": 398,
+          "end": 680,
+          "confidence": 0.9993545413017273,
+          "text": ". However, Farage has declined the challenge, stating that he does not intend to cross swords with the prince. UKIP wants Britain to leave the European Union and has pledged to cut the country's foreign aid budget. Another UKIP politician appeared to back Farage's chances in a duel",
+          "prompt_number": 19,
+          "task_type": "Summary"
+        },
+        {
+          "start": 681,
+          "end": 1074,
+          "confidence": 0.9999686479568481,
+          "text": " but there was no word on whether Farage would accept the prince's alternative challenge for a duel with words in a TV studio. Zylinski has also posted a video on YouTube entitled \"7 reasons why the British should love the Poles,\" highlighting their contributions to Britain, including those made by Polish RAF pilots during the Battle of Britain and their easy integration into the community.",
+          "prompt_number": 19,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 818,
+          "end": 854,
+          "confidence": 0.9126206040382385,
+          "text": " Paul has tried to sell himself as a",
+          "prompt_number": 3,
+          "task_type": "Summary"
+        },
+        {
+          "start": 505,
+          "end": 552,
+          "confidence": 0.9180863499641418,
+          "text": " The terms of the settlement were not disclosed",
+          "prompt_number": 5,
+          "task_type": "Summary"
+        },
+        {
+          "start": 448,
+          "end": 509,
+          "confidence": 0.9366462826728821,
+          "text": " King remains grateful for the concerns expressed by his fans",
+          "prompt_number": 6,
+          "task_type": "Summary"
+        },
+        {
+          "start": 650,
+          "end": 697,
+          "confidence": 0.9280034899711609,
+          "text": " Wednesday night game against the Brooklyn Nets",
+          "prompt_number": 7,
+          "task_type": "Summary"
+        },
+        {
+          "start": 767,
+          "end": 800,
+          "confidence": 0.9262229800224304,
+          "text": " Fans can support the launch of \"",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 483,
+          "end": 540,
+          "confidence": 0.9102165102958679,
+          "text": " it was discovered that the ramp agent had fallen asleep.",
+          "prompt_number": 9,
+          "task_type": "Summary"
+        },
+        {
+          "start": 83,
+          "end": 127,
+          "confidence": 0.9198015928268433,
+          "text": " has captured images of a strange green glow",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 424,
+          "end": 429,
+          "confidence": 0.8597738742828369,
+          "text": "Siham",
+          "prompt_number": 11,
+          "task_type": "Summary"
+        },
+        {
+          "start": 901,
+          "end": 946,
+          "confidence": 0.8922397494316101,
+          "text": " Tsarnaev should live or die for his actions.",
+          "prompt_number": 17,
+          "task_type": "Summary"
+        },
+        {
+          "start": 51,
+          "end": 72,
+          "confidence": 0.8852759003639221,
+          "text": " the 2015 ACM Awards,",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        },
+        {
+          "start": 506,
+          "end": 533,
+          "confidence": 0.8726546168327332,
+          "text": "10. Billboard: Watch Little",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 409,
+          "end": 514,
+          "confidence": 0.8415043950080872,
+          "text": " recall does not affect other Blue Bell ice cream, including other 3-ounce servings not made at the plant",
+          "prompt_number": 1,
+          "task_type": "Summary"
+        },
+        {
+          "start": 562,
+          "end": 576,
+          "confidence": 0.8304579854011536,
+          "text": " Phi Kappa Psi",
+          "prompt_number": 2,
+          "task_type": "Summary"
+        },
+        {
+          "start": 560,
+          "end": 573,
+          "confidence": 0.822483479976654,
+          "text": " 'Girl Crush'",
+          "prompt_number": 18,
+          "task_type": "Summary"
+        },
+        {
+          "start": 324,
+          "end": 366,
+          "confidence": 0.8443363308906555,
+          "text": " He has offered to meet Farage with swords",
+          "prompt_number": 19,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 0,
+          "end": 10,
+          "confidence": 0.7868741750717163,
+          "text": "Of course!",
+          "prompt_number": 6,
+          "task_type": "Summary"
+        },
+        {
+          "start": 507,
+          "end": 509,
+          "confidence": 0.7642309665679932,
+          "text": " \"",
+          "prompt_number": 8,
+          "task_type": "Summary"
+        },
+        {
+          "start": 397,
+          "end": 416,
+          "confidence": 0.7902791500091553,
+          "text": " statement released",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 419,
+          "end": 425,
+          "confidence": 0.7508606314659119,
+          "text": " TEPCO",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 959,
+          "end": 970,
+          "confidence": 0.7806241512298584,
+          "text": " TEPCO says",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 872,
+          "end": 886,
+          "confidence": 0.7713041305541992,
+          "text": " jury will now",
+          "prompt_number": 17,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 22,
+          "end": 36,
+          "confidence": 0.7478883862495422,
+          "text": " robotic probe",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        },
+        {
+          "start": 157,
+          "end": 161,
+          "confidence": 0.7034740447998047,
+          "text": " (TE",
+          "prompt_number": 16,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 188,
+          "end": 197,
+          "confidence": 0.9977546334266663,
+          "text": " CA 93101",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 209,
+          "end": 298,
+          "confidence": 0.9784236550331116,
+          "text": " Breakfast & Brunch, American (New), Restaurants, American (Traditional), Nightlife, Bars",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 305,
+          "end": 345,
+          "confidence": 0.9896424412727356,
+          "text": " Monday 17:30-23:00, Tuesday 17:00-21:00",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 346,
+          "end": 366,
+          "confidence": 0.9788191318511963,
+          "text": " Wednesday 17:00-21:",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 378,
+          "end": 388,
+          "confidence": 0.97337806224823,
+          "text": " 17:00-21:",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 398,
+          "end": 408,
+          "confidence": 0.9757730960845947,
+          "text": " 17:00-21:",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 452,
+          "end": 754,
+          "confidence": 0.9973644614219666,
+          "text": "\nAttributes: BusinessParking (garage, street, validated, lot, valet), RestaurantsReservations (True), OutdoorSeating (False), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (False), Ambience (romantic, intimate, classy, hipster, divey, touristy, trendy, upscale, casual)",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 165,
+          "end": 214,
+          "confidence": 0.992530882358551,
+          "text": " 2275 Ortega Hill Rd, Ste C, Summerland, CA 93067",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 281,
+          "end": 325,
+          "confidence": 0.9729913473129272,
+          "text": "* Hours: Monday - Sunday: 11:00 AM - 5:00 PM",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 341,
+          "end": 431,
+          "confidence": 0.9897798299789429,
+          "text": "+ BusinessParking: Valet: False, Garage: False, Street: True, Lot: False, Validated: False",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 492,
+          "end": 503,
+          "confidence": 0.9558075666427612,
+          "text": " WiFi: None",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 506,
+          "end": 531,
+          "confidence": 0.9732892513275146,
+          "text": " RestaurantsTakeOut: True",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 533,
+          "end": 565,
+          "confidence": 0.9836588501930237,
+          "text": "+ RestaurantsGoodForGroups: True",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 567,
+          "end": 580,
+          "confidence": 0.9767844080924988,
+          "text": "+ Music: None",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 610,
+          "end": 625,
+          "confidence": 0.9522626399993896,
+          "text": " Hipster: False",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 643,
+          "end": 656,
+          "confidence": 0.9697073101997375,
+          "text": " Divey: True,",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 660,
+          "end": 738,
+          "confidence": 0.9987616539001465,
+          "text": "imate: False, Trendy: False, Upscale: False, Classy: True\n* BusinessStars: 4.0",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 774,
+          "end": 797,
+          "confidence": 0.9969007968902588,
+          "text": "+ ReviewDate: 2022-01-1",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 213,
+          "end": 222,
+          "confidence": 0.9721964597702026,
+          "text": " CA 93101",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 234,
+          "end": 293,
+          "confidence": 0.9879724383354187,
+          "text": " American (Traditional), American (New), Breakfast & Brunch",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 307,
+          "end": 371,
+          "confidence": 0.9970368146896362,
+          "text": " Seafood, Vegetarian, Nightlife, Event Planning & Services, Bars",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 401,
+          "end": 438,
+          "confidence": 0.9743232131004333,
+          "text": " Monday: 0:0-0:0, Tuesday: 11:30-20:0",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 546,
+          "end": 629,
+          "confidence": 0.9971343278884888,
+          "text": "Attributes: BusinessParking (garage, street, validated, lot, valet), RestaurantsRes",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 632,
+          "end": 808,
+          "confidence": 0.9992151260375977,
+          "text": "ations (False), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (False), Ambience (touristy, hipster, romantic, divey, int",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 218,
+          "end": 262,
+          "confidence": 0.9838775396347046,
+          "text": " Hours: Monday - Sunday: 11:00 AM - 21:00 PM",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 263,
+          "end": 553,
+          "confidence": 0.9996254444122314,
+          "text": "* Attributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False), RestaurantsReservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (romantic: False, intimate: False,",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 591,
+          "end": 660,
+          "confidence": 0.9900161623954773,
+          "text": "y: False, classy: False, trendy: False, upscale: False, casual: True)",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 747,
+          "end": 772,
+          "confidence": 0.9840385913848877,
+          "text": "\": \"2018-12-02 05:42:56\",",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 775,
+          "end": 872,
+          "confidence": 0.9961238503456116,
+          "text": "\"review text\": \"Bummed only delivery now probably my favorite pizza in town everywhere else sucks",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 158,
+          "end": 192,
+          "confidence": 0.9882955551147461,
+          "text": " 2026 De La Vina St, Santa Barbara",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 193,
+          "end": 202,
+          "confidence": 0.9665569067001343,
+          "text": " CA 93103",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 270,
+          "end": 587,
+          "confidence": 0.9997289776802063,
+          "text": "* Hours: Monday - Sunday: 11:00 AM - 21:00 PM\n* Attributes: BusinessParking (garage: False, street: True, validated: False, lot: True, valet: False), RestaurantsReservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (romantic: False",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 652,
+          "end": 712,
+          "confidence": 0.9904137253761292,
+          "text": " classy: False, trendy: False, upscale: False, casual: True)",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 791,
+          "end": 831,
+          "confidence": 0.980663001537323,
+          "text": ": '2022-01-15 01:36:56', review_text: \"B",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 165,
+          "end": 202,
+          "confidence": 0.9936597943305969,
+          "text": " 231 S Magnolia Ave, Goleta, CA 93117",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 249,
+          "end": 342,
+          "confidence": 0.9974924325942993,
+          "text": " Local Services, Farmers Market, Professional Services, American (New), Restaurants, Shopping",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 427,
+          "end": 531,
+          "confidence": 0.997855007648468,
+          "text": "* Attributes: BusinessParking (garage: False, street: True, validated: False, lot: False, valet: False),",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 587,
+          "end": 698,
+          "confidence": 0.9994893074035645,
+          "text": " WiFi (no), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy: False",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 778,
+          "end": 822,
+          "confidence": 0.9996294975280762,
+          "text": " upscale: False, classy: True, casual: True)",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 155,
+          "end": 200,
+          "confidence": 0.9975099563598633,
+          "text": " 315 Meigs Rd, Ste I, Santa Barbara, CA 93103",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 235,
+          "end": 438,
+          "confidence": 0.999667763710022,
+          "text": "* Categories: Sandwiches, Restaurants, American (New)\n* Hours: Monday - Sunday: 10:00 AM - 9:00 PM\n* Attributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False),",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 481,
+          "end": 623,
+          "confidence": 0.9997172951698303,
+          "text": "ating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy: False, hipster: False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 687,
+          "end": 733,
+          "confidence": 0.9948624968528748,
+          "text": " upscale: False, classy: False, casual: False)",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 812,
+          "end": 844,
+          "confidence": 0.9933449029922485,
+          "text": ": '2022-01-03 00:05:08', review_",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 199,
+          "end": 208,
+          "confidence": 0.9930170774459839,
+          "text": " CA 93101",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 263,
+          "end": 333,
+          "confidence": 0.9801558256149292,
+          "text": " Peruvian, Event Planning & Services, Bars, Nightlife, Latin American,",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 370,
+          "end": 390,
+          "confidence": 0.9931378960609436,
+          "text": " Tapas/Small Plates,",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 411,
+          "end": 703,
+          "confidence": 0.9998520612716675,
+          "text": "Attributes: BusinessParking (garage, street, validated, lot, valet), RestaurantsReservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (False), Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale, classy)",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 780,
+          "end": 791,
+          "confidence": 0.9836185574531555,
+          "text": " 2019-10-15",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 792,
+          "end": 947,
+          "confidence": 0.9918432831764221,
+          "text": " review text: \"so sad !!!! It was so good. If you open somewhere else will you let your fans know ! Loved your margarita flights (the best fresh margaritas",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 179,
+          "end": 217,
+          "confidence": 0.9978480339050293,
+          "text": " 6980 Marketplace Dr, Goleta, CA 93117",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 259,
+          "end": 292,
+          "confidence": 0.9615157842636108,
+          "text": " American (Traditional), Brewpubs",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 294,
+          "end": 355,
+          "confidence": 0.9904322028160095,
+          "text": "ours: Monday-Friday 11:30-19:30, Saturday-Sunday 11:30-20:00\n",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 365,
+          "end": 625,
+          "confidence": 0.9995740056037903,
+          "text": ": BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False), RestaurantsReservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy: False",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 705,
+          "end": 749,
+          "confidence": 0.9960939288139343,
+          "text": " upscale: False, classy: True, casual: True)",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 815,
+          "end": 829,
+          "confidence": 0.9545155167579651,
+          "text": " '2022-01-06 1",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 158,
+          "end": 196,
+          "confidence": 0.9719551801681519,
+          "text": " Jeannine's American Bakery Restaurant",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 210,
+          "end": 251,
+          "confidence": 0.9836066961288452,
+          "text": " Hollister Ave, Ste 105, Goleta, CA 93117",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 351,
+          "end": 405,
+          "confidence": 0.9668582081794739,
+          "text": "ours: Monday: 0:0-0:0, Wednesday: 7:30-13:30, Thursday",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 490,
+          "end": 796,
+          "confidence": 0.9967799782752991,
+          "text": ": BusinessParking (valet: False, garage: None, street: None, lot: True, validated: False), RestaurantsReservations (None), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (None), Music (None), Ambience (touristy: False, hipster: False, romantic: False, divey: False,",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 92,
+          "end": 112,
+          "confidence": 0.957762598991394,
+          "text": " rating of 2.5 stars",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 140,
+          "end": 176,
+          "confidence": 0.9647282361984253,
+          "text": " WiFi, and restaurants reservations.",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 194,
+          "end": 305,
+          "confidence": 0.9802460074424744,
+          "text": " open from 16:00 to 22:00 from Monday to Saturday and 16:00 to 21:00 on Sunday. The business has a parking lot,",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 390,
+          "end": 515,
+          "confidence": 0.9745859503746033,
+          "text": " some customers praising the food quality and attentive service, while others have experienced poor service and overcharging.",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 201,
+          "end": 257,
+          "confidence": 0.9975109100341797,
+          "text": " Bubble Tea, Chinese, Restaurants, Asian Fusion, Hot Pot",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 263,
+          "end": 404,
+          "confidence": 0.9988641738891602,
+          "text": ": Monday - Sunday: 11:30 AM - 20:30 PM\nAttributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False),",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 416,
+          "end": 588,
+          "confidence": 0.9992222785949707,
+          "text": "Reservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy: False, hipster: False",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 598,
+          "end": 605,
+          "confidence": 0.959235668182373,
+          "text": ": False",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 620,
+          "end": 696,
+          "confidence": 0.9925991296768188,
+          "text": " intimate: False, trendy: True, upscale: False, classy: False, casual: True)",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 767,
+          "end": 792,
+          "confidence": 0.984890878200531,
+          "text": "\": \"2021-12-16 18:44:11\",",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 793,
+          "end": 839,
+          "confidence": 0.9883379340171814,
+          "text": "\"review_text\": \"I ate here three times already",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 96,
+          "end": 122,
+          "confidence": 0.9644435048103333,
+          "text": " La Salsa Fresh Mexican Gr",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 244,
+          "end": 253,
+          "confidence": 0.9774987697601318,
+          "text": " Tex-Mex,",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 267,
+          "end": 311,
+          "confidence": 0.9739319086074829,
+          "text": " Hours: Monday - Sunday: 11:00 AM - 20:00 PM",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 312,
+          "end": 416,
+          "confidence": 0.997529923915863,
+          "text": "* Attributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False),",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 472,
+          "end": 599,
+          "confidence": 0.9995326995849609,
+          "text": " WiFi (no), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy: False, hipster: None,",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 608,
+          "end": 725,
+          "confidence": 0.9981948733329773,
+          "text": ": False, divey: None, intimate: False, trendy: None, upscale: False, classy: None, casual: True)\n* BusinessStars: 4.0",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 774,
+          "end": 823,
+          "confidence": 0.9835715293884277,
+          "text": ": '2021-08-04 04:34:56', review_text: 'Oh my good",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 187,
+          "end": 196,
+          "confidence": 0.9753074645996094,
+          "text": " CA 93103",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 248,
+          "end": 264,
+          "confidence": 0.9592445492744446,
+          "text": " & Frozen Yogurt",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 278,
+          "end": 321,
+          "confidence": 0.9913325905799866,
+          "text": " Juice Bars & Smoothies, Breakfast & Brunch",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 322,
+          "end": 360,
+          "confidence": 0.997860848903656,
+          "text": " Food, American (New), Specialty Food\n",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 361,
+          "end": 402,
+          "confidence": 0.9823876619338989,
+          "text": "ours: Monday - Sunday: 8:00 AM - 5:00 PM\n",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 412,
+          "end": 518,
+          "confidence": 0.9991803765296936,
+          "text": ": BusinessParking (garage: False, street: True, validated: False, lot: True, valet: False), RestaurantsRes",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 570,
+          "end": 671,
+          "confidence": 0.9997946619987488,
+          "text": " RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (romantic: False,",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 735,
+          "end": 750,
+          "confidence": 0.9914877414703369,
+          "text": " classy: False,",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 765,
+          "end": 795,
+          "confidence": 0.9760346412658691,
+          "text": " upscale: False, casual: True)",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 872,
+          "end": 890,
+          "confidence": 0.973050057888031,
+          "text": " December 29, 2021",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 158,
+          "end": 207,
+          "confidence": 0.9808988571166992,
+          "text": " 3815 State St, Ste G131, Santa Barbara, CA 93105",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 295,
+          "end": 347,
+          "confidence": 0.9832671284675598,
+          "text": " Wine Bars, Cocktail Bars, American (New), Nightlife",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 353,
+          "end": 389,
+          "confidence": 0.9813278317451477,
+          "text": ": Monday 0:0-0:0, Tuesday 11:30-21:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 390,
+          "end": 411,
+          "confidence": 0.9673641920089722,
+          "text": " Wednesday 11:30-21:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 421,
+          "end": 432,
+          "confidence": 0.9758530855178833,
+          "text": " 11:30-21:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 433,
+          "end": 451,
+          "confidence": 0.9683135747909546,
+          "text": " Friday 11:30-20:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 452,
+          "end": 472,
+          "confidence": 0.9565251469612122,
+          "text": " Saturday 11:30-22:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 473,
+          "end": 491,
+          "confidence": 0.9528687000274658,
+          "text": " Sunday 11:30-21:0",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 492,
+          "end": 787,
+          "confidence": 0.9995030164718628,
+          "text": "Attributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False), RestaurantsReservations (True), OutdoorSeating (True), WiFi (no), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (False), Ambience (touristy: False, hipster: False, romantic",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 193,
+          "end": 202,
+          "confidence": 0.9931766986846924,
+          "text": " CA 93105",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 276,
+          "end": 577,
+          "confidence": 0.997712254524231,
+          "text": "ours: Monday - Sunday: 5:00 AM - 5:00 PM\nAttributes: BusinessParking (garage: False, street: False, validated: False, lot: True, valet: False), RestaurantsReservations (None), OutdoorSeating (None), WiFi (None), RestaurantsTakeOut (None), RestaurantsGoodForGroups (None), Music (None), Ambience (None)",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 654,
+          "end": 672,
+          "confidence": 0.972357988357544,
+          "text": " November 27, 2021",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 686,
+          "end": 951,
+          "confidence": 0.9994732737541199,
+          "text": " \"One of our favorite places to grab breakfast! They have a wide selection of donuts and their bagels are always tasty. I especially enjoy their homemade cream cheese flavors - I haven't had anything like them! Their vegetable cream had chopped up veggies in it and",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 105,
+          "end": 121,
+          "confidence": 0.9627328515052795,
+          "text": " 6555 Pardall Rd",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 178,
+          "end": 234,
+          "confidence": 0.9549531936645508,
+          "text": ": Monday-Friday 17:00-21:00, Saturday-Sunday 12:00-22:00",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 245,
+          "end": 338,
+          "confidence": 0.9971466660499573,
+          "text": ": BusinessParking (garage: False, street: False, validated: False, lot: False, valet: False),",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 343,
+          "end": 522,
+          "confidence": 0.9949014186859131,
+          "text": "aurantsReservations (None), OutdoorSeating (True), WiFi (None), RestaurantsTakeOut (None), RestaurantsGoodForGroups (None), Music (None), Ambience (touristy: False, hipster: False",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 532,
+          "end": 539,
+          "confidence": 0.9711631536483765,
+          "text": ": False",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 586,
+          "end": 632,
+          "confidence": 0.9908686876296997,
+          "text": " upscale: False, classy: False, casual: False)",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 710,
+          "end": 735,
+          "confidence": 0.976398766040802,
+          "text": "\": \"2019-11-22 07:59:18\",",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 736,
+          "end": 795,
+          "confidence": 0.9805835485458374,
+          "text": "\"review_text\": \"A friend and I ate lunch at Mala Town today",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 167,
+          "end": 207,
+          "confidence": 0.9974076151847839,
+          "text": ": 35 W Haley St, Santa Barbara, CA 93101",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 281,
+          "end": 336,
+          "confidence": 0.9996144771575928,
+          "text": " Fitness & Instruction, Vegan, Vegetarian, Active Life,",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 349,
+          "end": 380,
+          "confidence": 0.9832809567451477,
+          "text": " Acupuncture, Health & Medical,",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 441,
+          "end": 842,
+          "confidence": 0.9992890357971191,
+          "text": "* Hours: Monday - Friday: 9:00 AM - 8:00 PM, Saturday - Sunday: 9:00 AM - 7:00 PM\n* Attributes: BusinessParking (garage: False, street: True, validated: False, lot: True, valet: False), RestaurantsReservations (True), OutdoorSeating (False), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (romantic: False, intimate: True, classy: False, hipster: False",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 103,
+          "end": 119,
+          "confidence": 0.9531823396682739,
+          "text": " 6546 Pardall Rd",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 179,
+          "end": 199,
+          "confidence": 0.999071478843689,
+          "text": " Gluten-Free, Salad,",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 223,
+          "end": 286,
+          "confidence": 0.978821873664856,
+          "text": "* Hours: Monday-Friday 11:00-20:00, Saturday-Sunday 11:00-21:00",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 287,
+          "end": 406,
+          "confidence": 0.9976258873939514,
+          "text": "* Attributes: BusinessParking (garage: False, street: True, validated: False, lot: False, valet: False), RestaurantsRes",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 447,
+          "end": 591,
+          "confidence": 0.9997902512550354,
+          "text": " WiFi (no), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (romantic: False, intimate: False, classy: False,",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 653,
+          "end": 683,
+          "confidence": 0.9876291751861572,
+          "text": " upscale: False, casual: True)",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 684,
+          "end": 704,
+          "confidence": 0.984041690826416,
+          "text": "* BusinessStars: 3.5",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 111,
+          "end": 116,
+          "confidence": 0.9750911593437195,
+          "text": " 2220",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 140,
+          "end": 149,
+          "confidence": 0.9925030469894409,
+          "text": " CA 93103",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 197,
+          "end": 262,
+          "confidence": 0.9708915948867798,
+          "text": " Farmers Market, Food, Fast Food, American (New), Bars, Wine Bars",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 398,
+          "end": 720,
+          "confidence": 0.9997853636741638,
+          "text": "* Attributes: BusinessParking (garage, street, validated, lot, valet), RestaurantsReservations (True), OutdoorSeating (True), WiFi (free), RestaurantsTakeOut (True), RestaurantsGoodForGroups (True), Music (None), Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale, classy, casual)\n* BusinessStars: 4.5",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 765,
+          "end": 793,
+          "confidence": 0.9781399965286255,
+          "text": "date: '2021-12-21 19:03:34',",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 155,
+          "end": 187,
+          "confidence": 0.9160153269767761,
+          "text": " 31 W Carrillo St, Santa Barbara",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 420,
+          "end": 429,
+          "confidence": 0.9355934858322144,
+          "text": " 17:00-21",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 433,
+          "end": 450,
+          "confidence": 0.9440069198608398,
+          "text": " Sunday 09:00-14:",
+          "prompt_number": 20,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 754,
+          "end": 773,
+          "confidence": 0.9259515404701233,
+          "text": "+ ReviewStars: 5.0\n",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 450,
+          "end": 460,
+          "confidence": 0.9472126364707947,
+          "text": " 11:30-20:",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 678,
+          "end": 682,
+          "confidence": 0.9029724597930908,
+          "text": " 3.5",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 712,
+          "end": 732,
+          "confidence": 0.9413449168205261,
+          "text": "\"review stars\": 5.0,",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 588,
+          "end": 604,
+          "confidence": 0.9459766745567322,
+          "text": " intimate: False",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 824,
+          "end": 844,
+          "confidence": 0.9196253418922424,
+          "text": " Business Stars: 3.5",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 633,
+          "end": 640,
+          "confidence": 0.9157876968383789,
+          "text": ": False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 672,
+          "end": 686,
+          "confidence": 0.9355762600898743,
+          "text": " trendy: False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 169,
+          "end": 183,
+          "confidence": 0.9088956713676453,
+          "text": " 1114 State St",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 361,
+          "end": 369,
+          "confidence": 0.9296925067901611,
+          "text": " Seafood",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 704,
+          "end": 723,
+          "confidence": 0.9305882453918457,
+          "text": "Business Stars: 3.5",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 651,
+          "end": 658,
+          "confidence": 0.9352918267250061,
+          "text": ": False",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 750,
+          "end": 768,
+          "confidence": 0.9318251013755798,
+          "text": "BusinessStars: 3.5",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 406,
+          "end": 417,
+          "confidence": 0.93285071849823,
+          "text": " 7:30-13:30",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 426,
+          "end": 437,
+          "confidence": 0.9272193312644958,
+          "text": " 7:30-13:30",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 18,
+          "end": 83,
+          "confidence": 0.9464027285575867,
+          "text": " a seafood and American restaurant located in Goleta, California.",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 116,
+          "end": 139,
+          "confidence": 0.9332194328308105,
+          "text": " offers outdoor seating",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 312,
+          "end": 342,
+          "confidence": 0.9478341341018677,
+          "text": " does not offer valet parking.",
+          "prompt_number": 30,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 164,
+          "end": 183,
+          "confidence": 0.926072359085083,
+          "text": " Unit C, Goleta, CA",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 57,
+          "end": 86,
+          "confidence": 0.9397460222244263,
+          "text": " La Salsa Fresh Mexican Grill",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 680,
+          "end": 687,
+          "confidence": 0.925698459148407,
+          "text": ": False",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 756,
+          "end": 764,
+          "confidence": 0.930939257144928,
+          "text": "y: False",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 163,
+          "end": 192,
+          "confidence": 0.9447940587997437,
+          "text": " 3629 State St, Santa Barbara",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 249,
+          "end": 267,
+          "confidence": 0.9490058422088623,
+          "text": " Food, Bubble Tea,",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 593,
+          "end": 597,
+          "confidence": 0.9209985136985779,
+          "text": " 4.5",
+          "prompt_number": 35,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 577,
+          "end": 585,
+          "confidence": 0.9199633002281189,
+          "text": "y: False",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 389,
+          "end": 440,
+          "confidence": 0.9295140504837036,
+          "text": " Day Spas, Beauty & Spas, Weight Loss Centers, Yoga",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 120,
+          "end": 131,
+          "confidence": 0.9479769468307495,
+          "text": " Goleta, CA",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 644,
+          "end": 652,
+          "confidence": 0.9200819730758667,
+          "text": "y: False",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 753,
+          "end": 772,
+          "confidence": 0.9263581037521362,
+          "text": ": '2020-09-21 05:24",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 315,
+          "end": 397,
+          "confidence": 0.9340224862098694,
+          "text": " Hours: Monday - Friday: 8:00 AM - 10:00 PM, Saturday - Sunday: 8:00 AM - 10:00 PM",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 468,
+          "end": 489,
+          "confidence": 0.8546313047409058,
+          "text": " OutdoorSeating: True",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 630,
+          "end": 642,
+          "confidence": 0.8768796920776367,
+          "text": "antic: False",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 439,
+          "end": 449,
+          "confidence": 0.8507793545722961,
+          "text": " Wednesday",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 495,
+          "end": 503,
+          "confidence": 0.8540433645248413,
+          "text": ":30-16:0",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 578,
+          "end": 585,
+          "confidence": 0.8647665977478027,
+          "text": ": False",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 735,
+          "end": 742,
+          "confidence": 0.8630337715148926,
+          "text": "\"review",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 350,
+          "end": 387,
+          "confidence": 0.8502400517463684,
+          "text": ": Monday - Friday: 7:00 AM - 10:00 PM",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 769,
+          "end": 777,
+          "confidence": 0.8955938220024109,
+          "text": "y: False",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 132,
+          "end": 144,
+          "confidence": 0.8878849148750305,
+          "text": " Sam's To Go",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 781,
+          "end": 807,
+          "confidence": 0.8699653744697571,
+          "text": "{review_stars: 5.0, review",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 630,
+          "end": 641,
+          "confidence": 0.8768625259399414,
+          "text": "ster: False",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 682,
+          "end": 690,
+          "confidence": 0.8889697194099426,
+          "text": ": False,",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 697,
+          "end": 704,
+          "confidence": 0.8586424589157104,
+          "text": ": False",
+          "prompt_number": 28,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 292,
+          "end": 349,
+          "confidence": 0.8824629187583923,
+          "text": " American (Traditional), Breakfast & Brunch, Coffee & Tea",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 448,
+          "end": 459,
+          "confidence": 0.8928294777870178,
+          "text": " 7:30-14:00",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 460,
+          "end": 477,
+          "confidence": 0.8889297842979431,
+          "text": " Sunday: 7:30-14:",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 755,
+          "end": 762,
+          "confidence": 0.8550147414207458,
+          "text": "\"review",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 136,
+          "end": 176,
+          "confidence": 0.8963901996612549,
+          "text": " 3987 State St, Ste D, Santa Barbara, CA",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 743,
+          "end": 769,
+          "confidence": 0.8884032964706421,
+          "text": "{review_stars: 5.0, review",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 521,
+          "end": 536,
+          "confidence": 0.8542242646217346,
+          "text": "ations (False),",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 559,
+          "end": 568,
+          "confidence": 0.8598422408103943,
+          "text": " WiFi (no",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 726,
+          "end": 734,
+          "confidence": 0.8722955584526062,
+          "text": "y: False",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 122,
+          "end": 129,
+          "confidence": 0.8894455432891846,
+          "text": " Goleta",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 130,
+          "end": 139,
+          "confidence": 0.893058180809021,
+          "text": " CA 93117",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 554,
+          "end": 570,
+          "confidence": 0.8627625107765198,
+          "text": " intimate: False",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 698,
+          "end": 705,
+          "confidence": 0.8999794721603394,
+          "text": "\"review",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 208,
+          "end": 214,
+          "confidence": 0.8953070640563965,
+          "text": "* City",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 882,
+          "end": 888,
+          "confidence": 0.8660609126091003,
+          "text": " False",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 599,
+          "end": 606,
+          "confidence": 0.8760858774185181,
+          "text": ": False",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 738,
+          "end": 764,
+          "confidence": 0.8801911473274231,
+          "text": "{review_stars: 5.0, review",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 216,
+          "end": 221,
+          "confidence": 0.8432139754295349,
+          "text": " City",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 234,
+          "end": 245,
+          "confidence": 0.8368324041366577,
+          "text": "* State: CA",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 583,
+          "end": 609,
+          "confidence": 0.8458319902420044,
+          "text": " Ambience: Touristy: False",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 183,
+          "end": 198,
+          "confidence": 0.8095013499259949,
+          "text": " 1201 State St,",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 518,
+          "end": 523,
+          "confidence": 0.8154245018959045,
+          "text": "30-16",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 118,
+          "end": 132,
+          "confidence": 0.8131069540977478,
+          "text": " Santa Barbara",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 562,
+          "end": 569,
+          "confidence": 0.8092483878135681,
+          "text": ": False",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 730,
+          "end": 734,
+          "confidence": 0.8393315076828003,
+          "text": " 4.0",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 768,
+          "end": 778,
+          "confidence": 0.8102861642837524,
+          "text": "stars: 1.0",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 756,
+          "end": 762,
+          "confidence": 0.8421202898025513,
+          "text": " False",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 882,
+          "end": 889,
+          "confidence": 0.831867516040802,
+          "text": "0 stars",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 646,
+          "end": 654,
+          "confidence": 0.8250282406806946,
+          "text": "y: False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 655,
+          "end": 671,
+          "confidence": 0.8484639525413513,
+          "text": " intimate: False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 751,
+          "end": 755,
+          "confidence": 0.8497198224067688,
+          "text": " 4.5",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 144,
+          "end": 159,
+          "confidence": 0.8400779962539673,
+          "text": " 5599 Hollister",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 215,
+          "end": 229,
+          "confidence": 0.8313137888908386,
+          "text": " Santa Barbara",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 409,
+          "end": 422,
+          "confidence": 0.807958722114563,
+          "text": "ations (False",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 424,
+          "end": 445,
+          "confidence": 0.8131922483444214,
+          "text": " OutdoorSeating (True",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 722,
+          "end": 741,
+          "confidence": 0.8188256621360779,
+          "text": "{review_stars: 3.0,",
+          "prompt_number": 38,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 739,
+          "end": 752,
+          "confidence": 0.7851502299308777,
+          "text": "* ReviewInfo:",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 381,
+          "end": 394,
+          "confidence": 0.7873679399490356,
+          "text": " Event Spaces",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 475,
+          "end": 482,
+          "confidence": 0.756533145904541,
+          "text": ":30-20:",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 538,
+          "end": 544,
+          "confidence": 0.7843124866485596,
+          "text": "30-20:",
+          "prompt_number": 22,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 102,
+          "end": 109,
+          "confidence": 0.7936557531356812,
+          "text": " (empty",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 208,
+          "end": 216,
+          "confidence": 0.7716335654258728,
+          "text": " Italian",
+          "prompt_number": 23,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 631,
+          "end": 637,
+          "confidence": 0.7558849453926086,
+          "text": " False",
+          "prompt_number": 24,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 388,
+          "end": 412,
+          "confidence": 0.7651872634887695,
+          "text": " Saturday - Sunday: 8:00",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 879,
+          "end": 881,
+          "confidence": 0.7645184993743896,
+          "text": " 4",
+          "prompt_number": 25,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 205,
+          "end": 208,
+          "confidence": 0.7886312007904053,
+          "text": " 70",
+          "prompt_number": 29,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 612,
+          "end": 619,
+          "confidence": 0.7981559038162231,
+          "text": ": False",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 233,
+          "end": 243,
+          "confidence": 0.7853641510009766,
+          "text": " Fast Food",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 434,
+          "end": 447,
+          "confidence": 0.7748042941093445,
+          "text": "ations (False",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 714,
+          "end": 720,
+          "confidence": 0.7627928256988525,
+          "text": " False",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 811,
+          "end": 813,
+          "confidence": 0.762717604637146,
+          "text": " 4",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 133,
+          "end": 135,
+          "confidence": 0.782376766204834,
+          "text": " L",
+          "prompt_number": 34,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 546,
+          "end": 553,
+          "confidence": 0.7780329585075378,
+          "text": ": False",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 648,
+          "end": 652,
+          "confidence": 0.7789797782897949,
+          "text": " 4.0",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 850,
+          "end": 856,
+          "confidence": 0.7786755561828613,
+          "text": " False",
+          "prompt_number": 37,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 125,
+          "end": 139,
+          "confidence": 0.7890205979347229,
+          "text": " Santa Barbara",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 303,
+          "end": 313,
+          "confidence": 0.7517027854919434,
+          "text": " Nightlife",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 222,
+          "end": 233,
+          "confidence": 0.7262665629386902,
+          "text": " Summerland",
+          "prompt_number": 21,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 208,
+          "end": 222,
+          "confidence": 0.7410346269607544,
+          "text": " Santa Barbara",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 443,
+          "end": 453,
+          "confidence": 0.7186099290847778,
+          "text": "aurantsRes",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 456,
+          "end": 469,
+          "confidence": 0.7353962063789368,
+          "text": "ations (False",
+          "prompt_number": 26,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 184,
+          "end": 198,
+          "confidence": 0.724680483341217,
+          "text": " Santa Barbara",
+          "prompt_number": 27,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 712,
+          "end": 714,
+          "confidence": 0.7270484566688538,
+          "text": " 4",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 715,
+          "end": 716,
+          "confidence": 0.7369694113731384,
+          "text": "0",
+          "prompt_number": 31,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 459,
+          "end": 470,
+          "confidence": 0.7000282406806946,
+          "text": "ating (True",
+          "prompt_number": 32,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 544,
+          "end": 557,
+          "confidence": 0.7132239937782288,
+          "text": "Seating (True",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 851,
+          "end": 852,
+          "confidence": 0.7090712189674377,
+          "text": "0",
+          "prompt_number": 33,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 151,
+          "end": 159,
+          "confidence": 0.7141385078430176,
+          "text": " Chinese",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 690,
+          "end": 696,
+          "confidence": 0.7008920907974243,
+          "text": "\": 4.0",
+          "prompt_number": 36,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 86,
+          "end": 95,
+          "confidence": 0.7388211488723755,
+          "text": " Live Oak",
+          "prompt_number": 39,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 209,
+          "end": 817,
+          "confidence": 0.9998453855514526,
+          "text": " where they work (auto dealer or repair shop), how they are paid (commission or not), how much they make (regular hourly rate and commissions), and the state in which they work. According to the Fair Labor Standards Act (FLSA) of 1938, certain automotive mechanics and technicians paid on a flat-rate or flag-rate are entitled to overtime under the FLSA. Additionally, automotive technicians in Alaska have the highest average pay in regard to geography, at about $23.70 per hour or $49,400 per year, while techs in Connecticut, Maryland, Massachusetts, and Washington D.C. average $20.50 to $21.50 per hour.",
+          "prompt_number": 40,
+          "task_type": "QA"
+        },
+        {
+          "start": 125,
+          "end": 626,
+          "confidence": 0.999276340007782,
+          "text": "1. Duration of action: Metoprolol succinate stays in the bloodstream for 24 hours, while metoprolol tartrate has a shorter duration of action and needs to be taken at regular intervals.\n2. Formation: Metoprolol succinate is derived from succinic acid, while metoprolol tartrate is derived from tartaric acid.\n3. Release time: Metoprolol succinate stays in the bloodstream for 24 hours, while metoprolol tartrate does not stay in the bloodstream for 24 hours and needs to be taken at regular intervals.",
+          "prompt_number": 41,
+          "task_type": "QA"
+        },
+        {
+          "start": 643,
+          "end": 800,
+          "confidence": 0.9923809170722961,
+          "text": " Metoprolol succinate may cause constipation and dry mouth, while metoprolol tartrate may cause diarrhea and sleep issues such as insomnia or unusual dreams.",
+          "prompt_number": 41,
+          "task_type": "QA"
+        },
+        {
+          "start": 121,
+          "end": 248,
+          "confidence": 0.9753961563110352,
+          "text": " that contains the genetic instructions used in the development and functioning of all known living organisms and some viruses.",
+          "prompt_number": 42,
+          "task_type": "QA"
+        },
+        {
+          "start": 249,
+          "end": 322,
+          "confidence": 0.973370373249054,
+          "text": "* The main role of DNA molecules is the long-term storage of information.",
+          "prompt_number": 42,
+          "task_type": "QA"
+        },
+        {
+          "start": 323,
+          "end": 612,
+          "confidence": 0.9998815059661865,
+          "text": "* DNA is made up of molecules called nucleotides, which contain a phosphate group, a sugar group, and a nitrogen base.\n* The four types of nitrogen bases are adenine (A), thymine (T), guanine (G), and cytosine (C).\n* The order of these bases determines DNA's instructions, or genetic code.",
+          "prompt_number": 42,
+          "task_type": "QA"
+        },
+        {
+          "start": 613,
+          "end": 949,
+          "confidence": 0.9999874830245972,
+          "text": "* DNA is a double helix formed by base pairs attached to a sugar-phosphate backbone.\n* Nearly every cell in a person's body has the same DNA.\n* The structure of the double helix is somewhat like a ladder, with the base pairs forming the ladder's rungs and the sugar and phosphate molecules forming the vertical sidepieces of the ladder.",
+          "prompt_number": 42,
+          "task_type": "QA"
+        },
+        {
+          "start": 950,
+          "end": 1032,
+          "confidence": 0.9999674558639526,
+          "text": "* An important property of DNA is that it can replicate, or make copies of itself.",
+          "prompt_number": 42,
+          "task_type": "QA"
+        },
+        {
+          "start": 72,
+          "end": 401,
+          "confidence": 0.9999436140060425,
+          "text": "1. Leave the section closest to you coal-free.\n2. Replace the grill grate.\n3. If using a gas grill, set it up for three-zone grilling.\n4. Keep it hot, keep it clean, keep it lubricated: When the grill grate is hot, clean it with a grill brush, then lubricate it with a grill oiler or a folded paper towel dipped in vegetable oil.",
+          "prompt_number": 43,
+          "task_type": "QA"
+        },
+        {
+          "start": 403,
+          "end": 665,
+          "confidence": 0.9990549683570862,
+          "text": "The Porterhouse is a man's steak if there ever was one. It's basically two steaks in one, with the NY Strip on one side of the bone and the filet on the other. The bone gives both cuts tremendous flavor, and when cooked just right, you won't find a better steak.",
+          "prompt_number": 43,
+          "task_type": "QA"
+        },
+        {
+          "start": 127,
+          "end": 350,
+          "confidence": 0.9984924793243408,
+          "text": " Magellan is approved to offer CE clock hours/credits by the following organizations when indicated on the course promotional material:\n\n* American Psychological Association (APA)\n* Association of Social Work Boards (ASWB)\n",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 351,
+          "end": 514,
+          "confidence": 0.9995757937431335,
+          "text": "Magellan of Virginia was selected by the Virginia Department of Medical Assistance Services (DMAS) to serve as the Behavioral Health Services Administrator (BHSA).",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 606,
+          "end": 626,
+          "confidence": 0.9983269572257996,
+          "text": " and FAMIS programs.",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 1043,
+          "end": 1278,
+          "confidence": 0.9569865465164185,
+          "text": "Provider Q&A Sessions on Fridays Magellan of Virginia hosts a weekly call each Friday from 1 p.m. - 2:30 p.m. The call is open to all providers to address their questions and issues. The weekly calls will continue until further notice.",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 149,
+          "end": 160,
+          "confidence": 0.9619694352149963,
+          "text": " don't work",
+          "prompt_number": 45,
+          "task_type": "QA"
+        },
+        {
+          "start": 193,
+          "end": 859,
+          "confidence": 0.9999136924743652,
+          "text": "1. If your door lock is stuck or frozen, try taping the end of a chisel under the door stop on the striker side of the jamb and prying it up until it comes loose. Remove the door stop and use a chisel to remove the door stop on top. Then, place the door stop back on the jamb, setting it back 1/4 inch from its original location. This should allow the door to shut and lock normally.\n2. If your door latch won't catch, check to see if the latch doesn't align with the hole in the strike plate. If this is the case, you may need to enlarge the latch hole in the jamb or move the strike plate. Tighten the hinges first and then enlarge the strike plate hole as needed.",
+          "prompt_number": 45,
+          "task_type": "QA"
+        },
+        {
+          "start": 68,
+          "end": 135,
+          "confidence": 0.9998127818107605,
+          "text": "1. Spray a baking sheet with butter-flavored cooking spray.\n\n done.",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 137,
+          "end": 294,
+          "confidence": 0.9996440410614014,
+          "text": "2. Season the pollock fillets with paprika and black pepper.\n\n done.\n\n3. Place on baking sheet and layer with onion, green pepper, and tomato slices.\n\n done.",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 296,
+          "end": 388,
+          "confidence": 0.9963841438293457,
+          "text": "4. Bake in preheated oven until fish has cooked and flakes easily, about 15 minutes.\n\n done.",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 519,
+          "end": 605,
+          "confidence": 0.9791346788406372,
+          "text": "3. Bake in preheated oven until fish has cooked and flakes easily, about 15 minutes.\n\n",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 707,
+          "end": 854,
+          "confidence": 0.9984517097473145,
+          "text": "2. Turn oven off, place two slices of cheese on each fillet.\n\n done.\n\n3. Return fish to the oven and allow cheese to melt, about 3 minutes.\n\n done.",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 78,
+          "end": 603,
+          "confidence": 0.9999837875366211,
+          "text": "1. Run the dryer on a regular setting for 20 minutes to soften the plastic.\n2. Scrape the plastic off with a wooden or plastic spatula or paint scraper, taking care not to damage the dryer's interior.\n3. Apply 1 to 2 tsp. nail polish remover to a clean cloth, and rub the plastic to dissolve it.\n4. Rub the area with a damp cloth to rinse the nail polish remover.\n5. Mix 1 tsp. liquid laundry soap with 1 cup water. Dip a clean cloth in this solution, and rub the area again.\n6. Rinse well with a cloth dipped in clean water.",
+          "prompt_number": 47,
+          "task_type": "QA"
+        },
+        {
+          "start": 605,
+          "end": 1085,
+          "confidence": 0.9995263814926147,
+          "text": "It is important to note that if the plastic is extremely difficult to remove, you may need to use a heat source such as a hair dryer or heat gun to heat the plastic and make it more pliable. However, be careful not to apply too much heat, as this could damage the dryer's interior. Additionally, if you are unable to remove all of the plastic, you may need to replace the drum or the entire dryer. If you want to replace the drum, it is recommended to call a service technician to",
+          "prompt_number": 47,
+          "task_type": "QA"
+        },
+        {
+          "start": 33,
+          "end": 97,
+          "confidence": 0.9621614217758179,
+          "text": " tutorial on how to sew mitered binding to the edges of a quilt.",
+          "prompt_number": 48,
+          "task_type": "QA"
+        },
+        {
+          "start": 99,
+          "end": 165,
+          "confidence": 0.9950637221336365,
+          "text": "Step 1: Lay your quilt on a bed, table, or other flat surface. (1)",
+          "prompt_number": 48,
+          "task_type": "QA"
+        },
+        {
+          "start": 167,
+          "end": 615,
+          "confidence": 0.9994701743125916,
+          "text": "Step 2: Fold the lower right corner up toward the center of the quilt, making sure the fold is on the bias. (2)\n\nStep 3: Fold the lower left corner up toward the center of the quilt, making sure the fold is on the bias. (3)\n\nStep 4: Fold the top left corner down toward the center of the quilt, making sure the fold is on the bias. (4)\n\nStep 5: Making sure the fold is on the bias, fold the top right corner down toward the center of the quilt. (5)",
+          "prompt_number": 48,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 338,
+          "confidence": 0.9994210004806519,
+          "text": "A water pik is a useful oral care tool that can help keep teeth, gums, mouth, and overall body healthier by shooting a strong stream of water to eliminate germs and plaque from the gum line. It can massage and stimulate soft tissue in the mouth, reducing the risk of gingivitis, and clean better around teeth and gums than brushing alone.",
+          "prompt_number": 49,
+          "task_type": "QA"
+        },
+        {
+          "start": 82,
+          "end": 396,
+          "confidence": 0.9993624091148376,
+          "text": "1. Install bird netting over the top of the light fixture to block the birds' access to it. Choose a netting that is nonflammable and safe to use around light bulbs. Beware that the netting is installed so that it doesn't entangle birds. If you can't use netting on your light fixture, try another method. (Period)",
+          "prompt_number": 50,
+          "task_type": "QA"
+        },
+        {
+          "start": 397,
+          "end": 671,
+          "confidence": 0.9999215602874756,
+          "text": "2. Mount a plastic hawk on or near your porch. The sight of a predator can scare the birds from the area and keep them from inhabiting your porch. Move the plastic hawk periodically, so the birds do not become accustom to the plastic hawk, rendering it ineffective. (Period)",
+          "prompt_number": 50,
+          "task_type": "QA"
+        },
+        {
+          "start": 66,
+          "end": 935,
+          "confidence": 0.9999585151672363,
+          "text": "1. Open the Settings app by clicking on the Start menu and selecting the Settings icon, or by using the Windows + I keyboard shortcut.\n2. In the Settings app, click on the \"System\" option in the left-hand menu.\n3. In the System window, click on the \"Default apps\" option in the left-hand menu.\n4. In the Default apps window, scroll down to the \"Web browser\" section and click on the browser you want to set as default, such as Edge or Mozilla Firefox.\n5. If you want to set Mozilla Firefox as default browser, follow these steps:\n\t* Open the Firefox browser.\n\t* Click on the Firefox menu button, represented by three horizontal lines, located in the upper right-hand corner of the browser window.\n\t* When the pop-out menu appears, select \"Options\".\n\t* In the Options window, click on the \"General\" tab.\n\t* Under the \"Default browser\" section, select \"Mozilla Firefox\".\n",
+          "prompt_number": 51,
+          "task_type": "QA"
+        },
+        {
+          "start": 936,
+          "end": 969,
+          "confidence": 0.9918915033340454,
+          "text": "* Click \"OK\" to save the changes.",
+          "prompt_number": 51,
+          "task_type": "QA"
+        },
+        {
+          "start": 5,
+          "end": 375,
+          "confidence": 0.9995836615562439,
+          "text": "stood! Here are the three ways to dispose of a faded or worn American flag, as stated in the input:\n\n1. Put the flag out for collection after removing the blue field, which should be burned in a peaceful manner and the ashes buried.\n2. Burn the flag yourself in a proper ceremony.\n3. Fold the flag in the customary triangle fold and dispose of it in a respectful manner.",
+          "prompt_number": 52,
+          "task_type": "QA"
+        },
+        {
+          "start": 234,
+          "end": 850,
+          "confidence": 0.9999241828918457,
+          "text": "1. If a coworker is always staring at you, it could be a sign that they are interested in you. (period)\n2. You can usually tell if someone likes you by paying attention to their body language and behavior. (period)\n3. If a coworker finds any reason to touch you, it could be a sign of flirting. (period)\n4. Finding reasons to be near you is a common sign of affection or admiration. (period)\n5. If a coworker is constantly at your desk and seeking you out discreetly, it's a guarantee that they like you. (period)\n6. Finding any reason to have contact with you is an obvious sign of affection or admiration. (period)",
+          "prompt_number": 53,
+          "task_type": "QA"
+        },
+        {
+          "start": 61,
+          "end": 120,
+          "confidence": 0.996738612651825,
+          "text": "1. Reduce heat to medium and cook another 10 to 12 minutes.",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 122,
+          "end": 221,
+          "confidence": 0.9653879404067993,
+          "text": "2. Remove the bratwurst from the beer mixture; reduce heat to low, and continue cooking the onions.",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 223,
+          "end": 300,
+          "confidence": 0.9901056885719299,
+          "text": "3. Cook the bratwurst on the preheated grill, turning once, 5 to 10 minutes.\n",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 301,
+          "end": 353,
+          "confidence": 0.9651997685432434,
+          "text": "4. Serve with the beer mixture as a topping or side.",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 354,
+          "end": 437,
+          "confidence": 0.9975841045379639,
+          "text": "\n1. Preheat an outdoor grill for medium-high heat.\n\n2. When hot, lightly oil grate.",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 440,
+          "end": 744,
+          "confidence": 0.998719334602356,
+          "text": ". Combine the beer and onions in a large pot; bring to a boil.\n\n4. Submerge the bratwurst in the beer; add the red pepper flakes, garlic powder, salt, and pepper.\n\n1. Prick bratwurst with fork to prevent them from exploding as they cook.\n\n2. Place in a large stock pot with the onions, butter, and beer.\n",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 745,
+          "end": 808,
+          "confidence": 0.9815095663070679,
+          "text": "3. Place pot over medium heat, and simmer for 15 to 20 minutes.",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 810,
+          "end": 908,
+          "confidence": 0.955305814743042,
+          "text": "4. Preheat grill for medium-high heat. Place pot over medium heat, and simmer for 15 to 20 minutes",
+          "prompt_number": 54,
+          "task_type": "QA"
+        },
+        {
+          "start": 127,
+          "end": 238,
+          "confidence": 0.9828630089759827,
+          "text": " in the input. Please feel free to ask me anything you would like to know about irritable bowel syndrome (IBS).",
+          "prompt_number": 55,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 42,
+          "confidence": 0.9704950451850891,
+          "text": "To make a blood smear, follow these steps:",
+          "prompt_number": 56,
+          "task_type": "QA"
+        },
+        {
+          "start": 44,
+          "end": 556,
+          "confidence": 0.9999744892120361,
+          "text": "1. Place a clean glass slide on a flat surface.\n2. Add one small drop of blood to one end of the slide.\n3. Take another clean slide and, holding at an angle of about 45 degrees, touch the blood with one end of the slide so that the blood runs along the edge of the slide by capillary action.\n4. Push carefully along the length of the first slide to produce a thin smear of blood.\n5. Make two smears and allow them to air dry.\n6. Label the slides clearly and place them in the provided slide transport containers.",
+          "prompt_number": 56,
+          "task_type": "QA"
+        },
+        {
+          "start": 52,
+          "end": 274,
+          "confidence": 0.9998798370361328,
+          "text": "* Nine out of the 20 amino acids are essential for the body, but adults only need to obtain eight of them.\n* Nonessential amino acids can be made by the body from essential amino acids or by breaking down protein products.",
+          "prompt_number": 57,
+          "task_type": "QA"
+        },
+        {
+          "start": 275,
+          "end": 423,
+          "confidence": 0.9994227886199951,
+          "text": "* Amino acids are the basic building blocks of proteins.\n* Essential amino acids cannot be made by the body, so they must be obtained from the diet.",
+          "prompt_number": 57,
+          "task_type": "QA"
+        },
+        {
+          "start": 424,
+          "end": 565,
+          "confidence": 0.9979140162467957,
+          "text": "* All amino acids are necessary for the body to build the wide variety of proteins it needs for the repair, growth, and maintenance of cells.",
+          "prompt_number": 57,
+          "task_type": "QA"
+        },
+        {
+          "start": 310,
+          "end": 381,
+          "confidence": 0.9906389713287354,
+          "text": " with the coldest month being January and the warmest month being July.",
+          "prompt_number": 58,
+          "task_type": "QA"
+        },
+        {
+          "start": 404,
+          "end": 574,
+          "confidence": 0.9990405440330505,
+          "text": " Indianapolis averages around 14 inches (35.5 cm) of snow per year, with the majority of it falling between December and February. The snowiest month is typically January",
+          "prompt_number": 58,
+          "task_type": "QA"
+        },
+        {
+          "start": 828,
+          "end": 1038,
+          "confidence": 0.9929609894752502,
+          "text": "* Fort Wayne: 13 inches (33 cm) of snow per year, with an average of 5 inches (12.7 cm) in January\n* Gary: 12 inches (30.5 cm) of snow per year, with an average of 4 inches (10.2 cm) in January\n* Michigan City:",
+          "prompt_number": 58,
+          "task_type": "QA"
+        },
+        {
+          "start": 122,
+          "end": 452,
+          "confidence": 0.9958038926124573,
+          "text": "1. Download the audiobook you want from iTunes.\n2. Click on \"Audiobooks\" on the left task pane of the iTunes window.\n3. Select the audiobook you want to transfer by clicking the box next to its title.\n4. Connect your iPhone, iPad, or iPod to the computer using a USB cable.\n5. Wait for iTunes to sync the audiobook to your device.",
+          "prompt_number": 59,
+          "task_type": "QA"
+        },
+        {
+          "start": 467,
+          "end": 534,
+          "confidence": 0.9809072613716125,
+          "text": ", you can import an MP3 audiobook directly into your iTunes library",
+          "prompt_number": 59,
+          "task_type": "QA"
+        },
+        {
+          "start": 794,
+          "end": 840,
+          "confidence": 0.9990463852882385,
+          "text": "4. Click \"Import\" at the bottom of the screen.",
+          "prompt_number": 59,
+          "task_type": "QA"
+        },
+        {
+          "start": 841,
+          "end": 918,
+          "confidence": 0.9978938698768616,
+          "text": "5. Choose the location where you want to save the audiobook on your computer.",
+          "prompt_number": 59,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 895,
+          "end": 1041,
+          "confidence": 0.9384915232658386,
+          "text": " stakeholders, we elevate the quality and satisfaction in healthcare delivery. We work to improve the overall health and well-being of Virginians.",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 390,
+          "end": 439,
+          "confidence": 0.9201468229293823,
+          "text": "1. Preheat oven to 350 degrees F (175 degrees C).",
+          "prompt_number": 46,
+          "task_type": "QA"
+        },
+        {
+          "start": 30,
+          "end": 43,
+          "confidence": 0.9409950971603394,
+          "text": " in Windows 7",
+          "prompt_number": 51,
+          "task_type": "QA"
+        },
+        {
+          "start": 71,
+          "end": 99,
+          "confidence": 0.915298581123352,
+          "text": " using OverDrive for Windows",
+          "prompt_number": 59,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 56,
+          "end": 124,
+          "confidence": 0.8505114316940308,
+          "text": " for the e-learning courses listed on this page. CE Clock Hours/Cred",
+          "prompt_number": 44,
+          "task_type": "QA"
+        },
+        {
+          "start": 660,
+          "end": 699,
+          "confidence": 0.8998638391494751,
+          "text": " and flakes easily, about 15 minutes.\n\n",
+          "prompt_number": 46,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 139,
+          "end": 144,
+          "confidence": 0.815281093120575,
+          "text": " keys",
+          "prompt_number": 45,
+          "task_type": "QA"
+        },
+        {
+          "start": 750,
+          "end": 763,
+          "confidence": 0.8084518313407898,
+          "text": " (35.5 cm) of",
+          "prompt_number": 58,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 842,
+          "end": 921,
+          "confidence": 0.7801364064216614,
+          "text": " to note that the amount of pay from company to company does not vary too much,",
+          "prompt_number": 40,
+          "task_type": "QA"
+        },
+        {
+          "start": 202,
+          "end": 232,
+          "confidence": 0.7680596709251404,
+          "text": " responding to system prompts.",
+          "prompt_number": 53,
+          "task_type": "QA"
+        },
+        {
+          "start": 10,
+          "end": 84,
+          "confidence": 0.7893396615982056,
+          "text": "! I will do my best to provide clear and concise answers to your questions",
+          "prompt_number": 55,
+          "task_type": "QA"
+        },
+        {
+          "start": 262,
+          "end": 280,
+          "confidence": 0.7560309171676636,
+          "text": " 22°F to 85°F (3°C",
+          "prompt_number": 58,
+          "task_type": "QA"
+        },
+        {
+          "start": 596,
+          "end": 609,
+          "confidence": 0.7699495553970337,
+          "text": " inches (17.8",
+          "prompt_number": 58,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 102,
+          "end": 118,
+          "confidence": 0.7362743020057678,
+          "text": " the information",
+          "prompt_number": 55,
+          "task_type": "QA"
+        },
+        {
+          "start": 283,
+          "end": 309,
+          "confidence": 0.7358109354972839,
+          "text": " 30°C) throughout the year",
+          "prompt_number": 58,
+          "task_type": "QA"
+        },
+        {
+          "start": 768,
+          "end": 772,
+          "confidence": 0.7200179100036621,
+          "text": " per",
+          "prompt_number": 58,
+          "task_type": "QA"
+        }
+      ]
+    }
+  }
+]

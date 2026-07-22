@@ -1,0 +1,46 @@
+Post-eval model: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Confidence floor: 0.7
+
+--- Summary ---
+  Items: 20
+  Items with hallucinations: 20
+  Hallucinations: 57
+    95%-100%: 43
+    90%-95%: 3
+    85%-90%: 3
+    80%-85%: 3
+    75%-80%: 2
+    70%-75%: 3
+
+--- QA ---
+  Items: 20
+  Items with hallucinations: 20
+  Hallucinations: 57
+    95%-100%: 44
+    90%-95%: 3
+    85%-90%: 2
+    80%-85%: 1
+    75%-80%: 2
+    70%-75%: 5
+
+--- Data2txt ---
+  Items: 20
+  Items with hallucinations: 20
+  Hallucinations: 213
+    95%-100%: 99
+    90%-95%: 49
+    85%-90%: 20
+    80%-85%: 17
+    75%-80%: 13
+    70%-75%: 15
+
+--- TOTAL ---
+  Items: 60
+  Items with hallucinations: 60
+  Hallucinations: 327
+    95%-100%: 186
+    90%-95%: 55
+    85%-90%: 25
+    80%-85%: 21
+    75%-80%: 17
+    70%-75%: 23

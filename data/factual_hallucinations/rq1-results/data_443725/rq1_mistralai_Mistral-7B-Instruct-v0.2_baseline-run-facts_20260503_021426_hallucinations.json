@@ -1,0 +1,1710 @@
+[
+  {
+    "Summary :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 129,
+          "end": 142,
+          "confidence": 0.9581085443496704,
+          "text": " May 14, 2021",
+          "prompt_number": 4,
+          "task_type": "Summary"
+        },
+        {
+          "start": 348,
+          "end": 384,
+          "confidence": 0.9954060316085815,
+          "text": " and MIT police officer Sean Collier",
+          "prompt_number": 17,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 53,
+          "confidence": 0.9984756112098694,
+          "text": "Mount Everest's climbing season has resumed for 2023,",
+          "prompt_number": 64,
+          "task_type": "Summary"
+        },
+        {
+          "start": 875,
+          "end": 893,
+          "confidence": 0.9808964729309082,
+          "text": " on March 11, 2023",
+          "prompt_number": 67,
+          "task_type": "Summary"
+        },
+        {
+          "start": 69,
+          "end": 153,
+          "confidence": 0.9952250719070435,
+          "text": " Albert and Bernard revealed that Cheryl's birthday is neither in May nor in August.",
+          "prompt_number": 77,
+          "task_type": "Summary"
+        },
+        {
+          "start": 596,
+          "end": 742,
+          "confidence": 0.972751796245575,
+          "text": "4. Diplomatic efforts: The U.S. could engage in diplomatic efforts to help de-escalate the conflict and promote peace and stability in the region.",
+          "prompt_number": 131,
+          "task_type": "Summary"
+        },
+        {
+          "start": 743,
+          "end": 893,
+          "confidence": 0.9757410883903503,
+          "text": "5. Humanitarian aid: The U.S. could provide humanitarian aid to those affected by the conflict, including Israeli, Palestinian, and American citizens.",
+          "prompt_number": 131,
+          "task_type": "Summary"
+        },
+        {
+          "start": 822,
+          "end": 876,
+          "confidence": 0.9770194888114929,
+          "text": " while Moore will join the Lady Lions at a later date.",
+          "prompt_number": 133,
+          "task_type": "Summary"
+        },
+        {
+          "start": 67,
+          "end": 108,
+          "confidence": 0.9585824608802795,
+          "text": " was sentenced to 64 months in prison for",
+          "prompt_number": 145,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 113,
+          "end": 143,
+          "confidence": 0.942549467086792,
+          "text": " after a deadly season in 2022",
+          "prompt_number": 64,
+          "task_type": "Summary"
+        },
+        {
+          "start": 34,
+          "end": 68,
+          "confidence": 0.9447653889656067,
+          "text": " Cheryl's birthday is on July 15th",
+          "prompt_number": 77,
+          "task_type": "Summary"
+        },
+        {
+          "start": 548,
+          "end": 591,
+          "confidence": 0.9303029775619507,
+          "text": " was released on a $10,000 bond on Thursday",
+          "prompt_number": 95,
+          "task_type": "Summary"
+        },
+        {
+          "start": 473,
+          "end": 595,
+          "confidence": 0.9221171140670776,
+          "text": " The U.S. could impose economic sanctions on organizations or individuals linked to Hamas or Hezbollah, as Texas has done.",
+          "prompt_number": 131,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 300,
+          "end": 349,
+          "confidence": 0.8995420932769775,
+          "text": " where the Church of Scientology is headquartered",
+          "prompt_number": 35,
+          "task_type": "Summary"
+        },
+        {
+          "start": 270,
+          "end": 310,
+          "confidence": 0.8569710850715637,
+          "text": "'s 2,117 passengers and 964 crew members",
+          "prompt_number": 37,
+          "task_type": "Summary"
+        },
+        {
+          "start": 285,
+          "end": 320,
+          "confidence": 0.8850526809692383,
+          "text": " her birthday must be on July 15th.",
+          "prompt_number": 77,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 2,
+          "end": 35,
+          "confidence": 0.8484556674957275,
+          "text": " The jury consisted of 12 members",
+          "prompt_number": 26,
+          "task_type": "Summary"
+        },
+        {
+          "start": 794,
+          "end": 810,
+          "confidence": 0.8198597431182861,
+          "text": " Gary Rossington",
+          "prompt_number": 31,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 213,
+          "end": 258,
+          "confidence": 0.7717868685722351,
+          "text": " A total of 100 people have been affected out",
+          "prompt_number": 37,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 160,
+          "end": 186,
+          "confidence": 0.7423707246780396,
+          "text": " commentary about Superman",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 817,
+          "end": 847,
+          "confidence": 0.7163701057434082,
+          "text": " only original member still in",
+          "prompt_number": 31,
+          "task_type": "Summary"
+        },
+        {
+          "start": 504,
+          "end": 512,
+          "confidence": 0.7101011872291565,
+          "text": " assault",
+          "prompt_number": 39,
+          "task_type": "Summary"
+        },
+        {
+          "start": 347,
+          "end": 368,
+          "confidence": 0.7396130561828613,
+          "text": " Justise Winslow's 19",
+          "prompt_number": 88,
+          "task_type": "Summary"
+        },
+        {
+          "start": 451,
+          "end": 472,
+          "confidence": 0.7104852795600891,
+          "text": "3. Economic sanctions",
+          "prompt_number": 131,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 430,
+          "end": 446,
+          "confidence": 0.992552638053894,
+          "text": " Outdoor Seating",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 719,
+          "end": 730,
+          "confidence": 0.9886618852615356,
+          "text": " live music",
+          "prompt_number": 151,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 472,
+          "end": 495,
+          "confidence": 0.9942660927772522,
+          "text": " validated parking lot.",
+          "prompt_number": 159,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 416,
+          "end": 446,
+          "confidence": 0.9731879830360413,
+          "text": " take-out services exclusively",
+          "prompt_number": 162,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 408,
+          "end": 513,
+          "confidence": 0.9958910942077637,
+          "text": " restaurant does not offer reservations, outdoor seating, Wi-Fi, take-out, or good-for-groups facilities.",
+          "prompt_number": 165,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 646,
+          "end": 675,
+          "confidence": 0.9658269882202148,
+          "text": " Restaurants Good For Groups.",
+          "prompt_number": 179,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 488,
+          "end": 515,
+          "confidence": 0.9913153648376465,
+          "text": " lot parking are available.",
+          "prompt_number": 192,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 320,
+          "end": 367,
+          "confidence": 0.950952410697937,
+          "text": " from 12:00 PM to 6:00 PM from Monday to Sunday",
+          "prompt_number": 203,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 334,
+          "end": 354,
+          "confidence": 0.9749749898910522,
+          "text": " has outdoor seating",
+          "prompt_number": 209,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 355,
+          "end": 373,
+          "confidence": 0.9941061735153198,
+          "text": " validated parking",
+          "prompt_number": 209,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 476,
+          "end": 498,
+          "confidence": 0.9857958555221558,
+          "text": " Wi-Fi, or live music.",
+          "prompt_number": 228,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 229,
+          "end": 237,
+          "confidence": 0.9824893474578857,
+          "text": " takeout",
+          "prompt_number": 234,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 289,
+          "end": 307,
+          "confidence": 0.9866806864738464,
+          "text": " validated parking",
+          "prompt_number": 234,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 387,
+          "end": 434,
+          "confidence": 0.9835679531097412,
+          "text": " The hours and attributes are subject to change",
+          "prompt_number": 237,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 306,
+          "end": 403,
+          "confidence": 0.9973938465118408,
+          "text": " but does not have Business Parking, Restaurant Reservations, WiFi, or Good For Groups amenities.",
+          "prompt_number": 238,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 349,
+          "end": 383,
+          "confidence": 0.998213529586792,
+          "text": " bakery does not take reservations",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 384,
+          "end": 412,
+          "confidence": 0.9864003658294678,
+          "text": " have outdoor seating, WiFi,",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 415,
+          "end": 430,
+          "confidence": 0.9851598143577576,
+          "text": " offer takeout.",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 332,
+          "end": 340,
+          "confidence": 0.9947947859764099,
+          "text": " takeout",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 389,
+          "end": 407,
+          "confidence": 0.9935413599014282,
+          "text": " validated parking",
+          "prompt_number": 257,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 428,
+          "end": 459,
+          "confidence": 0.9930753707885742,
+          "text": " Restaurants TakeOut for groups",
+          "prompt_number": 258,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 271,
+          "end": 282,
+          "confidence": 0.9554765224456787,
+          "text": " is no WiFi",
+          "prompt_number": 259,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 398,
+          "end": 417,
+          "confidence": 0.9769505262374878,
+          "text": " does not have WiFi",
+          "prompt_number": 261,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 550,
+          "end": 574,
+          "confidence": 0.9989896416664124,
+          "text": " Wi-Fi is not available,",
+          "prompt_number": 264,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 330,
+          "end": 335,
+          "confidence": 0.9875738024711609,
+          "text": " WiFi",
+          "prompt_number": 266,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 481,
+          "end": 504,
+          "confidence": 0.9916638135910034,
+          "text": " lot parking available.",
+          "prompt_number": 266,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 496,
+          "end": 512,
+          "confidence": 0.9590267539024353,
+          "text": " outdoor seating",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 654,
+          "end": 671,
+          "confidence": 0.9758983850479126,
+          "text": " hipster ambience",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 325,
+          "end": 361,
+          "confidence": 0.9893134236335754,
+          "text": " The ambience is described as casual",
+          "prompt_number": 274,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 243,
+          "end": 265,
+          "confidence": 0.9953591227531433,
+          "text": " validated parking lot",
+          "prompt_number": 276,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 390,
+          "end": 406,
+          "confidence": 0.9722681641578674,
+          "text": " outdoor seating",
+          "prompt_number": 277,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 444,
+          "end": 497,
+          "confidence": 0.9967612624168396,
+          "text": " business does not offer reservations for restaurants",
+          "prompt_number": 282,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 615,
+          "end": 643,
+          "confidence": 0.9712679386138916,
+          "text": " business is good for groups",
+          "prompt_number": 282,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 502,
+          "end": 525,
+          "confidence": 0.955488383769989,
+          "text": " offers outdoor seating",
+          "prompt_number": 287,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 407,
+          "end": 422,
+          "confidence": 0.9835277199745178,
+          "text": " or live music.",
+          "prompt_number": 292,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 429,
+          "end": 441,
+          "confidence": 0.9863409399986267,
+          "text": " is upscale.",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 471,
+          "end": 522,
+          "confidence": 0.9782608151435852,
+          "text": " average rating of 3.8 stars based on three reviews",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 564,
+          "end": 571,
+          "confidence": 0.9864415526390076,
+          "text": " casual",
+          "prompt_number": 297,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 151,
+          "end": 197,
+          "confidence": 0.9252861142158508,
+          "text": " 11:00 AM to 9:00 PM on both Monday and Sunday",
+          "prompt_number": 153,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 280,
+          "end": 326,
+          "confidence": 0.9440925717353821,
+          "text": " from 11:00 AM to 9:00 PM on Friday and Sunday",
+          "prompt_number": 168,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 319,
+          "end": 349,
+          "confidence": 0.9057084918022156,
+          "text": " with a total of three reviews",
+          "prompt_number": 184,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 494,
+          "end": 507,
+          "confidence": 0.909987211227417,
+          "text": " provide WiFi",
+          "prompt_number": 223,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 267,
+          "end": 288,
+          "confidence": 0.9495581984519958,
+          "text": " have outdoor seating",
+          "prompt_number": 234,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 231,
+          "end": 251,
+          "confidence": 0.9362122416496277,
+          "text": " has outdoor seating",
+          "prompt_number": 242,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 199,
+          "end": 257,
+          "confidence": 0.9359381794929504,
+          "text": " business hours are from 0:0 to 20:0 from Monday to Sunday",
+          "prompt_number": 244,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 622,
+          "end": 669,
+          "confidence": 0.9265739917755127,
+          "text": " Reservations for restaurants are not available",
+          "prompt_number": 260,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 222,
+          "end": 242,
+          "confidence": 0.9461105465888977,
+          "text": " has outdoor seating",
+          "prompt_number": 276,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 735,
+          "end": 752,
+          "confidence": 0.9354074597358704,
+          "text": " Business Parking",
+          "prompt_number": 284,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 756,
+          "end": 776,
+          "confidence": 0.9123842120170593,
+          "text": " Restaurants TakeOut",
+          "prompt_number": 284,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 380,
+          "end": 384,
+          "confidence": 0.8976956605911255,
+          "text": " lot",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 246,
+          "end": 275,
+          "confidence": 0.8851607441902161,
+          "text": " 6:30 PM to 2:00 AM every day",
+          "prompt_number": 191,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 436,
+          "end": 461,
+          "confidence": 0.8784896731376648,
+          "text": " a total of three reviews",
+          "prompt_number": 247,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 56,
+          "end": 64,
+          "confidence": 0.8781930208206177,
+          "text": " upscale",
+          "prompt_number": 267,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 564,
+          "end": 576,
+          "confidence": 0.8816492557525635,
+          "text": " lot parking",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 533,
+          "end": 557,
+          "confidence": 0.870278000831604,
+          "text": " WiFi available for free",
+          "prompt_number": 282,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 710,
+          "end": 727,
+          "confidence": 0.8530430793762207,
+          "text": " October 12, 2014",
+          "prompt_number": 294,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 515,
+          "end": 532,
+          "confidence": 0.8495373725891113,
+          "text": " of three reviews",
+          "prompt_number": 163,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 224,
+          "end": 265,
+          "confidence": 0.8388500809669495,
+          "text": " 7:30 AM to 1:30 PM from Monday to Sunday",
+          "prompt_number": 219,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 450,
+          "end": 524,
+          "confidence": 0.8082192540168762,
+          "text": " hours and parking information are accurate according to the provided data",
+          "prompt_number": 244,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 655,
+          "end": 661,
+          "confidence": 0.835722804069519,
+          "text": " music",
+          "prompt_number": 244,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 283,
+          "end": 294,
+          "confidence": 0.830998420715332,
+          "text": " a full bar",
+          "prompt_number": 246,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 272,
+          "end": 314,
+          "confidence": 0.8135583400726318,
+          "text": " from 0:0 to 21:0 on Monday through Sunday",
+          "prompt_number": 267,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 299,
+          "end": 306,
+          "confidence": 0.7645180225372314,
+          "text": " Monday",
+          "prompt_number": 164,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 599,
+          "end": 615,
+          "confidence": 0.7544683814048767,
+          "text": " Outdoor Seating",
+          "prompt_number": 179,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 244,
+          "end": 275,
+          "confidence": 0.768845796585083,
+          "text": "00 AM to 3:00 PM from Monday to",
+          "prompt_number": 187,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 287,
+          "end": 320,
+          "confidence": 0.7875514030456543,
+          "text": " Thursday through Saturday from 1",
+          "prompt_number": 204,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 146,
+          "end": 169,
+          "confidence": 0.7732723355293274,
+          "text": " Tuesday through Sunday",
+          "prompt_number": 206,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 489,
+          "end": 512,
+          "confidence": 0.771359384059906,
+          "text": " based on three reviews",
+          "prompt_number": 207,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 273,
+          "end": 276,
+          "confidence": 0.7773244380950928,
+          "text": " AM",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 727,
+          "end": 735,
+          "confidence": 0.7795813083648682,
+          "text": " upscale",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 341,
+          "end": 357,
+          "confidence": 0.7426373362541199,
+          "text": " outdoor seating",
+          "prompt_number": 196,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 392,
+          "end": 403,
+          "confidence": 0.715232253074646,
+          "text": "antsTakeOut",
+          "prompt_number": 241,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 592,
+          "end": 598,
+          "confidence": 0.7269348502159119,
+          "text": " music",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 28,
+          "end": 36,
+          "confidence": 0.7214723825454712,
+          "text": " upscale",
+          "prompt_number": 291,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 344,
+          "end": 421,
+          "confidence": 0.9807666540145874,
+          "text": " as water piks cannot reach between teeth to remove food particles and plaque",
+          "prompt_number": 309,
+          "task_type": "QA"
+        },
+        {
+          "start": 364,
+          "end": 629,
+          "confidence": 0.9997205138206482,
+          "text": "Step 1: In the Firefox Options window, click on the \"General\" tab.\nStep 2: Scroll down to the \"Startup\" section and look for the \"Make Default\" button next to \"Internet Browser.\"\nStep 3: Click on the \"Make Default\" button to set Firefox as your default web browser.",
+          "prompt_number": 311,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 261,
+          "confidence": 0.9984287619590759,
+          "text": "\"Once the flag is folded, kindle a fire large enough to completely consume the flag. As the flag burns, recite the Flag Retirement Ceremony script, expressing gratitude for the flag's service to the nation. Allow the flag to burn until it is completely consumed",
+          "prompt_number": 312,
+          "task_type": "QA"
+        },
+        {
+          "start": 528,
+          "end": 728,
+          "confidence": 0.9943899512290955,
+          "text": ", you can try subtly expressing your own interest or asking them out for coffee or lunch to clarify the situation. Remember to be respectful of the other person's feelings and professional boundaries.",
+          "prompt_number": 313,
+          "task_type": "QA"
+        },
+        {
+          "start": 161,
+          "end": 200,
+          "confidence": 0.9963440299034119,
+          "text": "1. Average annual snowfall: 18.5 inches",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 201,
+          "end": 247,
+          "confidence": 0.994158148765564,
+          "text": "2. Average annual snow accumulation: 35 inches",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 248,
+          "end": 346,
+          "confidence": 0.998837411403656,
+          "text": "3. Average number of heavy snowstorms per year: 4-5\n4. Average first snowfall: around November 15\n",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 429,
+          "end": 495,
+          "confidence": 0.9889577031135559,
+          "text": "1. December: 3.5 inches of snowfall, 7 inches of snow accumulation",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 496,
+          "end": 559,
+          "confidence": 0.9903416633605957,
+          "text": "2. January: 4 inches of snowfall, 8 inches of snow accumulation",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 560,
+          "end": 624,
+          "confidence": 0.9944798946380615,
+          "text": "3. February: 4 inches of snowfall, 7 inches of snow accumulation",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 741,
+          "end": 871,
+          "confidence": 0.9971275925636292,
+          "text": "1. Average annual snowfall: 35 inches\n2. Average annual snow accumulation: 55 inches\n3. Average first snowfall: around November 1\n",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 878,
+          "end": 1007,
+          "confidence": 0.9928368926048279,
+          "text": "1. Average annual snowfall: 22 inches\n2. Average annual snow accumulation: 35 inches\n3. Average first snowfall: around December 1",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 502,
+          "end": 628,
+          "confidence": 0.9785014986991882,
+          "text": " After cooking, immediately transfer the eggs to a bowl of ice water to stop the cooking process and make them easier to peel.",
+          "prompt_number": 329,
+          "task_type": "QA"
+        },
+        {
+          "start": 9,
+          "end": 76,
+          "confidence": 0.9874668717384338,
+          "text": " slide the Notifications panel open and tap on the \"Settings\" icon.",
+          "prompt_number": 331,
+          "task_type": "QA"
+        },
+        {
+          "start": 77,
+          "end": 120,
+          "confidence": 0.9794700145721436,
+          "text": "2. Scroll down and tap on \"Backup & reset.\"",
+          "prompt_number": 331,
+          "task_type": "QA"
+        },
+        {
+          "start": 391,
+          "end": 454,
+          "confidence": 0.9604488015174866,
+          "text": " add an appropriate margin at the top for the title and labels.",
+          "prompt_number": 333,
+          "task_type": "QA"
+        },
+        {
+          "start": 732,
+          "end": 873,
+          "confidence": 0.9927607774734497,
+          "text": "7. Add a key or legend: If necessary, include a key or legend to help readers understand which color or symbol corresponds to which category.",
+          "prompt_number": 333,
+          "task_type": "QA"
+        },
+        {
+          "start": 429,
+          "end": 453,
+          "confidence": 0.9950721859931946,
+          "text": "6. Click \"Save changes.\"",
+          "prompt_number": 335,
+          "task_type": "QA"
+        },
+        {
+          "start": 621,
+          "end": 800,
+          "confidence": 0.9993894100189209,
+          "text": " then select \"Power & sleep\" > \"Additional power settings\" > \"Change plan settings\" > \"Change advanced power settings\" > \"Hard disk\" > \"Turn off hard disk after\" and set the time.",
+          "prompt_number": 335,
+          "task_type": "QA"
+        },
+        {
+          "start": 301,
+          "end": 372,
+          "confidence": 0.987055778503418,
+          "text": " Roast for approximately 20 minutes per pound for medium-rare doneness.",
+          "prompt_number": 337,
+          "task_type": "QA"
+        },
+        {
+          "start": 423,
+          "end": 622,
+          "confidence": 0.9978717565536499,
+          "text": " For example, the atmosphere is a mixture of various gases such as nitrogen, oxygen, and carbon dioxide, which can be separated through physical methods such as fractional distillation or adsorption.",
+          "prompt_number": 343,
+          "task_type": "QA"
+        },
+        {
+          "start": 37,
+          "end": 70,
+          "confidence": 0.9881145358085632,
+          "text": " features a Mediterranean climate",
+          "prompt_number": 348,
+          "task_type": "QA"
+        },
+        {
+          "start": 609,
+          "end": 888,
+          "confidence": 0.9973846077919006,
+          "text": " Preheat the oven to 375°F (190°C) and spread stuffing mix on a plate. Dip each side of the pork chops into the stuffing mix, pressing gently to adhere. Place the coated chops on a baking sheet and bake for about 20 minutes or until the internal temperature reaches 145°F (63°C).",
+          "prompt_number": 351,
+          "task_type": "QA"
+        },
+        {
+          "start": 713,
+          "end": 823,
+          "confidence": 0.9928624033927917,
+          "text": " Apply the fertilizer: Divide your lawn into sections and apply the fertilizer evenly in a crisscross pattern.",
+          "prompt_number": 359,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 404,
+          "confidence": 0.9992465972900391,
+          "text": "Gravitational potential energy is the energy an object possesses due to its vertical position or height in a gravitational field. For instance, a ball raised to a certain height above the ground has gravitational potential energy because of its position relative to the ground. When the ball is released, its gravitational potential energy is converted into kinetic energy as it falls towards the ground.",
+          "prompt_number": 360,
+          "task_type": "QA"
+        },
+        {
+          "start": 439,
+          "end": 790,
+          "confidence": 0.9995611310005188,
+          "text": " potential energy, on the other hand, is the energy stored in an elastic object due to its deformation from its equilibrium position. When a spring is compressed or stretched, it stores elastic potential energy. When the spring is released, the elastic potential energy is converted into kinetic energy, causing the spring to oscillate back and forth.",
+          "prompt_number": 360,
+          "task_type": "QA"
+        },
+        {
+          "start": 295,
+          "end": 445,
+          "confidence": 0.9782702922821045,
+          "text": " Instead, consider exploring potential energy through controlled experiments in a safe environment, such as winding up a rubber band and releasing it.",
+          "prompt_number": 362,
+          "task_type": "QA"
+        },
+        {
+          "start": 51,
+          "end": 112,
+          "confidence": 0.9840769171714783,
+          "text": " go to the IRS website and use the \"Where's My Refund?\" tool.",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 855,
+          "end": 1018,
+          "confidence": 0.9914064407348633,
+          "text": " the process may vary depending on the state. Check with your state's tax department for specific instructions on how to check the status of your state tax refund.",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 497,
+          "end": 560,
+          "confidence": 0.9554268717765808,
+          "text": " The provided instructions are for traditional peeling methods.",
+          "prompt_number": 367,
+          "task_type": "QA"
+        },
+        {
+          "start": 460,
+          "end": 537,
+          "confidence": 0.9760605692863464,
+          "text": " which tied their labor to the land and kept them in a state of indebtedness.",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 626,
+          "end": 880,
+          "confidence": 0.9998252987861633,
+          "text": " The 13th, 14th, and 15th Amendments were ratified, granting citizenship, equal protection under the law, and the right to vote to African Americans. However, these gains were largely reversed with the end of Reconstruction and the rise of Jim Crow laws.",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 579,
+          "end": 627,
+          "confidence": 0.9937078952789307,
+          "text": " 1. Use a data recovery tool to scan the iPhone.",
+          "prompt_number": 385,
+          "task_type": "QA"
+        },
+        {
+          "start": 317,
+          "end": 449,
+          "confidence": 0.9934426546096802,
+          "text": " pour hot water and two cups of salt into a bowl, submerge the jewelry, and let it soak for a few minutes before rinsing and drying.",
+          "prompt_number": 388,
+          "task_type": "QA"
+        },
+        {
+          "start": 190,
+          "end": 277,
+          "confidence": 0.9947744011878967,
+          "text": " as long as the transfer was made in good faith and for valuable consideration. However",
+          "prompt_number": 391,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 248,
+          "confidence": 0.9993194341659546,
+          "text": "This negative pressure helps draw the skin and underlying tissues into the cup, creating a suction effect. This suction helps to bring congested blood, lymph, and toxins to the surface of the skin, making it easier for the body to eliminate them. (",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 349,
+          "end": 493,
+          "confidence": 0.9961840510368347,
+          "text": " The suction and negative pressure created by the cups help to expand the blood vessels, allowing for increased blood flow to the affected area.",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 594,
+          "end": 638,
+          "confidence": 0.9586120843887329,
+          "text": " increasing blood flow to the affected area.",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 396,
+          "end": 461,
+          "confidence": 0.9924843907356262,
+          "text": " an iPhone, you can download the Snapchat app from the App Store.",
+          "prompt_number": 398,
+          "task_type": "QA"
+        },
+        {
+          "start": 142,
+          "end": 229,
+          "confidence": 0.9931958913803101,
+          "text": "2. Consider traveling during off-peak seasons to save on accommodation and attractions.",
+          "prompt_number": 399,
+          "task_type": "QA"
+        },
+        {
+          "start": 433,
+          "end": 613,
+          "confidence": 0.9973366856575012,
+          "text": "5. Try local street food and markets instead of expensive restaurants for affordable meals.\n6. Check for student or senior discounts when purchasing tickets or making reservations.",
+          "prompt_number": 399,
+          "task_type": "QA"
+        },
+        {
+          "start": 704,
+          "end": 837,
+          "confidence": 0.9998637437820435,
+          "text": " they were inseparable and were granted the gift of immortality by Zeus, allowing them to live among the gods after one of them died.",
+          "prompt_number": 405,
+          "task_type": "QA"
+        },
+        {
+          "start": 153,
+          "end": 206,
+          "confidence": 0.9815762042999268,
+          "text": " degrees Fahrenheit (4.4, 0, or -6.7 degrees Celsius)",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 233,
+          "end": 253,
+          "confidence": 0.9657233357429504,
+          "text": "* 0.1 days per month",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 288,
+          "end": 298,
+          "confidence": 0.9678651094436646,
+          "text": "F (-6.7°C)",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 413,
+          "end": 426,
+          "confidence": 0.9697415828704834,
+          "text": " 40°F (4.4°C)",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 432,
+          "end": 645,
+          "confidence": 0.9999524354934692,
+          "text": "4. Repairing gear: Safety pins can be used to repair tears or holes in clothing, tents, or other gear.\n5. Creating a fishhook: By bending a safety pin into a hook shape, it can be used as a makeshift fishing hook.",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 646,
+          "end": 893,
+          "confidence": 0.9970295429229736,
+          "text": "6. Securing a tourniquet: Safety pins can be used to secure a tourniquet in place, helping to control bleeding in an emergency.\n7. Creating a clothesline: Safety pins can be used to create a makeshift clothesline for drying clothes or other items.",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 894,
+          "end": 1013,
+          "confidence": 0.9783471822738647,
+          "text": "8. Securing a tarp: Safety pins can be used to secure a tarp or other shelter in place, especially in windy conditions.",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 1014,
+          "end": 1123,
+          "confidence": 0.9998286962509155,
+          "text": "9. Creating a sewing needle: By bending one end of a safety pin into a sharp point, it can be used as a makes",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 17,
+          "confidence": 0.9896363615989685,
+          "text": "Bob Dylan wrote \"",
+          "prompt_number": 410,
+          "task_type": "QA"
+        },
+        {
+          "start": 190,
+          "end": 386,
+          "confidence": 0.9999642372131348,
+          "text": " Famous people born on this day include Marilyn Monroe, who overcame personal challenges to become a iconic actress, and Steve Jobs, who revolutionized the tech industry with his innovative ideas.",
+          "prompt_number": 411,
+          "task_type": "QA"
+        },
+        {
+          "start": 684,
+          "end": 761,
+          "confidence": 0.9820908904075623,
+          "text": " please refer to the official FIFA 16 game description or the game's website.",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 143,
+          "end": 345,
+          "confidence": 0.9997612833976746,
+          "text": " you can use the following formula:\n\nw = √[(b^2 + t^2 + h^2) x 2bt]\n\nSubstituting the given values:\nw = √[(2^2 + 0.25^2 + 7^2) x 2 x 2 x 0.25]\nw = √[(4 + 0.0625 + 49) x 5]\nw = √(54.1125)\nw ≈ 7.35 inches",
+          "prompt_number": 421,
+          "task_type": "QA"
+        },
+        {
+          "start": 225,
+          "end": 411,
+          "confidence": 0.9994235038757324,
+          "text": " Adjusting your diet and increasing physical activity levels can help you reach your goal. Remember, everyone's body responds differently, so be patient and consistent with your efforts.",
+          "prompt_number": 424,
+          "task_type": "QA"
+        },
+        {
+          "start": 200,
+          "end": 306,
+          "confidence": 0.9923669695854187,
+          "text": " Technology has enabled automation of repetitive tasks, streamlined workflows, and improved communication,",
+          "prompt_number": 427,
+          "task_type": "QA"
+        },
+        {
+          "start": 342,
+          "end": 1205,
+          "confidence": 0.9999088048934937,
+          "text": "2. Flexible Work Arrangements: Technology has made it possible for employees to work remotely, allowing for more flexible work arrangements and a better work-life balance.\n3. Enhanced Collaboration: Technology has made it easier for teams to collaborate in real-time, regardless of their physical location, leading to more effective and efficient teamwork.\n4. Improved Communication: Technology has revolutionized the way we communicate, making it faster and more convenient to connect with colleagues, clients, and partners.\n5. Increased Access to Information: Technology has made it easier to access information from anywhere, at any time, allowing employees to make informed decisions quickly and effectively.\n6. Cost Savings: Technology has helped companies save money by reducing the need for paper documents, travel, and other traditional business expenses.",
+          "prompt_number": 427,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 49,
+          "confidence": 0.9773045778274536,
+          "text": "I'm an artificial intelligence and don't have the",
+          "prompt_number": 433,
+          "task_type": "QA"
+        },
+        {
+          "start": 398,
+          "end": 424,
+          "confidence": 0.9529229998588562,
+          "text": " Always end with a period.",
+          "prompt_number": 438,
+          "task_type": "QA"
+        },
+        {
+          "start": 959,
+          "end": 1017,
+          "confidence": 0.997819185256958,
+          "text": "3. Add food coloring to the water for sensory exploration.",
+          "prompt_number": 443,
+          "task_type": "QA"
+        },
+        {
+          "start": 1146,
+          "end": 1349,
+          "confidence": 0.9987010955810547,
+          "text": "6. Use watering cans and hoses for outdoor water play.\n7. Create a water wall with various pipes and tubes.\n8. Provide sponges and cloths for wiping and drying.\n9. Add water beads for sensory exploration",
+          "prompt_number": 443,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 259,
+          "end": 322,
+          "confidence": 0.9469205141067505,
+          "text": " when cooked properly, it is considered one of the best steaks.",
+          "prompt_number": 303,
+          "task_type": "QA"
+        },
+        {
+          "start": 20,
+          "end": 59,
+          "confidence": 0.9383893013000488,
+          "text": " plus 3 minutes for melting the cheese.",
+          "prompt_number": 306,
+          "task_type": "QA"
+        },
+        {
+          "start": 637,
+          "end": 672,
+          "confidence": 0.9162710309028625,
+          "text": ": Close the Firefox Options window.",
+          "prompt_number": 311,
+          "task_type": "QA"
+        },
+        {
+          "start": 533,
+          "end": 567,
+          "confidence": 0.937628448009491,
+          "text": " through the process of breathing,",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 563,
+          "end": 710,
+          "confidence": 0.9398549795150757,
+          "text": "5. Purchase the appropriate fertilizer: Based on the results of your soil test and the type of grass you have, purchase the appropriate fertilizer.",
+          "prompt_number": 359,
+          "task_type": "QA"
+        },
+        {
+          "start": 452,
+          "end": 470,
+          "confidence": 0.9496563673019409,
+          "text": " at 1-800-829-1954",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 55,
+          "end": 104,
+          "confidence": 0.9038487672805786,
+          "text": " the integration of the Southern economy into the",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 285,
+          "end": 332,
+          "confidence": 0.9485169649124146,
+          "text": " instead of taxis or rental cars to save money.",
+          "prompt_number": 399,
+          "task_type": "QA"
+        },
+        {
+          "start": 392,
+          "end": 432,
+          "confidence": 0.9308516383171082,
+          "text": " such as city passes or group discounts.",
+          "prompt_number": 399,
+          "task_type": "QA"
+        },
+        {
+          "start": 299,
+          "end": 319,
+          "confidence": 0.9414513111114502,
+          "text": "* 1.3 days per month",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 355,
+          "end": 361,
+          "confidence": 0.9028099775314331,
+          "text": " (0°C)",
+          "prompt_number": 407,
+          "task_type": "QA"
+        },
+        {
+          "start": 362,
+          "end": 382,
+          "confidence": 0.9488588571548462,
+          "text": "* 3.5 days per month",
+          "prompt_number": 407,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 729,
+          "end": 740,
+          "confidence": 0.8525259494781494,
+          "text": "Fort Wayne:",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 244,
+          "end": 276,
+          "confidence": 0.8870497941970825,
+          "text": "oller with a 1mm needle size for",
+          "prompt_number": 366,
+          "task_type": "QA"
+        },
+        {
+          "start": 426,
+          "end": 440,
+          "confidence": 0.8932632803916931,
+          "text": " 300°F (154°C)",
+          "prompt_number": 369,
+          "task_type": "QA"
+        },
+        {
+          "start": 444,
+          "end": 458,
+          "confidence": 0.8881633877754211,
+          "text": " about 2 hours",
+          "prompt_number": 369,
+          "task_type": "QA"
+        },
+        {
+          "start": 1050,
+          "end": 1118,
+          "confidence": 0.8777967095375061,
+          "text": " making it a valuable addition to any wellness routine. (Sentence 5)",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 552,
+          "end": 565,
+          "confidence": 0.875481128692627,
+          "text": "/973-1137-514",
+          "prompt_number": 414,
+          "task_type": "QA"
+        },
+        {
+          "start": 1019,
+          "end": 1094,
+          "confidence": 0.8649379014968872,
+          "text": ". Provide various containers for scooping, pouring, and transferring water.",
+          "prompt_number": 443,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 706,
+          "end": 726,
+          "confidence": 0.8237680792808533,
+          "text": " bright yellow yolks",
+          "prompt_number": 329,
+          "task_type": "QA"
+        },
+        {
+          "start": 214,
+          "end": 255,
+          "confidence": 0.8328389525413513,
+          "text": " This effect is not limited to human hugs",
+          "prompt_number": 336,
+          "task_type": "QA"
+        },
+        {
+          "start": 489,
+          "end": 502,
+          "confidence": 0.846984326839447,
+          "text": " a cup of red",
+          "prompt_number": 337,
+          "task_type": "QA"
+        },
+        {
+          "start": 427,
+          "end": 479,
+          "confidence": 0.8487629890441895,
+          "text": " I recommend starting with a smaller needle size for",
+          "prompt_number": 366,
+          "task_type": "QA"
+        },
+        {
+          "start": 740,
+          "end": 766,
+          "confidence": 0.804902195930481,
+          "text": " ice crystals from forming",
+          "prompt_number": 442,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 266,
+          "end": 301,
+          "confidence": 0.7909448146820068,
+          "text": " then scatter the ashes in the wind",
+          "prompt_number": 312,
+          "task_type": "QA"
+        },
+        {
+          "start": 484,
+          "end": 536,
+          "confidence": 0.7519340515136719,
+          "text": " Measure the size of your lawn to determine how much",
+          "prompt_number": 359,
+          "task_type": "QA"
+        },
+        {
+          "start": 642,
+          "end": 669,
+          "confidence": 0.7817718982696533,
+          "text": " regular physical activity.",
+          "prompt_number": 370,
+          "task_type": "QA"
+        },
+        {
+          "start": 384,
+          "end": 395,
+          "confidence": 0.7901795506477356,
+          "text": " Let the gl",
+          "prompt_number": 374,
+          "task_type": "QA"
+        },
+        {
+          "start": 398,
+          "end": 426,
+          "confidence": 0.795829713344574,
+          "text": " sit for a few minutes, then",
+          "prompt_number": 374,
+          "task_type": "QA"
+        },
+        {
+          "start": 906,
+          "end": 945,
+          "confidence": 0.7770858407020569,
+          "text": " Preview and select the deleted photos.",
+          "prompt_number": 385,
+          "task_type": "QA"
+        },
+        {
+          "start": 282,
+          "end": 355,
+          "confidence": 0.780977725982666,
+          "text": " specifics of your situation may vary depending on the laws of your state",
+          "prompt_number": 391,
+          "task_type": "QA"
+        },
+        {
+          "start": 256,
+          "end": 259,
+          "confidence": 0.7806012630462646,
+          "text": " 1)",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 847,
+          "end": 909,
+          "confidence": 0.7729167938232422,
+          "text": " The relaxation and stress-reducing effects of the massage can",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 242,
+          "end": 276,
+          "confidence": 0.7864192128181458,
+          "text": " medical tape may not be effective",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 394,
+          "end": 421,
+          "confidence": 0.7781206965446472,
+          "text": " approximately 7.35 inches.",
+          "prompt_number": 421,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 199,
+          "end": 206,
+          "confidence": 0.7073663473129272,
+          "text": " Mignon",
+          "prompt_number": 303,
+          "task_type": "QA"
+        },
+        {
+          "start": 752,
+          "end": 766,
+          "confidence": 0.7131896615028381,
+          "text": " you can check",
+          "prompt_number": 348,
+          "task_type": "QA"
+        },
+        {
+          "start": 547,
+          "end": 562,
+          "confidence": 0.7424754500389099,
+          "text": " you will need.",
+          "prompt_number": 359,
+          "task_type": "QA"
+        },
+        {
+          "start": 363,
+          "end": 385,
+          "confidence": 0.7312414646148682,
+          "text": " terms of the judgment",
+          "prompt_number": 391,
+          "task_type": "QA"
+        },
+        {
+          "start": 670,
+          "end": 703,
+          "confidence": 0.7047591209411621,
+          "text": " Despite having different fathers",
+          "prompt_number": 405,
+          "task_type": "QA"
+        },
+        {
+          "start": 579,
+          "end": 583,
+          "confidence": 0.7095863223075867,
+          "text": " per",
+          "prompt_number": 407,
+          "task_type": "QA"
+        }
+      ]
+    }
+  }
+]

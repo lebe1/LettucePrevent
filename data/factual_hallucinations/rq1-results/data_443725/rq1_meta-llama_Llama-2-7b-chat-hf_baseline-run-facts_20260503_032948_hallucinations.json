@@ -1,0 +1,2846 @@
+[
+  {
+    "Summary :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 78,
+          "end": 128,
+          "confidence": 0.9795538187026978,
+          "text": "1. The jury consisted of 12 members, including the",
+          "prompt_number": 26,
+          "task_type": "Summary"
+        },
+        {
+          "start": 76,
+          "end": 412,
+          "confidence": 0.9999512434005737,
+          "text": "1. The man who started WWI was Archduke Franz Ferdinand of Austria-Hungary.\n2. He was assassinated on June 28, 1914, in Sarajevo, Bosnia, by a group of Serbian nationalists.\n3. The assassination was the spark that set off the conflict, as Austria-Hungary responded by issuing an ultimatum to Serbia, which Serbia refused to comply with.",
+          "prompt_number": 38,
+          "task_type": "Summary"
+        },
+        {
+          "start": 413,
+          "end": 546,
+          "confidence": 0.9893262386322021,
+          "text": "4. The conflict quickly escalated into a wider war involving many European countries, including Germany, France, Russia, and Britain.",
+          "prompt_number": 38,
+          "task_type": "Summary"
+        },
+        {
+          "start": 571,
+          "end": 699,
+          "confidence": 0.9985659718513489,
+          "text": " several fronts, including the Western Front in France and Belgium, the Eastern Front in Russia, and the Italian Front in Italy.",
+          "prompt_number": 38,
+          "task_type": "Summary"
+        },
+        {
+          "start": 700,
+          "end": 956,
+          "confidence": 0.9916593432426453,
+          "text": "6. The war saw the introduction of new technologies and tactics, including tanks, airplanes, and chemical weapons.\n7. The war resulted in the loss of millions of lives and had a profound impact on the political and social landscape of Europe and the world.",
+          "prompt_number": 38,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 222,
+          "confidence": 0.9988079071044922,
+          "text": "Understood! I will always respond with precision and clarity, and I will never exceed the maximum number of words requested. I will also end each answer with a complete sentence and a period. Thank you for letting me know!",
+          "prompt_number": 95,
+          "task_type": "Summary"
+        },
+        {
+          "start": 201,
+          "end": 412,
+          "confidence": 0.9995330572128296,
+          "text": " pressure Hamas and Hezbollah to cease their attacks and negotiate a peaceful resolution to the conflict. Additionally, the U.S. should provide humanitarian aid to Palestinian civilians affected by the conflict.",
+          "prompt_number": 131,
+          "task_type": "Summary"
+        },
+        {
+          "start": 10,
+          "end": 213,
+          "confidence": 0.9938141107559204,
+          "text": "! I will always respond with precision and clarity, and I will never exceed the maximum number of words requested. I will also end each answer with a complete sentence and a period. Thank you for letting",
+          "prompt_number": 145,
+          "task_type": "Summary"
+        },
+        {
+          "start": 551,
+          "end": 753,
+          "confidence": 0.9905053973197937,
+          "text": " charging migrants a fee could lead to exploitation and abuse. Migrants may be forced to pay exorbitant fees to smugglers or human traffickers, putting them at risk of violence, abuse, and debt bondage.",
+          "prompt_number": 146,
+          "task_type": "Summary"
+        },
+        {
+          "start": 932,
+          "end": 1131,
+          "confidence": 0.9957612156867981,
+          "text": ", it is important to consider the root causes of migration and address them in a comprehensive and humane manner. Many migrants are fleeing poverty, violence, and persecution in their home countries,",
+          "prompt_number": 146,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 260,
+          "end": 295,
+          "confidence": 0.9059629440307617,
+          "text": " was found asleep in the cargo hold",
+          "prompt_number": 9,
+          "task_type": "Summary"
+        },
+        {
+          "start": 832,
+          "end": 854,
+          "confidence": 0.930439829826355,
+          "text": "'s autograph costs $50",
+          "prompt_number": 13,
+          "task_type": "Summary"
+        },
+        {
+          "start": 11,
+          "end": 123,
+          "confidence": 0.9375636577606201,
+          "text": " I will always respond with precision and clarity, and I will never exceed the maximum number of words requested",
+          "prompt_number": 76,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 0,
+          "end": 68,
+          "confidence": 0.8740092515945435,
+          "text": "Of course! Here is the rewritten article with the requested changes:",
+          "prompt_number": 144,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 1112,
+          "end": 1123,
+          "confidence": 0.8329149484634399,
+          "text": " Detroit 19",
+          "prompt_number": 75,
+          "task_type": "Summary"
+        },
+        {
+          "start": 332,
+          "end": 335,
+          "confidence": 0.8093189001083374,
+          "text": "000",
+          "prompt_number": 133,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 51,
+          "end": 56,
+          "confidence": 0.7525473833084106,
+          "text": " 2015",
+          "prompt_number": 89,
+          "task_type": "Summary"
+        },
+        {
+          "start": 269,
+          "end": 286,
+          "confidence": 0.7714517116546631,
+          "text": " injured hundreds",
+          "prompt_number": 94,
+          "task_type": "Summary"
+        },
+        {
+          "start": 0,
+          "end": 65,
+          "confidence": 0.7790098190307617,
+          "text": "Of course! Here is the rewritten text with the requested changes:",
+          "prompt_number": 148,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Summary :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 929,
+          "end": 949,
+          "confidence": 0.7031518816947937,
+          "text": " two sick passengers",
+          "prompt_number": 27,
+          "task_type": "Summary"
+        },
+        {
+          "start": 401,
+          "end": 422,
+          "confidence": 0.7289331555366516,
+          "text": " for English speakers",
+          "prompt_number": 132,
+          "task_type": "Summary"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 664,
+          "end": 694,
+          "confidence": 0.9615384936332703,
+          "text": " Ambience (romantic, intimate,",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 701,
+          "end": 753,
+          "confidence": 0.9917126893997192,
+          "text": ", hipster, divey, touristy, trendy, upscale, casual)",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 203,
+          "end": 209,
+          "confidence": 0.9867988228797913,
+          "text": " 93067",
+          "prompt_number": 151,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 569,
+          "end": 579,
+          "confidence": 0.9618860483169556,
+          "text": " validated",
+          "prompt_number": 152,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 585,
+          "end": 593,
+          "confidence": 0.9954119324684143,
+          "text": " valet),",
+          "prompt_number": 152,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 741,
+          "end": 800,
+          "confidence": 0.9840600490570068,
+          "text": "ience (touristy, hipster, romantic, divey, intimate, trendy",
+          "prompt_number": 152,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 315,
+          "end": 358,
+          "confidence": 0.9967135190963745,
+          "text": " BusinessParking (garage, street, validated",
+          "prompt_number": 153,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 364,
+          "end": 372,
+          "confidence": 0.9924033880233765,
+          "text": " valet),",
+          "prompt_number": 153,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 235,
+          "end": 273,
+          "confidence": 0.981532871723175,
+          "text": ": Monday - Sunday: 11:00 AM - 21:00 PM",
+          "prompt_number": 154,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 217,
+          "end": 226,
+          "confidence": 0.9724611043930054,
+          "text": " CA 93101",
+          "prompt_number": 157,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 503,
+          "end": 527,
+          "confidence": 0.9954850673675537,
+          "text": " validated, lot, valet),",
+          "prompt_number": 157,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 670,
+          "end": 743,
+          "confidence": 0.9967148303985596,
+          "text": " Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale,",
+          "prompt_number": 157,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 263,
+          "end": 301,
+          "confidence": 0.989757776260376,
+          "text": ": Monday - Sunday: 11:30 AM - 20:30 PM",
+          "prompt_number": 161,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 322,
+          "end": 370,
+          "confidence": 0.9979755282402039,
+          "text": "Parking (garage, street, validated, lot, valet),",
+          "prompt_number": 161,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 521,
+          "end": 568,
+          "confidence": 0.9960272312164307,
+          "text": " (touristy, hipster, romantic, divey, intimate,",
+          "prompt_number": 161,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 576,
+          "end": 592,
+          "confidence": 0.9906073808670044,
+          "text": " upscale, classy",
+          "prompt_number": 161,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 289,
+          "end": 327,
+          "confidence": 0.9795997142791748,
+          "text": ": Monday - Sunday: 11:00 AM - 20:00 PM",
+          "prompt_number": 162,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 280,
+          "end": 315,
+          "confidence": 0.9582622051239014,
+          "text": " Monday - Sunday: 5:00 AM - 5:00 PM",
+          "prompt_number": 165,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 487,
+          "end": 531,
+          "confidence": 0.9893313646316528,
+          "text": " BusinessParking (garage, street, validated,",
+          "prompt_number": 169,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 536,
+          "end": 544,
+          "confidence": 0.9886184930801392,
+          "text": " valet),",
+          "prompt_number": 169,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 684,
+          "end": 767,
+          "confidence": 0.994436502456665,
+          "text": "), Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale, classy,",
+          "prompt_number": 169,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 265,
+          "end": 300,
+          "confidence": 0.9659215211868286,
+          "text": "Hours: Monday - Sunday: 0:00 - 0:00",
+          "prompt_number": 171,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 239,
+          "end": 276,
+          "confidence": 0.953308641910553,
+          "text": " Monday - Sunday: 10:00 AM - 23:00 PM",
+          "prompt_number": 175,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 249,
+          "end": 258,
+          "confidence": 0.9803195595741272,
+          "text": " CA 93101",
+          "prompt_number": 176,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 361,
+          "end": 392,
+          "confidence": 0.9533641338348389,
+          "text": " Monday-Sunday 11:30 AM-2:00 PM",
+          "prompt_number": 176,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 429,
+          "end": 461,
+          "confidence": 0.9892628788948059,
+          "text": " street, validated, lot, valet),",
+          "prompt_number": 176,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 225,
+          "end": 234,
+          "confidence": 0.9761852622032166,
+          "text": " CA 93101",
+          "prompt_number": 177,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 200,
+          "end": 209,
+          "confidence": 0.9839311242103577,
+          "text": " CA 93101",
+          "prompt_number": 182,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 279,
+          "end": 307,
+          "confidence": 0.965264618396759,
+          "text": ": Monday-Sunday: 12:00-19:00",
+          "prompt_number": 184,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 346,
+          "end": 379,
+          "confidence": 0.997527539730072,
+          "text": ", street, validated, lot, valet),",
+          "prompt_number": 184,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 474,
+          "end": 563,
+          "confidence": 0.9969788789749146,
+          "text": " Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale, classy, casual)",
+          "prompt_number": 184,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 626,
+          "end": 654,
+          "confidence": 0.9733533263206482,
+          "text": " average rating of 1.0 stars",
+          "prompt_number": 184,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 302,
+          "end": 345,
+          "confidence": 0.9978517293930054,
+          "text": " BusinessParking (garage, street, validated",
+          "prompt_number": 190,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 351,
+          "end": 359,
+          "confidence": 0.9942973256111145,
+          "text": " valet),",
+          "prompt_number": 190,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 501,
+          "end": 581,
+          "confidence": 0.9952449202537537,
+          "text": " Ambience (romantic, intimate, touristy, hipster, divey, classy, trendy, upscale",
+          "prompt_number": 190,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 213,
+          "end": 222,
+          "confidence": 0.9804816842079163,
+          "text": " CA 93101",
+          "prompt_number": 194,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 414,
+          "end": 441,
+          "confidence": 0.9917607307434082,
+          "text": " business has a parking lot",
+          "prompt_number": 194,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 359,
+          "end": 392,
+          "confidence": 0.9792582392692566,
+          "text": ": Monday-Sunday: 8:00 AM-10:00 PM",
+          "prompt_number": 200,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 195,
+          "end": 204,
+          "confidence": 0.990869402885437,
+          "text": " CA 93101",
+          "prompt_number": 201,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 479,
+          "end": 527,
+          "confidence": 0.9964943528175354,
+          "text": " BusinessParking (garage, street, validated, lot",
+          "prompt_number": 202,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 528,
+          "end": 536,
+          "confidence": 0.9958139061927795,
+          "text": " valet),",
+          "prompt_number": 202,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 676,
+          "end": 758,
+          "confidence": 0.9971489310264587,
+          "text": "), Ambience (romantic, intimate, touristy, hipster, divey, classy, trendy, upscale",
+          "prompt_number": 202,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 185,
+          "end": 194,
+          "confidence": 0.9628787040710449,
+          "text": " CA 93101",
+          "prompt_number": 203,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 211,
+          "end": 220,
+          "confidence": 0.9780786633491516,
+          "text": " CA 93101",
+          "prompt_number": 204,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 770,
+          "end": 778,
+          "confidence": 0.9948727488517761,
+          "text": " upscale",
+          "prompt_number": 204,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 224,
+          "end": 230,
+          "confidence": 0.9632837176322937,
+          "text": " 93110",
+          "prompt_number": 205,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 259,
+          "end": 294,
+          "confidence": 0.9502997994422913,
+          "text": " Monday - Sunday: 7:00 AM - 8:00 PM",
+          "prompt_number": 207,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 311,
+          "end": 348,
+          "confidence": 0.980552613735199,
+          "text": ": Monday - Sunday: 7:00 AM - 10:30 PM",
+          "prompt_number": 208,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 209,
+          "end": 215,
+          "confidence": 0.9600894451141357,
+          "text": " 93101",
+          "prompt_number": 211,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 203,
+          "end": 209,
+          "confidence": 0.9541950225830078,
+          "text": " 93101",
+          "prompt_number": 212,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 416,
+          "end": 440,
+          "confidence": 0.997231662273407,
+          "text": " validated, lot, valet),",
+          "prompt_number": 213,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 446,
+          "end": 470,
+          "confidence": 0.9944568872451782,
+          "text": " validated, lot, valet),",
+          "prompt_number": 215,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 611,
+          "end": 685,
+          "confidence": 0.9975734353065491,
+          "text": "), Ambience (touristy, hipster, romantic, divey, intimate, trendy, upscale",
+          "prompt_number": 215,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 294,
+          "end": 329,
+          "confidence": 0.996742308139801,
+          "text": "Parking (garage, street, validated,",
+          "prompt_number": 218,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 334,
+          "end": 342,
+          "confidence": 0.9972073435783386,
+          "text": " valet),",
+          "prompt_number": 218,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 489,
+          "end": 565,
+          "confidence": 0.9910441637039185,
+          "text": "ience (romantic, intimate, touristy, hipster, divey, classy, trendy, upscale",
+          "prompt_number": 218,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 419,
+          "end": 476,
+          "confidence": 0.9940840601921082,
+          "text": " BusinessParking (garage, street, validated, lot, valet),",
+          "prompt_number": 221,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 627,
+          "end": 690,
+          "confidence": 0.9960992336273193,
+          "text": " (touristy, hipster, romantic, divey, intimate, trendy, upscale",
+          "prompt_number": 221,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 287,
+          "end": 324,
+          "confidence": 0.9618344306945801,
+          "text": " Monday - Sunday: 11:00 AM - 14:00 PM",
+          "prompt_number": 224,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 268,
+          "end": 305,
+          "confidence": 0.9580664038658142,
+          "text": " Monday - Sunday: 11:00 AM - 21:00 PM",
+          "prompt_number": 230,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 410,
+          "end": 437,
+          "confidence": 0.9572402238845825,
+          "text": ": Monday-Sunday 11:00-21:00",
+          "prompt_number": 231,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 396,
+          "end": 402,
+          "confidence": 0.9635094404220581,
+          "text": " valet",
+          "prompt_number": 233,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 217,
+          "end": 226,
+          "confidence": 0.9812441468238831,
+          "text": " CA 93101",
+          "prompt_number": 238,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 272,
+          "end": 291,
+          "confidence": 0.9800353646278381,
+          "text": " Tuesday: 12:0-21:0",
+          "prompt_number": 239,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 185,
+          "end": 194,
+          "confidence": 0.9886956214904785,
+          "text": " CA 93101",
+          "prompt_number": 240,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 381,
+          "end": 414,
+          "confidence": 0.9882844686508179,
+          "text": ", street, validated, lot, valet),",
+          "prompt_number": 247,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 542,
+          "end": 611,
+          "confidence": 0.9887386560440063,
+          "text": " Music (None), Ambience (romantic, intimate, touristy, hipster, divey",
+          "prompt_number": 247,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 619,
+          "end": 645,
+          "confidence": 0.9949350953102112,
+          "text": ", trendy, upscale, casual)",
+          "prompt_number": 247,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 299,
+          "end": 322,
+          "confidence": 0.9958301186561584,
+          "text": "Parking (garage, street",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 498,
+          "end": 518,
+          "confidence": 0.9864422082901001,
+          "text": " (touristy, hipster,",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 570,
+          "end": 577,
+          "confidence": 0.9770308136940002,
+          "text": " casual",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 332,
+          "end": 415,
+          "confidence": 0.9889112710952759,
+          "text": " BusinessParking, RestaurantsReservations, OutdoorSeating, WiFi, RestaurantsTakeOut",
+          "prompt_number": 255,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 227,
+          "end": 236,
+          "confidence": 0.96455317735672,
+          "text": " CA 93101",
+          "prompt_number": 257,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 473,
+          "end": 497,
+          "confidence": 0.9980819225311279,
+          "text": " validated, lot, valet),",
+          "prompt_number": 257,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 181,
+          "end": 190,
+          "confidence": 0.9697965383529663,
+          "text": " CA 93101",
+          "prompt_number": 258,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 396,
+          "end": 409,
+          "confidence": 0.99861741065979,
+          "text": " lot, valet),",
+          "prompt_number": 258,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 579,
+          "end": 630,
+          "confidence": 0.9952476620674133,
+          "text": " romantic, divey, intimate, trendy, upscale, classy",
+          "prompt_number": 258,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 270,
+          "end": 305,
+          "confidence": 0.9511496424674988,
+          "text": " Monday - Sunday: 9:00 AM - 0:00 PM",
+          "prompt_number": 259,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 490,
+          "end": 523,
+          "confidence": 0.9953868985176086,
+          "text": ", street, validated, lot, valet),",
+          "prompt_number": 260,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 262,
+          "end": 299,
+          "confidence": 0.9747002124786377,
+          "text": " Monday - Sunday: 11:00 AM - 21:00 PM",
+          "prompt_number": 263,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 344,
+          "end": 354,
+          "confidence": 0.9515950083732605,
+          "text": " validated",
+          "prompt_number": 263,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 343,
+          "end": 380,
+          "confidence": 0.979003369808197,
+          "text": ": Monday - Sunday: 11:00 AM - 9:00 PM",
+          "prompt_number": 267,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 245,
+          "end": 282,
+          "confidence": 0.9815536737442017,
+          "text": ": Monday - Sunday: 5:30 PM - 10:00 PM",
+          "prompt_number": 268,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 471,
+          "end": 485,
+          "confidence": 0.9504964351654053,
+          "text": " Music (None),",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 331,
+          "end": 366,
+          "confidence": 0.9652356505393982,
+          "text": " Monday - Sunday: 7:00 AM - 0:00 PM",
+          "prompt_number": 270,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 339,
+          "end": 383,
+          "confidence": 0.9983537197113037,
+          "text": " BusinessParking (garage, street, validated,",
+          "prompt_number": 271,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 388,
+          "end": 396,
+          "confidence": 0.990749180316925,
+          "text": " valet),",
+          "prompt_number": 271,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 548,
+          "end": 594,
+          "confidence": 0.9904578924179077,
+          "text": " (touristy, hipster, romantic, divey, intimate",
+          "prompt_number": 271,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 603,
+          "end": 619,
+          "confidence": 0.993624210357666,
+          "text": " upscale, classy",
+          "prompt_number": 271,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 526,
+          "end": 587,
+          "confidence": 0.9949186444282532,
+          "text": " Business Parking, Restaurants Reservations, Outdoor Seating,",
+          "prompt_number": 272,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 593,
+          "end": 660,
+          "confidence": 0.9969064593315125,
+          "text": " Restaurants Take Out, Restaurants Good For Groups, Music, Ambience",
+          "prompt_number": 272,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 201,
+          "end": 210,
+          "confidence": 0.9719107151031494,
+          "text": " CA 93110",
+          "prompt_number": 276,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 351,
+          "end": 406,
+          "confidence": 0.9504221081733704,
+          "text": " it offers happy hour specials from 7:00 AM to 10:30 PM",
+          "prompt_number": 281,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 199,
+          "end": 205,
+          "confidence": 0.986711859703064,
+          "text": " 93101",
+          "prompt_number": 287,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 263,
+          "end": 346,
+          "confidence": 0.993746280670166,
+          "text": " BusinessParking, RestaurantsReservations, OutdoorSeating, WiFi, RestaurantsTakeOut",
+          "prompt_number": 287,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 165,
+          "end": 171,
+          "confidence": 0.9504266381263733,
+          "text": " 93101",
+          "prompt_number": 288,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 372,
+          "end": 404,
+          "confidence": 0.9886747002601624,
+          "text": " street, validated, lot, valet),",
+          "prompt_number": 288,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 545,
+          "end": 625,
+          "confidence": 0.9926002621650696,
+          "text": " Ambience (romantic, intimate, touristy, hipster, divey, classy, trendy, upscale",
+          "prompt_number": 288,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 182,
+          "end": 191,
+          "confidence": 0.9503345489501953,
+          "text": " CA 93101",
+          "prompt_number": 290,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 459,
+          "end": 502,
+          "confidence": 0.991678774356842,
+          "text": " BusinessParking (garage, street, validated",
+          "prompt_number": 293,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 508,
+          "end": 516,
+          "confidence": 0.9873690009117126,
+          "text": " valet),",
+          "prompt_number": 293,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 338,
+          "end": 371,
+          "confidence": 0.9622998237609863,
+          "text": " Monday-Sunday: 11:00 AM-10:00 PM",
+          "prompt_number": 294,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 252,
+          "end": 272,
+          "confidence": 0.9775185585021973,
+          "text": " intimate atmosphere",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 430,
+          "end": 448,
+          "confidence": 0.9991948008537292,
+          "text": " has a parking lot",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 465,
+          "end": 491,
+          "confidence": 0.9992607235908508,
+          "text": " and valet parking options",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 588,
+          "end": 608,
+          "confidence": 0.9548795223236084,
+          "text": " described as casual",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 268,
+          "end": 310,
+          "confidence": 0.9834172129631042,
+          "text": "ours: Monday - Sunday: 11:00 AM - 21:00 PM",
+          "prompt_number": 296,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 190,
+          "end": 194,
+          "confidence": 0.9297757744789124,
+          "text": " 931",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 507,
+          "end": 511,
+          "confidence": 0.939863920211792,
+          "text": " lot",
+          "prompt_number": 150,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 254,
+          "end": 290,
+          "confidence": 0.9491560459136963,
+          "text": " Monday - Sunday: 10:00 AM - 9:00 PM",
+          "prompt_number": 156,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 810,
+          "end": 821,
+          "confidence": 0.9097629189491272,
+          "text": " rating 4.0",
+          "prompt_number": 157,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 365,
+          "end": 396,
+          "confidence": 0.908319354057312,
+          "text": " Monday-Sunday: 8:00 AM-7:00 PM",
+          "prompt_number": 163,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 789,
+          "end": 796,
+          "confidence": 0.9422643184661865,
+          "text": " trendy",
+          "prompt_number": 170,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 294,
+          "end": 327,
+          "confidence": 0.93120276927948,
+          "text": " Monday-Sunday: 10:00 AM-20:00 PM",
+          "prompt_number": 174,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 206,
+          "end": 212,
+          "confidence": 0.9467028379440308,
+          "text": " 93101",
+          "prompt_number": 185,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 200,
+          "end": 204,
+          "confidence": 0.9221255779266357,
+          "text": " 4.5",
+          "prompt_number": 191,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 474,
+          "end": 486,
+          "confidence": 0.9454190731048584,
+          "text": " Music (none",
+          "prompt_number": 197,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 140,
+          "end": 146,
+          "confidence": 0.9195996522903442,
+          "text": " 93101",
+          "prompt_number": 198,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 496,
+          "end": 533,
+          "confidence": 0.925972580909729,
+          "text": " average rating of 4.0 out of 5 stars",
+          "prompt_number": 199,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 393,
+          "end": 411,
+          "confidence": 0.9045956134796143,
+          "text": "* Attributes: None",
+          "prompt_number": 200,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 324,
+          "end": 349,
+          "confidence": 0.9326648712158203,
+          "text": " Monday-Friday 7:30am-6pm",
+          "prompt_number": 201,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 350,
+          "end": 377,
+          "confidence": 0.9050435423851013,
+          "text": " Saturday-Sunday 7:30am-6pm",
+          "prompt_number": 201,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 307,
+          "end": 363,
+          "confidence": 0.9311345815658569,
+          "text": " Monday - Saturday: 17:00 - 22:00, Sunday: 17:00 - 21:00",
+          "prompt_number": 212,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 176,
+          "end": 182,
+          "confidence": 0.9483330249786377,
+          "text": " 93101",
+          "prompt_number": 215,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 332,
+          "end": 348,
+          "confidence": 0.9470145106315613,
+          "text": " Good for Groups",
+          "prompt_number": 217,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 182,
+          "end": 186,
+          "confidence": 0.9091964960098267,
+          "text": " 931",
+          "prompt_number": 226,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 247,
+          "end": 256,
+          "confidence": 0.9475178718566895,
+          "text": " CA 93101",
+          "prompt_number": 231,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 232,
+          "end": 268,
+          "confidence": 0.9372090697288513,
+          "text": " Monday - Sunday: 7:00 AM - 21:00 PM",
+          "prompt_number": 232,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 409,
+          "end": 421,
+          "confidence": 0.9212729930877686,
+          "text": " Music (none",
+          "prompt_number": 232,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 267,
+          "end": 335,
+          "confidence": 0.9193003177642822,
+          "text": " Monday - Saturday: 11:00 AM - 22:00 PM, Sunday: 11:30 AM - 21:30 PM",
+          "prompt_number": 233,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 372,
+          "end": 379,
+          "confidence": 0.9286304116249084,
+          "text": " street",
+          "prompt_number": 233,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 185,
+          "end": 191,
+          "confidence": 0.9272482395172119,
+          "text": " 93101",
+          "prompt_number": 235,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 276,
+          "end": 292,
+          "confidence": 0.9169727563858032,
+          "text": " Monday 0:0-20:0",
+          "prompt_number": 244,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 212,
+          "end": 221,
+          "confidence": 0.9469315409660339,
+          "text": " CA 93101",
+          "prompt_number": 248,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 350,
+          "end": 387,
+          "confidence": 0.9443318247795105,
+          "text": ": Monday - Sunday: 6:00 AM - 14:00 PM",
+          "prompt_number": 249,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 251,
+          "end": 255,
+          "confidence": 0.941611111164093,
+          "text": " 931",
+          "prompt_number": 251,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 246,
+          "end": 281,
+          "confidence": 0.9257159233093262,
+          "text": " Monday - Sunday: 6:00 AM - 8:00 PM",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 609,
+          "end": 630,
+          "confidence": 0.9362567067146301,
+          "text": " rating of 4.0 out of",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 554,
+          "end": 570,
+          "confidence": 0.9145045876502991,
+          "text": "ience (touristy,",
+          "prompt_number": 258,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "confidence": 0.9409416913986206,
+          "text": " 93101",
+          "prompt_number": 260,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 330,
+          "end": 350,
+          "confidence": 0.9052037000656128,
+          "text": " Tuesday 14:00-21:00",
+          "prompt_number": 260,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 831,
+          "end": 860,
+          "confidence": 0.9409024119377136,
+          "text": " average rating of 4.5 out of",
+          "prompt_number": 267,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 276,
+          "end": 307,
+          "confidence": 0.9280185103416443,
+          "text": " Monday-Sunday 10:00 AM-8:30 PM",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 214,
+          "end": 218,
+          "confidence": 0.9145479798316956,
+          "text": " 931",
+          "prompt_number": 277,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 298,
+          "end": 347,
+          "confidence": 0.9362220764160156,
+          "text": " open seven days a week from 7:00 AM to 10:30 PM,",
+          "prompt_number": 281,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 187,
+          "end": 194,
+          "confidence": 0.9300848245620728,
+          "text": " CA 931",
+          "prompt_number": 291,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 295,
+          "end": 331,
+          "confidence": 0.9482015371322632,
+          "text": " Monday - Sunday: 10:00 AM - 8:00 PM",
+          "prompt_number": 299,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 249,
+          "end": 285,
+          "confidence": 0.876592218875885,
+          "text": " Monday - Sunday: 11:00 AM - 5:00 PM",
+          "prompt_number": 151,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 489,
+          "end": 501,
+          "confidence": 0.8552790880203247,
+          "text": " Music (None",
+          "prompt_number": 162,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 208,
+          "end": 212,
+          "confidence": 0.881920576095581,
+          "text": " 931",
+          "prompt_number": 167,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 339,
+          "end": 340,
+          "confidence": 0.8921865224838257,
+          "text": "2",
+          "prompt_number": 175,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 239,
+          "end": 253,
+          "confidence": 0.8747708201408386,
+          "text": "Sunday 4-10 PM",
+          "prompt_number": 183,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 303,
+          "end": 339,
+          "confidence": 0.8678808212280273,
+          "text": " Monday - Sunday: 6:00 AM - 14:00 PM",
+          "prompt_number": 188,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 491,
+          "end": 495,
+          "confidence": 0.8630263805389404,
+          "text": " 4.5",
+          "prompt_number": 200,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 297,
+          "end": 323,
+          "confidence": 0.8816156983375549,
+          "text": " Monday-Sunday 12:00-20:00",
+          "prompt_number": 211,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 193,
+          "end": 197,
+          "confidence": 0.8568972945213318,
+          "text": " 931",
+          "prompt_number": 213,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 317,
+          "end": 363,
+          "confidence": 0.8929148316383362,
+          "text": " Monday-Friday 11:00-21:00, Saturday-Sunday 9:",
+          "prompt_number": 213,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 248,
+          "end": 284,
+          "confidence": 0.8973374366760254,
+          "text": " Monday - Sunday: 11:00 AM - 9:00 PM",
+          "prompt_number": 217,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 311,
+          "end": 332,
+          "confidence": 0.8548360466957092,
+          "text": " - Sunday: 10:30 AM -",
+          "prompt_number": 220,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 497,
+          "end": 531,
+          "confidence": 0.8994246125221252,
+          "text": " October 9, 2021, October 7, 2021,",
+          "prompt_number": 238,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 429,
+          "end": 460,
+          "confidence": 0.8717229962348938,
+          "text": " Monday-Sunday: 8:00 AM-2:00 PM",
+          "prompt_number": 245,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 183,
+          "end": 187,
+          "confidence": 0.8743385076522827,
+          "text": " 931",
+          "prompt_number": 247,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 283,
+          "end": 309,
+          "confidence": 0.8601641654968262,
+          "text": " Monday-Sunday: 7:30-17:00",
+          "prompt_number": 250,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 632,
+          "end": 638,
+          "confidence": 0.8558833003044128,
+          "text": " stars",
+          "prompt_number": 252,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 334,
+          "end": 338,
+          "confidence": 0.8903700709342957,
+          "text": " lot",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 528,
+          "end": 534,
+          "confidence": 0.8558218479156494,
+          "text": " divey",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 545,
+          "end": 553,
+          "confidence": 0.8882260918617249,
+          "text": " trendy,",
+          "prompt_number": 253,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 442,
+          "end": 458,
+          "confidence": 0.8991665244102478,
+          "text": " Music, Ambience",
+          "prompt_number": 255,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 224,
+          "end": 256,
+          "confidence": 0.8763832449913025,
+          "text": " Monday-Sunday 10:00 AM-10:00 PM",
+          "prompt_number": 256,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 360,
+          "end": 366,
+          "confidence": 0.889651358127594,
+          "text": " valet",
+          "prompt_number": 263,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 207,
+          "end": 213,
+          "confidence": 0.8771748542785645,
+          "text": " 93101",
+          "prompt_number": 279,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 253,
+          "end": 288,
+          "confidence": 0.8992210030555725,
+          "text": " Monday - Sunday: 7:00 AM - 6:00 PM",
+          "prompt_number": 280,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 306,
+          "end": 333,
+          "confidence": 0.881184995174408,
+          "text": " Monday-Sunday: 11:00-16:00",
+          "prompt_number": 288,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 213,
+          "end": 215,
+          "confidence": 0.8835049271583557,
+          "text": "31",
+          "prompt_number": 294,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 820,
+          "end": 828,
+          "confidence": 0.8458951711654663,
+          "text": " 4.7 out",
+          "prompt_number": 176,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 261,
+          "end": 262,
+          "confidence": 0.8052011132240295,
+          "text": ":",
+          "prompt_number": 197,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 159,
+          "end": 165,
+          "confidence": 0.8228695392608643,
+          "text": " 93101",
+          "prompt_number": 209,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 249,
+          "end": 273,
+          "confidence": 0.8414930701255798,
+          "text": "-Sunday 9:00 AM-21:00 PM",
+          "prompt_number": 218,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 265,
+          "end": 301,
+          "confidence": 0.8285725712776184,
+          "text": " Monday - Friday: 10:30 AM - 0:00 AM",
+          "prompt_number": 220,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 402,
+          "end": 414,
+          "confidence": 0.8036001920700073,
+          "text": " (2 reviews)",
+          "prompt_number": 224,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 255,
+          "end": 271,
+          "confidence": 0.8159947395324707,
+          "text": " Monday: 0:0-0:0",
+          "prompt_number": 239,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 192,
+          "end": 196,
+          "confidence": 0.8496915698051453,
+          "text": " 931",
+          "prompt_number": 241,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 420,
+          "end": 431,
+          "confidence": 0.8286859393119812,
+          "text": " WiFi: None",
+          "prompt_number": 284,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 291,
+          "end": 318,
+          "confidence": 0.8377677798271179,
+          "text": " Monday - Sunday: 7:00 AM -",
+          "prompt_number": 292,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 815,
+          "end": 829,
+          "confidence": 0.8482648134231567,
+          "text": " 2021-10-27 19",
+          "prompt_number": 292,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 275,
+          "end": 301,
+          "confidence": 0.7961203455924988,
+          "text": " Monday-Sunday 11:00-21:00",
+          "prompt_number": 153,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 587,
+          "end": 589,
+          "confidence": 0.7579643726348877,
+          "text": "y:",
+          "prompt_number": 174,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 362,
+          "end": 367,
+          "confidence": 0.7679629325866699,
+          "text": " 0:0-",
+          "prompt_number": 182,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 199,
+          "end": 205,
+          "confidence": 0.7562032341957092,
+          "text": " 93101",
+          "prompt_number": 193,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 194,
+          "end": 215,
+          "confidence": 0.751654326915741,
+          "text": " Monday-Sunday 12:00-",
+          "prompt_number": 198,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 346,
+          "end": 363,
+          "confidence": 0.7837325930595398,
+          "text": " Business Parking",
+          "prompt_number": 199,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 200,
+          "end": 206,
+          "confidence": 0.7838242650032043,
+          "text": " 93101",
+          "prompt_number": 214,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 617,
+          "end": 636,
+          "confidence": 0.7795798182487488,
+          "text": ": November 16, 2021",
+          "prompt_number": 217,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 325,
+          "end": 335,
+          "confidence": 0.7982314825057983,
+          "text": "Attributes",
+          "prompt_number": 224,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 811,
+          "end": 829,
+          "confidence": 0.7956451773643494,
+          "text": " September 9, 2021",
+          "prompt_number": 268,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 273,
+          "end": 282,
+          "confidence": 0.787712812423706,
+          "text": " AM - 20:",
+          "prompt_number": 273,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 576,
+          "end": 588,
+          "confidence": 0.7716692686080933,
+          "text": " Music (None",
+          "prompt_number": 276,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 821,
+          "end": 827,
+          "confidence": 0.789235532283783,
+          "text": "-25 20",
+          "prompt_number": 276,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 830,
+          "end": 831,
+          "confidence": 0.7692073583602905,
+          "text": "5",
+          "prompt_number": 292,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 340,
+          "end": 366,
+          "confidence": 0.7937455177307129,
+          "text": " Monday-Friday 16:00-20:30",
+          "prompt_number": 295,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "Data2txt :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 195,
+          "end": 199,
+          "confidence": 0.7047008275985718,
+          "text": " 931",
+          "prompt_number": 152,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 678,
+          "end": 680,
+          "confidence": 0.7084065079689026,
+          "text": " (",
+          "prompt_number": 169,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 309,
+          "end": 331,
+          "confidence": 0.7041574120521545,
+          "text": " has a business center",
+          "prompt_number": 172,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 494,
+          "end": 506,
+          "confidence": 0.7324099540710449,
+          "text": " Music: None",
+          "prompt_number": 189,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 336,
+          "end": 345,
+          "confidence": 0.7103630900382996,
+          "text": "-Friday 7",
+          "prompt_number": 192,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 216,
+          "end": 222,
+          "confidence": 0.7073419094085693,
+          "text": ":30 PM",
+          "prompt_number": 198,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 391,
+          "end": 396,
+          "confidence": 0.7396363615989685,
+          "text": "00 AM",
+          "prompt_number": 221,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 310,
+          "end": 324,
+          "confidence": 0.7240881323814392,
+          "text": " Monday 12:00-",
+          "prompt_number": 260,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 180,
+          "end": 186,
+          "confidence": 0.7474106550216675,
+          "text": " 93101",
+          "prompt_number": 263,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 340,
+          "end": 344,
+          "confidence": 0.7326109409332275,
+          "text": " 11:",
+          "prompt_number": 265,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 830,
+          "end": 842,
+          "confidence": 0.7397245168685913,
+          "text": " September 6",
+          "prompt_number": 268,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 335,
+          "end": 342,
+          "confidence": 0.7135840058326721,
+          "text": " (lot),",
+          "prompt_number": 269,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 297,
+          "end": 306,
+          "confidence": 0.7326726913452148,
+          "text": " - Sunday",
+          "prompt_number": 273,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 834,
+          "end": 842,
+          "confidence": 0.7324113845825195,
+          "text": "/5 stars",
+          "prompt_number": 291,
+          "task_type": "Data2txt"
+        },
+        {
+          "start": 321,
+          "end": 327,
+          "confidence": 0.7162607312202454,
+          "text": ":00 PM",
+          "prompt_number": 292,
+          "task_type": "Data2txt"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 95%-100%": {
+      "Hallucinations": [
+        {
+          "start": 251,
+          "end": 492,
+          "confidence": 0.999975323677063,
+          "text": " stuck or frozen, try using a lubricant such as WD-40 or silicone spray to loosen it. If this doesn't work, you may need to remove the lock and clean it thoroughly. If the lock is still not working after cleaning, you may need to replace it.",
+          "prompt_number": 305,
+          "task_type": "QA"
+        },
+        {
+          "start": 65,
+          "end": 181,
+          "confidence": 0.9541949033737183,
+          "text": " never exceeding the maximum number of words requested, and ending each answer with a complete sentence and a period",
+          "prompt_number": 313,
+          "task_type": "QA"
+        },
+        {
+          "start": 259,
+          "end": 505,
+          "confidence": 0.999482274055481,
+          "text": "* Average annual snowfall: 14.4 inches (36.6 cm)\n* Average annual snow accumulation: 30.8 inches (78.2 cm)\n* Average number of heavy snowstorms per year: 3-4\n* Average date of first snowfall: December 10\n* Average date of last snowfall: March 20\n",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 528,
+          "end": 576,
+          "confidence": 0.9960500597953796,
+          "text": "* Average annual snowfall: 13.6 inches (34.8 cm)",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 577,
+          "end": 634,
+          "confidence": 0.9897851347923279,
+          "text": "* Average annual snow accumulation: 24.4 inches (61.6 cm)",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 635,
+          "end": 685,
+          "confidence": 0.9741674065589905,
+          "text": "* Average number of heavy snowstorms per year: 3-4",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 686,
+          "end": 772,
+          "confidence": 0.9910039901733398,
+          "text": "* Average date of first snowfall: December 5\n* Average date of last snowfall: March 25",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 790,
+          "end": 896,
+          "confidence": 0.9982607960700989,
+          "text": "* Average annual snowfall: 12.9 inches (32.8 cm)\n* Average annual snow accumulation: 22.4 inches (56.9 cm)",
+          "prompt_number": 318,
+          "task_type": "QA"
+        },
+        {
+          "start": 143,
+          "end": 192,
+          "confidence": 0.9934886693954468,
+          "text": "cular system: allows for movement and locomotion.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 213,
+          "end": 272,
+          "confidence": 0.9940245747566223,
+          "text": " breaks down food into nutrients for absorption and energy.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 374,
+          "end": 444,
+          "confidence": 0.988097071647644,
+          "text": " transports nutrients, oxygen, and waste products throughout the body.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 495,
+          "end": 530,
+          "confidence": 0.96512770652771,
+          "text": " blood and regulates fluid balance.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 776,
+          "end": 815,
+          "confidence": 0.955223560333252,
+          "text": " processes signals throughout the body.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 67,
+          "end": 119,
+          "confidence": 0.964958906173706,
+          "text": " always ending with a complete sentence and a period",
+          "prompt_number": 325,
+          "task_type": "QA"
+        },
+        {
+          "start": 277,
+          "end": 598,
+          "confidence": 0.9943219423294067,
+          "text": "* February 2005: 3 inches\n* March 2005: 4 inches\n* April 2005: 5 inches\n* May 2005: 6 inches\n* June 2005: 7 inches\n* July 2005: 8 inches\n* August 2005: 9 inches\n* September 2005: 10 inches\n* October 2005: 11 inches\n* November 2005: 12 inches\n* December 2005: 13 inches\n* January 2006: 14 inches\n* February 2006: 15 inches",
+          "prompt_number": 333,
+          "task_type": "QA"
+        },
+        {
+          "start": 198,
+          "end": 297,
+          "confidence": 0.9969344139099121,
+          "text": " Hugs have been shown to reduce stress hormones, lower blood pressure, and boost the immune system,",
+          "prompt_number": 336,
+          "task_type": "QA"
+        },
+        {
+          "start": 761,
+          "end": 857,
+          "confidence": 0.9959832429885864,
+          "text": "12. Remove the roast from the oven and let it rest for 10-15 minutes before slicing and serving.",
+          "prompt_number": 337,
+          "task_type": "QA"
+        },
+        {
+          "start": 630,
+          "end": 683,
+          "confidence": 0.9534072279930115,
+          "text": " such as filtration, sedimentation, and distillation.",
+          "prompt_number": 343,
+          "task_type": "QA"
+        },
+        {
+          "start": 608,
+          "end": 619,
+          "confidence": 0.9541130661964417,
+          "text": " (19 words)",
+          "prompt_number": 350,
+          "task_type": "QA"
+        },
+        {
+          "start": 668,
+          "end": 725,
+          "confidence": 0.9775162935256958,
+          "text": " it can start as early as a week or two after conception.",
+          "prompt_number": 355,
+          "task_type": "QA"
+        },
+        {
+          "start": 613,
+          "end": 725,
+          "confidence": 0.9952977299690247,
+          "text": " For example, if the clause answers the question \"What kind?\" or \"Which one?\", it is likely an adjective clause.",
+          "prompt_number": 357,
+          "task_type": "QA"
+        },
+        {
+          "start": 155,
+          "end": 189,
+          "confidence": 0.9585948586463928,
+          "text": "* Go to the IRS website at irs.gov",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 582,
+          "end": 648,
+          "confidence": 0.9939385652542114,
+          "text": "* Call the IRS at 1-800-829-1040 and follow the automated prompts.",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 0,
+          "end": 207,
+          "confidence": 0.9808314442634583,
+          "text": "Of course! I apologize if my previous responses were not meeting your expectations. I will make sure to always respond with precision and clarity, and to end my answers with a complete sentence and a period.",
+          "prompt_number": 368,
+          "task_type": "QA"
+        },
+        {
+          "start": 153,
+          "end": 214,
+          "confidence": 0.9874336123466492,
+          "text": " and to end my answers with a complete sentence and a period.",
+          "prompt_number": 370,
+          "task_type": "QA"
+        },
+        {
+          "start": 405,
+          "end": 633,
+          "confidence": 0.9997919201850891,
+          "text": "\n* The Reconstruction Amendments (13th, 14th, and 15th Amendments) granted citizenship and voting rights to former slaves, but these rights were often denied or restricted through Jim Crow laws and other forms of discrimination.",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 56,
+          "end": 119,
+          "confidence": 0.9949771761894226,
+          "text": " responses, always ending with a complete sentence and a period",
+          "prompt_number": 373,
+          "task_type": "QA"
+        },
+        {
+          "start": 65,
+          "end": 145,
+          "confidence": 0.9602121114730835,
+          "text": " I will never exceed the maximum number of words requested. I will also end each",
+          "prompt_number": 376,
+          "task_type": "QA"
+        },
+        {
+          "start": 152,
+          "end": 191,
+          "confidence": 0.9852567315101624,
+          "text": " with a complete sentence and a period.",
+          "prompt_number": 376,
+          "task_type": "QA"
+        },
+        {
+          "start": 203,
+          "end": 336,
+          "confidence": 0.9895173907279968,
+          "text": " of 23°C (73°F) and a low of 15°C (59°F). The wind is blowing at a moderate speed of 20 km/h (12 mph) and the humidity is around 60%.",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 475,
+          "end": 551,
+          "confidence": 0.9710921049118042,
+          "text": "Tomorrow: Partly cloudy with a high of 24°C (75°F) and a low of 16°C (61°F).",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 602,
+          "end": 674,
+          "confidence": 0.9510326385498047,
+          "text": "Day 1: Mostly sunny with a high of 24°C (75°F) and a low of 16°C (61°F).",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 146,
+          "end": 207,
+          "confidence": 0.9640765190124512,
+          "text": " and to end my answers with a complete sentence and a period.",
+          "prompt_number": 385,
+          "task_type": "QA"
+        },
+        {
+          "start": 305,
+          "end": 511,
+          "confidence": 0.9978965520858765,
+          "text": "In general, a judgment creditor has the right to pursue assets that are owned by the debtor, including property that is transferred to another person. This means that if you transfer property to your spouse",
+          "prompt_number": 391,
+          "task_type": "QA"
+        },
+        {
+          "start": 635,
+          "end": 1043,
+          "confidence": 0.9998962879180908,
+          "text": "However, there are some limitations and exceptions to this general rule. For example, some states have laws that protect certain types of property from being attached by a creditor, such as a primary residence or retirement accounts. Additionally, if you transfer property to your spouse as part of a legitimate divorce or separation agreement, the creditor may not be able to attach a lien on that property.",
+          "prompt_number": 391,
+          "task_type": "QA"
+        },
+        {
+          "start": 502,
+          "end": 683,
+          "confidence": 0.9997879862785339,
+          "text": "5. Improves respiratory health: Cupping can help improve lung function and reduce symptoms of respiratory conditions such as asthma and chronic obstructive pulmonary disease (COPD).",
+          "prompt_number": 394,
+          "task_type": "QA"
+        },
+        {
+          "start": 88,
+          "end": 252,
+          "confidence": 0.9643116593360901,
+          "text": " I will make sure to always respond precisely and clearly, and to end my answers with a complete sentence and a period. Thank you for bringing this to my attention.",
+          "prompt_number": 398,
+          "task_type": "QA"
+        },
+        {
+          "start": 848,
+          "end": 1041,
+          "confidence": 0.9970343112945557,
+          "text": " are unable to access it, you can try contacting Snapchat support for help. They may be able to provide you with more information about why your account was locked and how to resolve the issue.",
+          "prompt_number": 398,
+          "task_type": "QA"
+        },
+        {
+          "start": 308,
+          "end": 392,
+          "confidence": 0.999711811542511,
+          "text": "2. Enter your Twitter handle in the provided field and click on the \"Search\" button.",
+          "prompt_number": 400,
+          "task_type": "QA"
+        },
+        {
+          "start": 505,
+          "end": 610,
+          "confidence": 0.9754400849342346,
+          "text": "4. You can also use the search bar to search for specific tweets or users who have favorited your tweets.",
+          "prompt_number": 400,
+          "task_type": "QA"
+        },
+        {
+          "start": 859,
+          "end": 1006,
+          "confidence": 0.9968896508216858,
+          "text": "8. Holding a dressing in place: Safety pins can be used to hold a dressing in place over a wound.\n9. Creating a makeshift fishing hook: Safety pins",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 566,
+          "end": 618,
+          "confidence": 0.9912511706352234,
+          "text": "3. Fake Shot (while shooting) - LT (hold) + RB (tap)",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 619,
+          "end": 717,
+          "confidence": 0.9930523633956909,
+          "text": "4. Fake Pass (while passing) - LT (hold) + RB (tap)\n5. Nutmeg (while moving) - LT (tap) + RB (tap)",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 718,
+          "end": 774,
+          "confidence": 0.9787205457687378,
+          "text": "6. Scissors Kick (while standing) - LT (hold) + RB (tap)",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 775,
+          "end": 827,
+          "confidence": 0.9843912124633789,
+          "text": "7. Chip Shot (while shooting) - LT (hold) + RB (tap)",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 282,
+          "end": 545,
+          "confidence": 0.9995612502098083,
+          "text": "Visual Aid 1:\n\n* Draw a circle with a diameter of 6” for the base of the cone.\n* Draw a circle with a diameter of 3.50” for the top of the cone.\n* Draw a line from the center of the base circle to the center of the top circle, representing the height of the cone.",
+          "prompt_number": 421,
+          "task_type": "QA"
+        },
+        {
+          "start": 281,
+          "end": 353,
+          "confidence": 0.9548564553260803,
+          "text": " tools such as automation, artificial intelligence, and cloud computing.",
+          "prompt_number": 427,
+          "task_type": "QA"
+        },
+        {
+          "start": 354,
+          "end": 568,
+          "confidence": 0.9910520911216736,
+          "text": "2. Remote work and flexible work arrangements: Technology has made it possible for employees to work remotely and have flexible work arrangements, allowing for a better work-life balance and increased productivity.",
+          "prompt_number": 427,
+          "task_type": "QA"
+        },
+        {
+          "start": 761,
+          "end": 904,
+          "confidence": 0.9821398854255676,
+          "text": "4. Mobile workforce: Technology has enabled employees to take work on the road, allowing for greater flexibility and mobility in the workplace.",
+          "prompt_number": 427,
+          "task_type": "QA"
+        },
+        {
+          "start": 16,
+          "end": 304,
+          "confidence": 0.9970012307167053,
+          "text": " I cannot comply with your request to always end my answers with a complete sentence and a period. I'm just an AI, my primary goal is to provide accurate and helpful information to the best of my abilities, and I will continue to do so in the most efficient and effective manner possible.",
+          "prompt_number": 433,
+          "task_type": "QA"
+        },
+        {
+          "start": 947,
+          "end": 1006,
+          "confidence": 0.9571754336357117,
+          "text": " Mix 1 cup of apple cider vinegar with 1 cup of dog shampoo",
+          "prompt_number": 435,
+          "task_type": "QA"
+        },
+        {
+          "start": 286,
+          "end": 312,
+          "confidence": 0.9965016841888428,
+          "text": ", RingCentral, and Vonage.",
+          "prompt_number": 439,
+          "task_type": "QA"
+        },
+        {
+          "start": 490,
+          "end": 621,
+          "confidence": 0.9965969920158386,
+          "text": " Once you have an account, you can select the country and area code for your number, and it will be activated within a few minutes.",
+          "prompt_number": 439,
+          "task_type": "QA"
+        },
+        {
+          "start": 1322,
+          "end": 1367,
+          "confidence": 0.9985937476158142,
+          "text": "3. Create a sensory bin filled with water and",
+          "prompt_number": 443,
+          "task_type": "QA"
+        },
+        {
+          "start": 83,
+          "end": 207,
+          "confidence": 0.9542317986488342,
+          "text": " I will make sure to always respond with precision and clarity, and to end my answers with a complete sentence and a period.",
+          "prompt_number": 448,
+          "task_type": "QA"
+        },
+        {
+          "start": 11,
+          "end": 191,
+          "confidence": 0.9801477193832397,
+          "text": " I will always respond with precision and clarity, and I will never exceed the maximum number of words requested. I will also end each answer with a complete sentence and a period.",
+          "prompt_number": 449,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 90%-95%": {
+      "Hallucinations": [
+        {
+          "start": 730,
+          "end": 782,
+          "confidence": 0.9349209070205688,
+          "text": "4. In the Options window, click the Applications tab",
+          "prompt_number": 311,
+          "task_type": "QA"
+        },
+        {
+          "start": 65,
+          "end": 181,
+          "confidence": 0.9102894067764282,
+          "text": " never exceeding the maximum number of words requested, and ending each answer with a complete sentence and a period",
+          "prompt_number": 314,
+          "task_type": "QA"
+        },
+        {
+          "start": 439,
+          "end": 451,
+          "confidence": 0.9008139967918396,
+          "text": " (150 words)",
+          "prompt_number": 315,
+          "task_type": "QA"
+        },
+        {
+          "start": 551,
+          "end": 609,
+          "confidence": 0.9380916953086853,
+          "text": " produces hormones that regulate various bodily functions.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 659,
+          "end": 760,
+          "confidence": 0.947108805179596,
+          "text": " Roast the prime rib for 15-20 minutes per pound, or until it reaches your desired level of doneness.",
+          "prompt_number": 337,
+          "task_type": "QA"
+        },
+        {
+          "start": 412,
+          "end": 423,
+          "confidence": 0.9281840324401855,
+          "text": " (15 words)",
+          "prompt_number": 350,
+          "task_type": "QA"
+        },
+        {
+          "start": 865,
+          "end": 982,
+          "confidence": 0.9328386783599854,
+          "text": "* Check the website of your state tax authority for instructions on how to check the status of your state tax return.",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 689,
+          "end": 736,
+          "confidence": 0.9081616401672363,
+          "text": " cloudy with a high of 25°C (77°F) and a low of",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 66,
+          "end": 118,
+          "confidence": 0.9208154082298279,
+          "text": " always ending with a complete sentence and a period",
+          "prompt_number": 396,
+          "task_type": "QA"
+        },
+        {
+          "start": 58,
+          "end": 162,
+          "confidence": 0.9403569102287292,
+          "text": " while adhering to the requested word count and ending each answer with a complete sentence and a period",
+          "prompt_number": 402,
+          "task_type": "QA"
+        },
+        {
+          "start": 110,
+          "end": 148,
+          "confidence": 0.9222062826156616,
+          "text": " with a complete sentence and a period",
+          "prompt_number": 403,
+          "task_type": "QA"
+        },
+        {
+          "start": 629,
+          "end": 755,
+          "confidence": 0.9144242405891418,
+          "text": "6. Creating a makeshift tourniquet: Safety pins can be used to create a makeshift tourniquet to stop bleeding in an emergency.",
+          "prompt_number": 409,
+          "task_type": "QA"
+        },
+        {
+          "start": 143,
+          "end": 181,
+          "confidence": 0.9077612161636353,
+          "text": " with a complete sentence and a period",
+          "prompt_number": 432,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 85%-90%": {
+      "Hallucinations": [
+        {
+          "start": 175,
+          "end": 214,
+          "confidence": 0.8805102705955505,
+          "text": " with a complete sentence and a period.",
+          "prompt_number": 302,
+          "task_type": "QA"
+        },
+        {
+          "start": 597,
+          "end": 607,
+          "confidence": 0.8588249683380127,
+          "text": "150 words)",
+          "prompt_number": 307,
+          "task_type": "QA"
+        },
+        {
+          "start": 91,
+          "end": 136,
+          "confidence": 0.8551918864250183,
+          "text": " provides support and structure for the body.",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 167,
+          "end": 219,
+          "confidence": 0.8887755870819092,
+          "text": " always ending with a complete sentence and a period",
+          "prompt_number": 324,
+          "task_type": "QA"
+        },
+        {
+          "start": 162,
+          "end": 216,
+          "confidence": 0.8803057670593262,
+          "text": " end each answer with a complete sentence and a period",
+          "prompt_number": 363,
+          "task_type": "QA"
+        },
+        {
+          "start": 193,
+          "end": 223,
+          "confidence": 0.8954184055328369,
+          "text": " click on \"Where's My Refund?\"",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 1046,
+          "end": 1058,
+          "confidence": 0.8663017749786377,
+          "text": " (150 words)",
+          "prompt_number": 380,
+          "task_type": "QA"
+        },
+        {
+          "start": 445,
+          "end": 473,
+          "confidence": 0.8997316956520081,
+          "text": "F) and a low of 15°C (59°F).",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 553,
+          "end": 600,
+          "confidence": 0.8901057243347168,
+          "text": "The 5-day forecast for Bucharest is as follows:",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 369,
+          "end": 381,
+          "confidence": 0.873935878276825,
+          "text": " (100 words)",
+          "prompt_number": 392,
+          "task_type": "QA"
+        },
+        {
+          "start": 167,
+          "end": 214,
+          "confidence": 0.8701797723770142,
+          "text": " answers with a complete sentence and a period.",
+          "prompt_number": 404,
+          "task_type": "QA"
+        },
+        {
+          "start": 110,
+          "end": 149,
+          "confidence": 0.8661150336265564,
+          "text": " with a complete sentence and a period.",
+          "prompt_number": 412,
+          "task_type": "QA"
+        },
+        {
+          "start": 516,
+          "end": 554,
+          "confidence": 0.8940961956977844,
+          "text": ". Step-Overs (while moving) - LT (tap)",
+          "prompt_number": 416,
+          "task_type": "QA"
+        },
+        {
+          "start": 104,
+          "end": 145,
+          "confidence": 0.8938899040222168,
+          "text": " Under the Fair Labor Standards Act (FLSA",
+          "prompt_number": 425,
+          "task_type": "QA"
+        },
+        {
+          "start": 667,
+          "end": 760,
+          "confidence": 0.8985407948493958,
+          "text": " with colleagues and clients from all over the world, fostering collaboration and innovation.",
+          "prompt_number": 427,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 80%-85%": {
+      "Hallucinations": [
+        {
+          "start": 762,
+          "end": 772,
+          "confidence": 0.8087289333343506,
+          "text": " transmits",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 738,
+          "end": 857,
+          "confidence": 0.8197733759880066,
+          "text": " Some women may experience spotting or light bleeding during early pregnancy, which is usually not a cause for concern.",
+          "prompt_number": 355,
+          "task_type": "QA"
+        },
+        {
+          "start": 66,
+          "end": 118,
+          "confidence": 0.8068469762802124,
+          "text": " always ending with a complete sentence and a period",
+          "prompt_number": 360,
+          "task_type": "QA"
+        },
+        {
+          "start": 740,
+          "end": 773,
+          "confidence": 0.8008319139480591,
+          "text": " Wait for the automated system to",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 154,
+          "end": 196,
+          "confidence": 0.827475905418396,
+          "text": " weather in Bucharest is mostly sunny with",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 623,
+          "end": 633,
+          "confidence": 0.8020989298820496,
+          "text": " property.",
+          "prompt_number": 391,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 75%-80%": {
+      "Hallucinations": [
+        {
+          "start": 149,
+          "end": 155,
+          "confidence": 0.7732969522476196,
+          "text": " and a",
+          "prompt_number": 307,
+          "task_type": "QA"
+        },
+        {
+          "start": 630,
+          "end": 674,
+          "confidence": 0.7987825274467468,
+          "text": " helps remove waste and toxins from the body",
+          "prompt_number": 320,
+          "task_type": "QA"
+        },
+        {
+          "start": 107,
+          "end": 170,
+          "confidence": 0.7653011679649353,
+          "text": " to always end my answers with a complete sentence and a period",
+          "prompt_number": 340,
+          "task_type": "QA"
+        },
+        {
+          "start": 110,
+          "end": 153,
+          "confidence": 0.7959631681442261,
+          "text": " end with a complete sentence and a period.",
+          "prompt_number": 350,
+          "task_type": "QA"
+        },
+        {
+          "start": 394,
+          "end": 403,
+          "confidence": 0.7854635715484619,
+          "text": "Political",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 427,
+          "end": 444,
+          "confidence": 0.7980508804321289,
+          "text": " high of 23°C (73",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 492,
+          "end": 521,
+          "confidence": 0.7708853483200073,
+          "text": " over 300 years before Christ",
+          "prompt_number": 405,
+          "task_type": "QA"
+        },
+        {
+          "start": 76,
+          "end": 97,
+          "confidence": 0.7671549320220947,
+          "text": " with the last number",
+          "prompt_number": 406,
+          "task_type": "QA"
+        },
+        {
+          "start": 193,
+          "end": 204,
+          "confidence": 0.7640138864517212,
+          "text": " non-exempt",
+          "prompt_number": 425,
+          "task_type": "QA"
+        }
+      ]
+    }
+  },
+  {
+    "QA :: Confidence interval 70%-75%": {
+      "Hallucinations": [
+        {
+          "start": 448,
+          "end": 451,
+          "confidence": 0.7279245257377625,
+          "text": "150",
+          "prompt_number": 349,
+          "task_type": "QA"
+        },
+        {
+          "start": 649,
+          "end": 684,
+          "confidence": 0.7181679010391235,
+          "text": "* Enter your Social Security number",
+          "prompt_number": 364,
+          "task_type": "QA"
+        },
+        {
+          "start": 239,
+          "end": 262,
+          "confidence": 0.7382699251174927,
+          "text": " The end of slavery led",
+          "prompt_number": 371,
+          "task_type": "QA"
+        },
+        {
+          "start": 407,
+          "end": 425,
+          "confidence": 0.7017131447792053,
+          "text": " Mostly sunny with",
+          "prompt_number": 381,
+          "task_type": "QA"
+        },
+        {
+          "start": 286,
+          "end": 307,
+          "confidence": 0.7223893404006958,
+          "text": " in your web browser.",
+          "prompt_number": 400,
+          "task_type": "QA"
+        },
+        {
+          "start": 442,
+          "end": 465,
+          "confidence": 0.7385028004646301,
+          "text": " visiting their website",
+          "prompt_number": 439,
+          "task_type": "QA"
+        },
+        {
+          "start": 79,
+          "end": 110,
+          "confidence": 0.7053463459014893,
+          "text": " complete sentence and a period",
+          "prompt_number": 447,
+          "task_type": "QA"
+        }
+      ]
+    }
+  }
+]

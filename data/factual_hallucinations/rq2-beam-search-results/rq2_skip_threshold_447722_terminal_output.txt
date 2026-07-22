@@ -1,0 +1,806 @@
+avm-a100-qs-9
+GPU 0: NVIDIA A100-PCIE-40GB (UUID: GPU-653107e6-197f-2c72-ac94-3daf70b83828)
+Using WORK_DIR=/share/e12133103/scratch_jobs/447722
+Using RQ1_DIR=/home/e12133103/LettucePrevent
+[INFO] HF_TOKEN loaded from /home/e12133103/.cache/huggingface/token (length: 37)
+[INFO] Activated venv: /home/e12133103/Python312/bin/activate
+[INFO] Verifying HF auth on avm-a100-qs-9.novalocal...
+[INFO] Authenticated as: lebe1
+Creating new sweep and running agent.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: kkg16xeb with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.8
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Currently logged in as: lebeccard (lebeccard-technical-university-wien) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run kkg16xeb
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_060942-kkg16xeb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dainty-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/kkg16xeb
+wandb: Detected [openai] in use.
+wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+Repo card metadata block was not found. Setting CardData to empty.
+Create sweep with ID: ryieewwz
+Sweep URL: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+Created sweep_id (agent will run it): ryieewwz
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      mistralai/Mistral-7B-Instruct-v0.2
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.8
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: mistralai/Mistral-7B-Instruct-v0.2
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.44s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:07<00:03,  3.71s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.49s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.52s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:13<13:26, 13.66s/it]  3%|▎         | 2/60 [00:29<14:21, 14.85s/it]  5%|▌         | 3/60 [00:45<14:31, 15.30s/it]  7%|▋         | 4/60 [00:55<12:35, 13.48s/it]  8%|▊         | 5/60 [01:06<11:29, 12.53s/it] 10%|█         | 6/60 [01:19<11:22, 12.65s/it] 12%|█▏        | 7/60 [01:29<10:27, 11.84s/it] 13%|█▎        | 8/60 [01:46<11:38, 13.43s/it] 15%|█▌        | 9/60 [02:01<11:55, 14.02s/it] 17%|█▋        | 10/60 [02:13<11:01, 13.23s/it] 18%|█▊        | 11/60 [02:31<12:01, 14.73s/it] 20%|██        | 12/60 [02:48<12:17, 15.37s/it] 22%|██▏       | 13/60 [02:56<10:26, 13.32s/it] 23%|██▎       | 14/60 [03:03<08:44, 11.41s/it] 25%|██▌       | 15/60 [03:20<09:49, 13.10s/it] 27%|██▋       | 16/60 [03:28<08:26, 11.50s/it] 28%|██▊       | 17/60 [03:41<08:31, 11.90s/it] 30%|███       | 18/60 [04:05<10:48, 15.44s/it] 32%|███▏      | 19/60 [04:21<10:39, 15.59s/it] 33%|███▎      | 20/60 [04:33<09:41, 14.54s/it] 35%|███▌      | 21/60 [04:48<09:34, 14.72s/it] 37%|███▋      | 22/60 [05:01<08:58, 14.18s/it] 38%|███▊      | 23/60 [05:19<09:25, 15.29s/it] 40%|████      | 24/60 [05:33<09:00, 15.01s/it] 42%|████▏     | 25/60 [05:48<08:45, 15.03s/it] 43%|████▎     | 26/60 [06:00<08:01, 14.17s/it] 45%|████▌     | 27/60 [06:10<07:00, 12.74s/it] 47%|████▋     | 28/60 [06:21<06:30, 12.21s/it] 48%|████▊     | 29/60 [06:33<06:20, 12.26s/it] 50%|█████     | 30/60 [06:51<06:56, 13.87s/it] 52%|█████▏    | 31/60 [07:05<06:42, 13.89s/it] 53%|█████▎    | 32/60 [07:23<07:04, 15.14s/it] 55%|█████▌    | 33/60 [07:34<06:21, 14.12s/it] 57%|█████▋    | 34/60 [07:49<06:08, 14.19s/it] 58%|█████▊    | 35/60 [08:01<05:36, 13.47s/it] 60%|██████    | 36/60 [08:14<05:23, 13.47s/it] 62%|██████▏   | 37/60 [08:33<05:44, 14.97s/it] 63%|██████▎   | 38/60 [08:46<05:22, 14.64s/it] 65%|██████▌   | 39/60 [09:03<05:22, 15.34s/it] 67%|██████▋   | 40/60 [09:19<05:11, 15.56s/it] 68%|██████▊   | 41/60 [09:38<05:13, 16.50s/it] 70%|███████   | 42/60 [09:47<04:16, 14.26s/it] 72%|███████▏  | 43/60 [09:56<03:32, 12.51s/it] 73%|███████▎  | 44/60 [10:06<03:09, 11.84s/it] 75%|███████▌  | 45/60 [10:13<02:34, 10.33s/it] 77%|███████▋  | 46/60 [10:28<02:46, 11.87s/it] 78%|███████▊  | 47/60 [10:36<02:17, 10.59s/it] 80%|████████  | 48/60 [10:50<02:21, 11.76s/it] 82%|████████▏ | 49/60 [11:20<03:09, 17.26s/it] 83%|████████▎ | 50/60 [11:28<02:22, 14.24s/it] 85%|████████▌ | 51/60 [11:37<01:56, 12.95s/it] 87%|████████▋ | 52/60 [11:52<01:47, 13.38s/it] 88%|████████▊ | 53/60 [11:57<01:17, 11.00s/it] 90%|█████████ | 54/60 [12:06<01:01, 10.19s/it] 92%|█████████▏| 55/60 [12:16<00:51, 10.30s/it] 93%|█████████▎| 56/60 [12:24<00:38,  9.67s/it] 95%|█████████▌| 57/60 [12:34<00:29,  9.81s/it] 97%|█████████▋| 58/60 [12:43<00:18,  9.37s/it] 98%|█████████▊| 59/60 [13:20<00:17, 17.66s/it]100%|██████████| 60/60 [13:35<00:00, 16.84s/it]100%|██████████| 60/60 [13:35<00:00, 13.59s/it]
+wandb: updating run metadata
+wandb: uploading wandb-summary.json; uploading config.yaml; uploading output.log
+wandb: uploading wandb-summary.json
+wandb: uploading summary, console lines 20-37
+wandb: 🚀 View run dainty-sweep-1 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/kkg16xeb
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_060942-kkg16xeb/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: v4bfjdk1 with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.9
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run v4bfjdk1
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_062356-v4bfjdk1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ethereal-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/v4bfjdk1
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260505_061001_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260505_061001_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_80_20260505_061001_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        815.25s
+  Logits modifications: 2394
+  HDM skips:            40709
+  HDM checks:           52192
+  Skip rate:            0.7800
+  Post-eval hallucs:    308 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      mistralai/Mistral-7B-Instruct-v0.2
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.9
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: mistralai/Mistral-7B-Instruct-v0.2
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.43s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.53s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.39s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.42s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:12<11:58, 12.17s/it]  3%|▎         | 2/60 [00:29<14:42, 15.22s/it]  5%|▌         | 3/60 [00:47<15:40, 16.50s/it]  7%|▋         | 4/60 [00:59<13:45, 14.74s/it]  8%|▊         | 5/60 [01:11<12:34, 13.72s/it] 10%|█         | 6/60 [01:26<12:35, 13.99s/it] 12%|█▏        | 7/60 [01:37<11:31, 13.06s/it] 13%|█▎        | 8/60 [01:55<12:53, 14.87s/it] 15%|█▌        | 9/60 [02:13<13:18, 15.67s/it] 17%|█▋        | 10/60 [02:26<12:24, 14.89s/it] 18%|█▊        | 11/60 [02:46<13:33, 16.60s/it] 20%|██        | 12/60 [03:05<13:47, 17.24s/it] 22%|██▏       | 13/60 [03:14<11:36, 14.83s/it] 23%|██▎       | 14/60 [03:22<09:43, 12.69s/it] 25%|██▌       | 15/60 [03:41<10:59, 14.65s/it] 27%|██▋       | 16/60 [03:50<09:24, 12.82s/it] 28%|██▊       | 17/60 [04:04<09:27, 13.19s/it] 30%|███       | 18/60 [04:32<12:19, 17.60s/it] 32%|███▏      | 19/60 [04:54<12:58, 18.98s/it] 33%|███▎      | 20/60 [05:08<11:32, 17.32s/it] 35%|███▌      | 21/60 [05:24<11:04, 17.04s/it] 37%|███▋      | 22/60 [05:38<10:14, 16.17s/it] 38%|███▊      | 23/60 [05:58<10:45, 17.45s/it] 40%|████      | 24/60 [06:14<10:09, 16.94s/it] 42%|████▏     | 25/60 [06:31<09:47, 16.79s/it] 43%|████▎     | 26/60 [06:44<08:51, 15.64s/it] 45%|████▌     | 27/60 [06:55<07:57, 14.48s/it] 47%|████▋     | 28/60 [07:07<07:20, 13.76s/it] 48%|████▊     | 29/60 [07:21<07:04, 13.70s/it] 50%|█████     | 30/60 [07:39<07:32, 15.08s/it] 52%|█████▏    | 31/60 [08:01<08:11, 16.95s/it] 53%|█████▎    | 32/60 [08:20<08:18, 17.80s/it] 55%|█████▌    | 33/60 [08:33<07:22, 16.37s/it] 57%|█████▋    | 34/60 [08:49<06:59, 16.14s/it] 58%|█████▊    | 35/60 [09:02<06:20, 15.23s/it] 60%|██████    | 36/60 [09:21<06:30, 16.26s/it] 62%|██████▏   | 37/60 [09:43<06:52, 17.94s/it] 63%|██████▎   | 38/60 [09:58<06:17, 17.14s/it] 65%|██████▌   | 39/60 [10:16<06:07, 17.49s/it] 67%|██████▋   | 40/60 [10:34<05:48, 17.45s/it] 68%|██████▊   | 41/60 [10:56<05:57, 18.81s/it] 70%|███████   | 42/60 [11:06<04:51, 16.17s/it] 72%|███████▏  | 43/60 [11:15<04:00, 14.15s/it] 73%|███████▎  | 44/60 [11:26<03:31, 13.25s/it] 75%|███████▌  | 45/60 [11:34<02:52, 11.47s/it] 77%|███████▋  | 46/60 [11:51<03:04, 13.18s/it] 78%|███████▊  | 47/60 [11:59<02:31, 11.64s/it] 80%|████████  | 48/60 [12:15<02:35, 12.97s/it] 82%|████████▏ | 49/60 [12:52<03:42, 20.22s/it] 83%|████████▎ | 50/60 [13:00<02:45, 16.57s/it] 85%|████████▌ | 51/60 [13:11<02:14, 14.91s/it] 87%|████████▋ | 52/60 [13:34<02:17, 17.25s/it] 88%|████████▊ | 53/60 [13:46<01:50, 15.78s/it] 90%|█████████ | 54/60 [13:56<01:23, 13.99s/it] 92%|█████████▏| 55/60 [14:07<01:06, 13.23s/it] 93%|█████████▎| 56/60 [14:16<00:47, 11.93s/it] 95%|█████████▌| 57/60 [14:27<00:35, 11.72s/it] 97%|█████████▋| 58/60 [14:36<00:21, 10.85s/it] 98%|█████████▊| 59/60 [15:14<00:18, 18.93s/it]100%|██████████| 60/60 [15:33<00:00, 18.87s/it]100%|██████████| 60/60 [15:33<00:00, 15.56s/it]
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: 🚀 View run ethereal-sweep-2 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/v4bfjdk1
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_062356-v4bfjdk1/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: 6tw32kvs with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.99
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 6tw32kvs
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_063958-6tw32kvs
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jumping-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/6tw32kvs
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_90_20260505_062411_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_90_20260505_062411_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_90_20260505_062411_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        933.31s
+  Logits modifications: 3206
+  HDM skips:            37349
+  HDM checks:           53052
+  Skip rate:            0.7040
+  Post-eval hallucs:    317 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      mistralai/Mistral-7B-Instruct-v0.2
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.99
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: mistralai/Mistral-7B-Instruct-v0.2
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.00s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.11s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.00s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.02s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:15<14:50, 15.09s/it]  3%|▎         | 2/60 [00:36<18:00, 18.63s/it]  5%|▌         | 3/60 [00:57<19:00, 20.01s/it]  7%|▋         | 4/60 [01:12<16:51, 18.06s/it]  8%|▊         | 5/60 [01:29<16:03, 17.52s/it] 10%|█         | 6/60 [01:46<15:41, 17.43s/it] 12%|█▏        | 7/60 [02:00<14:13, 16.10s/it] 13%|█▎        | 8/60 [02:23<15:52, 18.32s/it] 15%|█▌        | 9/60 [02:43<16:01, 18.86s/it] 17%|█▋        | 10/60 [02:58<14:46, 17.72s/it] 18%|█▊        | 11/60 [03:24<16:29, 20.20s/it] 20%|██        | 12/60 [03:47<16:49, 21.03s/it] 22%|██▏       | 13/60 [03:58<14:11, 18.12s/it] 23%|██▎       | 14/60 [04:07<11:47, 15.37s/it] 25%|██▌       | 15/60 [04:30<13:11, 17.59s/it] 27%|██▋       | 16/60 [04:40<11:20, 15.46s/it] 28%|██▊       | 17/60 [04:58<11:30, 16.06s/it] 30%|███       | 18/60 [05:33<15:11, 21.70s/it] 32%|███▏      | 19/60 [05:53<14:32, 21.28s/it] 33%|███▎      | 20/60 [06:09<13:07, 19.69s/it] 35%|███▌      | 21/60 [06:38<14:32, 22.38s/it] 37%|███▋      | 22/60 [06:53<12:51, 20.29s/it] 38%|███▊      | 23/60 [07:31<15:45, 25.55s/it] 40%|████      | 24/60 [07:53<14:42, 24.52s/it] 42%|████▏     | 25/60 [08:25<15:36, 26.76s/it] 43%|████▎     | 26/60 [08:43<13:45, 24.27s/it] 45%|████▌     | 27/60 [09:00<12:03, 21.91s/it] 47%|████▋     | 28/60 [09:14<10:25, 19.54s/it] 48%|████▊     | 29/60 [09:31<09:41, 18.75s/it] 50%|█████     | 30/60 [09:52<09:42, 19.41s/it] 52%|█████▏    | 31/60 [10:17<10:17, 21.28s/it] 53%|█████▎    | 32/60 [10:41<10:17, 22.07s/it] 55%|█████▌    | 33/60 [11:02<09:42, 21.56s/it] 57%|█████▋    | 34/60 [11:20<08:54, 20.55s/it] 58%|█████▊    | 35/60 [11:37<08:11, 19.68s/it] 60%|██████    | 36/60 [12:01<08:17, 20.73s/it] 62%|██████▏   | 37/60 [12:24<08:18, 21.69s/it] 63%|██████▎   | 38/60 [12:49<08:12, 22.41s/it] 65%|██████▌   | 39/60 [13:19<08:40, 24.80s/it] 67%|██████▋   | 40/60 [13:39<07:48, 23.42s/it] 68%|██████▊   | 41/60 [14:01<07:15, 22.92s/it] 70%|███████   | 42/60 [14:13<05:53, 19.66s/it] 72%|███████▏  | 43/60 [14:24<04:49, 17.04s/it] 73%|███████▎  | 44/60 [14:37<04:15, 15.94s/it] 75%|███████▌  | 45/60 [14:46<03:25, 13.69s/it] 77%|███████▋  | 46/60 [15:07<03:43, 15.94s/it] 78%|███████▊  | 47/60 [15:16<03:01, 13.99s/it] 80%|████████  | 48/60 [15:35<03:05, 15.45s/it] 82%|████████▏ | 49/60 [16:14<04:07, 22.54s/it] 83%|████████▎ | 50/60 [16:24<03:07, 18.73s/it] 85%|████████▌ | 51/60 [16:37<02:34, 17.13s/it] 87%|████████▋ | 52/60 [17:05<02:42, 20.30s/it] 88%|████████▊ | 53/60 [17:34<02:40, 22.92s/it] 90%|█████████ | 54/60 [17:47<01:59, 19.93s/it] 92%|█████████▏| 55/60 [18:01<01:31, 18.24s/it] 93%|█████████▎| 56/60 [18:12<01:03, 15.99s/it] 95%|█████████▌| 57/60 [18:26<00:45, 15.30s/it] 97%|█████████▋| 58/60 [18:36<00:27, 13.70s/it] 98%|█████████▊| 59/60 [19:28<00:25, 25.18s/it]100%|██████████| 60/60 [19:50<00:00, 24.24s/it]100%|██████████| 60/60 [19:50<00:00, 19.84s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run jumping-sweep-3 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/6tw32kvs
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_063958-6tw32kvs/logs
+wandb: Agent Starting Run: 0qxk6hhg with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 0qxk6hhg
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_070005-0qxk6hhg
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run devout-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/0qxk6hhg
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_99_20260505_064009_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_99_20260505_064009_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_0_99_20260505_064009_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        1190.38s
+  Logits modifications: 6000
+  HDM skips:            29373
+  HDM checks:           53828
+  Skip rate:            0.5457
+  Post-eval hallucs:    316 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      mistralai/Mistral-7B-Instruct-v0.2
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 1.0
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: mistralai/Mistral-7B-Instruct-v0.2
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.03s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.10s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  1.99s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.01s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:27<27:07, 27.59s/it]  3%|▎         | 2/60 [01:05<32:25, 33.54s/it]  5%|▌         | 3/60 [01:36<30:52, 32.50s/it]  7%|▋         | 4/60 [01:58<26:34, 28.47s/it]  8%|▊         | 5/60 [02:32<27:52, 30.40s/it] 10%|█         | 6/60 [03:00<26:27, 29.41s/it] 12%|█▏        | 7/60 [03:22<23:56, 27.10s/it] 13%|█▎        | 8/60 [04:06<28:08, 32.48s/it] 15%|█▌        | 9/60 [04:42<28:26, 33.46s/it] 17%|█▋        | 10/60 [05:05<25:16, 30.33s/it] 18%|█▊        | 11/60 [05:43<26:44, 32.74s/it] 20%|██        | 12/60 [06:21<27:24, 34.26s/it] 22%|██▏       | 13/60 [06:40<23:12, 29.64s/it] 23%|██▎       | 14/60 [06:56<19:38, 25.62s/it] 25%|██▌       | 15/60 [07:29<20:55, 27.90s/it] 27%|██▋       | 16/60 [07:51<19:06, 26.06s/it] 28%|██▊       | 17/60 [08:23<19:55, 27.81s/it] 30%|███       | 18/60 [09:15<24:29, 34.99s/it] 32%|███▏      | 19/60 [10:13<28:41, 41.98s/it] 33%|███▎      | 20/60 [10:37<24:23, 36.60s/it] 35%|███▌      | 21/60 [11:13<23:35, 36.28s/it] 37%|███▋      | 22/60 [11:35<20:21, 32.14s/it] 38%|███▊      | 23/60 [12:32<24:18, 39.42s/it] 40%|████      | 24/60 [13:02<21:58, 36.63s/it] 42%|████▏     | 25/60 [13:52<23:42, 40.64s/it] 43%|████▎     | 26/60 [14:23<21:26, 37.84s/it] 45%|████▌     | 27/60 [14:52<19:17, 35.08s/it] 47%|████▋     | 28/60 [15:15<16:49, 31.55s/it] 48%|████▊     | 29/60 [15:42<15:35, 30.19s/it] 50%|█████     | 30/60 [16:16<15:36, 31.22s/it] 52%|█████▏    | 31/60 [16:52<15:54, 32.93s/it] 53%|█████▎    | 32/60 [17:38<17:10, 36.80s/it] 55%|█████▌    | 33/60 [18:31<18:41, 41.52s/it] 57%|█████▋    | 34/60 [19:09<17:30, 40.41s/it] 58%|█████▊    | 35/60 [19:37<15:17, 36.69s/it] 60%|██████    | 36/60 [20:23<15:49, 39.55s/it] 62%|██████▏   | 37/60 [21:11<16:08, 42.10s/it] 63%|██████▎   | 38/60 [21:59<16:04, 43.84s/it] 65%|██████▌   | 39/60 [22:48<15:57, 45.58s/it] 67%|██████▋   | 40/60 [23:18<13:32, 40.63s/it] 68%|██████▊   | 41/60 [23:44<11:33, 36.50s/it] 70%|███████   | 42/60 [24:05<09:30, 31.70s/it] 72%|███████▏  | 43/60 [24:26<08:06, 28.59s/it] 73%|███████▎  | 44/60 [24:49<07:09, 26.83s/it] 75%|███████▌  | 45/60 [25:06<05:56, 23.80s/it] 77%|███████▋  | 46/60 [25:43<06:27, 27.70s/it] 78%|███████▊  | 47/60 [26:14<06:13, 28.76s/it] 80%|████████  | 48/60 [26:43<05:46, 28.90s/it] 82%|████████▏ | 49/60 [27:19<05:39, 30.90s/it] 83%|████████▎ | 50/60 [27:35<04:25, 26.52s/it] 85%|████████▌ | 51/60 [27:57<03:46, 25.18s/it] 87%|████████▋ | 52/60 [28:20<03:16, 24.54s/it] 88%|████████▊ | 53/60 [28:58<03:21, 28.73s/it] 90%|█████████ | 54/60 [29:16<02:31, 25.32s/it] 92%|█████████▏| 55/60 [29:41<02:06, 25.36s/it] 93%|█████████▎| 56/60 [30:00<01:33, 23.27s/it] 95%|█████████▌| 57/60 [30:22<01:09, 23.06s/it] 97%|█████████▋| 58/60 [30:43<00:44, 22.35s/it] 98%|█████████▊| 59/60 [31:42<00:33, 33.43s/it]100%|██████████| 60/60 [32:22<00:00, 35.20s/it]100%|██████████| 60/60 [32:22<00:00, 32.37s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run devout-sweep-4 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/0qxk6hhg
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_070005-0qxk6hhg/logs
+wandb: Agent Starting Run: pwsepspv with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: meta-llama/Llama-2-7b-chat-hf
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.8
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_073244-pwsepspv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peach-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/pwsepspv
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_1_00_20260505_070016_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_1_00_20260505_070016_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_mistralai_Mistral-7B-Instruct-v0.2_lettuceprevent_skip_1_00_20260505_070016_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        1942.04s
+  Logits modifications: 14178
+  HDM skips:            0
+  HDM checks:           51796
+  Skip rate:            0.0000
+  Post-eval hallucs:    317 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      meta-llama/Llama-2-7b-chat-hf
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.8
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: meta-llama/Llama-2-7b-chat-hf
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.39s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:12<12:35, 12.80s/it]  3%|▎         | 2/60 [00:28<13:56, 14.41s/it]  5%|▌         | 3/60 [00:47<15:56, 16.78s/it]  7%|▋         | 4/60 [01:02<14:57, 16.03s/it]  8%|▊         | 5/60 [01:10<11:57, 13.04s/it] 10%|█         | 6/60 [01:22<11:28, 12.76s/it] 12%|█▏        | 7/60 [01:35<11:13, 12.70s/it] 13%|█▎        | 8/60 [01:52<12:07, 14.00s/it] 15%|█▌        | 9/60 [02:05<11:51, 13.94s/it] 17%|█▋        | 10/60 [02:22<12:20, 14.80s/it] 18%|█▊        | 11/60 [02:39<12:34, 15.40s/it] 20%|██        | 12/60 [02:56<12:49, 16.03s/it] 22%|██▏       | 13/60 [03:08<11:26, 14.61s/it] 23%|██▎       | 14/60 [03:23<11:25, 14.91s/it] 25%|██▌       | 15/60 [03:42<12:04, 16.09s/it] 27%|██▋       | 16/60 [03:47<09:14, 12.60s/it] 28%|██▊       | 17/60 [04:00<09:11, 12.81s/it] 30%|███       | 18/60 [04:21<10:38, 15.21s/it] 32%|███▏      | 19/60 [04:36<10:25, 15.25s/it] 33%|███▎      | 20/60 [04:52<10:12, 15.31s/it] 35%|███▌      | 21/60 [05:11<10:40, 16.42s/it] 37%|███▋      | 22/60 [05:29<10:52, 17.16s/it] 38%|███▊      | 23/60 [05:55<12:09, 19.71s/it] 40%|████      | 24/60 [06:12<11:20, 18.89s/it] 42%|████▏     | 25/60 [06:35<11:42, 20.07s/it] 43%|████▎     | 26/60 [06:50<10:26, 18.42s/it] 45%|████▌     | 27/60 [07:14<11:12, 20.37s/it] 47%|████▋     | 28/60 [07:29<09:55, 18.61s/it] 48%|████▊     | 29/60 [07:47<09:29, 18.38s/it] 50%|█████     | 30/60 [08:02<08:46, 17.54s/it] 52%|█████▏    | 31/60 [08:15<07:42, 15.96s/it] 53%|█████▎    | 32/60 [08:34<07:56, 17.02s/it] 55%|█████▌    | 33/60 [08:52<07:48, 17.33s/it] 57%|█████▋    | 34/60 [09:07<07:10, 16.56s/it] 58%|█████▊    | 35/60 [10:57<18:38, 44.74s/it] 60%|██████    | 36/60 [11:15<14:35, 36.46s/it] 62%|██████▏   | 37/60 [11:36<12:17, 32.07s/it] 63%|██████▎   | 38/60 [11:54<10:10, 27.73s/it] 65%|██████▌   | 39/60 [12:13<08:45, 25.00s/it] 67%|██████▋   | 40/60 [12:28<07:19, 21.97s/it] 68%|██████▊   | 41/60 [12:39<05:55, 18.73s/it] 70%|███████   | 42/60 [12:53<05:12, 17.38s/it] 72%|███████▏  | 43/60 [13:07<04:36, 16.28s/it] 73%|███████▎  | 44/60 [13:16<03:49, 14.35s/it] 75%|███████▌  | 45/60 [13:30<03:29, 13.96s/it] 77%|███████▋  | 46/60 [13:45<03:23, 14.51s/it] 78%|███████▊  | 47/60 [13:58<03:01, 13.99s/it] 80%|████████  | 48/60 [14:13<02:51, 14.29s/it] 82%|████████▏ | 49/60 [14:25<02:30, 13.67s/it] 83%|████████▎ | 50/60 [14:32<01:55, 11.52s/it] 85%|████████▌ | 51/60 [14:41<01:37, 10.87s/it] 87%|████████▋ | 52/60 [14:49<01:19,  9.95s/it] 88%|████████▊ | 53/60 [14:56<01:03,  9.05s/it] 90%|█████████ | 54/60 [15:09<01:01, 10.18s/it] 92%|█████████▏| 55/60 [15:23<00:57, 11.44s/it] 93%|█████████▎| 56/60 [15:33<00:43, 10.95s/it] 95%|█████████▌| 57/60 [15:47<00:35, 11.88s/it] 97%|█████████▋| 58/60 [15:56<00:22, 11.02s/it] 98%|█████████▊| 59/60 [16:15<00:13, 13.37s/it]100%|██████████| 60/60 [16:29<00:00, 13.55s/it]100%|██████████| 60/60 [16:29<00:00, 16.49s/it]
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run peach-sweep-5 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/pwsepspv
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_073244-pwsepspv/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: ve4hm6en with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: meta-llama/Llama-2-7b-chat-hf
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.9
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_074945-ve4hm6en
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cool-sweep-6
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/ve4hm6en
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_80_20260505_073302_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_80_20260505_073302_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_80_20260505_073302_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        989.3s
+  Logits modifications: 7235
+  HDM skips:            56054
+  HDM checks:           62376
+  Skip rate:            0.8986
+  Post-eval hallucs:    341 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      meta-llama/Llama-2-7b-chat-hf
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.9
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: meta-llama/Llama-2-7b-chat-hf
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 65.71it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:13<13:43, 13.95s/it]  3%|▎         | 2/60 [00:30<14:41, 15.19s/it]  5%|▌         | 3/60 [00:50<16:39, 17.54s/it]  7%|▋         | 4/60 [01:05<15:34, 16.69s/it]  8%|▊         | 5/60 [01:13<12:30, 13.64s/it] 10%|█         | 6/60 [01:27<12:10, 13.53s/it] 12%|█▏        | 7/60 [01:40<11:57, 13.54s/it] 13%|█▎        | 8/60 [01:59<13:07, 15.14s/it] 15%|█▌        | 9/60 [02:14<12:51, 15.13s/it] 17%|█▋        | 10/60 [02:32<13:22, 16.05s/it] 18%|█▊        | 11/60 [02:50<13:39, 16.73s/it] 20%|██        | 12/60 [03:08<13:35, 16.99s/it] 22%|██▏       | 13/60 [03:20<12:08, 15.51s/it] 23%|██▎       | 14/60 [03:37<12:12, 15.93s/it] 25%|██▌       | 15/60 [03:57<12:56, 17.26s/it] 27%|██▋       | 16/60 [04:02<09:51, 13.45s/it] 28%|██▊       | 17/60 [04:16<09:42, 13.55s/it] 30%|███       | 18/60 [04:39<11:28, 16.40s/it] 32%|███▏      | 19/60 [04:55<11:05, 16.23s/it] 33%|███▎      | 20/60 [05:11<10:47, 16.19s/it] 35%|███▌      | 21/60 [06:31<23:05, 35.52s/it] 37%|███▋      | 22/60 [07:01<21:25, 33.82s/it] 38%|███▊      | 23/60 [07:30<19:57, 32.37s/it] 40%|████      | 24/60 [07:48<16:46, 27.96s/it] 42%|████▏     | 25/60 [08:15<16:10, 27.73s/it] 43%|████▎     | 26/60 [08:34<14:13, 25.09s/it] 45%|████▌     | 27/60 [09:41<20:41, 37.63s/it] 47%|████▋     | 28/60 [09:56<16:29, 30.92s/it] 48%|████▊     | 29/60 [10:16<14:11, 27.48s/it] 50%|█████     | 30/60 [10:31<11:57, 23.93s/it] 52%|█████▏    | 31/60 [10:56<11:44, 24.28s/it] 53%|█████▎    | 32/60 [12:20<19:38, 42.08s/it] 55%|█████▌    | 33/60 [12:39<15:47, 35.11s/it] 57%|█████▋    | 34/60 [12:54<12:37, 29.14s/it] 58%|█████▊    | 35/60 [13:15<11:08, 26.76s/it] 60%|██████    | 36/60 [13:36<09:56, 24.86s/it] 62%|██████▏   | 37/60 [14:09<10:30, 27.40s/it] 63%|██████▎   | 38/60 [14:28<09:09, 25.00s/it] 65%|██████▌   | 39/60 [16:12<16:58, 48.49s/it] 67%|██████▋   | 40/60 [16:28<12:57, 38.86s/it] 68%|██████▊   | 41/60 [16:44<10:07, 31.96s/it] 70%|███████   | 42/60 [16:59<08:04, 26.94s/it] 72%|███████▏  | 43/60 [17:13<06:33, 23.17s/it] 73%|███████▎  | 44/60 [17:24<05:08, 19.27s/it] 75%|███████▌  | 45/60 [17:37<04:21, 17.45s/it] 77%|███████▋  | 46/60 [17:55<04:05, 17.56s/it] 78%|███████▊  | 47/60 [18:08<03:31, 16.24s/it] 80%|████████  | 48/60 [18:24<03:13, 16.12s/it] 82%|████████▏ | 49/60 [18:37<02:49, 15.45s/it] 83%|████████▎ | 50/60 [18:45<02:09, 12.94s/it] 85%|████████▌ | 51/60 [18:54<01:47, 11.99s/it] 87%|████████▋ | 52/60 [19:09<01:41, 12.73s/it] 88%|████████▊ | 53/60 [19:17<01:18, 11.27s/it] 90%|█████████ | 54/60 [19:31<01:12, 12.09s/it] 92%|█████████▏| 55/60 [19:46<01:04, 12.94s/it] 93%|█████████▎| 56/60 [19:56<00:48, 12.24s/it] 95%|█████████▌| 57/60 [20:12<00:39, 13.25s/it] 97%|█████████▋| 58/60 [20:21<00:24, 12.17s/it] 98%|█████████▊| 59/60 [20:46<00:15, 15.81s/it]100%|██████████| 60/60 [21:01<00:00, 15.52s/it]100%|██████████| 60/60 [21:01<00:00, 21.02s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 24-34
+wandb: 🚀 View run cool-sweep-6 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/ve4hm6en
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_074945-ve4hm6en/logs
+wandb: Agent Starting Run: o9f6ljmp with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: meta-llama/Llama-2-7b-chat-hf
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.99
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run o9f6ljmp
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_081108-o9f6ljmp
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run confused-sweep-7
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/o9f6ljmp
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_90_20260505_074959_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_90_20260505_074959_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_90_20260505_074959_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        1261.1s
+  Logits modifications: 15535
+  HDM skips:            52837
+  HDM checks:           63412
+  Skip rate:            0.8332
+  Post-eval hallucs:    345 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      meta-llama/Llama-2-7b-chat-hf
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.99
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: meta-llama/Llama-2-7b-chat-hf
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 63.11it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:15<15:06, 15.37s/it]  3%|▎         | 2/60 [00:32<15:46, 16.31s/it]  5%|▌         | 3/60 [00:56<18:57, 19.96s/it]  7%|▋         | 4/60 [01:13<17:20, 18.58s/it]  8%|▊         | 5/60 [01:22<14:09, 15.44s/it] 10%|█         | 6/60 [01:38<13:49, 15.36s/it] 12%|█▏        | 7/60 [01:54<13:45, 15.58s/it] 13%|█▎        | 8/60 [02:15<15:04, 17.39s/it] 15%|█▌        | 9/60 [02:32<14:46, 17.38s/it] 17%|█▋        | 10/60 [02:54<15:33, 18.67s/it] 18%|█▊        | 11/60 [03:15<15:52, 19.44s/it] 20%|██        | 12/60 [03:34<15:27, 19.33s/it] 22%|██▏       | 13/60 [03:48<13:48, 17.63s/it] 23%|██▎       | 14/60 [04:16<15:58, 20.84s/it] 25%|██▌       | 15/60 [04:40<16:17, 21.72s/it] 27%|██▋       | 16/60 [04:45<12:19, 16.82s/it] 28%|██▊       | 17/60 [05:01<11:42, 16.34s/it] 30%|███       | 18/60 [05:28<13:41, 19.56s/it] 32%|███▏      | 19/60 [05:46<13:05, 19.15s/it] 33%|███▎      | 20/60 [06:05<12:47, 19.18s/it] 35%|███▌      | 21/60 [07:24<24:06, 37.08s/it] 37%|███▋      | 22/60 [07:55<22:23, 35.35s/it] 38%|███▊      | 23/60 [09:41<34:48, 56.45s/it] 40%|████      | 24/60 [10:57<37:22, 62.30s/it] 42%|████▏     | 25/60 [12:21<40:15, 69.00s/it] 43%|████▎     | 26/60 [12:59<33:47, 59.64s/it] 45%|████▌     | 27/60 [13:44<30:24, 55.30s/it] 47%|████▋     | 28/60 [14:02<23:24, 43.89s/it] 48%|████▊     | 29/60 [15:25<28:47, 55.74s/it] 50%|█████     | 30/60 [16:22<28:03, 56.12s/it] 52%|█████▏    | 31/60 [16:48<22:40, 46.92s/it] 53%|█████▎    | 32/60 [17:54<24:39, 52.83s/it] 55%|█████▌    | 33/60 [18:24<20:41, 45.98s/it] 57%|█████▋    | 34/60 [19:18<20:57, 48.38s/it] 58%|█████▊    | 35/60 [21:04<27:20, 65.61s/it] 60%|██████    | 36/60 [22:23<27:49, 69.55s/it] 62%|██████▏   | 37/60 [23:36<27:08, 70.81s/it] 63%|██████▎   | 38/60 [25:09<28:24, 77.47s/it] 65%|██████▌   | 39/60 [26:49<29:26, 84.14s/it] 67%|██████▋   | 40/60 [28:19<28:38, 85.94s/it] 68%|██████▊   | 41/60 [28:35<20:33, 64.93s/it] 70%|███████   | 42/60 [28:53<15:15, 50.84s/it] 72%|███████▏  | 43/60 [29:10<11:29, 40.54s/it] 73%|███████▎  | 44/60 [29:21<08:26, 31.69s/it] 75%|███████▌  | 45/60 [29:35<06:37, 26.51s/it] 77%|███████▋  | 46/60 [30:01<06:08, 26.30s/it] 78%|███████▊  | 47/60 [30:16<04:57, 22.86s/it] 80%|████████  | 48/60 [30:34<04:18, 21.50s/it] 82%|████████▏ | 49/60 [30:49<03:33, 19.40s/it] 83%|████████▎ | 50/60 [30:56<02:38, 15.88s/it] 85%|████████▌ | 51/60 [31:07<02:09, 14.36s/it] 87%|████████▋ | 52/60 [31:31<02:17, 17.23s/it] 88%|████████▊ | 53/60 [31:40<01:42, 14.61s/it] 90%|█████████ | 54/60 [31:56<01:31, 15.20s/it] 92%|█████████▏| 55/60 [32:12<01:17, 15.55s/it] 93%|█████████▎| 56/60 [32:25<00:58, 14.69s/it] 95%|█████████▌| 57/60 [32:44<00:47, 15.96s/it] 97%|█████████▋| 58/60 [32:55<00:29, 14.57s/it] 98%|█████████▊| 59/60 [33:30<00:20, 20.62s/it]100%|██████████| 60/60 [33:48<00:00, 19.91s/it]100%|██████████| 60/60 [33:48<00:00, 33.81s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run confused-sweep-7 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/o9f6ljmp
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_081108-o9f6ljmp/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: dkqixkm5 with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: meta-llama/Llama-2-7b-chat-hf
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run dkqixkm5
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_084523-dkqixkm5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dulcet-sweep-8
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/dkqixkm5
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_99_20260505_081120_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_99_20260505_081120_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_0_99_20260505_081120_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        2028.87s
+  Logits modifications: 42709
+  HDM skips:            42260
+  HDM checks:           63484
+  Skip rate:            0.6657
+  Post-eval hallucs:    294 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      meta-llama/Llama-2-7b-chat-hf
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 1.0
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: meta-llama/Llama-2-7b-chat-hf
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 66.01it/s]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:33<33:02, 33.59s/it]  3%|▎         | 2/60 [01:13<36:12, 37.46s/it]  5%|▌         | 3/60 [01:57<38:24, 40.43s/it]  7%|▋         | 4/60 [02:37<37:38, 40.32s/it]  8%|▊         | 5/60 [02:57<30:00, 32.74s/it] 10%|█         | 6/60 [03:27<28:39, 31.84s/it] 12%|█▏        | 7/60 [03:58<27:54, 31.59s/it] 13%|█▎        | 8/60 [04:51<33:15, 38.38s/it] 15%|█▌        | 9/60 [05:25<31:34, 37.15s/it] 17%|█▋        | 10/60 [06:06<31:52, 38.24s/it] 18%|█▊        | 11/60 [06:46<31:45, 38.88s/it] 20%|██        | 12/60 [07:31<32:27, 40.58s/it] 22%|██▏       | 13/60 [07:56<28:13, 36.03s/it] 23%|██▎       | 14/60 [08:47<31:08, 40.63s/it] 25%|██▌       | 15/60 [09:30<30:58, 41.31s/it] 27%|██▋       | 16/60 [09:40<23:19, 31.81s/it] 28%|██▊       | 17/60 [10:19<24:12, 33.79s/it] 30%|███       | 18/60 [11:08<27:03, 38.65s/it] 32%|███▏      | 19/60 [12:13<31:48, 46.55s/it] 33%|███▎      | 20/60 [12:48<28:36, 42.91s/it] 35%|███▌      | 21/60 [14:40<41:24, 63.72s/it] 37%|███▋      | 22/60 [16:37<50:23, 79.55s/it] 38%|███▊      | 23/60 [18:32<55:44, 90.39s/it] 40%|████      | 24/60 [20:32<59:27, 99.10s/it] 42%|████▏     | 25/60 [22:29<1:00:58, 104.54s/it] 43%|████▎     | 26/60 [24:12<59:04, 104.24s/it]   45%|████▌     | 27/60 [25:40<54:31, 99.15s/it]  47%|████▋     | 28/60 [26:38<46:24, 87.03s/it] 48%|████▊     | 29/60 [28:33<49:18, 95.43s/it] 50%|█████     | 30/60 [29:45<44:09, 88.33s/it] 52%|█████▏    | 31/60 [31:08<41:54, 86.71s/it] 53%|█████▎    | 32/60 [32:20<38:20, 82.15s/it] 55%|█████▌    | 33/60 [34:11<40:53, 90.87s/it] 57%|█████▋    | 34/60 [36:07<42:43, 98.59s/it] 58%|█████▊    | 35/60 [38:10<44:07, 105.89s/it] 60%|██████    | 36/60 [39:53<41:56, 104.84s/it] 62%|██████▏   | 37/60 [41:01<36:01, 93.96s/it]  63%|██████▎   | 38/60 [43:02<37:24, 102.04s/it] 65%|██████▌   | 39/60 [44:29<34:06, 97.47s/it]  67%|██████▋   | 40/60 [46:36<35:23, 106.19s/it] 68%|██████▊   | 41/60 [47:16<27:22, 86.42s/it]  70%|███████   | 42/60 [47:51<21:19, 71.08s/it] 72%|███████▏  | 43/60 [48:28<17:15, 60.89s/it] 73%|███████▎  | 44/60 [48:56<13:34, 50.89s/it] 75%|███████▌  | 45/60 [49:34<11:44, 46.99s/it] 77%|███████▋  | 46/60 [50:25<11:16, 48.33s/it] 78%|███████▊  | 47/60 [50:42<08:25, 38.86s/it] 80%|████████  | 48/60 [51:17<07:31, 37.65s/it] 82%|████████▏ | 49/60 [51:56<06:59, 38.10s/it] 83%|████████▎ | 50/60 [52:11<05:12, 31.25s/it] 85%|████████▌ | 51/60 [52:49<05:00, 33.34s/it] 87%|████████▋ | 52/60 [53:35<04:55, 36.96s/it] 88%|████████▊ | 53/60 [53:50<03:33, 30.45s/it] 90%|█████████ | 54/60 [54:18<02:57, 29.59s/it] 92%|█████████▏| 55/60 [54:57<02:41, 32.40s/it] 93%|█████████▎| 56/60 [55:23<02:01, 30.48s/it] 95%|█████████▌| 57/60 [55:40<01:20, 26.69s/it] 97%|█████████▋| 58/60 [56:02<00:50, 25.23s/it] 98%|█████████▊| 59/60 [57:37<00:46, 46.14s/it]100%|██████████| 60/60 [58:23<00:00, 45.89s/it]100%|██████████| 60/60 [58:23<00:00, 58.38s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run dulcet-sweep-8 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/dkqixkm5
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_084523-dkqixkm5/logs
+wandb: Agent Starting Run: jb8gco1a with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: Qwen/Qwen2.5-14B-Instruct
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.8
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_094404-jb8gco1a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run grateful-sweep-9
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/jb8gco1a
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260505_084535_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260505_084535_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_meta-llama_Llama-2-7b-chat-hf_lettuceprevent_skip_1_00_20260505_084535_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        3503.05s
+  Logits modifications: 69361
+  HDM skips:            0
+  HDM checks:           63804
+  Skip rate:            0.0000
+  Post-eval hallucs:    243 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      Qwen/Qwen2.5-14B-Instruct
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.8
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: Qwen/Qwen2.5-14B-Instruct
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:02<00:15,  2.21s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:04<00:15,  2.54s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:08<00:14,  2.80s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:11<00:11,  2.90s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:13<00:08,  2.84s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:16<00:05,  2.74s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:19<00:02,  2.72s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:19<00:00,  2.13s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:19<00:00,  2.50s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:11<10:55, 11.10s/it]  3%|▎         | 2/60 [00:34<17:35, 18.20s/it]  5%|▌         | 3/60 [00:55<18:42, 19.69s/it]  7%|▋         | 4/60 [01:08<15:51, 16.99s/it]  8%|▊         | 5/60 [01:18<13:09, 14.36s/it] 10%|█         | 6/60 [01:28<11:30, 12.79s/it] 12%|█▏        | 7/60 [01:41<11:23, 12.90s/it] 13%|█▎        | 8/60 [01:54<11:18, 13.05s/it] 15%|█▌        | 9/60 [02:05<10:39, 12.55s/it] 17%|█▋        | 10/60 [02:16<10:03, 12.08s/it] 18%|█▊        | 11/60 [02:24<08:44, 10.71s/it] 20%|██        | 12/60 [02:38<09:20, 11.67s/it] 22%|██▏       | 13/60 [02:48<08:51, 11.31s/it] 23%|██▎       | 14/60 [02:56<07:52, 10.27s/it] 25%|██▌       | 15/60 [03:12<08:56, 11.93s/it] 27%|██▋       | 16/60 [03:20<07:53, 10.75s/it] 28%|██▊       | 17/60 [03:35<08:31, 11.90s/it] 30%|███       | 18/60 [03:55<10:10, 14.55s/it] 32%|███▏      | 19/60 [04:10<10:01, 14.67s/it] 33%|███▎      | 20/60 [04:22<09:06, 13.66s/it] 35%|███▌      | 21/60 [04:39<09:37, 14.81s/it] 37%|███▋      | 22/60 [04:55<09:31, 15.04s/it] 38%|███▊      | 23/60 [05:14<10:01, 16.25s/it] 40%|████      | 24/60 [05:26<09:05, 15.15s/it] 42%|████▏     | 25/60 [05:50<10:18, 17.68s/it] 43%|████▎     | 26/60 [06:03<09:16, 16.37s/it] 45%|████▌     | 27/60 [06:19<08:50, 16.08s/it] 47%|████▋     | 28/60 [06:32<08:11, 15.37s/it] 48%|████▊     | 29/60 [06:46<07:43, 14.94s/it] 50%|█████     | 30/60 [07:02<07:31, 15.06s/it] 52%|█████▏    | 31/60 [07:17<07:17, 15.10s/it] 53%|█████▎    | 32/60 [07:36<07:35, 16.25s/it] 55%|█████▌    | 33/60 [07:50<06:58, 15.48s/it] 57%|█████▋    | 34/60 [08:02<06:21, 14.66s/it] 58%|█████▊    | 35/60 [08:18<06:15, 15.03s/it] 60%|██████    | 36/60 [08:32<05:52, 14.68s/it] 62%|██████▏   | 37/60 [08:52<06:12, 16.21s/it] 63%|██████▎   | 38/60 [09:08<05:57, 16.24s/it] 65%|██████▌   | 39/60 [09:25<05:47, 16.55s/it] 67%|██████▋   | 40/60 [09:43<05:40, 17.00s/it] 68%|██████▊   | 41/60 [09:57<05:04, 16.04s/it] 70%|███████   | 42/60 [10:09<04:26, 14.82s/it] 72%|███████▏  | 43/60 [10:23<04:09, 14.66s/it] 73%|███████▎  | 44/60 [10:34<03:33, 13.35s/it] 75%|███████▌  | 45/60 [10:43<02:59, 11.96s/it] 77%|███████▋  | 46/60 [10:51<02:34, 11.05s/it] 78%|███████▊  | 47/60 [11:01<02:19, 10.73s/it] 80%|████████  | 48/60 [11:15<02:20, 11.69s/it] 82%|████████▏ | 49/60 [11:25<02:02, 11.11s/it] 83%|████████▎ | 50/60 [11:31<01:36,  9.68s/it] 85%|████████▌ | 51/60 [11:45<01:36, 10.77s/it] 87%|████████▋ | 52/60 [12:11<02:02, 15.37s/it] 88%|████████▊ | 53/60 [12:16<01:27, 12.44s/it] 90%|█████████ | 54/60 [12:28<01:13, 12.22s/it] 92%|█████████▏| 55/60 [12:41<01:01, 12.30s/it] 93%|█████████▎| 56/60 [12:51<00:46, 11.69s/it] 95%|█████████▌| 57/60 [13:03<00:35, 11.75s/it] 97%|█████████▋| 58/60 [13:13<00:22, 11.36s/it] 98%|█████████▊| 59/60 [13:48<00:18, 18.26s/it]100%|██████████| 60/60 [14:01<00:00, 16.81s/it]100%|██████████| 60/60 [14:01<00:00, 14.03s/it]
+wandb: updating run metadata
+wandb: uploading config.yaml; uploading summary, console lines 17-34
+wandb: uploading summary, console lines 17-34
+wandb: uploading data
+wandb: 🚀 View run grateful-sweep-9 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/jb8gco1a
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_094404-jb8gco1a/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: gebbon8g with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: Qwen/Qwen2.5-14B-Instruct
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.9
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run gebbon8g
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_095918-gebbon8g
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run hearty-sweep-10
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/gebbon8g
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_80_20260505_094430_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_80_20260505_094430_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_80_20260505_094430_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        841.55s
+  Logits modifications: 2048
+  HDM skips:            23426
+  HDM checks:           34632
+  Skip rate:            0.6764
+  Post-eval hallucs:    265 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      Qwen/Qwen2.5-14B-Instruct
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.9
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: Qwen/Qwen2.5-14B-Instruct
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.89s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.97s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.99s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.93s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.91s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:11<00:03,  1.92s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:13<00:01,  1.95s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:14<00:00,  1.61s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:14<00:00,  1.81s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:12<12:08, 12.35s/it]  3%|▎         | 2/60 [00:37<19:00, 19.66s/it]  5%|▌         | 3/60 [01:00<20:09, 21.22s/it]  7%|▋         | 4/60 [01:14<17:04, 18.30s/it]  8%|▊         | 5/60 [01:24<14:07, 15.41s/it] 10%|█         | 6/60 [01:34<12:16, 13.63s/it] 12%|█▏        | 7/60 [01:48<12:03, 13.64s/it] 13%|█▎        | 8/60 [02:02<12:04, 13.94s/it] 15%|█▌        | 9/60 [02:23<13:35, 16.00s/it] 17%|█▋        | 10/60 [02:35<12:19, 14.78s/it] 18%|█▊        | 11/60 [02:43<10:23, 12.72s/it] 20%|██        | 12/60 [02:58<10:45, 13.44s/it] 22%|██▏       | 13/60 [03:09<09:58, 12.74s/it] 23%|██▎       | 14/60 [03:18<08:50, 11.54s/it] 25%|██▌       | 15/60 [03:35<09:59, 13.32s/it] 27%|██▋       | 16/60 [03:44<08:45, 11.94s/it] 28%|██▊       | 17/60 [04:00<09:24, 13.12s/it] 30%|███       | 18/60 [04:23<11:11, 15.99s/it] 32%|███▏      | 19/60 [04:39<10:54, 15.97s/it] 33%|███▎      | 20/60 [04:51<09:55, 14.90s/it] 35%|███▌      | 21/60 [05:14<11:15, 17.33s/it] 37%|███▋      | 22/60 [05:29<10:28, 16.54s/it] 38%|███▊      | 23/60 [05:49<10:55, 17.72s/it] 40%|████      | 24/60 [06:03<09:52, 16.46s/it] 42%|████▏     | 25/60 [06:20<09:43, 16.69s/it] 43%|████▎     | 26/60 [06:35<09:12, 16.24s/it] 45%|████▌     | 27/60 [06:54<09:22, 17.05s/it] 47%|████▋     | 28/60 [07:09<08:46, 16.46s/it] 48%|████▊     | 29/60 [07:25<08:23, 16.23s/it] 50%|█████     | 30/60 [07:42<08:15, 16.51s/it] 52%|█████▏    | 31/60 [07:59<08:01, 16.60s/it] 53%|█████▎    | 32/60 [08:19<08:12, 17.60s/it] 55%|█████▌    | 33/60 [08:38<08:06, 18.03s/it] 57%|█████▋    | 34/60 [08:52<07:16, 16.78s/it] 58%|█████▊    | 35/60 [09:11<07:17, 17.50s/it] 60%|██████    | 36/60 [09:24<06:30, 16.27s/it] 62%|██████▏   | 37/60 [09:45<06:44, 17.58s/it] 63%|██████▎   | 38/60 [10:05<06:41, 18.25s/it] 65%|██████▌   | 39/60 [10:26<06:40, 19.07s/it] 67%|██████▋   | 40/60 [10:45<06:22, 19.14s/it] 68%|██████▊   | 41/60 [11:00<05:39, 17.86s/it] 70%|███████   | 42/60 [11:13<04:55, 16.39s/it] 72%|███████▏  | 43/60 [11:27<04:27, 15.72s/it] 73%|███████▎  | 44/60 [11:38<03:48, 14.29s/it] 75%|███████▌  | 45/60 [11:47<03:11, 12.79s/it] 77%|███████▋  | 46/60 [11:57<02:46, 11.90s/it] 78%|███████▊  | 47/60 [12:06<02:25, 11.18s/it] 80%|████████  | 48/60 [12:22<02:29, 12.44s/it] 82%|████████▏ | 49/60 [12:33<02:11, 11.93s/it] 83%|████████▎ | 50/60 [12:40<01:45, 10.56s/it] 85%|████████▌ | 51/60 [12:54<01:45, 11.73s/it] 87%|████████▋ | 52/60 [14:01<03:46, 28.36s/it] 88%|████████▊ | 53/60 [14:08<02:31, 21.69s/it] 90%|█████████ | 54/60 [14:20<01:54, 19.01s/it] 92%|█████████▏| 55/60 [14:34<01:26, 17.36s/it] 93%|█████████▎| 56/60 [14:45<01:01, 15.45s/it] 95%|█████████▌| 57/60 [14:58<00:44, 14.67s/it] 97%|█████████▋| 58/60 [15:09<00:27, 13.57s/it] 98%|█████████▊| 59/60 [16:08<00:27, 27.32s/it]100%|██████████| 60/60 [16:23<00:00, 23.56s/it]100%|██████████| 60/60 [16:23<00:00, 16.39s/it]
+wandb: uploading console lines 17-23; updating run metadata
+wandb: updating run metadata
+wandb: uploading summary, console lines 24-34
+wandb: 🚀 View run hearty-sweep-10 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/gebbon8g
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_095918-gebbon8g/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: u59b13cz with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: Qwen/Qwen2.5-14B-Instruct
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.99
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run u59b13cz
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_101628-u59b13cz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run cool-sweep-11
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/u59b13cz
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_90_20260505_095940_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_90_20260505_095940_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_90_20260505_095940_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        983.45s
+  Logits modifications: 4925
+  HDM skips:            20740
+  HDM checks:           35452
+  Skip rate:            0.5850
+  Post-eval hallucs:    271 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      Qwen/Qwen2.5-14B-Instruct
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 0.99
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: Qwen/Qwen2.5-14B-Instruct
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:11,  1.62s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:09,  1.66s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:08,  1.67s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.62s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:04,  1.59s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:09<00:03,  1.61s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:11<00:01,  1.64s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.34s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.52s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:13<13:26, 13.66s/it]  3%|▎         | 2/60 [00:41<21:25, 22.17s/it]  5%|▌         | 3/60 [01:07<22:32, 23.72s/it]  7%|▋         | 4/60 [01:23<19:12, 20.58s/it]  8%|▊         | 5/60 [01:34<15:54, 17.35s/it] 10%|█         | 6/60 [01:46<13:59, 15.55s/it] 12%|█▏        | 7/60 [02:02<13:48, 15.62s/it] 13%|█▎        | 8/60 [02:18<13:38, 15.75s/it] 15%|█▌        | 9/60 [02:42<15:26, 18.17s/it] 17%|█▋        | 10/60 [02:55<13:52, 16.65s/it] 18%|█▊        | 11/60 [03:04<11:41, 14.32s/it] 20%|██        | 12/60 [03:22<12:18, 15.39s/it] 22%|██▏       | 13/60 [03:35<11:32, 14.73s/it] 23%|██▎       | 14/60 [03:53<12:00, 15.66s/it] 25%|██▌       | 15/60 [04:13<12:46, 17.03s/it] 27%|██▋       | 16/60 [04:23<10:56, 14.92s/it] 28%|██▊       | 17/60 [04:42<11:32, 16.10s/it] 30%|███       | 18/60 [05:07<13:13, 18.90s/it] 32%|███▏      | 19/60 [05:25<12:46, 18.70s/it] 33%|███▎      | 20/60 [05:39<11:28, 17.22s/it] 35%|███▌      | 21/60 [06:07<13:10, 20.28s/it] 37%|███▋      | 22/60 [06:23<12:06, 19.12s/it] 38%|███▊      | 23/60 [06:43<12:01, 19.50s/it] 40%|████      | 24/60 [07:02<11:30, 19.17s/it] 42%|████▏     | 25/60 [07:23<11:36, 19.90s/it] 43%|████▎     | 26/60 [07:39<10:31, 18.57s/it] 45%|████▌     | 27/60 [08:00<10:35, 19.26s/it] 47%|████▋     | 28/60 [08:18<10:04, 18.90s/it] 48%|████▊     | 29/60 [08:38<09:56, 19.24s/it] 50%|█████     | 30/60 [08:58<09:40, 19.36s/it] 52%|█████▏    | 31/60 [09:16<09:17, 19.21s/it] 53%|█████▎    | 32/60 [09:40<09:31, 20.40s/it] 55%|█████▌    | 33/60 [10:04<09:43, 21.62s/it] 57%|█████▋    | 34/60 [10:20<08:39, 19.97s/it] 58%|█████▊    | 35/60 [10:37<07:52, 18.91s/it] 60%|██████    | 36/60 [10:54<07:23, 18.48s/it] 62%|██████▏   | 37/60 [11:29<09:01, 23.55s/it] 63%|██████▎   | 38/60 [11:57<09:04, 24.76s/it] 65%|██████▌   | 39/60 [12:19<08:24, 24.03s/it] 67%|██████▋   | 40/60 [12:41<07:47, 23.38s/it] 68%|██████▊   | 41/60 [12:58<06:47, 21.47s/it] 70%|███████   | 42/60 [13:13<05:51, 19.53s/it] 72%|███████▏  | 43/60 [13:29<05:10, 18.29s/it] 73%|███████▎  | 44/60 [13:42<04:28, 16.79s/it] 75%|███████▌  | 45/60 [13:52<03:43, 14.88s/it] 77%|███████▋  | 46/60 [14:04<03:13, 13.80s/it] 78%|███████▊  | 47/60 [14:14<02:47, 12.86s/it] 80%|████████  | 48/60 [14:32<02:53, 14.44s/it] 82%|████████▏ | 49/60 [14:46<02:34, 14.07s/it] 83%|████████▎ | 50/60 [14:54<02:03, 12.36s/it] 85%|████████▌ | 51/60 [15:10<02:02, 13.59s/it] 87%|████████▋ | 52/60 [15:51<02:53, 21.69s/it] 88%|████████▊ | 53/60 [15:59<02:02, 17.43s/it] 90%|█████████ | 54/60 [16:12<01:37, 16.33s/it] 92%|█████████▏| 55/60 [16:28<01:20, 16.15s/it] 93%|█████████▎| 56/60 [16:41<01:01, 15.29s/it] 95%|█████████▌| 57/60 [16:58<00:46, 15.60s/it] 97%|█████████▋| 58/60 [17:10<00:29, 14.61s/it] 98%|█████████▊| 59/60 [17:58<00:24, 24.73s/it]100%|██████████| 60/60 [18:16<00:00, 22.66s/it]100%|██████████| 60/60 [18:16<00:00, 18.28s/it]
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading output.log
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run cool-sweep-11 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/u59b13cz
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_101628-u59b13cz/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: somyqp5u with config:
+wandb: 	detector_type: lettuceprevent
+wandb: 	generator_model: Qwen/Qwen2.5-14B-Instruct
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 1
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run somyqp5u
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_103525-somyqp5u
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run kind-sweep-12
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/somyqp5u
+Repo card metadata block was not found. Setting CardData to empty.
+Saved generations: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_99_20260505_101649_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_99_20260505_101649_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_0_99_20260505_101649_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        1096.6s
+  Logits modifications: 4572
+  HDM skips:            14793
+  HDM checks:           35112
+  Skip rate:            0.4213
+  Post-eval hallucs:    258 in 60 items
+Loading HF dataset: wandb/RAGTruth-processed (split=test)...
+Selected 60 HF prompts:
+  task_type=Data2txt: 20
+  task_type=QA: 20
+  task_type=Summary: 20
+
+>>> Generator:      Qwen/Qwen2.5-14B-Instruct
+>>> Detector:       lettuceprevent
+>>> Skip threshold: 1.0
+>>> Source:         hf-ragtruth
+>>> Prompts:        60
+>>> Num beams:      4
+>>> Debug print:    False
+
+Loading generator tokenizer + model: Qwen/Qwen2.5-14B-Instruct
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:11,  1.60s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:09,  1.66s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:08,  1.67s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.62s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:08<00:04,  1.59s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:09<00:03,  1.60s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:11<00:01,  1.63s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.34s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:12<00:00,  1.51s/it]
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:19<19:39, 20.00s/it]  3%|▎         | 2/60 [00:58<30:04, 31.11s/it]  5%|▌         | 3/60 [01:29<29:31, 31.08s/it]  7%|▋         | 4/60 [01:49<24:40, 26.43s/it]  8%|▊         | 5/60 [02:05<20:49, 22.73s/it] 10%|█         | 6/60 [03:04<31:26, 34.93s/it] 12%|█▏        | 7/60 [03:24<26:42, 30.24s/it] 13%|█▎        | 8/60 [03:46<23:58, 27.66s/it] 15%|█▌        | 9/60 [04:10<22:25, 26.38s/it] 17%|█▋        | 10/60 [04:27<19:39, 23.58s/it] 18%|█▊        | 11/60 [04:38<16:11, 19.82s/it] 20%|██        | 12/60 [04:59<16:03, 20.07s/it] 22%|██▏       | 13/60 [05:18<15:22, 19.63s/it] 23%|██▎       | 14/60 [07:02<34:34, 45.10s/it] 25%|██▌       | 15/60 [07:26<29:10, 38.90s/it] 27%|██▋       | 16/60 [08:17<31:14, 42.60s/it] 28%|██▊       | 17/60 [08:42<26:35, 37.10s/it] 30%|███       | 18/60 [09:12<24:35, 35.14s/it] 32%|███▏      | 19/60 [09:34<21:16, 31.15s/it] 33%|███▎      | 20/60 [09:52<18:07, 27.20s/it] 35%|███▌      | 21/60 [10:22<18:11, 27.98s/it] 37%|███▋      | 22/60 [10:49<17:29, 27.62s/it] 38%|███▊      | 23/60 [11:50<23:15, 37.70s/it] 40%|████      | 24/60 [12:17<20:41, 34.47s/it] 42%|████▏     | 25/60 [12:42<18:29, 31.69s/it] 43%|████▎     | 26/60 [13:02<16:02, 28.32s/it] 45%|████▌     | 27/60 [13:26<14:50, 26.99s/it] 47%|████▋     | 28/60 [13:49<13:41, 25.69s/it] 48%|████▊     | 29/60 [14:15<13:17, 25.73s/it] 50%|█████     | 30/60 [14:41<12:58, 25.93s/it] 52%|█████▏    | 31/60 [15:06<12:20, 25.55s/it] 53%|█████▎    | 32/60 [15:40<13:08, 28.16s/it] 55%|█████▌    | 33/60 [16:05<12:11, 27.11s/it] 57%|█████▋    | 34/60 [16:28<11:15, 25.98s/it] 58%|█████▊    | 35/60 [16:55<10:56, 26.26s/it] 60%|██████    | 36/60 [17:20<10:17, 25.72s/it] 62%|██████▏   | 37/60 [17:59<11:23, 29.71s/it] 63%|██████▎   | 38/60 [18:43<12:28, 34.01s/it] 65%|██████▌   | 39/60 [19:17<11:58, 34.23s/it] 67%|██████▋   | 40/60 [19:52<11:25, 34.26s/it] 68%|██████▊   | 41/60 [20:18<10:05, 31.89s/it] 70%|███████   | 42/60 [20:41<08:47, 29.31s/it] 72%|███████▏  | 43/60 [21:05<07:50, 27.67s/it] 73%|███████▎  | 44/60 [21:24<06:40, 25.00s/it] 75%|███████▌  | 45/60 [22:18<08:24, 33.63s/it] 77%|███████▋  | 46/60 [22:32<06:29, 27.83s/it] 78%|███████▊  | 47/60 [22:52<05:31, 25.51s/it] 80%|████████  | 48/60 [23:18<05:09, 25.78s/it] 82%|████████▏ | 49/60 [23:37<04:19, 23.59s/it] 83%|████████▎ | 50/60 [23:48<03:18, 19.83s/it] 85%|████████▌ | 51/60 [24:15<03:17, 21.99s/it] 87%|████████▋ | 52/60 [25:21<04:41, 35.14s/it] 88%|████████▊ | 53/60 [25:31<03:14, 27.73s/it] 90%|█████████ | 54/60 [25:50<02:29, 24.99s/it] 92%|█████████▏| 55/60 [26:47<02:53, 34.70s/it] 93%|█████████▎| 56/60 [27:06<01:59, 29.90s/it] 95%|█████████▌| 57/60 [27:26<01:21, 27.07s/it] 97%|█████████▋| 58/60 [27:48<00:50, 25.39s/it] 98%|█████████▊| 59/60 [28:51<00:36, 36.56s/it]100%|██████████| 60/60 [29:16<00:00, 33.11s/it]100%|██████████| 60/60 [29:16<00:00, 29.27s/it]
+wandb: updating run metadata
+wandb: uploading summary, console lines 17-34
+wandb: 🚀 View run kind-sweep-12 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/somyqp5u
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_103525-somyqp5u/logs
+wandb: Agent Starting Run: qijscjoa with config:
+wandb: 	detector_type: baseline-run-facts
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.8
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run qijscjoa
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_110528-qijscjoa
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run exalted-sweep-13
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/qijscjoa
+wandb: updating run metadata; uploading summary
+wandb: uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt; uploading wandb-summary.json
+wandb: uploading summary
+wandb: 
+wandb: Run summary:
+wandb:            reason Baseline run for ski...
+wandb: skipped_duplicate True
+wandb: 
+wandb: 🚀 View run exalted-sweep-13 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/qijscjoa
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_110528-qijscjoa/logs
+wandb: Agent Starting Run: rcvzz301 with config:
+wandb: 	detector_type: baseline-run-facts
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.9
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_110533-rcvzz301
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run royal-sweep-14
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/rcvzz301
+wandb: updating run metadata; uploading summary
+wandb: uploading summary; uploading wandb-summary.json; uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt
+wandb: uploading summary
+wandb: 
+wandb: Run summary:
+wandb:            reason Baseline run for ski...
+wandb: skipped_duplicate True
+wandb: 
+wandb: 🚀 View run royal-sweep-14 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/rcvzz301
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_110533-rcvzz301/logs
+wandb: Agent Starting Run: 66mpp9qw with config:
+wandb: 	detector_type: baseline-run-facts
+wandb: 	generator_model: mistralai/Mistral-7B-Instruct-v0.2
+wandb: 	n_per_task: 20
+wandb: 	output_prefix: rq2_beam4
+wandb: 	post_eval_floor: 0.7
+wandb: 	skip_threshold: 0.99
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/e12133103/.netrc.
+wandb: setting up run 66mpp9qw
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /share/e12133103/scratch_jobs/447722/wandb/wandb/run-20260505_110539-66mpp9qw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run zesty-sweep-15
+wandb: ⭐️ View project at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: 🧹 View sweep at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/sweeps/ryieewwz
+wandb: 🚀 View run at https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/66mpp9qw
+wandb: updating run metadata; uploading summary
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run summary:
+wandb:            reason Baseline run for ski...
+wandb: skipped_duplicate True
+wandb: 
+wandb: 🚀 View run zesty-sweep-15 at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4/runs/66mpp9qw
+wandb: ⭐️ View project at: https://wandb.ai/lebeccard-technical-university-wien/hdm-rq2-beam4
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20260505_110539-66mpp9qw/logs
+Saved generations: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_1_00_20260505_103605_generations.json
+
+============================================================
+Post-eval with LettuceDetect-base
+============================================================
+Loading post-eval detector: KRLabsOrg/lettucedect-base-modernbert-en-v1
+Saved post-eval JSON: ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_1_00_20260505_103605_hallucinations.json
+Saved post-eval TXT:  ./data/rq2_beam4_Qwen_Qwen2.5-14B-Instruct_lettuceprevent_skip_1_00_20260505_103605_stats.txt
+
+Final summary:
+  Generations:          60
+  Total runtime:        1756.08s
+  Logits modifications: 15250
+  HDM skips:            0
+  HDM checks:           38356
+  Skip rate:            0.0000
+  Post-eval hallucs:    263 in 60 items
+Copying outputs back to /share/e12133103/rq2-beam4-results
+Job finished. Results in /share/e12133103/rq2-beam4-results
