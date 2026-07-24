@@ -33,8 +33,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # ============================================================
 # Path or HF repo id of the best model saved by the sweep script.
 # Either a local dir like "./sweep_run_xyz_2026-07-17-10:00"
-# or the HF repo "lebe1/lettuceprevent-ettin-decoder-68m-en-tokenized"
-MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en-tokenized"
+# or the HF repo "lebe1/lettuceprevent-ettin-decoder-68m-en"
+MODEL_PATH = "lebe1/lettuceprevent-ettin-decoder-68m-en"
 
 BASE_MODEL_NAME      = "jhu-clsp/ettin-decoder-68m"
 LLAMA_TOKENIZER_NAME = "meta-llama/Llama-3.1-8B"

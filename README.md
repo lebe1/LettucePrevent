@@ -236,6 +236,17 @@ python main.py --rq2
 - Cap the number of runs per agent with `--count N`.
 - Each sweep run resolves its config inside `sweep_fn_rq1` / `sweep_fn_rq2`, which delegates to `run_one_cell` with `use_wandb=False` (the outer agent run is already open). The cell logs per-prompt metrics, a results summary, and uploads `generations.json`, `hallucinations.json`, and `stats.txt` as a W&B artifact.
 
+## Citation
+
+```bibtex
+@mastersthesis{Beccard:2026,
+  title  = {Real-time Prevention of Factual Hallucinations in Retrieval-Augmented Generation},
+  author = {Leon Beccard},
+  school = {Technische Universität Wien},
+  year   = {2026},
+  url    = {https://repositum.tuwien.at/handle/20.500.12708/229242}
+}
+```
 
 ## License
 

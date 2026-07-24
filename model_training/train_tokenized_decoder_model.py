@@ -50,7 +50,7 @@ WANDB_ENTITY  = "TODO"
 WANDB_PROJECT = "TODO"
 
 HF_USERNAME   = "lebe1"
-HF_MODEL_NAME = "lettuceprevent-ettin-decoder-68m-en-tokenized"
+HF_MODEL_NAME = "lettuceprevent-ettin-decoder-68m-en"
 HF_REPO_ID    = f"{HF_USERNAME}/{HF_MODEL_NAME}"
 
 # ============================================================

@@ -3,11 +3,11 @@ import re
 from typing import Set, Dict
 from .base_detector import BaseHallucinationDetector
 
-# -------------------------- Legacy Number Detector ------------------
+# -------------------------- Number Detector ------------------
 
 class NumberHallucinationDetector(BaseHallucinationDetector):
     """
-    Legacy detector for number hallucinations - kept for backward compatibility.
+    Detector for number hallucinations
     """
     
     def __init__(self, tokenizer, input_text: str):
